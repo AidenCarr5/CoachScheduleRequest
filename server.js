@@ -1,6 +1,7 @@
 const http = require('http');
 const { execFile } = require('child_process');
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
 const crypto = require('crypto');
 const { URL } = require('url');
@@ -273,6 +274,18 @@ function contentType(filePath) {
   }[ext] || 'application/octet-stream';
 }
 
+function localAddresses() {
+  const interfaces = os.networkInterfaces();
+  const addresses = [];
+  Object.values(interfaces).forEach((entries) => {
+    (entries || []).forEach((entry) => {
+      if (!entry || entry.family !== 'IPv4' || entry.internal) return;
+      addresses.push(entry.address);
+    });
+  });
+  return [...new Set(addresses)];
+}
+
 function serveStatic(req, res, pathname) {
   const relativePath = pathname === '/' ? '/index.html' : pathname;
   const filePath = path.normalize(path.join(siteDir, relativePath));
@@ -455,6 +468,20 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(port, () => {
+server.listen(port, '0.0.0.0', () => {
   console.log(`Titans scheduler listening on http://127.0.0.1:${port}`);
+  const addresses = localAddresses();
+  if (addresses.length) {
+    console.log('Share this link with coaches on the same network:');
+    addresses.forEach((address) => {
+      console.log(`  http://${address}:${port}`);
+    });
+  } else {
+    console.log('No local network IPv4 address was detected.');
+  }
+  if (useSupabaseStore()) {
+    console.log('Request storage: Supabase');
+  } else {
+    console.log(`Request storage: local file (${storageFile})`);
+  }
 });
