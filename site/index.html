@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LaSalle Titans Coach Scheduler</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <span>Team Finder</span>
+      <span>Diamonds</span>
+      <span>Availability</span>
+      <span>Contact</span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <div>
+        <p class="eyebrow">LaSalle Titans</p>
+        <h1>Coach Schedule Requests</h1>
+      </div>
+      <div class="source">
+        <span id="scrapeDate">Schedule loaded</span>
+        <a href="https://turtleclubbaseball.com/Categories/1017/Schedule/" target="_blank" rel="noreferrer">Turtle Club schedule</a>
+        <a id="adminLink" href="/admin.html">Admin approval</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap app-shell">
+    <section class="coach-panel" aria-label="Coach controls">
+      <div class="field">
+        <label for="teamSelect">Coach team</label>
+        <select id="teamSelect"></select>
+      </div>
+      <div class="field">
+        <label for="monthSelect">Month</label>
+        <select id="monthSelect"></select>
+      </div>
+      <div class="field grow">
+        <label for="searchInput">Find opponent or diamond</label>
+        <input id="searchInput" type="search" placeholder="Start typing">
+      </div>
+      <button id="newGameBtn" class="primary">New event</button>
+    </section>
+
+    <section class="status-strip" aria-label="Schedule summary">
+      <div>
+        <strong id="visibleCount">0</strong>
+        <span>visible events</span>
+      </div>
+      <div>
+        <strong id="requestCount">0</strong>
+        <span>queued updates</span>
+      </div>
+      <div>
+        <strong id="availableCount">0</strong>
+        <span>open diamond blocks</span>
+      </div>
+    </section>
+
+    <div class="layout">
+      <section class="schedule-section">
+        <div class="section-head">
+          <h2>Team Schedule</h2>
+          <span id="teamScope">Only this coach's team is shown</span>
+        </div>
+        <div id="scheduleList" class="schedule-list"></div>
+      </section>
+
+      <aside class="requests-section">
+        <div class="section-head">
+          <h2>Update Queue</h2>
+        </div>
+        <div id="requestList" class="request-list empty"></div>
+      </aside>
+    </div>
+  </main>
+
+  <dialog id="requestDialog">
+    <form method="dialog" id="requestForm">
+      <div class="dialog-head">
+        <h2 id="dialogTitle">Request</h2>
+        <button type="button" class="icon" id="closeDialog" aria-label="Close">x</button>
+      </div>
+      <input type="hidden" id="requestMode">
+      <input type="hidden" id="eventId">
+
+      <div id="cancelFields" class="form-grid">
+        <div class="field span">
+          <label for="cancelReason">Reason for cancellation</label>
+          <textarea id="cancelReason" rows="4" placeholder="Weather, tournament conflict, opponent request..."></textarea>
+        </div>
+      </div>
+
+      <div id="newFields" class="form-grid">
+        <div class="field">
+          <label for="eventTypeSelect">Event type</label>
+          <select id="eventTypeSelect">
+            <option>Home Game</option>
+            <option>Away Game</option>
+            <option>Practice</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="gameDate">Date</label>
+          <input id="gameDate" type="date">
+        </div>
+        <div class="field">
+          <label for="startTime">Start</label>
+          <input id="startTime" type="time" value="18:00">
+        </div>
+        <div class="field">
+          <label for="endTime">End</label>
+          <input id="endTime" type="time" value="20:00">
+        </div>
+        <div class="field">
+          <label for="diamondSelect">Diamond</label>
+          <select id="diamondSelect"></select>
+        </div>
+        <div class="field span">
+          <label for="opponentInput">Opponent / title</label>
+          <input id="opponentInput" type="text" placeholder="vs Tecumseh Rangers or Practice">
+        </div>
+        <div class="field span">
+          <label for="notesInput">Notes</label>
+          <textarea id="notesInput" rows="3" placeholder="Anything the scheduler should know"></textarea>
+        </div>
+        <div id="availabilityResult" class="availability-result"></div>
+      </div>
+
+      <div class="dialog-actions">
+        <button type="button" class="secondary" id="checkBtn">Check availability</button>
+        <button type="submit" class="primary">Queue request</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

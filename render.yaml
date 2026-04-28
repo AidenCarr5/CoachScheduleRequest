@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: titans-coach-scheduler
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SESSION_SECRET
+        sync: false
+      - key: PORT
+        value: 10000
+    disk:
+      name: titans-storage
+      mountPath: /opt/render/project/src/storage
+      sizeGB: 1
