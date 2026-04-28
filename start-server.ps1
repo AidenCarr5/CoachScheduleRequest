@@ -3,6 +3,11 @@ $ErrorActionPreference = "Stop"
 $projectRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 Set-Location $projectRoot
 
+$localEnvPath = Join-Path $projectRoot "local-env.ps1"
+if (Test-Path $localEnvPath) {
+  . $localEnvPath
+}
+
 if (-not $env:ADMIN_PASSWORD) {
   $env:ADMIN_PASSWORD = "55aiden55"
 }

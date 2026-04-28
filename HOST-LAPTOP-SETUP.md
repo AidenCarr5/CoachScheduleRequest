@@ -27,6 +27,17 @@ On the other laptop, double-click:
 
 That starts the local server on port `4173`.
 
+## Email notifications
+
+If you want the app to email `titansupdate@gmail.com` whenever a coach submits a request:
+
+1. Copy `local-env.example.ps1`
+2. Rename it to `local-env.ps1`
+3. Put the Gmail app password for `titansupdate@gmail.com` into:
+   `$env:EMAIL_APP_PASSWORD`
+
+The launcher reads `local-env.ps1` automatically.
+
 ## How coaches connect
 
 When the server starts, it prints one or more network addresses like:

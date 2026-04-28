@@ -3,6 +3,11 @@ $ErrorActionPreference = "Stop"
 $projectRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 Set-Location $projectRoot
 
+$localEnvPath = Join-Path $projectRoot "local-env.ps1"
+if (Test-Path $localEnvPath) {
+  . $localEnvPath
+}
+
 if (-not $env:ADMIN_PASSWORD) {
   $env:ADMIN_PASSWORD = "55aiden55"
 }
@@ -64,7 +69,7 @@ Write-Host ""
 $serverArgs = @(
   "-NoExit",
   "-Command",
-  "& { Set-Location '$projectRoot'; `$env:ADMIN_PASSWORD='$($env:ADMIN_PASSWORD)'; `$env:PORT='$($env:PORT)'; & '$nodeCommand' 'server.js' }"
+  "& { Set-Location '$projectRoot'; `$env:ADMIN_PASSWORD='$($env:ADMIN_PASSWORD)'; `$env:PORT='$($env:PORT)'; `$env:EMAIL_USER='$($env:EMAIL_USER)'; `$env:EMAIL_TO='$($env:EMAIL_TO)'; `$env:EMAIL_APP_PASSWORD='$($env:EMAIL_APP_PASSWORD)'; & '$nodeCommand' 'server.js' }"
 )
 
 $serverProcess = Start-Process -FilePath "powershell" -ArgumentList $serverArgs -PassThru

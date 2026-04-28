@@ -4,6 +4,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const crypto = require('crypto');
+const tls = require('tls');
 const { URL } = require('url');
 
 const rootDir = __dirname;
@@ -21,6 +22,9 @@ const cookieName = 'titans_admin_session';
 const sessionSecret = process.env.SESSION_SECRET || 'titans-local-secret';
 const supabaseUrl = process.env.SUPABASE_URL || '';
 const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
+const emailUser = process.env.EMAIL_USER || 'titansupdate@gmail.com';
+const emailTo = process.env.EMAIL_TO || emailUser;
+const emailAppPassword = process.env.EMAIL_APP_PASSWORD || '';
 let resetInProgress = false;
 
 fs.mkdirSync(storageDir, { recursive: true });
@@ -274,6 +278,171 @@ function contentType(filePath) {
   }[ext] || 'application/octet-stream';
 }
 
+function emailEnabled() {
+  return Boolean(emailAppPassword);
+}
+
+function requestSummary(request) {
+  const lines = [
+    'A coach submitted a new Titans schedule request.',
+    '',
+    `Action: ${request.action || ''}`,
+    `Team: ${request.team || ''}`,
+    `Submitted by: ${request.submittedBy || 'Coach'}`,
+    `Submitted at: ${request.submittedAt || ''}`,
+    '',
+    'New / requested event',
+    `Type: ${request.newType || request.action || ''}`,
+    `Date: ${request.date || ''}`,
+    `Start: ${request.start || ''}`,
+    `End: ${request.end || ''}`,
+    `Opponent / title: ${request.opponent || ''}`,
+    `Diamond: ${request.diamond || ''}`,
+    `Availability check: ${request.availabilityStatus || ''}`,
+    `Reason / notes: ${request.reason || ''}`
+  ];
+
+  if (request.originalId || request.originalType || request.originalDate) {
+    lines.push(
+      '',
+      'Original event being changed',
+      `Original ID: ${request.originalId || ''}`,
+      `Original type: ${request.originalType || ''}`,
+      `Original date: ${request.originalDate || ''}`,
+      `Original start: ${request.originalStart || ''}`,
+      `Original opponent / title: ${request.originalOpponent || ''}`,
+      `Original diamond: ${request.originalDiamond || ''}`
+    );
+  }
+
+  return lines.join('\n');
+}
+
+function smtpConversation(socket) {
+  let buffer = '';
+  const queue = [];
+  const pending = [];
+
+  function flushQueue() {
+    while (queue.length && pending.length) {
+      pending.shift().resolve(queue.shift());
+    }
+  }
+
+  socket.on('data', (chunk) => {
+    buffer += chunk.toString('utf8');
+    while (buffer.includes('\n')) {
+      const index = buffer.indexOf('\n');
+      const rawLine = buffer.slice(0, index + 1);
+      buffer = buffer.slice(index + 1);
+      const line = rawLine.trim();
+      if (!line) continue;
+      queue.push(line);
+      flushQueue();
+    }
+  });
+
+  socket.on('error', (error) => {
+    while (pending.length) {
+      pending.shift().reject(error);
+    }
+  });
+
+  socket.on('close', () => {
+    const error = new Error('SMTP connection closed');
+    while (pending.length) {
+      pending.shift().reject(error);
+    }
+  });
+
+  return function nextLine() {
+    return new Promise((resolve, reject) => {
+      pending.push({ resolve, reject });
+      flushQueue();
+    });
+  };
+}
+
+async function smtpExpect(nextLine, expectedCode) {
+  const lines = [];
+  while (true) {
+    const line = await nextLine();
+    lines.push(line);
+    const code = Number(line.slice(0, 3));
+    if (code !== expectedCode) {
+      throw new Error(`SMTP expected ${expectedCode} but received: ${lines.join(' | ')}`);
+    }
+    if (line[3] !== '-') {
+      return lines;
+    }
+  }
+}
+
+function smtpCommand(socket, command) {
+  socket.write(`${command}\r\n`);
+}
+
+function toBase64(value) {
+  return Buffer.from(value, 'utf8').toString('base64');
+}
+
+function buildEmailMessage(request) {
+  const subject = `New Titans coach request: ${request.team || 'Unknown team'} - ${request.action || 'update'}`;
+  const body = requestSummary(request).replace(/\r?\n/g, '\r\n').replace(/\r\n\./g, '\r\n..');
+  return [
+    `From: ${emailUser}`,
+    `To: ${emailTo}`,
+    `Subject: ${subject}`,
+    `Date: ${new Date().toUTCString()}`,
+    'MIME-Version: 1.0',
+    'Content-Type: text/plain; charset="utf-8"',
+    'Content-Transfer-Encoding: 7bit',
+    '',
+    body,
+    '.'
+  ].join('\r\n');
+}
+
+async function sendRequestNotification(request) {
+  if (!emailEnabled()) return;
+
+  await new Promise((resolve, reject) => {
+    const socket = tls.connect(465, 'smtp.gmail.com');
+    const nextLine = smtpConversation(socket);
+
+    socket.once('secureConnect', async () => {
+      try {
+        await smtpExpect(nextLine, 220);
+        smtpCommand(socket, 'EHLO titans-scheduler');
+        await smtpExpect(nextLine, 250);
+        smtpCommand(socket, 'AUTH LOGIN');
+        await smtpExpect(nextLine, 334);
+        smtpCommand(socket, toBase64(emailUser));
+        await smtpExpect(nextLine, 334);
+        smtpCommand(socket, toBase64(emailAppPassword));
+        await smtpExpect(nextLine, 235);
+        smtpCommand(socket, `MAIL FROM:<${emailUser}>`);
+        await smtpExpect(nextLine, 250);
+        smtpCommand(socket, `RCPT TO:<${emailTo}>`);
+        await smtpExpect(nextLine, 250);
+        smtpCommand(socket, 'DATA');
+        await smtpExpect(nextLine, 354);
+        socket.write(`${buildEmailMessage(request)}\r\n`);
+        await smtpExpect(nextLine, 250);
+        smtpCommand(socket, 'QUIT');
+        await smtpExpect(nextLine, 221);
+        socket.end();
+        resolve();
+      } catch (error) {
+        socket.destroy();
+        reject(error);
+      }
+    });
+
+    socket.once('error', reject);
+  });
+}
+
 function localAddresses() {
   const interfaces = os.networkInterfaces();
   const addresses = [];
@@ -344,6 +513,9 @@ async function handleApi(req, res, url) {
       adminNote: ''
     };
     const stored = await insertRequestStore(request);
+    sendRequestNotification(stored).catch((error) => {
+      console.error('Request email notification failed:', error.message);
+    });
     sendJson(res, 201, { request: sanitizeRequestForPublic(stored) });
     return;
   }
@@ -483,5 +655,10 @@ server.listen(port, '0.0.0.0', () => {
     console.log('Request storage: Supabase');
   } else {
     console.log(`Request storage: local file (${storageFile})`);
+  }
+  if (emailEnabled()) {
+    console.log(`Email notifications: enabled (${emailTo})`);
+  } else {
+    console.log('Email notifications: disabled (set EMAIL_APP_PASSWORD to enable)');
   }
 });

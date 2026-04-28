@@ -37,6 +37,10 @@ Requests are stored locally in:
 
 - [requests.json](</C:/Users/aiden/Documents/Codex/2026-04-27/okay-i-need-to-build-a/storage/requests.json>)
 
+If you want automatic email notifications for new coach requests, copy
+[local-env.example.ps1](</C:/Users/aiden/Documents/Codex/2026-04-27/okay-i-need-to-build-a/local-env.example.ps1>)
+to `local-env.ps1` and set the Gmail app password there on the host laptop.
+
 ## Let Coaches Connect To Your Computer
 
 When the server starts, it now prints one or more local network links such as:

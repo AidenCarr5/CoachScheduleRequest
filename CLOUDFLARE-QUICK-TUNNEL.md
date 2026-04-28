@@ -12,6 +12,7 @@ Use this if you want coaches to reach the scheduler from different Wi-Fi network
 
 1. Node.js installed
 2. `cloudflared` installed
+3. A Gmail app password for `titansupdate@gmail.com` if you want automatic email notifications
 
 Cloudflare Quick Tunnel is created with:
 
@@ -24,6 +25,13 @@ cloudflared tunnel --url http://localhost:4173
 On the host laptop, double-click:
 
 - `start-public.bat`
+
+Before your first launch, create a local config file:
+
+1. Copy `local-env.example.ps1`
+2. Rename the copy to `local-env.ps1`
+3. Put the Gmail app password into:
+   `$env:EMAIL_APP_PASSWORD`
 
 That script:
 
@@ -47,6 +55,7 @@ Share that URL with coaches.
 2. The laptop must stay connected to the internet.
 3. Keep the PowerShell / tunnel windows open.
 4. The Quick Tunnel URL usually changes whenever you restart it.
+5. Email notifications are sent by the host laptop, so they only work while the host laptop is running.
 
 ## If cloudflared is not installed
 
