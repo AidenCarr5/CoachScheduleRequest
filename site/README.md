@@ -12,7 +12,7 @@ Coach-facing Titans scheduling web app with a password-protected approval area.
 - Lets a coach request that an existing game be replaced with a practice, or a practice with a game.
 - Checks new/replacement events against the published Turtle Club diamond availability blocks.
 - Also checks for an existing Turtle Club event conflict on the same diamond and time.
-- Stores coach requests on the server.
+- Stores coach requests on the server, with optional Supabase storage for hosting.
 - Shows pending and approved requests back on the shared schedule.
 - Includes an admin-only approval page protected by a password.
 - Exports the current admin request list to an Excel workbook.
@@ -31,6 +31,8 @@ Then visit `http://127.0.0.1:4173/`.
 Admin approval is at `http://127.0.0.1:4173/admin.html`.
 
 If you do not set `ADMIN_PASSWORD`, the local default is `55aiden55`.
+
+Local development still works without Supabase. In that case the app falls back to `storage/requests.json`.
 
 ## Reuse Next Season
 
@@ -54,24 +56,30 @@ Deploy the whole project as a Node app, not just the `site` folder.
 - Set `ADMIN_PASSWORD` in the host environment.
 - Optionally set `PORT` if your host requires it.
 - Set `SESSION_SECRET` to a long random value.
-- Keep the `storage/requests.json` file on persistent storage, or replace it later with a database if you want multi-device durability across redeploys.
+- For free hosting, set up Supabase and provide `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`.
 
-This current version is a good fit for a small VPS or a simple Node host. If you want, we can make the next step a production deployment version with a real database so requests stay safe even after server restarts or redeploys.
+This current version can still run on a VPS with local storage, but for free-style hosting the recommended setup is Supabase-backed storage so coach requests survive deploys and restarts.
 
-### Easiest path: Render
+### Easiest path: Render + Supabase
 
-This repo now includes [render.yaml](</C:/Users/aiden/Documents/Codex/2026-04-27/okay-i-need-to-build-a/render.yaml>) for a Render web service with a persistent disk.
+This repo now includes [render.yaml](</C:/Users/aiden/Documents/Codex/2026-04-27/okay-i-need-to-build-a/render.yaml>) for a free Render web service, and [supabase-schema.sql](</C:/Users/aiden/Documents/Codex/2026-04-27/okay-i-need-to-build-a/site/supabase-schema.sql>) for the hosted request table.
 
-1. Put this project in a GitHub repo.
-2. In Render, create a new Blueprint or Web Service from that repo.
-3. If you use the included `render.yaml`, Render will pick up:
-   `npm install`, `npm start`, and a persistent disk mounted at `/opt/render/project/src/storage`.
-4. Set these environment variables in Render:
+1. Create a free Supabase project at [supabase.com](https://supabase.com/).
+2. In the Supabase SQL editor, run the contents of [supabase-schema.sql](</C:/Users/aiden/Documents/Codex/2026-04-27/okay-i-need-to-build-a/site/supabase-schema.sql>).
+3. In Supabase project settings, copy:
+   `Project URL` -> `SUPABASE_URL`
+   `service_role` secret key -> `SUPABASE_SERVICE_ROLE_KEY`
+4. Put this project in a GitHub repo.
+5. In Render, create a new Blueprint or Web Service from that repo.
+6. If you use the included `render.yaml`, Render will pick up `npm install` and `npm start`.
+7. Set these environment variables in Render:
    `ADMIN_PASSWORD=` choose your admin password
    `SESSION_SECRET=` a long random string
-5. Deploy. Render will give you a public `onrender.com` URL.
-6. Open `/admin.html` on that URL to approve coach requests.
-7. Add your own domain later if you want, from Render's custom domain settings.
+   `SUPABASE_URL=` your Supabase project URL
+   `SUPABASE_SERVICE_ROLE_KEY=` your Supabase service role key
+8. Deploy. Render will give you a public `onrender.com` URL.
+9. Open `/admin.html` on that URL to approve coach requests.
+10. Add your own domain later if you want, from Render's custom domain settings.
 
 ### Upload walkthrough
 
@@ -87,22 +95,26 @@ git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPO.git
 git push -u origin main
 ```
 
-3. In Render, click `New +` then `Blueprint`.
-4. Connect your GitHub account if asked, then pick the repo you just pushed.
-5. Render will detect `render.yaml`. Continue with that setup.
-6. In the Render environment settings, add:
+3. Create a Supabase project.
+4. Open Supabase SQL editor and run [supabase-schema.sql](</C:/Users/aiden/Documents/Codex/2026-04-27/okay-i-need-to-build-a/site/supabase-schema.sql>).
+5. In Render, click `New +` then `Blueprint`.
+6. Connect your GitHub account if asked, then pick the repo you just pushed.
+7. Render will detect `render.yaml`. Continue with that setup.
+8. In the Render environment settings, add:
    `ADMIN_PASSWORD`
    `SESSION_SECRET`
-7. Click deploy and wait for the first build to finish.
-8. Open the public site URL Render gives you.
-9. Test the coach side first, then visit `/admin.html` and log in.
+   `SUPABASE_URL`
+   `SUPABASE_SERVICE_ROLE_KEY`
+9. Click deploy and wait for the first build to finish.
+10. Open the public site URL Render gives you.
+11. Test the coach side first, then visit `/admin.html` and log in.
 
 After that, every time you update the repo and push to GitHub, Render can redeploy the site automatically.
 
 Important:
-Render's docs say web services can deploy from GitHub and get a public URL, and persistent disks preserve filesystem changes across restarts and deploys. Sources:
+Render's docs say web services can deploy from GitHub and get a public URL. Supabase provides the hosted Postgres/database layer for the saved requests. Sources:
 [Web Services](https://render.com/docs/web-services)
-[Persistent Disks](https://render.com/docs/disks)
+[Supabase Docs](https://supabase.com/docs)
 
 ## Data source
 
@@ -113,3 +125,7 @@ The current `data.js` was generated from:
 - `https://turtleclubbaseball.com/Availabilities/3497/`
 
 The site does not write back to Turtle Club. It only queues coach requests and exports them.
+
+## Excel export
+
+The admin Excel export still works the same way after moving storage to Supabase. It exports the current request list shown in the admin page, regardless of whether those requests came from the local JSON file or the hosted database.

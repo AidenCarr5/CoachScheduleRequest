@@ -18,6 +18,8 @@ const port = Number(process.env.PORT || 4173);
 const adminPassword = process.env.ADMIN_PASSWORD || '55aiden55';
 const cookieName = 'titans_admin_session';
 const sessionSecret = process.env.SESSION_SECRET || 'titans-local-secret';
+const supabaseUrl = process.env.SUPABASE_URL || '';
+const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 let resetInProgress = false;
 
 fs.mkdirSync(storageDir, { recursive: true });
@@ -31,6 +33,128 @@ function readStore() {
 
 function writeStore(store) {
   fs.writeFileSync(storageFile, JSON.stringify(store, null, 2));
+}
+
+function useSupabaseStore() {
+  return Boolean(supabaseUrl && supabaseServiceRoleKey);
+}
+
+function supabaseHeaders(extra = {}) {
+  return {
+    apikey: supabaseServiceRoleKey,
+    Authorization: `Bearer ${supabaseServiceRoleKey}`,
+    'Content-Type': 'application/json',
+    ...extra
+  };
+}
+
+async function supabaseFetch(pathname, options = {}) {
+  const response = await fetch(`${supabaseUrl}/rest/v1/${pathname}`, {
+    ...options,
+    headers: supabaseHeaders(options.headers || {})
+  });
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(text || `Supabase request failed: ${response.status}`);
+  }
+  if (response.status === 204) return null;
+  return response.json();
+}
+
+function rowToRequest(row) {
+  return {
+    ...(row.payload || {}),
+    id: row.id,
+    status: row.status,
+    submittedAt: row.submitted_at || (row.payload || {}).submittedAt || '',
+    reviewedAt: row.reviewed_at || (row.payload || {}).reviewedAt || '',
+    reviewedBy: row.reviewed_by || (row.payload || {}).reviewedBy || '',
+    adminNote: row.admin_note || (row.payload || {}).adminNote || ''
+  };
+}
+
+function requestToRow(request) {
+  return {
+    id: request.id,
+    status: request.status || 'pending',
+    submitted_at: request.submittedAt || new Date().toISOString(),
+    reviewed_at: request.reviewedAt || null,
+    reviewed_by: request.reviewedBy || null,
+    admin_note: request.adminNote || '',
+    payload: request
+  };
+}
+
+async function listRequestsStore() {
+  if (!useSupabaseStore()) {
+    return readStore().requests;
+  }
+  const rows = await supabaseFetch('coach_requests?select=id,status,submitted_at,reviewed_at,reviewed_by,admin_note,payload&order=submitted_at.desc');
+  return rows.map(rowToRequest);
+}
+
+async function insertRequestStore(request) {
+  if (!useSupabaseStore()) {
+    const store = readStore();
+    store.requests.unshift(request);
+    writeStore(store);
+    return request;
+  }
+  const rows = await supabaseFetch('coach_requests', {
+    method: 'POST',
+    headers: { Prefer: 'return=representation' },
+    body: JSON.stringify(requestToRow(request))
+  });
+  return rowToRequest(rows[0]);
+}
+
+async function updateRequestStore(requestId, updater) {
+  if (!useSupabaseStore()) {
+    const store = readStore();
+    const request = store.requests.find((item) => item.id === requestId);
+    if (!request) return null;
+    updater(request);
+    writeStore(store);
+    return request;
+  }
+  const rows = await supabaseFetch(`coach_requests?id=eq.${encodeURIComponent(requestId)}&select=id,status,submitted_at,reviewed_at,reviewed_by,admin_note,payload`, {
+    method: 'GET'
+  });
+  if (!rows.length) return null;
+  const request = rowToRequest(rows[0]);
+  updater(request);
+  const updatedRows = await supabaseFetch(`coach_requests?id=eq.${encodeURIComponent(requestId)}`, {
+    method: 'PATCH',
+    headers: { Prefer: 'return=representation' },
+    body: JSON.stringify(requestToRow(request))
+  });
+  return rowToRequest(updatedRows[0]);
+}
+
+async function deleteRequestStore(requestId) {
+  if (!useSupabaseStore()) {
+    const store = readStore();
+    const nextRequests = store.requests.filter((item) => item.id !== requestId);
+    if (nextRequests.length === store.requests.length) return false;
+    store.requests = nextRequests;
+    writeStore(store);
+    return true;
+  }
+  const deletedRows = await supabaseFetch(`coach_requests?id=eq.${encodeURIComponent(requestId)}`, {
+    method: 'DELETE',
+    headers: { Prefer: 'return=representation' }
+  });
+  return Array.isArray(deletedRows) && deletedRows.length > 0;
+}
+
+async function clearAllRequestsStore() {
+  if (!useSupabaseStore()) {
+    writeStore({ requests: [] });
+    return;
+  }
+  await supabaseFetch('coach_requests?id=not.is.null', {
+    method: 'DELETE'
+  });
 }
 
 function dataVersion() {
@@ -176,7 +300,8 @@ async function handleApi(req, res, url) {
     sendJson(res, 200, {
       brandName: config.brandName || 'LaSalle Titans',
       adminPath: '/admin.html',
-      dataVersion: dataVersion()
+      dataVersion: dataVersion(),
+      storageMode: useSupabaseStore() ? 'supabase' : 'local'
     });
     return;
   }
@@ -187,8 +312,7 @@ async function handleApi(req, res, url) {
   }
 
   if (req.method === 'GET' && url.pathname === '/api/requests') {
-    const store = readStore();
-    const requests = store.requests
+    const requests = (await listRequestsStore())
       .filter((request) => request.status !== 'rejected')
       .map(sanitizeRequestForPublic);
     sendJson(res, 200, { requests });
@@ -206,10 +330,8 @@ async function handleApi(req, res, url) {
       reviewedBy: '',
       adminNote: ''
     };
-    const store = readStore();
-    store.requests.unshift(request);
-    writeStore(store);
-    sendJson(res, 201, { request: sanitizeRequestForPublic(request) });
+    const stored = await insertRequestStore(request);
+    sendJson(res, 201, { request: sanitizeRequestForPublic(stored) });
     return;
   }
 
@@ -250,8 +372,7 @@ async function handleApi(req, res, url) {
   }
 
   if (req.method === 'GET' && url.pathname === '/api/admin/requests') {
-    const store = readStore();
-    sendJson(res, 200, { requests: store.requests });
+    sendJson(res, 200, { requests: await listRequestsStore() });
     return;
   }
 
@@ -259,17 +380,16 @@ async function handleApi(req, res, url) {
   if (req.method === 'POST' && approvalMatch) {
     const [, requestId, action] = approvalMatch;
     const payload = await readBody(req);
-    const store = readStore();
-    const request = store.requests.find((item) => item.id === requestId);
+    const request = await updateRequestStore(requestId, (item) => {
+      item.status = action === 'approve' ? 'approved' : 'rejected';
+      item.adminNote = payload.adminNote || '';
+      item.reviewedAt = new Date().toISOString();
+      item.reviewedBy = 'Admin';
+    });
     if (!request) {
       sendJson(res, 404, { error: 'Request not found' });
       return;
     }
-    request.status = action === 'approve' ? 'approved' : 'rejected';
-    request.adminNote = payload.adminNote || '';
-    request.reviewedAt = new Date().toISOString();
-    request.reviewedBy = 'Admin';
-    writeStore(store);
     sendJson(res, 200, { request });
     return;
   }
@@ -277,14 +397,11 @@ async function handleApi(req, res, url) {
   const deleteMatch = url.pathname.match(/^\/api\/admin\/requests\/([^/]+)$/);
   if (req.method === 'DELETE' && deleteMatch) {
     const [, requestId] = deleteMatch;
-    const store = readStore();
-    const nextRequests = store.requests.filter((item) => item.id !== requestId);
-    if (nextRequests.length === store.requests.length) {
+    const deleted = await deleteRequestStore(requestId);
+    if (!deleted) {
       sendJson(res, 404, { error: 'Request not found' });
       return;
     }
-    store.requests = nextRequests;
-    writeStore(store);
     sendJson(res, 200, { ok: true });
     return;
   }
@@ -304,12 +421,20 @@ async function handleApi(req, res, url) {
         });
         return;
       }
-      writeStore({ requests: [] });
-      sendJson(res, 200, {
-        ok: true,
-        version: dataVersion(),
-        output: stdout.trim()
-      });
+      clearAllRequestsStore()
+        .then(() => {
+          sendJson(res, 200, {
+            ok: true,
+            version: dataVersion(),
+            output: stdout.trim()
+          });
+        })
+        .catch((clearError) => {
+          sendJson(res, 500, {
+            error: 'Reset completed, but clearing requests failed',
+            details: clearError.message
+          });
+        });
     });
     return;
   }

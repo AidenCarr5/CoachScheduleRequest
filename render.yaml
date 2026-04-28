@@ -2,7 +2,7 @@ services:
   - type: web
     name: titans-coach-scheduler
     runtime: node
-    plan: starter
+    plan: free
     buildCommand: npm install
     startCommand: npm start
     envVars:
@@ -10,9 +10,9 @@ services:
         sync: false
       - key: SESSION_SECRET
         sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
       - key: PORT
         value: 10000
-    disk:
-      name: titans-storage
-      mountPath: /opt/render/project/src/storage
-      sizeGB: 1
