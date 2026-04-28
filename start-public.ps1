@@ -69,7 +69,7 @@ Write-Host ""
 $serverArgs = @(
   "-NoExit",
   "-Command",
-  "& { Set-Location '$projectRoot'; `$env:ADMIN_PASSWORD='$($env:ADMIN_PASSWORD)'; `$env:PORT='$($env:PORT)'; `$env:EMAIL_USER='$($env:EMAIL_USER)'; `$env:EMAIL_TO='$($env:EMAIL_TO)'; `$env:EMAIL_APP_PASSWORD='$($env:EMAIL_APP_PASSWORD)'; & '$nodeCommand' 'server.js' }"
+  "& { Set-Location '$projectRoot'; `$env:ADMIN_PASSWORD='$($env:ADMIN_PASSWORD)'; `$env:PORT='$($env:PORT)'; `$env:DISCORD_WEBHOOK_URL='$($env:DISCORD_WEBHOOK_URL)'; & '$nodeCommand' 'server.js' }"
 )
 
 $serverProcess = Start-Process -FilePath "powershell" -ArgumentList $serverArgs -PassThru

@@ -26,8 +26,6 @@ For Vercel, the important environment variables are:
 - `SESSION_SECRET`
 - `SUPABASE_URL`
 - `SUPABASE_SERVICE_ROLE_KEY`
-- `EMAIL_USER`
-- `EMAIL_TO`
-- `EMAIL_APP_PASSWORD`
+- `DISCORD_WEBHOOK_URL`
 
 For reliable online request storage on Vercel, use Supabase instead of the local JSON fallback.

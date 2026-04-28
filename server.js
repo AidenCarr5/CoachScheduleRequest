@@ -3,7 +3,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const { URL } = require('url');
-const { handleApi, useSupabaseStore, emailEnabled, storageFile, emailTo } = require('./lib/app-handler');
+const { handleApi, useSupabaseStore, notificationsEnabled, storageFile } = require('./lib/app-handler');
 
 const rootDir = __dirname;
 const publicDir = path.join(rootDir, 'public');
@@ -84,9 +84,9 @@ server.listen(port, '0.0.0.0', () => {
   } else {
     console.log(`Request storage: local file (${storageFile})`);
   }
-  if (emailEnabled()) {
-    console.log(`Email notifications: enabled (${emailTo})`);
+  if (notificationsEnabled()) {
+    console.log('Discord notifications: enabled');
   } else {
-    console.log('Email notifications: disabled (set EMAIL_APP_PASSWORD to enable)');
+    console.log('Discord notifications: disabled (set DISCORD_WEBHOOK_URL to enable)');
   }
 });
