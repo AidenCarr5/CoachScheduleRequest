@@ -11,3 +11,23 @@ Public access with Cloudflare Quick Tunnel is here:
 Local secret/config example is here:
 
 - [local-env.example.ps1](</C:/Users/aiden/Documents/Codex/2026-04-27/okay-i-need-to-build-a/local-env.example.ps1>)
+
+## Vercel
+
+This repo is now structured to run on Vercel:
+
+- static frontend files are in `public/`
+- API routes are in `api/`
+- the admin password still defaults to `55aiden55`
+
+For Vercel, the important environment variables are:
+
+- `ADMIN_PASSWORD`
+- `SESSION_SECRET`
+- `SUPABASE_URL`
+- `SUPABASE_SERVICE_ROLE_KEY`
+- `EMAIL_USER`
+- `EMAIL_TO`
+- `EMAIL_APP_PASSWORD`
+
+For reliable online request storage on Vercel, use Supabase instead of the local JSON fallback.

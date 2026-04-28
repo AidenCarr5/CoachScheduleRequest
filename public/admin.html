@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coach Request Approval</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <span>Coach Request Approval</span>
+      <a class="topbar-link" href="/">Coach view</a>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <div>
+        <p class="eyebrow">Admin</p>
+        <h1>Approve Coach Requests</h1>
+      </div>
+      <div class="source">
+        <span>Only approved requests should be applied to Turtle Club</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap app-shell">
+    <section id="loginPanel" class="admin-panel">
+      <div class="section-head">
+        <h2>Admin Login</h2>
+      </div>
+      <form id="loginForm" class="admin-form">
+        <div class="field grow">
+          <label for="adminPassword">Password</label>
+          <input id="adminPassword" type="password" autocomplete="current-password">
+        </div>
+        <button class="primary" type="submit">Unlock</button>
+      </form>
+      <p id="loginMessage" class="admin-message"></p>
+    </section>
+
+    <section id="adminPanel" class="admin-panel" hidden>
+      <div class="section-head">
+        <h2>Request Queue</h2>
+        <div class="admin-toolbar">
+          <button id="resetScheduleBtn" class="warn-btn" type="button">Reset to Turtle Club</button>
+          <button id="adminExportBtn" class="secondary" type="button">Download Excel</button>
+          <button id="logoutBtn" class="secondary" type="button">Logout</button>
+        </div>
+      </div>
+      <p id="adminMessage" class="admin-message"></p>
+      <div id="adminRequestList" class="admin-request-list"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

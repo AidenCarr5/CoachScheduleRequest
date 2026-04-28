@@ -162,7 +162,7 @@ function dedupe(events) {
   });
 }
 
-async function main() {
+async function generateData() {
   const schedule = [];
   const conflictEvents = [];
   await loadGames(schedule, conflictEvents);
@@ -185,19 +185,35 @@ async function main() {
     availability
   };
 
-  fs.writeFileSync(path.join(__dirname, 'data.js'), `window.TITANS_DATA = ${JSON.stringify(data, null, 2)};\n`);
-  const practices = deduped.filter((event) => event.eventKind === 'Practice').length;
+  return data;
+}
+
+function writeDataFile(data, targetPath = path.join(__dirname, 'data.js')) {
+  fs.writeFileSync(targetPath, `window.TITANS_DATA = ${JSON.stringify(data, null, 2)};\n`);
+}
+
+async function main() {
+  const data = await generateData();
+  writeDataFile(data);
+  const practices = data.schedule.filter((event) => event.eventKind === 'Practice').length;
   console.log(JSON.stringify({
-    seasonYear,
-    teams: teams.length,
-    events: deduped.length,
-    games: deduped.length - practices,
+    seasonYear: data.seasonYear,
+    teams: data.teams.length,
+    events: data.schedule.length,
+    games: data.schedule.length - practices,
     practices,
-    availability: availability.length
+    availability: data.availability.length
   }, null, 2));
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+module.exports = {
+  generateData,
+  writeDataFile
+};
+
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}
