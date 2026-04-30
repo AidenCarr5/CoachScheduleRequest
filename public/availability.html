@@ -37,15 +37,15 @@
   <main class="wrap app-shell">
     <section class="coach-panel" aria-label="Availability controls">
       <div class="field">
-        <label for="availabilityMonthSelect">Month</label>
-        <select id="availabilityMonthSelect"></select>
+        <label for="availabilityDaySelect">Day</label>
+        <select id="availabilityDaySelect"></select>
       </div>
       <div class="field">
         <label for="availabilityDiamondSelect">Diamond</label>
         <select id="availabilityDiamondSelect"></select>
       </div>
       <div class="field grow">
-        <label for="availabilitySearchInput">Find diamond or date</label>
+        <label for="availabilitySearchInput">Find diamond</label>
         <input id="availabilitySearchInput" type="search" placeholder="Start typing">
       </div>
     </section>
@@ -53,22 +53,26 @@
     <section class="status-strip" aria-label="Availability summary">
       <div>
         <strong id="availabilityBlockCount">0</strong>
-        <span>2-hour blocks</span>
+        <span>available 2-hour blocks</span>
       </div>
       <div>
-        <strong id="availabilityDayCount">0</strong>
-        <span>available days</span>
+        <strong id="bookedBlockCount">0</strong>
+        <span>booked / unavailable blocks</span>
       </div>
       <div>
         <strong id="availabilityDiamondCount">0</strong>
-        <span>diamonds listed</span>
+        <span>diamonds on this day</span>
       </div>
     </section>
 
     <section class="schedule-section availability-section">
       <div class="section-head">
-        <h2>Open Diamond Blocks</h2>
-        <span>Each listed block is two hours long</span>
+        <h2 id="selectedDayTitle">Diamond Schedule</h2>
+        <span>Weekdays show 6-8 PM. Weekends show 8 AM-8 PM.</span>
+      </div>
+      <div class="availability-legend" aria-label="Availability legend">
+        <span><i class="legend-dot available"></i>Available</span>
+        <span><i class="legend-dot booked"></i>Booked / unavailable</span>
       </div>
       <div id="availabilityList" class="availability-list"></div>
     </section>

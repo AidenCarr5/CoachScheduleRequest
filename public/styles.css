@@ -326,47 +326,98 @@ button {
   padding: 14px;
 }
 
-.availability-day {
-  display: grid;
-  gap: 12px;
+.availability-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 12px 16px 0;
+  color: var(--muted);
+  font-weight: 700;
 }
 
-.availability-diamond-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 12px;
+.availability-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
 }
 
-.availability-card {
+.legend-dot {
+  width: 14px;
+  height: 14px;
+  border: 1px solid transparent;
+}
+
+.legend-dot.available { background: #dff3e4; border-color: #9dcaac; }
+
+.legend-dot.booked { background: #ffe1dd; border-color: #dca9a3; }
+
+.availability-grid-wrap {
+  overflow-x: auto;
+}
+
+.availability-grid {
   display: grid;
-  gap: 10px;
+  grid-template-columns: minmax(190px, 1fr) repeat(var(--slot-count), minmax(142px, 1fr));
+  min-width: 720px;
   border: 1px solid var(--line);
-  border-left: 5px solid var(--green);
-  background: #fff;
-  padding: 12px;
+  background: var(--line);
+  gap: 1px;
 }
 
-.availability-card h4 {
-  margin: 0;
+.availability-grid-head,
+.availability-diamond-name,
+.availability-slot {
+  background: #fff;
+  padding: 10px;
+}
+
+.availability-grid-head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  color: white;
+  background: var(--green);
+  font-weight: 700;
+  text-align: center;
+}
+
+.availability-grid-head.diamond-title {
+  text-align: left;
+}
+
+.availability-diamond-name {
   color: var(--green);
   font: 600 18px Oswald, Arial, sans-serif;
 }
 
-.availability-times {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+.availability-slot {
+  display: grid;
+  min-height: 62px;
+  align-content: center;
+  gap: 4px;
+  border-left: 5px solid transparent;
 }
 
-.availability-times span {
-  display: inline-flex;
-  min-height: 32px;
-  align-items: center;
-  border: 1px solid #cbd3c8;
-  background: #eef5eb;
-  color: var(--green);
-  padding: 5px 8px;
-  font-weight: 700;
+.availability-slot.available {
+  border-left-color: var(--good);
+  background: #eff8f1;
+  color: var(--good);
+}
+
+.availability-slot.booked {
+  border-left-color: var(--bad);
+  background: #fff1ef;
+  color: var(--bad);
+}
+
+.availability-slot strong,
+.availability-slot span {
+  overflow-wrap: anywhere;
+}
+
+.availability-slot span {
+  color: var(--muted);
+  font-size: 12px;
 }
 
 .game-row {

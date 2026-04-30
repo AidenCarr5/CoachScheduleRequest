@@ -1,9 +1,9 @@
 (function () {
   const $ = (id) => document.getElementById(id);
   const state = {
-    blocks: [],
+    days: [],
     diamonds: [],
-    month: 'All months',
+    selectedDate: '',
     diamond: 'All diamonds',
     query: ''
   };
@@ -15,12 +15,13 @@
       return;
     }
     const payload = await response.json();
-    state.blocks = payload.blocks || [];
+    state.days = payload.days || [];
     state.diamonds = payload.diamonds || [];
-    $('availabilityLoaded').textContent = `Loaded ${state.blocks.length} two-hour blocks`;
+    state.selectedDate = state.days[0] ? state.days[0].date : '';
+    $('availabilityLoaded').textContent = `Loaded ${state.days.length} days from Turtle Club`;
     buildFilters();
-    $('availabilityMonthSelect').addEventListener('change', () => {
-      state.month = $('availabilityMonthSelect').value;
+    $('availabilityDaySelect').addEventListener('change', () => {
+      state.selectedDate = $('availabilityDaySelect').value;
       render();
     });
     $('availabilityDiamondSelect').addEventListener('change', () => {
@@ -35,74 +36,66 @@
   }
 
   function buildFilters() {
-    const months = ['All months', ...new Set(state.blocks.map((block) => block.month))];
-    $('availabilityMonthSelect').innerHTML = months.map((month) => `<option>${escapeHtml(month)}</option>`).join('');
+    $('availabilityDaySelect').innerHTML = state.days
+      .map((day) => `<option value="${escapeHtml(day.date)}">${escapeHtml(day.day)}</option>`)
+      .join('');
     $('availabilityDiamondSelect').innerHTML = ['All diamonds', ...state.diamonds]
       .map((diamond) => `<option>${escapeHtml(diamond)}</option>`)
       .join('');
   }
 
-  function filteredBlocks() {
-    return state.blocks.filter((block) => {
-      const matchesMonth = state.month === 'All months' || block.month === state.month;
-      const matchesDiamond = state.diamond === 'All diamonds' || block.diamond === state.diamond;
-      const haystack = `${block.day} ${block.diamond} ${block.start} ${block.end}`.toLowerCase();
-      return matchesMonth && matchesDiamond && haystack.includes(state.query);
+  function selectedDay() {
+    return state.days.find((day) => day.date === state.selectedDate) || state.days[0] || null;
+  }
+
+  function visibleDiamonds(day) {
+    if (!day) return [];
+    return day.diamonds.filter((row) => {
+      const matchesDiamond = state.diamond === 'All diamonds' || row.diamond === state.diamond;
+      const matchesQuery = row.diamond.toLowerCase().includes(state.query);
+      return matchesDiamond && matchesQuery;
     });
   }
 
   function render() {
-    const blocks = filteredBlocks();
-    const days = [...new Set(blocks.map((block) => block.date))];
-    const diamonds = [...new Set(blocks.map((block) => block.diamond))];
-    $('availabilityBlockCount').textContent = blocks.length;
-    $('availabilityDayCount').textContent = days.length;
-    $('availabilityDiamondCount').textContent = diamonds.length;
-    $('availabilityList').innerHTML = blocks.length
-      ? renderDayGroups(blocks)
-      : '<p class="muted">No two-hour diamond blocks match this view.</p>';
+    const day = selectedDay();
+    const rows = visibleDiamonds(day);
+    if (!day) {
+      $('availabilityList').innerHTML = '<p class="muted">No availability days were found.</p>';
+      return;
+    }
+    const availableCount = rows.reduce((count, row) => count + row.slots.filter((slot) => slot.status === 'available').length, 0);
+    const bookedCount = rows.reduce((count, row) => count + row.slots.filter((slot) => slot.status !== 'available').length, 0);
+    $('availabilityBlockCount').textContent = availableCount;
+    $('bookedBlockCount').textContent = bookedCount;
+    $('availabilityDiamondCount').textContent = rows.length;
+    $('selectedDayTitle').textContent = day.day;
+    $('availabilityList').innerHTML = rows.length
+      ? renderGrid(day, rows)
+      : '<p class="muted">No diamonds match this view.</p>';
   }
 
-  function renderDayGroups(blocks) {
-    const groups = new Map();
-    blocks.forEach((block) => {
-      if (!groups.has(block.date)) groups.set(block.date, []);
-      groups.get(block.date).push(block);
-    });
-    return [...groups.entries()].map(([, dayBlocks]) => {
-      const dayLabel = dayBlocks[0].day;
-      const diamonds = groupByDiamond(dayBlocks);
-      return `
-        <section class="availability-day">
-          <div class="month-head">
-            <h3>${escapeHtml(dayLabel)}</h3>
-            <span>${dayBlocks.length} ${dayBlocks.length === 1 ? 'block' : 'blocks'}</span>
-          </div>
-          <div class="availability-diamond-grid">
-            ${[...diamonds.entries()].map(renderDiamondCard).join('')}
-          </div>
-        </section>
-      `;
-    }).join('');
-  }
-
-  function groupByDiamond(blocks) {
-    const groups = new Map();
-    blocks.forEach((block) => {
-      if (!groups.has(block.diamond)) groups.set(block.diamond, []);
-      groups.get(block.diamond).push(block);
-    });
-    return groups;
-  }
-
-  function renderDiamondCard([diamond, blocks]) {
+  function renderGrid(day, rows) {
     return `
-      <article class="availability-card">
-        <h4>${escapeHtml(diamond)}</h4>
-        <div class="availability-times">
-          ${blocks.map((block) => `<span>${escapeHtml(block.start)}-${escapeHtml(block.end)}</span>`).join('')}
+      <div class="availability-grid-wrap">
+        <div class="availability-grid" style="--slot-count: ${day.slots.length}">
+          <div class="availability-grid-head diamond-title">Diamond</div>
+          ${day.slots.map((slot) => `<div class="availability-grid-head">${escapeHtml(slot.start)}-${escapeHtml(slot.end)}</div>`).join('')}
+          ${rows.map(renderDiamondRow).join('')}
         </div>
-      </article>
+      </div>
+    `;
+  }
+
+  function renderDiamondRow(row) {
+    return `
+      <div class="availability-diamond-name">${escapeHtml(row.diamond)}</div>
+      ${row.slots.map((slot) => `
+        <div class="availability-slot ${escapeHtml(slot.status)}" title="${escapeHtml(slot.conflict || slot.label)}">
+          <strong>${escapeHtml(slot.label)}</strong>
+          <span>${slot.conflict ? escapeHtml(slot.conflict) : ''}</span>
+        </div>
+      `).join('')}
     `;
   }
 
