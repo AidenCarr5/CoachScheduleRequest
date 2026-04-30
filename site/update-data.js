@@ -12,6 +12,7 @@ function strip(value) {
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
     .replace(/&bull;/g, '•')
+    .replace(/\u00e2\u20ac\u00a2/g, '•')
     .replace(/&#39;/g, "'")
     .replace(/&quot;/g, '"')
     .replace(/\s+/g, ' ')
@@ -28,10 +29,11 @@ function fullDate(day, month, year) {
 }
 
 function eventKind(type) {
-  const normalized = type.toLowerCase();
+  const normalized = String(type || '').toLowerCase();
   if (normalized.includes('practice')) return 'Practice';
   if (normalized.includes('away')) return 'Away Game';
   if (normalized.includes('home')) return 'Home Game';
+  if (normalized.includes('local')) return 'Local Game';
   return type || 'Event';
 }
 
@@ -39,8 +41,22 @@ function isTitansTeam(team) {
   return /^(\d+U|8U\/9U|9U|Titans)/.test(team);
 }
 
+function titansTeamFromOwner(owner) {
+  const normalized = strip(owner);
+  const match = normalized.match(/^Titans\s*(?:•|â€¢|\u2022)\s*(.+)$/);
+  return match ? match[1].trim() : '';
+}
+
+function localCalendarMonths() {
+  return [...new Set([...(config.scheduleMonths || []), ...(config.practiceMonths || [])])].sort((a, b) => a - b);
+}
+
 async function fetchText(url) {
-  const response = await fetch(url);
+  const response = await fetch(url, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
+    }
+  });
   if (!response.ok) throw new Error(`Failed to fetch ${url}: ${response.status}`);
   return response.text();
 }
@@ -81,47 +97,51 @@ async function loadGames(schedule, conflictEvents) {
   }
 }
 
-async function loadPractices(schedule, conflictEvents, teams) {
-  for (const month of config.practiceMonths) {
+async function loadFullCalendar(schedule, conflictEvents, teams) {
+  for (const month of localCalendarMonths()) {
     const url = `${baseUrl}/Calendar/?Month=${month}&Year=${seasonYear}`;
     const html = await fetchText(url);
     if (/Human Verification/i.test(html)) {
-      console.warn(`Skipped practices for ${monthName(month)} ${seasonYear}: human verification page returned.`);
+      console.warn(`Skipped full calendar for ${monthName(month)} ${seasonYear}: human verification page returned.`);
       continue;
     }
     const items = html.split('<div class="event-list-item').slice(1).map((chunk) => `<div class="event-list-item${chunk.split('<div class="event-list-item')[0]}`);
     let index = 0;
     for (const body of items) {
-      if (!body.includes('tag practice')) continue;
-      const owner = strip((body.match(/<div class="subject-owner[^>]*">([\s\S]*?)<\/div>/) || [])[1] || '');
-      if (!owner.startsWith('Titans • ')) continue;
-      const team = owner.replace('Titans • ', '').trim();
-      if (!teams.includes(team)) continue;
       const href = body.match(/href="[^"]*\?Day=(\d+)&(?:amp;)?Month=(\d+)&(?:amp;)?Year=(\d+)/);
       if (!href) continue;
       const monthNumber = Number(href[2]);
-      if (!config.practiceMonths.includes(monthNumber)) continue;
-      const date = `${href[3]}-${href[2].padStart(2, '0')}-${href[1].padStart(2, '0')}`;
+      if (!localCalendarMonths().includes(monthNumber)) continue;
+
       const time = strip((body.match(/<div class="time-primary">([\s\S]*?)<\/div>/) || [])[1] || '');
       const endTime = strip((body.match(/<div class="time-secondary">([\s\S]*?)<\/div>/) || [])[1] || '').replace(/^-/, '');
       const diamond = strip((body.match(/<div class="location local">([\s\S]*?)<\/div>/) || [])[1] || '');
+      if (!time.match(/\d+:\d+\s*(AM|PM)/i) || !diamond) continue;
+
+      const owner = strip((body.match(/<div class="subject-owner[^>]*">([\s\S]*?)<\/div>/) || [])[1] || '');
+      const group = strip((body.match(/<div class="subject-group[^>]*">([\s\S]*?)<\/div>/) || [])[1] || '');
+      const subject = strip((body.match(/<div class="subject-text[^>]*">([\s\S]*?)<\/div>/) || [])[1] || '');
+      const tagList = strip((body.match(/<div class="tag-list">([\s\S]*?)<\/div>\s*<\/div>/) || [])[1] || '');
+      const team = titansTeamFromOwner(owner);
       const event = {
-        id: `tc-practice-${month}-${++index}`,
-        date,
+        id: `tc-calendar-${month}-${++index}`,
+        date: `${href[3]}-${href[2].padStart(2, '0')}-${href[1].padStart(2, '0')}`,
         month: `${monthName(monthNumber)} ${href[3]}`,
         time,
         endTime,
-        durationMinutes: time && endTime ? null : 90,
-        type: 'Practice',
-        eventKind: 'Practice',
-        team,
-        opponent: 'Practice',
+        durationMinutes: time && endTime ? null : 120,
+        type: tagList || 'Calendar Event',
+        eventKind: eventKind(tagList || subject),
+        team: team || owner || group || 'Turtle Club',
+        opponent: subject || tagList || 'Field booking',
         diamond,
         status: 'Scheduled',
-        source: 'Turtle Club calendar'
+        source: 'Turtle Club full calendar'
       };
-      schedule.push(event);
       conflictEvents.push(event);
+      if (team && teams.includes(team)) {
+        schedule.push(event);
+      }
     }
   }
 }
@@ -167,11 +187,12 @@ async function generateData() {
   const conflictEvents = [];
   await loadGames(schedule, conflictEvents);
   const teams = [...new Set(schedule.map((event) => event.team))].sort();
-  await loadPractices(schedule, conflictEvents, teams);
+  await loadFullCalendar(schedule, conflictEvents, teams);
   const availability = await loadAvailability();
 
   schedule.sort((a, b) => `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`));
   const deduped = dedupe(schedule);
+  const dedupedConflicts = dedupe(conflictEvents);
   const data = {
     seasonYear,
     brandName: config.brandName,
@@ -181,7 +202,7 @@ async function generateData() {
     sourceAvailability: `${baseUrl}/Availabilities/${config.availabilityId}/`,
     teams,
     schedule: deduped,
-    conflictEvents: deduped,
+    conflictEvents: dedupedConflicts,
     availability
   };
 
@@ -202,6 +223,7 @@ async function main() {
     events: data.schedule.length,
     games: data.schedule.length - practices,
     practices,
+    conflicts: data.conflictEvents.length,
     availability: data.availability.length
   }, null, 2));
 }
