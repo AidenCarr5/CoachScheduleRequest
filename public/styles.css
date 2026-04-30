@@ -95,7 +95,40 @@ h2 { font-size: 24px; }
 
 .source a { color: white; }
 
+.link-button {
+  min-height: 0;
+  padding: 0;
+  color: white;
+  background: transparent;
+  text-decoration: underline;
+}
+
 .app-shell { padding: 22px 0 34px; }
+
+.login-shell {
+  padding: 28px 0 42px;
+}
+
+.login-card {
+  display: grid;
+  gap: 18px;
+  width: min(560px, 100%);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--gold);
+  padding: 20px;
+}
+
+.form-grid.compact {
+  margin: 0;
+}
+
+.login-message {
+  min-height: 20px;
+  margin: 0;
+  color: var(--bad);
+  font-weight: 700;
+}
 
 .coach-panel,
 .status-strip,
@@ -133,6 +166,11 @@ input, select, textarea {
   background: #fff;
   padding: 9px 10px;
   font: inherit;
+}
+
+select:disabled {
+  color: var(--ink);
+  background: #eef1eb;
 }
 
 textarea { resize: vertical; }

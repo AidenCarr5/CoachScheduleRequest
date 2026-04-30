@@ -28,13 +28,36 @@
       </div>
       <div class="source">
         <span id="scrapeDate">Schedule loaded</span>
+        <span id="sessionLabel" hidden></span>
         <a href="https://turtleclubbaseball.com/Categories/1017/Schedule/" target="_blank" rel="noreferrer">Turtle Club schedule</a>
         <a id="adminLink" href="/admin.html">Admin approval</a>
+        <button id="logoutBtn" class="link-button" type="button" hidden>Log out</button>
       </div>
     </div>
   </header>
 
-  <main class="wrap app-shell">
+  <section id="loginShell" class="wrap login-shell">
+    <form id="coachLoginForm" class="login-card">
+      <div>
+        <p class="eyebrow">Coach access</p>
+        <h2>Sign in to your team schedule</h2>
+      </div>
+      <div class="form-grid compact">
+        <div class="field">
+          <label for="coachUsername">Username</label>
+          <input id="coachUsername" type="text" autocomplete="username" placeholder="Picco10U" required>
+        </div>
+        <div class="field">
+          <label for="coachPassword">Password</label>
+          <input id="coachPassword" type="password" autocomplete="current-password" placeholder="password" required>
+        </div>
+      </div>
+      <p id="coachLoginMessage" class="login-message"></p>
+      <button class="primary" type="submit">Log in</button>
+    </form>
+  </section>
+
+  <main id="appShell" class="wrap app-shell" hidden>
     <section class="coach-panel" aria-label="Coach controls">
       <div class="field">
         <label for="teamSelect">Coach team</label>

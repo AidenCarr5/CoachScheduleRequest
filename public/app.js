@@ -11,20 +11,34 @@
   let dateBounds = { min: '', max: '' };
   let refreshTimer = 0;
   let currentDataVersion = '';
+  let appStarted = false;
   const state = {
     team: '',
     month: 'All months',
     query: '',
     requests: [],
-    publicConfig: { adminPath: '/admin.html' }
+    publicConfig: { adminPath: '/admin.html' },
+    user: null
   };
 
   async function init() {
+    $('coachLoginForm').addEventListener('submit', login);
+    $('logoutBtn').addEventListener('click', logout);
+    const session = await loadSession();
+    if (!session.authenticated) {
+      showLogin();
+      return;
+    }
+    state.user = session.user;
+    await startApp();
+  }
+
+  async function startApp() {
     await loadBootstrap();
     if (!data || !data.teams.length) {
       throw new Error('No schedule data was returned by the server.');
     }
-    state.team = data.teams[0];
+    state.team = isAdminUser() ? data.teams[0] : state.user.team;
     rebuildDerivedData();
 
     teamSelect.innerHTML = data.teams.map((team) => `<option>${escapeHtml(team)}</option>`).join('');
@@ -34,31 +48,76 @@
     $('gameDate').min = dateBounds.min;
     $('gameDate').max = dateBounds.max;
 
-    teamSelect.addEventListener('change', () => {
-      state.team = teamSelect.value;
-      render();
-    });
-    monthSelect.addEventListener('change', () => {
-      state.month = monthSelect.value;
-      render();
-    });
-    $('searchInput').addEventListener('input', (event) => {
-      state.query = event.target.value.toLowerCase();
-      render();
-    });
-    $('newGameBtn').addEventListener('click', openNewEvent);
-    $('closeDialog').addEventListener('click', () => dialog.close());
-    $('checkBtn').addEventListener('click', renderAvailabilityCheck);
-    $('requestForm').addEventListener('submit', queueRequest);
-    window.addEventListener('focus', syncRequests);
-    document.addEventListener('visibilitychange', () => {
-      if (!document.hidden) syncRequests();
-    });
+    teamSelect.value = state.team;
+    teamSelect.disabled = !isAdminUser();
+
+    if (!appStarted) {
+      teamSelect.addEventListener('change', () => {
+        state.team = teamSelect.value;
+        render();
+      });
+      monthSelect.addEventListener('change', () => {
+        state.month = monthSelect.value;
+        render();
+      });
+      $('searchInput').addEventListener('input', (event) => {
+        state.query = event.target.value.toLowerCase();
+        render();
+      });
+      $('newGameBtn').addEventListener('click', openNewEvent);
+      $('closeDialog').addEventListener('click', () => dialog.close());
+      $('checkBtn').addEventListener('click', renderAvailabilityCheck);
+      $('requestForm').addEventListener('submit', queueRequest);
+      window.addEventListener('focus', syncRequests);
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden && state.user) syncRequests();
+      });
+      appStarted = true;
+    }
 
     await loadPublicConfig();
     await loadRequests();
+    showApp();
+    window.clearInterval(refreshTimer);
     refreshTimer = window.setInterval(syncRequests, 20000);
     render();
+  }
+
+  async function loadSession() {
+    const response = await fetch('/api/coach/session', { cache: 'no-store' });
+    if (!response.ok) return { authenticated: false };
+    return response.json();
+  }
+
+  async function login(event) {
+    event.preventDefault();
+    const response = await fetch('/api/coach/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: $('coachUsername').value.trim(),
+        password: $('coachPassword').value
+      })
+    });
+    if (!response.ok) {
+      $('coachLoginMessage').textContent = 'Username or password did not match.';
+      return;
+    }
+    const payload = await response.json();
+    $('coachPassword').value = '';
+    $('coachLoginMessage').textContent = '';
+    state.user = payload.user;
+    await startApp();
+  }
+
+  async function logout() {
+    await fetch('/api/coach/logout', { method: 'POST' });
+    state.user = null;
+    state.requests = [];
+    data = null;
+    window.clearInterval(refreshTimer);
+    refreshTimer = 0;
+    showLogin();
   }
 
   async function loadBootstrap() {
@@ -69,6 +128,7 @@
     const payload = await response.json();
     data = payload.data;
     state.publicConfig = payload.publicConfig || { adminPath: '/admin.html' };
+    state.user = state.publicConfig.user || state.user;
     currentDataVersion = state.publicConfig.dataVersion || data.scrapedAt || '';
   }
 
@@ -119,9 +179,10 @@
         teamSelect.innerHTML = data.teams.map((team) => `<option>${escapeHtml(team)}</option>`).join('');
         monthSelect.innerHTML = months.map((month) => `<option>${escapeHtml(month)}</option>`).join('');
         $('diamondSelect').innerHTML = diamonds.map((diamond) => `<option>${escapeHtml(diamond)}</option>`).join('');
-        if (!data.teams.includes(state.team)) state.team = data.teams[0];
+        if (!data.teams.includes(state.team)) state.team = isAdminUser() ? data.teams[0] : state.user.team;
         if (!months.includes(state.month)) state.month = 'All months';
         teamSelect.value = state.team;
+        teamSelect.disabled = !isAdminUser();
         monthSelect.value = state.month;
         $('gameDate').min = dateBounds.min;
         $('gameDate').max = dateBounds.max;
@@ -198,6 +259,10 @@
     $('availableCount').textContent = data.availability.length;
     $('teamScope').textContent = `${state.team} schedule only`;
     $('adminLink').href = state.publicConfig.adminPath || '/admin.html';
+    $('adminLink').hidden = !isAdminUser();
+    $('sessionLabel').hidden = false;
+    $('sessionLabel').textContent = isAdminUser() ? 'Signed in as admin' : `Signed in: ${state.user.username}`;
+    $('logoutBtn').hidden = false;
 
     scheduleList.innerHTML = events.length ? renderMonthGroups(events) : '<p class="muted">No events match this view.</p>';
     scheduleList.querySelectorAll('[data-cancel]').forEach((button) => {
@@ -517,6 +582,23 @@
       min: dates[0] || `${seasonYear}-01-01`,
       max: dates[dates.length - 1] || `${seasonYear}-12-31`
     };
+  }
+
+  function isAdminUser() {
+    return state.user && state.user.role === 'admin';
+  }
+
+  function showLogin() {
+    $('loginShell').hidden = false;
+    $('appShell').hidden = true;
+    $('sessionLabel').hidden = true;
+    $('logoutBtn').hidden = true;
+    $('adminLink').hidden = true;
+  }
+
+  function showApp() {
+    $('loginShell').hidden = true;
+    $('appShell').hidden = false;
   }
 
   function escapeHtml(value) {

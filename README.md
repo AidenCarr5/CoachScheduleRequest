@@ -23,9 +23,19 @@ This repo is now structured to run on Vercel:
 For Vercel, the important environment variables are:
 
 - `ADMIN_PASSWORD`
+- `COACH_PASSWORD`
 - `SESSION_SECRET`
 - `SUPABASE_URL`
 - `SUPABASE_SERVICE_ROLE_KEY`
 - `DISCORD_WEBHOOK_URL`
 
 For reliable online request storage on Vercel, use Supabase instead of the local JSON fallback.
+
+## Coach Login
+
+Coaches sign in on the main page. Usernames are generated from the loaded team name, so
+`10U T1 (Picco)` becomes `Picco10U`. The default coach password is `password`, or whatever
+you set in `COACH_PASSWORD`.
+
+The admin can sign in to the main schedule page with username `admin` and the admin password
+to view all teams. The existing admin approval page still uses the same admin password.
