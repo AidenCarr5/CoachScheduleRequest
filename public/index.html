@@ -13,9 +13,9 @@
 <body>
   <div class="topbar">
     <div class="wrap topbar-inner">
-      <span>Team Finder</span>
-      <span>Diamonds</span>
-      <span>Availability</span>
+      <a class="topbar-link" href="/">Team Finder</a>
+      <a class="topbar-link" href="/availability.html">Diamonds</a>
+      <a class="topbar-link" href="/availability.html">Availability</a>
       <span>Contact</span>
     </div>
   </div>
@@ -38,14 +38,15 @@
 
   <section id="loginShell" class="wrap login-shell">
     <form id="coachLoginForm" class="login-card">
-      <div>
+      <div class="login-intro">
         <p class="eyebrow">Coach access</p>
         <h2>Sign in to your team schedule</h2>
+        <p>Use your team login. Coach usernames follow the format <strong>LastnameAgeU</strong>.</p>
       </div>
       <div class="form-grid compact">
         <div class="field">
           <label for="coachUsername">Username</label>
-          <input id="coachUsername" type="text" autocomplete="username" placeholder="Picco10U" required>
+          <input id="coachUsername" type="text" autocomplete="username" placeholder="Lastname10U" required>
         </div>
         <div class="field">
           <label for="coachPassword">Password</label>
@@ -53,7 +54,10 @@
         </div>
       </div>
       <p id="coachLoginMessage" class="login-message"></p>
-      <button class="primary" type="submit">Log in</button>
+      <div class="login-actions">
+        <button class="primary" type="submit">Log in</button>
+        <span>Default coach password: <strong>password</strong></span>
+      </div>
     </form>
   </section>
 

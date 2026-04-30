@@ -106,20 +106,40 @@ h2 { font-size: 24px; }
 .app-shell { padding: 22px 0 34px; }
 
 .login-shell {
-  padding: 28px 0 42px;
+  display: grid;
+  min-height: calc(100vh - 173px);
+  align-items: start;
+  padding: 42px 0;
 }
 
 .login-card {
   display: grid;
-  gap: 18px;
-  width: min(560px, 100%);
+  grid-template-columns: minmax(220px, 0.8fr) minmax(280px, 1.2fr);
+  gap: 22px;
+  width: min(860px, 100%);
   background: var(--paper);
   border: 1px solid var(--line);
   border-left: 5px solid var(--gold);
-  padding: 20px;
+  padding: 28px;
+  box-shadow: 0 12px 28px rgba(0, 68, 17, 0.08);
+}
+
+.login-intro {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  padding-right: 12px;
+  border-right: 1px solid var(--line);
+}
+
+.login-intro p:not(.eyebrow) {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
 }
 
 .form-grid.compact {
+  grid-template-columns: 1fr;
   margin: 0;
 }
 
@@ -128,6 +148,22 @@ h2 { font-size: 24px; }
   margin: 0;
   color: var(--bad);
   font-weight: 700;
+}
+
+.login-actions {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.login-actions button {
+  min-width: 150px;
+}
+
+.login-actions span {
+  color: var(--muted);
+  font-size: 14px;
 }
 
 .coach-panel,
@@ -278,6 +314,59 @@ button {
 .month-events {
   display: grid;
   gap: 10px;
+}
+
+.availability-section {
+  margin-top: 18px;
+}
+
+.availability-list {
+  display: grid;
+  gap: 16px;
+  padding: 14px;
+}
+
+.availability-day {
+  display: grid;
+  gap: 12px;
+}
+
+.availability-diamond-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.availability-card {
+  display: grid;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--green);
+  background: #fff;
+  padding: 12px;
+}
+
+.availability-card h4 {
+  margin: 0;
+  color: var(--green);
+  font: 600 18px Oswald, Arial, sans-serif;
+}
+
+.availability-times {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.availability-times span {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  border: 1px solid #cbd3c8;
+  background: #eef5eb;
+  color: var(--green);
+  padding: 5px 8px;
+  font-weight: 700;
 }
 
 .game-row {
@@ -543,6 +632,29 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
   .coach-panel {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .login-shell {
+    min-height: auto;
+    padding: 24px 0 34px;
+  }
+
+  .login-card {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .login-intro {
+    padding-right: 0;
+    padding-bottom: 14px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .login-actions {
+    grid-column: 1;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .source {

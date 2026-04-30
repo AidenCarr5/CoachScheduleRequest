@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LaSalle Titans Diamond Availability</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="topbar-link" href="/">Team Finder</a>
+      <a class="topbar-link" href="/availability.html">Diamonds</a>
+      <a class="topbar-link" href="/availability.html">Availability</a>
+      <span>Contact</span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <div>
+        <p class="eyebrow">LaSalle Titans</p>
+        <h1>Diamond Availability</h1>
+      </div>
+      <div class="source">
+        <span id="availabilityLoaded">Availability loaded</span>
+        <a href="https://turtleclubbaseball.com/Availabilities/3497/" target="_blank" rel="noreferrer">Turtle Club availability</a>
+        <a href="/">Coach schedule requests</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap app-shell">
+    <section class="coach-panel" aria-label="Availability controls">
+      <div class="field">
+        <label for="availabilityMonthSelect">Month</label>
+        <select id="availabilityMonthSelect"></select>
+      </div>
+      <div class="field">
+        <label for="availabilityDiamondSelect">Diamond</label>
+        <select id="availabilityDiamondSelect"></select>
+      </div>
+      <div class="field grow">
+        <label for="availabilitySearchInput">Find diamond or date</label>
+        <input id="availabilitySearchInput" type="search" placeholder="Start typing">
+      </div>
+    </section>
+
+    <section class="status-strip" aria-label="Availability summary">
+      <div>
+        <strong id="availabilityBlockCount">0</strong>
+        <span>2-hour blocks</span>
+      </div>
+      <div>
+        <strong id="availabilityDayCount">0</strong>
+        <span>available days</span>
+      </div>
+      <div>
+        <strong id="availabilityDiamondCount">0</strong>
+        <span>diamonds listed</span>
+      </div>
+    </section>
+
+    <section class="schedule-section availability-section">
+      <div class="section-head">
+        <h2>Open Diamond Blocks</h2>
+        <span>Each listed block is two hours long</span>
+      </div>
+      <div id="availabilityList" class="availability-list"></div>
+    </section>
+  </main>
+
+  <script src="availability.js"></script>
+</body>
+</html>
