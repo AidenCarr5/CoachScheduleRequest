@@ -64,12 +64,13 @@
       $('availabilityList').innerHTML = '<p class="muted">No availability days were found.</p>';
       return;
     }
-    const availableCount = rows.reduce((count, row) => count + row.slots.filter((slot) => slot.status === 'available').length, 0);
-    const bookedCount = rows.reduce((count, row) => count + row.slots.filter((slot) => slot.status !== 'available').length, 0);
+    const availableCount = rows.reduce((count, row) => count + row.segments.filter((segment) => segment.status === 'available').length, 0);
+    const bookedCount = rows.reduce((count, row) => count + row.segments.filter((segment) => segment.status !== 'available').length, 0);
     $('availabilityBlockCount').textContent = availableCount;
     $('bookedBlockCount').textContent = bookedCount;
     $('availabilityDiamondCount').textContent = rows.length;
     $('selectedDayTitle').textContent = day.day;
+    $('selectedDayWindow').textContent = `Showing ${day.windowStart}-${day.windowEnd}`;
     $('availabilityList').innerHTML = rows.length
       ? renderGrid(day, rows)
       : '<p class="muted">No diamonds match this view.</p>';
@@ -78,9 +79,9 @@
   function renderGrid(day, rows) {
     return `
       <div class="availability-grid-wrap">
-        <div class="availability-grid" style="--slot-count: ${day.slots.length}">
+        <div class="availability-range-grid">
           <div class="availability-grid-head diamond-title">Diamond</div>
-          ${day.slots.map((slot) => `<div class="availability-grid-head">${escapeHtml(slot.start)}-${escapeHtml(slot.end)}</div>`).join('')}
+          <div class="availability-grid-head">Availability window (${escapeHtml(day.windowStart)}-${escapeHtml(day.windowEnd)})</div>
           ${rows.map(renderDiamondRow).join('')}
         </div>
       </div>
@@ -90,12 +91,14 @@
   function renderDiamondRow(row) {
     return `
       <div class="availability-diamond-name">${escapeHtml(row.diamond)}</div>
-      ${row.slots.map((slot) => `
-        <div class="availability-slot ${escapeHtml(slot.status)}" title="${escapeHtml(slot.conflict || slot.label)}">
-          <strong>${escapeHtml(slot.label)}</strong>
-          <span>${slot.conflict ? escapeHtml(slot.conflict) : ''}</span>
-        </div>
-      `).join('')}
+      <div class="availability-timeline">
+        ${row.segments.map((segment) => `
+          <div class="availability-segment ${escapeHtml(segment.status)}" style="width: ${segment.width}%;" title="${escapeHtml(segment.conflict || segment.label)}">
+            <strong>${escapeHtml(segment.start)}-${escapeHtml(segment.end)}</strong>
+            <span>${segment.conflict ? escapeHtml(segment.conflict) : escapeHtml(segment.label)}</span>
+          </div>
+        `).join('')}
+      </div>
     `;
   }
 

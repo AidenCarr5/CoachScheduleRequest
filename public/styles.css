@@ -364,6 +364,15 @@ button {
   gap: 1px;
 }
 
+.availability-range-grid {
+  display: grid;
+  grid-template-columns: minmax(190px, 260px) minmax(520px, 1fr);
+  min-width: 760px;
+  border: 1px solid var(--line);
+  background: var(--line);
+  gap: 1px;
+}
+
 .availability-grid-head,
 .availability-diamond-name,
 .availability-slot {
@@ -416,6 +425,45 @@ button {
 }
 
 .availability-slot span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.availability-timeline {
+  display: flex;
+  min-height: 70px;
+  background: #fff;
+}
+
+.availability-segment {
+  display: grid;
+  min-width: 92px;
+  align-content: center;
+  gap: 4px;
+  border-left: 1px solid rgba(255,255,255,0.7);
+  padding: 8px;
+}
+
+.availability-segment.available {
+  background: #eff8f1;
+  color: var(--good);
+}
+
+.availability-segment.booked {
+  background: #fff1ef;
+  color: var(--bad);
+}
+
+.availability-segment strong,
+.availability-segment span {
+  overflow-wrap: anywhere;
+}
+
+.availability-segment strong {
+  font-size: 13px;
+}
+
+.availability-segment span {
   color: var(--muted);
   font-size: 12px;
 }
