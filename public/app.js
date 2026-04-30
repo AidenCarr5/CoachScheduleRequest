@@ -515,7 +515,6 @@
     const conflict = (data.conflictEvents || data.schedule).find((item) => {
       if (item.id === ignoredId) return false;
       if (freedSlots.some((slot) => slot.id === item.id)) return false;
-      if (`${item.type || ''} ${item.eventKind || ''}`.toLowerCase().includes('tryout')) return false;
       const eventStart = minutesFromDisplay(item.time);
       const eventEnd = item.endTime ? minutesFromDisplay(item.endTime) : eventStart + (item.durationMinutes || 120);
       return item.date === date && item.diamond === diamond && start < eventEnd && end > eventStart;

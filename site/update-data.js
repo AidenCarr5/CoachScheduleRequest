@@ -47,8 +47,11 @@ function titansTeamFromOwner(owner) {
   return match ? match[1].trim() : '';
 }
 
-function localCalendarMonths() {
-  return [...new Set([...(config.scheduleMonths || []), ...(config.practiceMonths || [])])].sort((a, b) => a - b);
+function localCalendarMonths(availability = []) {
+  const availabilityMonths = availability
+    .map((slot) => Number(String(slot.date || '').slice(5, 7)))
+    .filter(Boolean);
+  return [...new Set([...(config.scheduleMonths || []), ...(config.practiceMonths || []), ...availabilityMonths])].sort((a, b) => a - b);
 }
 
 async function fetchText(url) {
@@ -97,8 +100,9 @@ async function loadGames(schedule, conflictEvents) {
   }
 }
 
-async function loadFullCalendar(schedule, conflictEvents, teams) {
-  for (const month of localCalendarMonths()) {
+async function loadFullCalendar(schedule, conflictEvents, teams, availability) {
+  const months = localCalendarMonths(availability);
+  for (const month of months) {
     const url = `${baseUrl}/Calendar/?Month=${month}&Year=${seasonYear}`;
     const html = await fetchText(url);
     if (/Human Verification/i.test(html)) {
@@ -111,7 +115,7 @@ async function loadFullCalendar(schedule, conflictEvents, teams) {
       const href = body.match(/href="[^"]*\?Day=(\d+)&(?:amp;)?Month=(\d+)&(?:amp;)?Year=(\d+)/);
       if (!href) continue;
       const monthNumber = Number(href[2]);
-      if (!localCalendarMonths().includes(monthNumber)) continue;
+      if (!months.includes(monthNumber)) continue;
 
       const time = strip((body.match(/<div class="time-primary">([\s\S]*?)<\/div>/) || [])[1] || '');
       const endTime = strip((body.match(/<div class="time-secondary">([\s\S]*?)<\/div>/) || [])[1] || '').replace(/^-/, '');
@@ -187,8 +191,8 @@ async function generateData() {
   const conflictEvents = [];
   await loadGames(schedule, conflictEvents);
   const teams = [...new Set(schedule.map((event) => event.team))].sort();
-  await loadFullCalendar(schedule, conflictEvents, teams);
   const availability = await loadAvailability();
+  await loadFullCalendar(schedule, conflictEvents, teams, availability);
 
   schedule.sort((a, b) => `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`));
   const deduped = dedupe(schedule);
