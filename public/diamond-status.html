@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LaSalle Titans Contact</title>
+  <title>LaSalle Titans Diamond Status</title>
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,8 +15,8 @@
     <div class="wrap topbar-inner">
       <a class="topbar-link" href="/">Log in</a>
       <a class="topbar-link" href="/availability.html">Diamond Availability</a>
-      <a class="topbar-link" href="/diamond-status.html">Diamond Status</a>
-      <span>Contact</span>
+      <span>Diamond Status</span>
+      <a class="topbar-link" href="/contact.html">Contact</a>
     </div>
   </div>
 
@@ -24,32 +24,38 @@
     <div class="wrap masthead-inner">
       <div>
         <p class="eyebrow">LaSalle Titans</p>
-        <h1>Contact</h1>
+        <h1>Diamond Status</h1>
       </div>
     </div>
   </header>
 
   <main class="wrap app-shell">
+    <section class="status-strip" aria-label="Diamond status summary">
+      <div>
+        <strong id="statusOpenCount">0</strong>
+        <span>open statuses</span>
+      </div>
+      <div>
+        <strong id="statusClosedCount">0</strong>
+        <span>closed statuses</span>
+      </div>
+      <div>
+        <strong id="statusUpdatedAt">--</strong>
+        <span>last live check</span>
+      </div>
+    </section>
+
     <section class="schedule-section contact-section">
       <div class="section-head">
-        <h2>Contacts</h2>
-        <span>Use these contacts for Titans schedule request questions.</span>
+        <h2>Current Field Conditions</h2>
+        <span id="diamondStatusMeta">Live from Turtle Club status.</span>
       </div>
-      <div class="contact-grid">
-        <article class="contact-card">
-          <h3>Aiden Carr / Ashton Carr</h3>
-          <a href="mailto:titansupdate@gmail.com">titansupdate@gmail.com</a>
-        </article>
-        <article class="contact-card">
-          <h3>Elliot Carr</h3>
-          <a href="mailto:ECarr@flexngate.com">ECarr@flexngate.com</a>
-        </article>
-        <article class="contact-card">
-          <h3>Bill Sivell</h3>
-          <a href="mailto:Bill.Sivell@hotmail.com">Bill.Sivell@hotmail.com</a>
-        </article>
+      <div id="diamondStatusList" class="diamond-status-list">
+        <p class="muted">Loading status...</p>
       </div>
     </section>
   </main>
+
+  <script src="diamond-status.js"></script>
 </body>
 </html>

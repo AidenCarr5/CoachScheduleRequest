@@ -1,41 +1,73 @@
 # CoachScheduleRequest
 
-Windows host-laptop setup is here:
+LaSalle Titans coach scheduling site with:
 
-- [HOST-LAPTOP-SETUP.md](</C:/Users/aiden/Documents/Codex/2026-04-27/okay-i-need-to-build-a/HOST-LAPTOP-SETUP.md>)
+- coach logins by team
+- admin approval workflow
+- live Turtle Club schedule refresh
+- Turtle Club create/cancel writeback after approval
+- Discord request notifications
+- email notifications for:
+  - new coach requests
+  - approval / rejection decisions
+  - diamond status alerts
 
-Public access with Cloudflare Quick Tunnel is here:
+## Best hosting option
 
-- [CLOUDFLARE-QUICK-TUNNEL.md](</C:/Users/aiden/Documents/Codex/2026-04-27/okay-i-need-to-build-a/CLOUDFLARE-QUICK-TUNNEL.md>)
+This app is best hosted on a real VM, not static hosting.
 
-Local secret/config example is here:
+Recommended:
 
-- [local-env.example.ps1](</C:/Users/aiden/Documents/Codex/2026-04-27/okay-i-need-to-build-a/local-env.example.ps1>)
+- DigitalOcean Droplet
+- Ubuntu 24.04 LTS
+- 2 GB RAM / 1 vCPU
 
-## Vercel
+Deployment guide:
 
-This repo is now structured to run on Vercel:
+- [DIGITALOCEAN-DEPLOY.md](</C:/Users/aiden/Documents/Codex/2026-04-27/okay-i-need-to-build-a/DIGITALOCEAN-DEPLOY.md>)
 
-- static frontend files are in `public/`
-- API routes are in `api/`
-- the admin password still defaults to `55aiden55`
+## Important files
 
-For Vercel, the important environment variables are:
+- Windows local env example:
+  - [local-env.example.ps1](</C:/Users/aiden/Documents/Codex/2026-04-27/okay-i-need-to-build-a/local-env.example.ps1>)
+- Linux server env example:
+  - [.env.example](</C:/Users/aiden/Documents/Codex/2026-04-27/okay-i-need-to-build-a/.env.example>)
+- PM2 process config:
+  - [ecosystem.config.js](</C:/Users/aiden/Documents/Codex/2026-04-27/okay-i-need-to-build-a/ecosystem.config.js>)
+- Nginx reverse proxy config:
+  - [deploy/nginx/titans-coach-scheduler.conf](</C:/Users/aiden/Documents/Codex/2026-04-27/okay-i-need-to-build-a/deploy/nginx/titans-coach-scheduler.conf>)
+
+## Local run
+
+```bash
+npm install
+npm start
+```
+
+Server health check:
+
+```bash
+http://127.0.0.1:4173/api/health
+```
+
+## Environment variables
+
+Required for production:
 
 - `ADMIN_PASSWORD`
 - `COACH_PASSWORD`
 - `SESSION_SECRET`
-- `SUPABASE_URL`
-- `SUPABASE_SERVICE_ROLE_KEY`
 - `DISCORD_WEBHOOK_URL`
+- `EMAIL_USER`
+- `EMAIL_APP_PASSWORD`
+- `EMAIL_FROM`
+- `EMAIL_ALERT_CC`
+- `TURTLE_CLUB_USERNAME`
+- `TURTLE_CLUB_PASSWORD`
 
-For reliable online request storage on Vercel, use Supabase instead of the local JSON fallback.
+## Notes
 
-## Coach Login
-
-Coaches sign in on the main page. Usernames are generated from the loaded team name, so
-`10U T1 (Picco)` becomes `Picco10U`. The default coach password is `password`, or whatever
-you set in `COACH_PASSWORD`.
-
-The admin can sign in to the main schedule page with username `admin` and the admin password
-to view all teams. The existing admin approval page still uses the same admin password.
+- coach usernames are generated from team names, for example `10U T1 (Picco)` becomes `Picco10U`
+- admin password defaults to `55aiden55` unless overridden
+- coach default password is `password` unless overridden
+- back-dated event creation is blocked by Turtle Club itself

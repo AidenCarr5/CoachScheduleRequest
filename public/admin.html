@@ -16,6 +16,7 @@
       <span>Coach Request Approval</span>
       <a class="topbar-link" href="/">Coach view</a>
       <a class="topbar-link" href="/availability.html">Diamond Availability</a>
+      <a class="topbar-link" href="/diamond-status.html">Diamond Status</a>
       <a class="topbar-link" href="/contact.html">Contact</a>
     </div>
   </div>
@@ -51,13 +52,27 @@
       <div class="section-head">
         <h2>Request Queue</h2>
         <div class="admin-toolbar">
-          <button id="resetScheduleBtn" class="warn-btn" type="button">Reset to Turtle Club</button>
+          <button id="refreshScheduleBtn" class="primary" type="button">Refresh from Turtle Club</button>
+          <button id="sendDiamondStatusEmailBtn" class="secondary" type="button">Send Diamond Status Email</button>
+          <button id="rescanTeamsBtn" class="secondary" type="button">Rescan Titans Teams</button>
           <button id="adminExportBtn" class="secondary" type="button">Download Excel</button>
           <button id="logoutBtn" class="secondary" type="button">Logout</button>
         </div>
       </div>
       <p id="adminMessage" class="admin-message"></p>
       <div id="adminRequestList" class="admin-request-list"></div>
+    </section>
+
+    <section id="coachAccountsPanel" class="admin-panel" hidden>
+      <div class="section-head">
+        <h2>Coach Logins</h2>
+        <div class="admin-toolbar">
+          <span>Generated from the current Titans teams on Turtle Club.</span>
+          <button id="saveCoachPasswordsBtn" class="primary" type="button">Save Coach Logins</button>
+        </div>
+      </div>
+      <p id="coachAccountsMessage" class="admin-message admin-message-neutral"></p>
+      <div id="coachAccountsList" class="coach-account-list"></div>
     </section>
   </main>
 

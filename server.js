@@ -4,6 +4,8 @@ const os = require('os');
 const path = require('path');
 const { URL } = require('url');
 const { handleApi, useSupabaseStore, notificationsEnabled, storageFile } = require('./lib/app-handler');
+const { refreshData } = require('./lib/data-store');
+const { checkForDiamondStatusAlerts, smtpConfigured } = require('./lib/diamond-status-monitor');
 
 const rootDir = __dirname;
 const publicDir = path.join(rootDir, 'public');
@@ -54,6 +56,61 @@ function serveStatic(res, pathname) {
   });
 }
 
+function nextDailyRefreshTime() {
+  const next = new Date();
+  next.setHours(8, 0, 0, 0);
+  if (next <= new Date()) next.setDate(next.getDate() + 1);
+  return next;
+}
+
+async function runScheduledRefresh(reason) {
+  const startedAt = new Date();
+  console.log(`[schedule] ${reason} refresh started at ${startedAt.toLocaleString()}`);
+  try {
+    const data = await refreshData();
+    console.log(`[schedule] refresh complete (${data.schedule.length} events) at ${new Date().toLocaleString()}`);
+  } catch (error) {
+    console.error(`[schedule] refresh failed: ${error.message}`);
+  }
+}
+
+function scheduleDailyRefresh() {
+  const nextRun = nextDailyRefreshTime();
+  const delay = Math.max(1000, nextRun.getTime() - Date.now());
+  console.log(`[schedule] next automatic refresh at ${nextRun.toLocaleString()}`);
+  setTimeout(async () => {
+    await runScheduledRefresh('8:00 AM automatic');
+    scheduleDailyRefresh();
+  }, delay);
+}
+
+async function runDiamondStatusMonitor(reason) {
+  if (!smtpConfigured()) {
+    console.log(`[diamond-status] ${reason}: email sender not configured`);
+    return;
+  }
+  try {
+    const result = await checkForDiamondStatusAlerts();
+    if (result.delivered.length) {
+      console.log(`[diamond-status] ${reason}: sent ${result.delivered.length} alert batch(es)`);
+    } else {
+      console.log(`[diamond-status] ${reason}: no new status alerts`);
+    }
+  } catch (error) {
+    console.error(`[diamond-status] ${reason} failed: ${error.message}`);
+  }
+}
+
+function scheduleDiamondStatusMonitor() {
+  console.log('[diamond-status] monitoring every 20 minutes');
+  setTimeout(() => {
+    runDiamondStatusMonitor('startup baseline');
+  }, 3000);
+  setInterval(() => {
+    runDiamondStatusMonitor('20-minute check');
+  }, 20 * 60 * 1000);
+}
+
 const server = http.createServer(async (req, res) => {
   try {
     const url = new URL(req.url, `http://${req.headers.host}`);
@@ -89,4 +146,11 @@ server.listen(port, '0.0.0.0', () => {
   } else {
     console.log('Discord notifications: disabled (set DISCORD_WEBHOOK_URL to enable)');
   }
+  if (smtpConfigured()) {
+    console.log('Email alerts: enabled');
+  } else {
+    console.log('Email alerts: disabled (set EMAIL_USER and EMAIL_APP_PASSWORD to enable)');
+  }
+  scheduleDailyRefresh();
+  scheduleDiamondStatusMonitor();
 });

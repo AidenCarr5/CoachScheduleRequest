@@ -5,53 +5,82 @@ const configPath = path.join(__dirname, 'config.json');
 const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 const seasonYear = config.seasonYear === 'auto' ? new Date().getFullYear() : Number(config.seasonYear);
 const baseUrl = 'https://turtleclubbaseball.com';
+const loginUrl = `${baseUrl}/Account/Login/?ReturnUrl=%2fCP%2f`;
+const turtleClubUsername = process.env.TURTLE_CLUB_USERNAME || '';
+const turtleClubPassword = process.env.TURTLE_CLUB_PASSWORD || '';
+const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const titanTeamPattern = /((?:\d+U(?:\s*T\d+)?|8U\/9U)\s*\([^)]+\))/g;
 
 function strip(value) {
   return String(value || '')
     .replace(/<[^>]*>/g, ' ')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&bull;/g, '•')
-    .replace(/\u00e2\u20ac\u00a2/g, '•')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&bull;|&#8226;/gi, ' - ')
     .replace(/&#39;/g, "'")
     .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
     .replace(/\s+/g, ' ')
     .trim();
 }
 
 function monthName(month) {
-  return ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][month - 1];
+  return monthNames[month - 1];
+}
+
+function monthNumber(name) {
+  return monthNames.findIndex((item) => item.toLowerCase() === String(name || '').slice(0, 3).toLowerCase()) + 1;
 }
 
 function fullDate(day, month, year) {
-  const dayNumber = (day.match(/\d+/) || [''])[0].padStart(2, '0');
+  const dayNumber = (String(day || '').match(/\d+/) || [''])[0].padStart(2, '0');
   return `${year}-${String(month).padStart(2, '0')}-${dayNumber}`;
+}
+
+function monthLabelFromDate(date) {
+  const match = String(date || '').match(/^(\d{4})-(\d{2})-/);
+  if (!match) return '';
+  return `${monthName(Number(match[2]))} ${match[1]}`;
 }
 
 function eventKind(type) {
   const normalized = String(type || '').toLowerCase();
-  if (normalized.includes('practice')) return 'Practice';
+  if (normalized.includes('shared practice') || normalized.includes('practice')) return 'Practice';
+  if (normalized.includes('tryout')) return 'Tryout';
   if (normalized.includes('away')) return 'Away Game';
   if (normalized.includes('home')) return 'Home Game';
-  if (normalized.includes('local')) return 'Local Game';
+  if (normalized.includes('tournament')) return 'Tournament';
   return type || 'Event';
 }
 
 function isTitansTeam(team) {
-  return /^(\d+U|8U\/9U|9U|Titans)/.test(team);
+  return /^(\d+U(?:\s*T\d+)?|8U\/9U)\s*\([^)]+\)$/.test(strip(team));
+}
+
+function extractTitansTeams(text) {
+  const matches = [...strip(text).matchAll(titanTeamPattern)].map((match) => match[1].trim());
+  return [...new Set(matches.filter(Boolean))];
 }
 
 function titansTeamFromOwner(owner) {
   const normalized = strip(owner);
-  const match = normalized.match(/^Titans\s*(?:•|â€¢|\u2022)\s*(.+)$/);
+  const match = normalized.match(/^Titans\s*(?:-|.)\s*(.+)$/);
   return match ? match[1].trim() : '';
+}
+
+function configuredMonths() {
+  return [...new Set([
+    ...(config.scheduleMonths || []),
+    ...(config.practiceMonths || [])
+  ].map(Number).filter(Boolean))].sort((a, b) => a - b);
 }
 
 function localCalendarMonths(availability = []) {
   const availabilityMonths = availability
     .map((slot) => Number(String(slot.date || '').slice(5, 7)))
     .filter(Boolean);
-  return [...new Set([...(config.scheduleMonths || []), ...(config.practiceMonths || []), ...availabilityMonths])].sort((a, b) => a - b);
+  return [...new Set([...(configuredMonths() || []), ...availabilityMonths])].sort((a, b) => a - b);
 }
 
 async function fetchText(url) {
@@ -62,6 +91,334 @@ async function fetchText(url) {
   });
   if (!response.ok) throw new Error(`Failed to fetch ${url}: ${response.status}`);
   return response.text();
+}
+
+function parseHiddenInput(html, name) {
+  const match = html.match(new RegExp(`name="${name}"[^>]*value="([^"]*)"`, 'i'));
+  return match ? match[1] : '';
+}
+
+function storeCookies(session, response) {
+  const setCookies = typeof response.headers.getSetCookie === 'function'
+    ? response.headers.getSetCookie()
+    : (response.headers.get('set-cookie') ? [response.headers.get('set-cookie')] : []);
+  for (const cookie of setCookies) {
+    const pair = String(cookie).split(';')[0];
+    const separator = pair.indexOf('=');
+    if (separator <= 0) continue;
+    const name = pair.slice(0, separator).trim();
+    const value = pair.slice(separator + 1).trim();
+    session.cookies.set(name, value);
+  }
+}
+
+function sessionCookieHeader(session) {
+  return [...session.cookies.entries()].map(([name, value]) => `${name}=${value}`).join('; ');
+}
+
+async function fetchWithSession(url, session, options = {}) {
+  const headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
+    ...(options.headers || {})
+  };
+  const cookieHeader = sessionCookieHeader(session);
+  if (cookieHeader) headers.Cookie = cookieHeader;
+
+  const response = await fetch(url, {
+    method: options.method || 'GET',
+    headers,
+    body: options.body,
+    redirect: options.redirect || 'follow'
+  });
+  storeCookies(session, response);
+  return response;
+}
+
+async function createAuthenticatedSession() {
+  if (!turtleClubUsername || !turtleClubPassword) return null;
+
+  const session = { cookies: new Map() };
+  const loginPage = await fetchWithSession(loginUrl, session);
+  if (!loginPage.ok) {
+    console.warn(`Unable to open Turtle Club login page: ${loginPage.status}`);
+    return null;
+  }
+
+  const html = await loginPage.text();
+  const body = new URLSearchParams({
+    __VIEWSTATE: parseHiddenInput(html, '__VIEWSTATE'),
+    __VIEWSTATEGENERATOR: parseHiddenInput(html, '__VIEWSTATEGENERATOR'),
+    __EVENTVALIDATION: parseHiddenInput(html, '__EVENTVALIDATION'),
+    'ctl00$cMain$ctl39$lMain$UserName': turtleClubUsername,
+    'ctl00$cMain$ctl39$lMain$Password': turtleClubPassword,
+    'ctl00$cMain$ctl39$lMain$LoginButton': 'Log In'
+  });
+
+  const loginResponse = await fetchWithSession(loginUrl, session, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body,
+    redirect: 'manual'
+  });
+
+  const location = loginResponse.headers.get('location');
+  if (location) {
+    await fetchWithSession(new URL(location, baseUrl).toString(), session);
+  }
+
+  const controlPanel = await fetchWithSession(`${baseUrl}/cp/`, session);
+  const controlPanelHtml = await controlPanel.text();
+  if (/Login Page|Forgot Password/i.test(controlPanelHtml)) {
+    console.warn('Turtle Club credentials were provided, but the authenticated schedule session could not be established.');
+    return null;
+  }
+
+  return session;
+}
+
+function splitTimeRange(value) {
+  const clean = strip(value);
+  const match = clean.match(/^(\d{1,2}:\d{2}\s*(?:AM|PM))(?:\s*-\s*(\d{1,2}:\d{2}\s*(?:AM|PM)))?$/i);
+  if (!match) return { start: clean, end: '' };
+  return { start: match[1], end: match[2] || '' };
+}
+
+function minutesFromDisplay(value) {
+  const match = String(value || '').trim().match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+  if (!match) return NaN;
+  let hours = Number(match[1]) % 12;
+  const mins = Number(match[2]);
+  if (match[3].toUpperCase() === 'PM') hours += 12;
+  return hours * 60 + mins;
+}
+
+function extractBalancedDiv(html, startIndex) {
+  let depth = 0;
+  let cursor = startIndex;
+  while (cursor < html.length) {
+    const nextOpen = html.indexOf('<div', cursor);
+    const nextClose = html.indexOf('</div>', cursor);
+    if (nextClose === -1) return '';
+    if (nextOpen !== -1 && nextOpen < nextClose) {
+      depth += 1;
+      cursor = nextOpen + 4;
+      continue;
+    }
+    depth -= 1;
+    cursor = nextClose + 6;
+    if (depth === 0) return html.slice(startIndex, cursor);
+  }
+  return '';
+}
+
+function extractPnlBlocks(cellHtml) {
+  const blocks = [];
+  let cursor = 0;
+  while (cursor < cellHtml.length) {
+    const marker = cellHtml.indexOf('<div class="pnl', cursor);
+    if (marker === -1) break;
+    const block = extractBalancedDiv(cellHtml, marker);
+    if (!block) break;
+    blocks.push(block);
+    cursor = marker + block.length;
+  }
+  return blocks;
+}
+
+function parseCpDateLabel(label) {
+  const match = strip(label).match(/([A-Za-z]{3})\s+(\d{1,2})/);
+  if (!match) return '';
+  return `${seasonYear}-${String(monthNumber(match[1])).padStart(2, '0')}-${String(Number(match[2])).padStart(2, '0')}`;
+}
+
+function extractTableCells(rowHtml) {
+  return [...rowHtml.matchAll(/<td\b([^>]*)>([\s\S]*?)<\/td>/gi)].map((match) => {
+    const colspan = Number((match[1].match(/colspan="(\d+)"/i) || [])[1] || 1);
+    return {
+      colspan,
+      content: match[2]
+    };
+  });
+}
+
+function parseCpEventBlock(block, date) {
+  const className = (block.match(/<div class="(pnl[^"\s]+)/i) || [])[1] || '';
+  const eventId = (block.match(/multischedule_edit\((\d+),'[^']+'\)/) || block.match(/(?:del|cmd)_[A-Za-z]+_(\d+)/) || [])[1] || '';
+  const teams = [...block.matchAll(/<div class="team">([\s\S]*?)<\/div>/gi)].map((match) => strip(match[1])).filter(Boolean);
+  const organization = teams[0] || '';
+  const rawTeam = teams[teams.length - 1] || organization || 'Turtle Club';
+  const timeText = strip((block.match(/<div class="time">([\s\S]*?)<\/div>/i) || [])[1] || '');
+  const venue = strip((block.match(/<div class="venue[^"]*">([\s\S]*?)<\/div>/i) || [])[1] || '');
+  const subject = strip((block.match(/<div class="subject">([\s\S]*?)<\/div>/i) || [])[1] || '');
+  const opponent = strip((block.match(/<div class="opponent">([\s\S]*?)<\/div>/i) || [])[1] || '');
+  if (!timeText || !venue) return null;
+
+  const teamLabel = organization && organization !== 'Titans' ? `${organization} - ${rawTeam}` : rawTeam;
+  const timeRange = splitTimeRange(timeText);
+  let type = subject || 'Practice';
+  if (/pnlAway/i.test(className)) type = 'Away Game';
+  if (/pnlHome/i.test(className)) type = 'Home Game';
+  if (/pnlTour/i.test(className)) type = 'Tournament';
+  const titansTeams = organization === 'Titans'
+    ? (extractTitansTeams(rawTeam).length ? extractTitansTeams(rawTeam) : (isTitansTeam(rawTeam) ? [rawTeam] : []))
+    : [];
+
+  return {
+    id: eventId ? `tc-cp-${eventId}` : `tc-cp-${date}-${teamLabel}-${venue}-${timeText}`,
+    date,
+    month: monthLabelFromDate(date),
+    time: timeRange.start,
+    endTime: timeRange.end,
+    durationMinutes: timeRange.end ? null : 120,
+    type,
+    eventKind: eventKind(type),
+    team: teamLabel,
+    opponent: opponent || subject || type,
+    diamond: venue,
+    status: 'Scheduled',
+    source: 'Turtle Club Control Panel',
+    titansTeams
+  };
+}
+
+function parseCpCalendar(html, allowedMonths) {
+  const tableMatch = html.match(/<table class="standard calendar">([\s\S]*?)<\/table>/i);
+  if (!tableMatch) return [];
+
+  const rows = [...tableMatch[1].matchAll(/<tr\b([^>]*)>([\s\S]*?)<\/tr>/gi)];
+  const events = [];
+  let currentDates = [];
+
+  for (const row of rows) {
+    const rowClass = (row[1].match(/class="([^"]+)"/i) || [])[1] || '';
+    const cells = extractTableCells(row[2]);
+    if (rowClass.includes('dates')) {
+      currentDates = [];
+      let dateIndex = 0;
+      for (const cell of cells) {
+        const date = parseCpDateLabel(cell.content);
+        for (let offset = 0; offset < cell.colspan; offset += 1) {
+          currentDates[dateIndex + offset] = date;
+        }
+        dateIndex += cell.colspan;
+      }
+      continue;
+    }
+
+    if (!currentDates.length || rowClass.includes('head') || rowClass.includes('dayofweek')) continue;
+
+    let dateIndex = 0;
+    for (const cell of cells) {
+      const date = currentDates[dateIndex];
+      if (date && allowedMonths.has(Number(date.slice(5, 7)))) {
+        for (const block of extractPnlBlocks(cell.content)) {
+          const event = parseCpEventBlock(block, date);
+          if (event) events.push(event);
+        }
+      }
+      dateIndex += cell.colspan;
+    }
+  }
+
+  return events;
+}
+
+function parseCpAvailability(html, allowedMonths) {
+  const sectionMatch = html.match(/<h4>Open Field Bookings<\/h4><div class="list"><ul class="availabilities">([\s\S]*?)<\/ul><\/div>/i);
+  if (!sectionMatch) return [];
+
+  const availability = [];
+  const items = [...sectionMatch[1].matchAll(/<li class="boxed">([\s\S]*?)<\/li>/gi)];
+  for (const item of items) {
+    const venue = strip((item[1].match(/<div class="venue">([\s\S]*?)<\/div>/i) || [])[1] || '');
+    if (!venue) continue;
+    const openings = [...item[1].matchAll(/<div class="opening[^"]*">([\s\S]*?)<\/div>/gi)];
+    for (const opening of openings) {
+      const text = strip((opening[1].match(/<\/span>([\s\S]*)$/i) || [])[1] || '');
+      const match = text.match(/^[A-Za-z]{3}\s+([A-Za-z]{3})\s+(\d{1,2})\s+(\d{1,2}:\d{2}\s*(?:AM|PM))-(\d{1,2}:\d{2}\s*(?:AM|PM))$/i);
+      if (!match) continue;
+      const month = monthNumber(match[1]);
+      if (!allowedMonths.has(month)) continue;
+      availability.push({
+        diamond: venue,
+        date: `${seasonYear}-${String(month).padStart(2, '0')}-${String(Number(match[2])).padStart(2, '0')}`,
+        start: match[3],
+        end: match[4],
+        mins: minutesFromDisplay(match[4]) - minutesFromDisplay(match[3]),
+        source: 'Turtle Club Control Panel'
+      });
+    }
+  }
+
+  return availability;
+}
+
+function dedupe(events) {
+  const seen = new Set();
+  return events.filter((event) => {
+    const key = `${event.date}|${event.time}|${event.endTime}|${event.team}|${event.eventKind}|${event.diamond}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function dedupeAvailability(availability) {
+  const seen = new Set();
+  return availability.filter((slot) => {
+    const key = `${slot.date}|${slot.diamond}|${slot.start}|${slot.end}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function cpScheduleUrl() {
+  return `${baseUrl}/CP/Content/Scheduling/Schedule.aspx?ParentID=${config.teamCategoryId}`;
+}
+
+async function fetchCpScheduleHtml(session, viewDate) {
+  session.cookies.set('Scheduling_ViewDate', `${viewDate.getDate()}/${viewDate.getMonth() + 1}/${viewDate.getFullYear()}`);
+  const response = await fetchWithSession(cpScheduleUrl(), session);
+  if (!response.ok) throw new Error(`Failed to fetch authenticated schedule page: ${response.status}`);
+  const html = await response.text();
+  if (/Login Page|Forgot Password|Human Verification/i.test(html)) {
+    throw new Error('Authenticated Turtle Club schedule request did not return the scheduling page.');
+  }
+  return html;
+}
+
+async function loadCpSchedule(schedule, conflictEvents, availability, session) {
+  const months = configuredMonths();
+  if (!months.length) return false;
+
+  const allowedMonths = new Set(months);
+  const startDate = new Date(seasonYear, months[0] - 1, 1);
+  const endDate = new Date(seasonYear, months[months.length - 1], 0);
+  const cursor = new Date(startDate);
+
+  while (cursor <= endDate) {
+    const html = await fetchCpScheduleHtml(session, cursor);
+    const cpEvents = parseCpCalendar(html, allowedMonths);
+    cpEvents.forEach((event) => {
+      const conflictEvent = { ...event };
+      delete conflictEvent.titansTeams;
+      conflictEvents.push(conflictEvent);
+      if (event.titansTeams && event.titansTeams.length) {
+        event.titansTeams.forEach((team, index) => {
+          schedule.push({
+            ...conflictEvent,
+            id: index === 0 ? conflictEvent.id : `${conflictEvent.id}-${index + 1}`,
+            team
+          });
+        });
+      }
+    });
+    availability.push(...parseCpAvailability(html, allowedMonths));
+    cursor.setDate(cursor.getDate() + 7);
+  }
+
+  return schedule.length > 0;
 }
 
 async function loadGames(schedule, conflictEvents) {
@@ -82,7 +439,7 @@ async function loadGames(schedule, conflictEvents) {
           id: `tc-game-${month}-${++index}`,
           date: fullDate(day, month, seasonYear),
           month: `${monthName(month)} ${seasonYear}`,
-          time: time.trim(),
+          time: strip(time),
           endTime: '',
           durationMinutes: 120,
           type,
@@ -100,11 +457,13 @@ async function loadGames(schedule, conflictEvents) {
   }
 }
 
-async function loadFullCalendar(schedule, conflictEvents, teams, availability) {
+async function loadFullCalendar(schedule, conflictEvents, teams, availability, session) {
   const months = localCalendarMonths(availability);
   for (const month of months) {
     const url = `${baseUrl}/Calendar/?Month=${month}&Year=${seasonYear}`;
-    const html = await fetchText(url);
+    const html = session
+      ? await (await fetchWithSession(url, session)).text()
+      : await fetchText(url);
     if (/Human Verification/i.test(html)) {
       console.warn(`Skipped full calendar for ${monthName(month)} ${seasonYear}: human verification page returned.`);
       continue;
@@ -114,8 +473,8 @@ async function loadFullCalendar(schedule, conflictEvents, teams, availability) {
     for (const body of items) {
       const href = body.match(/href="[^"]*\?Day=(\d+)&(?:amp;)?Month=(\d+)&(?:amp;)?Year=(\d+)/);
       if (!href) continue;
-      const monthNumber = Number(href[2]);
-      if (!months.includes(monthNumber)) continue;
+      const monthValue = Number(href[2]);
+      if (!months.includes(monthValue)) continue;
 
       const time = strip((body.match(/<div class="time-primary">([\s\S]*?)<\/div>/) || [])[1] || '');
       const endTime = strip((body.match(/<div class="time-secondary">([\s\S]*?)<\/div>/) || [])[1] || '').replace(/^-/, '');
@@ -130,7 +489,7 @@ async function loadFullCalendar(schedule, conflictEvents, teams, availability) {
       const event = {
         id: `tc-calendar-${month}-${++index}`,
         date: `${href[3]}-${href[2].padStart(2, '0')}-${href[1].padStart(2, '0')}`,
-        month: `${monthName(monthNumber)} ${href[3]}`,
+        month: `${monthName(monthValue)} ${href[3]}`,
         time,
         endTime,
         durationMinutes: time && endTime ? null : 120,
@@ -163,54 +522,60 @@ async function loadAvailability() {
       const [, date, start, end, mins] = row;
       const match = date.match(/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d+)/);
       if (!match) continue;
-      const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].indexOf(match[1]) + 1;
+      const month = monthNumber(match[1]);
       availability.push({
         diamond,
         date: `${seasonYear}-${String(month).padStart(2, '0')}-${match[2].padStart(2, '0')}`,
         start,
         end,
-        mins: Number(mins)
+        mins: Number(mins),
+        source: 'Turtle Club availability'
       });
     }
   }
   return availability;
 }
 
-function dedupe(events) {
-  const seen = new Set();
-  return events.filter((event) => {
-    const key = `${event.date}|${event.time}|${event.endTime}|${event.team}|${event.eventKind}|${event.diamond}`;
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
-}
-
 async function generateData() {
   const schedule = [];
   const conflictEvents = [];
-  await loadGames(schedule, conflictEvents);
-  const teams = [...new Set(schedule.map((event) => event.team))].sort();
-  const availability = await loadAvailability();
-  await loadFullCalendar(schedule, conflictEvents, teams, availability);
+  const availability = [];
+  const session = await createAuthenticatedSession();
+  let usedControlPanel = false;
+
+  if (session) {
+    try {
+      usedControlPanel = await loadCpSchedule(schedule, conflictEvents, availability, session);
+    } catch (error) {
+      console.warn(`Falling back to public Turtle Club pages: ${error.message}`);
+    }
+  }
+
+  if (!usedControlPanel) {
+    await loadGames(schedule, conflictEvents);
+    const teams = [...new Set(schedule.map((event) => event.team))].sort();
+    availability.push(...await loadAvailability());
+    await loadFullCalendar(schedule, conflictEvents, teams, availability, session);
+  }
 
   schedule.sort((a, b) => `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`));
-  const deduped = dedupe(schedule);
+  const dedupedSchedule = dedupe(schedule);
   const dedupedConflicts = dedupe(conflictEvents);
-  const data = {
+  const dedupedAvailability = dedupeAvailability(availability).sort((a, b) => `${a.date} ${a.start} ${a.diamond}`.localeCompare(`${b.date} ${b.start} ${b.diamond}`));
+  const teams = [...new Set(dedupedSchedule.map((event) => event.team))].sort();
+
+  return {
     seasonYear,
     brandName: config.brandName,
     scrapedAt: new Date().toISOString(),
-    sourceSchedule: `${baseUrl}/Categories/${config.teamCategoryId}/Schedule/`,
-    sourceCalendar: `${baseUrl}/Calendar/`,
-    sourceAvailability: `${baseUrl}/Availabilities/${config.availabilityId}/`,
+    sourceSchedule: usedControlPanel ? cpScheduleUrl() : `${baseUrl}/Categories/${config.teamCategoryId}/Schedule/`,
+    sourceCalendar: usedControlPanel ? cpScheduleUrl() : `${baseUrl}/Calendar/`,
+    sourceAvailability: usedControlPanel ? cpScheduleUrl() : `${baseUrl}/Availabilities/${config.availabilityId}/`,
     teams,
-    schedule: deduped,
+    schedule: dedupedSchedule,
     conflictEvents: dedupedConflicts,
-    availability
+    availability: dedupedAvailability
   };
-
-  return data;
 }
 
 function writeDataFile(data, targetPath = path.join(__dirname, 'data.js')) {
@@ -234,7 +599,8 @@ async function main() {
 
 module.exports = {
   generateData,
-  writeDataFile
+  writeDataFile,
+  parseCpCalendar
 };
 
 if (require.main === module) {

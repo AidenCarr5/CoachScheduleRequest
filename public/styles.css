@@ -166,6 +166,75 @@ h2 { font-size: 24px; }
   font-size: 14px;
 }
 
+.login-status {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 10px;
+  padding: 16px 18px;
+  background:
+    linear-gradient(180deg, rgba(0, 68, 17, 0.04), rgba(215, 184, 75, 0.08));
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--green);
+}
+
+.login-status-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.login-status-head strong {
+  color: var(--green);
+  font: 600 20px Oswald, Arial, sans-serif;
+}
+
+.login-status-head span {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.login-status-detail {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.titans-loader {
+  position: relative;
+  overflow: hidden;
+  height: 14px;
+  background: #dde5da;
+  border: 1px solid #c8d3c4;
+}
+
+.titans-loader::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.22) 0 10px,
+      transparent 10px 20px
+    );
+  pointer-events: none;
+}
+
+.titans-loader-bar {
+  height: 100%;
+  width: 6%;
+  background: linear-gradient(90deg, var(--green), var(--green-2) 60%, var(--gold));
+  transition: width 0.35s ease;
+}
+
+.titans-loader-bar.complete {
+  background: linear-gradient(90deg, var(--green), var(--gold));
+}
+
 .coach-panel,
 .status-strip,
 .schedule-section,
@@ -188,6 +257,10 @@ h2 { font-size: 24px; }
 }
 
 .field.grow { flex: 1; }
+
+.muted {
+  color: var(--muted);
+}
 
 label {
   font-size: 12px;
@@ -217,6 +290,30 @@ button {
   padding: 0 15px;
   font-weight: 700;
   cursor: pointer;
+}
+
+.view-switch {
+  display: inline-grid;
+  grid-template-columns: repeat(2, minmax(94px, 1fr));
+  border: 1px solid #cbd3c8;
+  background: #e6e9e3;
+}
+
+.view-tab {
+  min-height: 40px;
+  padding: 0 14px;
+  color: var(--green);
+  background: transparent;
+  border-right: 1px solid #cbd3c8;
+}
+
+.view-tab:last-child {
+  border-right: 0;
+}
+
+.view-tab.active {
+  color: white;
+  background: var(--green);
 }
 
 .primary {
@@ -299,6 +396,60 @@ button {
   overflow-wrap: anywhere;
 }
 
+.diamond-status-list {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+}
+
+.diamond-status-group {
+  display: grid;
+  gap: 12px;
+}
+
+.diamond-status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.diamond-status-card {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+  background: var(--wash);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--muted);
+}
+
+.diamond-status-card.open { border-left-color: var(--good); }
+.diamond-status-card.closed { border-left-color: var(--bad); }
+.diamond-status-card.unknown { border-left-color: var(--gold); }
+
+.diamond-status-head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.diamond-status-head strong {
+  color: var(--green);
+  font: 600 23px Oswald, Arial, sans-serif;
+}
+
+.diamond-status-head span {
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.diamond-status-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
 .section-head {
   display: flex;
   align-items: center;
@@ -313,11 +464,72 @@ button {
   font-size: 14px;
 }
 
+.subsection-head {
+  border-top: 1px solid var(--line);
+}
+
 .schedule-list,
 .request-list {
   display: grid;
   gap: 14px;
   padding: 14px;
+}
+
+.request-card {
+  position: relative;
+  display: grid;
+  gap: 6px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--gold);
+  background: #fffdf5;
+}
+
+.request-card.approved {
+  border-left-color: var(--good);
+  background: #f3fbf5;
+}
+
+.request-card.rejected {
+  border-left-color: var(--bad);
+  background: #fff3f1;
+}
+
+.request-card span,
+.request-card strong {
+  overflow-wrap: anywhere;
+}
+
+.request-dismiss {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  min-height: 0;
+  padding: 0;
+  width: 22px;
+  height: 22px;
+  border: 0;
+  color: #889387;
+  background: transparent;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.request-dismiss:hover {
+  color: var(--ink);
+  background: #eef1eb;
+}
+
+.request-meta {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.request-note {
+  margin-top: 2px;
+  padding-top: 8px;
+  color: var(--ink);
+  border-top: 1px solid rgba(24, 32, 24, 0.12);
 }
 
 .month-group {
@@ -348,6 +560,137 @@ button {
 .month-events {
   display: grid;
   gap: 10px;
+}
+
+.calendar-view {
+  display: grid;
+  gap: 18px;
+  padding: 14px;
+}
+
+.calendar-shell,
+.calendar-detail {
+  display: grid;
+  gap: 12px;
+}
+
+.calendar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.calendar-head h3 {
+  margin: 0;
+  color: var(--green);
+  font: 600 22px Oswald, Arial, sans-serif;
+}
+
+.calendar-head span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.calendar-weekday {
+  padding: 10px 8px;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.calendar-day {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-height: 152px;
+  padding: 12px;
+  text-align: left;
+  border: 1px solid var(--line);
+  border-top: 4px solid transparent;
+  background: #fff;
+}
+
+.calendar-day.filler {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.calendar-day.empty {
+  background: #f8faf7;
+}
+
+.calendar-day.has-events {
+  border-top-color: var(--gold);
+}
+
+.calendar-day.active {
+  border-color: rgba(0, 68, 17, 0.35);
+  border-top-color: var(--green);
+  box-shadow: 0 12px 28px rgba(0, 68, 17, 0.12);
+}
+
+.calendar-date {
+  color: var(--green);
+  font: 600 24px Oswald, Arial, sans-serif;
+  line-height: 1;
+}
+
+.calendar-count {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.calendar-preview {
+  display: grid;
+  gap: 6px;
+  align-content: start;
+}
+
+.calendar-pill,
+.calendar-more {
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  padding: 4px 8px;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.calendar-pill {
+  color: white;
+  background: var(--green);
+}
+
+.calendar-pill.away {
+  background: var(--away);
+}
+
+.calendar-pill.practice {
+  background: var(--practice);
+}
+
+.calendar-pill.strike {
+  opacity: 0.74;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+.calendar-more {
+  color: var(--green);
+  background: #edf2ea;
 }
 
 .availability-section {
@@ -633,7 +976,7 @@ button {
   font-size: 14px;
 }
 
-.empty::before {
+.request-list.empty::before {
   content: "No updates queued yet.";
   display: block;
   color: var(--muted);
@@ -671,6 +1014,84 @@ dialog {
   padding: 16px;
 }
 
+.coach-account-list {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+.coach-account-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 16px;
+  padding: 16px 18px;
+  background: var(--wash);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--gold);
+}
+
+.coach-account-card p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.coach-account-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.coach-account-password {
+  display: grid;
+  gap: 4px;
+  justify-items: end;
+  text-align: right;
+}
+
+.coach-account-email {
+  display: grid;
+  gap: 4px;
+  justify-items: end;
+  text-align: right;
+}
+
+.coach-account-password label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.coach-account-email label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.coach-account-password input {
+  width: 180px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--green);
+  font: 600 18px Oswald, Arial, sans-serif;
+}
+
+.coach-account-email input {
+  width: 240px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  font: inherit;
+}
+
+.admin-message-neutral {
+  color: var(--muted);
+}
+
 .admin-request-card {
   border: 1px solid var(--line);
   border-left: 5px solid var(--gold);
@@ -706,6 +1127,14 @@ dialog {
 .admin-request-card p {
   margin: 8px 0 0;
   color: var(--muted);
+}
+
+.admin-note-label {
+  margin-top: 12px;
+}
+
+.admin-note-input {
+  min-height: 88px;
 }
 
 dialog::backdrop { background: rgba(0,0,0,.45); }
@@ -790,6 +1219,15 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
     align-items: stretch;
   }
 
+  .login-status-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .login-status-head span {
+    text-align: left;
+  }
+
   .source {
     justify-items: start;
     text-align: left;
@@ -797,7 +1235,8 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
 
   .status-strip,
   .layout,
-  .contact-grid { grid-template-columns: 1fr; }
+  .contact-grid,
+  .diamond-status-grid { grid-template-columns: 1fr; }
 
   .status-strip div {
     border-right: 0;
@@ -813,7 +1252,21 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
     align-items: start;
   }
 
+  .calendar-day {
+    min-height: 96px;
+    padding: 8px;
+  }
+
+  .calendar-date {
+    font-size: 20px;
+  }
+
+  .calendar-preview {
+    display: none;
+  }
+
   .section-head,
+  .calendar-head,
   .month-head,
   .dialog-head,
   .dialog-actions,
@@ -836,7 +1289,36 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
   .admin-toolbar button,
   .coach-panel button,
   .admin-form button,
-  .dialog-actions button {
+  .dialog-actions button,
+  .view-switch {
+    width: 100%;
+  }
+
+  .coach-account-card,
+  .diamond-status-head {
+    flex-direction: column;
+  }
+
+  .coach-account-fields {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .coach-account-password {
+    justify-items: start;
+    text-align: left;
+  }
+
+  .coach-account-email {
+    justify-items: start;
+    text-align: left;
+  }
+
+  .coach-account-password input {
+    width: 100%;
+  }
+
+  .coach-account-email input {
     width: 100%;
   }
 

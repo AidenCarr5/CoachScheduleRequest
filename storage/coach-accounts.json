@@ -1,0 +1,94 @@
+{
+  "accounts": [
+    {
+      "username": "Picco10U",
+      "password": "password",
+      "email": "titansupdate@gmail.com",
+      "team": "10U T1 (Picco)"
+    },
+    {
+      "username": "Martin10U",
+      "password": "password",
+      "email": "titansupdate@gmail.com",
+      "team": "10U T2 (Martin)"
+    },
+    {
+      "username": "Sivell11U",
+      "password": "password",
+      "email": "titansupdate@gmail.com",
+      "team": "11U T1 (Sivell)"
+    },
+    {
+      "username": "Dufour11U",
+      "password": "password",
+      "email": "titansupdate@gmail.com",
+      "team": "11U T2 (Dufour)"
+    },
+    {
+      "username": "Hotts12U",
+      "password": "password",
+      "email": "titansupdate@gmail.com",
+      "team": "12U T1 (Hotts)"
+    },
+    {
+      "username": "Palubiski12U",
+      "password": "password",
+      "email": "titansupdate@gmail.com",
+      "team": "12U T2 (Palubiski)"
+    },
+    {
+      "username": "Baker13U",
+      "password": "password",
+      "email": "titansupdate@gmail.com",
+      "team": "13U T1 (Baker)"
+    },
+    {
+      "username": "vanWezel14U",
+      "password": "password",
+      "email": "titansupdate@gmail.com",
+      "team": "14U T1 (vanWezel)"
+    },
+    {
+      "username": "Soltis14U",
+      "password": "password",
+      "email": "titansupdate@gmail.com",
+      "team": "14U T2 (Soltis)"
+    },
+    {
+      "username": "Nickleson15U",
+      "password": "password",
+      "email": "titansupdate@gmail.com",
+      "team": "15U T1 (Nickleson)"
+    },
+    {
+      "username": "Layson16U",
+      "password": "password",
+      "email": "titansupdate@gmail.com",
+      "team": "16U T1 (Layson)"
+    },
+    {
+      "username": "Diotte18U",
+      "password": "password",
+      "email": "titansupdate@gmail.com",
+      "team": "18U T1 (Diotte)"
+    },
+    {
+      "username": "Ellwood8U",
+      "password": "password",
+      "email": "titansupdate@gmail.com",
+      "team": "8U (Ellwood)"
+    },
+    {
+      "username": "Wachna8U9U",
+      "password": "password",
+      "email": "titansupdate@gmail.com",
+      "team": "8U/9U (Wachna)"
+    },
+    {
+      "username": "Shaw9U",
+      "password": "password",
+      "email": "titansupdate@gmail.com",
+      "team": "9U (Shaw)"
+    }
+  ]
+}

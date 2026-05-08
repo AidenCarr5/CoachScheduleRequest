@@ -17,8 +17,7 @@
     const payload = await response.json();
     state.days = payload.days || [];
     state.diamonds = payload.diamonds || [];
-    state.selectedDate = state.days[0] ? state.days[0].date : '';
-    $('availabilityLoaded').textContent = `Loaded ${state.days.length} days from Turtle Club`;
+    state.selectedDate = initialSelectedDate();
     buildFilters();
     $('availabilityDaySelect').addEventListener('change', () => {
       state.selectedDate = $('availabilityDaySelect').value;
@@ -39,9 +38,22 @@
     $('availabilityDaySelect').innerHTML = state.days
       .map((day) => `<option value="${escapeHtml(day.date)}">${escapeHtml(day.day)}</option>`)
       .join('');
+    $('availabilityDaySelect').value = state.selectedDate;
     $('availabilityDiamondSelect').innerHTML = ['All diamonds', ...state.diamonds]
       .map((diamond) => `<option>${escapeHtml(diamond)}</option>`)
       .join('');
+    $('availabilityDiamondSelect').value = state.diamond;
+  }
+
+  function initialSelectedDate() {
+    if (!state.days.length) return '';
+    const today = new Date();
+    const todayKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+    const exactMatch = state.days.find((day) => day.date === todayKey);
+    if (exactMatch) return exactMatch.date;
+    const upcoming = state.days.find((day) => day.date >= todayKey);
+    if (upcoming) return upcoming.date;
+    return state.days[state.days.length - 1].date;
   }
 
   function selectedDay() {

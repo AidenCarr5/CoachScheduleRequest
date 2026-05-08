@@ -5,3 +5,12 @@ npm-debug.log*
 server-*.log
 site/smoke.png
 site/mobile-smoke.png
+cookies*.txt
+cp-*.html
+login-response*.html
+server.log
+server.err.log
+storage/tc-debug/
+storage/ui-workflow-test-server.log
+storage/requests.pre-ui-test.backup.json
+storage/diamond-status-monitor.json

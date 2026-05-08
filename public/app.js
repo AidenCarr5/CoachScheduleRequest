@@ -3,27 +3,39 @@
   const teamSelect = $('teamSelect');
   const monthSelect = $('monthSelect');
   const scheduleList = $('scheduleList');
+  const calendarView = $('calendarView');
   const requestList = $('requestList');
+  const processedRequestList = $('processedRequestList');
   const dialog = $('requestDialog');
+  const preloadBar = $('preloadBar');
   let data = null;
   let months = ['All months'];
   let diamonds = [];
   let dateBounds = { min: '', max: '' };
   let refreshTimer = 0;
+  let preloadTimer = 0;
   let currentDataVersion = '';
   let appStarted = false;
   const state = {
     team: '',
     month: 'All months',
+    view: 'calendar',
     query: '',
+    selectedDate: '',
     requests: [],
     publicConfig: { adminPath: '/admin.html' },
-    user: null
+    user: null,
+    preload: {
+      promise: null,
+      progress: 0,
+      completed: false
+    }
   };
 
   async function init() {
     $('coachLoginForm').addEventListener('submit', login);
     $('logoutBtn').addEventListener('click', logout);
+    beginPreload();
     const session = await loadSession();
     if (!session.authenticated) {
       showLogin();
@@ -40,16 +52,17 @@
     }
     state.team = isAdminUser() ? data.teams[0] : state.user.team;
     rebuildDerivedData();
+    state.month = preferredMonth(state.month);
 
     teamSelect.innerHTML = data.teams.map((team) => `<option>${escapeHtml(team)}</option>`).join('');
     monthSelect.innerHTML = months.map((month) => `<option>${escapeHtml(month)}</option>`).join('');
     $('diamondSelect').innerHTML = diamonds.map((diamond) => `<option>${escapeHtml(diamond)}</option>`).join('');
-    $('scrapeDate').textContent = `Loaded ${data.schedule.length} events from Turtle Club`;
     $('gameDate').min = dateBounds.min;
     $('gameDate').max = dateBounds.max;
 
     teamSelect.value = state.team;
     teamSelect.disabled = !isAdminUser();
+    monthSelect.value = state.month;
 
     if (!appStarted) {
       teamSelect.addEventListener('change', () => {
@@ -64,6 +77,8 @@
         state.query = event.target.value.toLowerCase();
         render();
       });
+      $('listViewBtn').addEventListener('click', () => setView('list'));
+      $('calendarViewBtn').addEventListener('click', () => setView('calendar'));
       $('newGameBtn').addEventListener('click', openNewEvent);
       $('closeDialog').addEventListener('click', () => dialog.close());
       $('checkBtn').addEventListener('click', renderAvailabilityCheck);
@@ -106,6 +121,10 @@
     const payload = await response.json();
     $('coachPassword').value = '';
     $('coachLoginMessage').textContent = '';
+    if (payload.redirectTo) {
+      window.location.href = payload.redirectTo;
+      return;
+    }
     state.user = payload.user;
     await startApp();
   }
@@ -117,7 +136,95 @@
     data = null;
     window.clearInterval(refreshTimer);
     refreshTimer = 0;
+    beginPreload(true);
     showLogin();
+  }
+
+  function beginPreload(force = false) {
+    if (force) {
+      state.preload.promise = null;
+      state.preload.progress = 0;
+      state.preload.completed = false;
+    }
+    if (state.preload.promise) return state.preload.promise;
+
+    state.preload.progress = Math.max(state.preload.progress, 8);
+    updatePreloadUi('Checking daily sync status...', 'The scheduler refreshes from Turtle Club every day at 8:00 AM, and you can also refresh it from the admin portal.');
+    renderPreloadProgress();
+    startPreloadAnimation();
+
+    state.preload.promise = fetch('/api/preload-schedule', { cache: 'no-store' })
+      .then(async (response) => {
+        if (!response.ok) throw new Error('Unable to preload schedule');
+        return response.json();
+      })
+      .then((payload) => {
+        currentDataVersion = payload.dataVersion || currentDataVersion;
+        state.preload.progress = 100;
+        state.preload.completed = true;
+        stopPreloadAnimation();
+        renderPreloadProgress(true);
+        const lastSync = formatDateTime(payload.dataVersion);
+        const nextSync = formatDateTime(payload.nextRefreshAt);
+        updatePreloadUi(
+          'Schedule data ready',
+          `Loaded ${payload.events || 0} events. Last sync: ${lastSync}. Next automatic refresh: ${nextSync}.`
+        );
+        return payload;
+      })
+      .catch(() => {
+        state.preload.progress = Math.max(state.preload.progress, 100);
+        state.preload.completed = true;
+        stopPreloadAnimation();
+        renderPreloadProgress();
+        updatePreloadUi(
+          'Schedule status unavailable',
+          'The login page could not read the latest sync status, but the cached schedule is still available.'
+        );
+        return null;
+      });
+
+    return state.preload.promise;
+  }
+
+  function startPreloadAnimation() {
+    stopPreloadAnimation();
+    preloadTimer = window.setInterval(() => {
+      if (state.preload.completed) {
+        stopPreloadAnimation();
+        return;
+      }
+      state.preload.progress = Math.min(state.preload.progress + 6, 88);
+      renderPreloadProgress();
+    }, 450);
+  }
+
+  function stopPreloadAnimation() {
+    window.clearInterval(preloadTimer);
+    preloadTimer = 0;
+  }
+
+  function renderPreloadProgress(complete = false) {
+    if (!preloadBar) return;
+    preloadBar.style.width = `${Math.max(6, Math.min(100, state.preload.progress))}%`;
+    preloadBar.classList.toggle('complete', complete || state.preload.completed);
+  }
+
+  function updatePreloadUi(title, detail) {
+    $('preloadStatusText').textContent = title;
+    $('preloadStatusDetail').textContent = detail;
+  }
+
+  function formatDateTime(value) {
+    if (!value) return 'Unavailable';
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return 'Unavailable';
+    return date.toLocaleString([], {
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit'
+    });
   }
 
   async function loadBootstrap() {
@@ -180,7 +287,7 @@
         monthSelect.innerHTML = months.map((month) => `<option>${escapeHtml(month)}</option>`).join('');
         $('diamondSelect').innerHTML = diamonds.map((diamond) => `<option>${escapeHtml(diamond)}</option>`).join('');
         if (!data.teams.includes(state.team)) state.team = isAdminUser() ? data.teams[0] : state.user.team;
-        if (!months.includes(state.month)) state.month = 'All months';
+        state.month = preferredMonth(state.month);
         teamSelect.value = state.team;
         teamSelect.disabled = !isAdminUser();
         monthSelect.value = state.month;
@@ -199,8 +306,43 @@
       const matchesTeam = event.team === state.team;
       const matchesMonth = state.month === 'All months' || event.month === state.month;
       const haystack = `${event.opponent} ${event.diamond} ${event.type} ${event.eventKind}`.toLowerCase();
-      return matchesTeam && matchesMonth && haystack.includes(state.query);
+      const keepHistoricalChange = state.view === 'list' && /cancel|replace/.test(event.pendingState || '');
+      const matchesTiming = state.view !== 'list' || keepHistoricalChange || !eventHasPassed(event);
+      return matchesTeam && matchesMonth && matchesTiming && haystack.includes(state.query);
     }).sort((a, b) => `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`));
+  }
+
+  function preferredMonth(currentMonth) {
+    if (currentMonth && currentMonth !== 'All months' && months.includes(currentMonth)) return currentMonth;
+    const today = new Date();
+    const currentMonthLabel = today.toLocaleDateString(undefined, { month: 'short', year: 'numeric' });
+    if (months.includes(currentMonthLabel)) return currentMonthLabel;
+    const datedMonths = months
+      .filter((month) => month !== 'All months')
+      .map((month) => ({ label: month, time: monthLabelToTime(month) }))
+      .filter((month) => !Number.isNaN(month.time))
+      .sort((a, b) => a.time - b.time);
+    const todayMonthTime = new Date(today.getFullYear(), today.getMonth(), 1).getTime();
+    const upcoming = datedMonths.find((month) => month.time >= todayMonthTime);
+    if (upcoming) return upcoming.label;
+    return datedMonths[datedMonths.length - 1]?.label || 'All months';
+  }
+
+  function monthLabelToTime(label) {
+    const parsed = new Date(`${label} 1 12:00:00`);
+    return parsed.getTime();
+  }
+
+  function eventHasPassed(event) {
+    const start = new Date(`${event.date}T12:00:00`);
+    const startMinutes = minutesFromDisplay(event.time);
+    const endMinutes = event.endTime
+      ? minutesFromDisplay(event.endTime)
+      : startMinutes + (event.durationMinutes || 120);
+    if (Number.isNaN(startMinutes) || Number.isNaN(endMinutes)) return false;
+    start.setHours(0, 0, 0, 0);
+    const eventEnd = new Date(start.getTime() + endMinutes * 60000);
+    return eventEnd < new Date();
   }
 
   function buildDisplaySchedule() {
@@ -210,12 +352,15 @@
     state.requests
       .filter((request) => request.status !== 'rejected')
       .forEach((request, index) => {
+        const eventStatus = request.status || 'pending';
         if (request.action.startsWith('Cancel ')) {
           const original = byId.get(request.originalId);
           if (original) {
-            original.pendingState = request.status === 'approved' ? 'approved-cancel' : 'cancelled';
-            original.pendingLabel = request.status === 'approved' ? 'Approved cancellation' : 'Pending cancellation';
+            original.pendingState = eventStatus === 'approved' ? 'approved-cancel' : 'cancelled';
+            original.pendingLabel = eventStatus === 'approved' ? 'Approved cancellation' : 'Pending cancellation';
             original.requestIndex = index;
+          } else {
+            schedule.push(buildHistoricalEvent(request, index, eventStatus === 'approved' ? 'approved-cancel' : 'cancelled', eventStatus === 'approved' ? 'Approved cancellation' : 'Pending cancellation'));
           }
           return;
         }
@@ -223,9 +368,11 @@
         if (request.action.startsWith('Replace ')) {
           const original = byId.get(request.originalId);
           if (original) {
-            original.pendingState = request.status === 'approved' ? 'approved-replace' : 'replaced';
-            original.pendingLabel = request.status === 'approved' ? 'Approved replacement' : 'Pending replacement';
+            original.pendingState = eventStatus === 'approved' ? 'approved-replace' : 'replaced';
+            original.pendingLabel = eventStatus === 'approved' ? 'Approved replacement' : 'Pending replacement';
             original.requestIndex = index;
+          } else {
+            schedule.push(buildHistoricalEvent(request, index, eventStatus === 'approved' ? 'approved-replace' : 'replaced', eventStatus === 'approved' ? 'Approved replacement' : 'Pending replacement'));
           }
         }
 
@@ -252,10 +399,35 @@
     return schedule;
   }
 
+  function buildHistoricalEvent(request, index, pendingState, pendingLabel) {
+    return {
+      id: `history-${request.id}`,
+      date: request.originalDate || request.date,
+      month: monthLabelFromDate(request.originalDate || request.date),
+      time: request.originalStart || request.start,
+      endTime: request.end || '',
+      durationMinutes: request.end
+        ? Math.max(30, minutesFromDisplay(request.end) - minutesFromDisplay(request.originalStart || request.start))
+        : 120,
+      type: request.originalType || request.newType || 'Event',
+      eventKind: request.originalType || request.newType || 'Event',
+      team: request.team,
+      opponent: request.originalOpponent || request.opponent,
+      diamond: request.originalDiamond || request.diamond,
+      status: request.status || 'pending',
+      source: 'Coach request history',
+      pendingState,
+      pendingLabel,
+      requestIndex: index
+    };
+  }
+
   function render() {
     const events = visibleEvents();
+    const pendingRequests = state.requests.filter((request) => (request.status || 'pending') === 'pending');
+    const processedRequests = state.requests.filter((request) => ['approved', 'rejected'].includes(request.status || 'pending'));
     $('visibleCount').textContent = events.length;
-    $('requestCount').textContent = state.requests.length;
+    $('requestCount').textContent = pendingRequests.length;
     $('availableCount').textContent = data.availability.length;
     $('teamScope').textContent = `${state.team} schedule only`;
     $('adminLink').href = state.publicConfig.adminPath || '/admin.html';
@@ -263,17 +435,61 @@
     $('sessionLabel').hidden = false;
     $('sessionLabel').textContent = isAdminUser() ? 'Signed in as admin' : `Signed in: ${state.user.username}`;
     $('logoutBtn').hidden = false;
+    updateViewTabs();
 
-    scheduleList.innerHTML = events.length ? renderMonthGroups(events) : '<p class="muted">No events match this view.</p>';
-    scheduleList.querySelectorAll('[data-cancel]').forEach((button) => {
+    if (state.view === 'calendar') {
+      scheduleList.hidden = true;
+      calendarView.hidden = false;
+      calendarView.innerHTML = renderCalendar(events);
+      bindCalendarActions();
+    } else {
+      calendarView.hidden = true;
+      scheduleList.hidden = false;
+      scheduleList.innerHTML = events.length ? renderMonthGroups(events) : '<p class="muted">No events match this view.</p>';
+      bindEventActions(scheduleList);
+    }
+
+    requestList.classList.toggle('empty', pendingRequests.length === 0);
+    requestList.innerHTML = pendingRequests.length
+      ? pendingRequests.map((request) => renderRequest(request, false)).join('')
+      : '<p class="muted">No queued updates right now.</p>';
+    processedRequestList.classList.toggle('empty', processedRequests.length === 0);
+    processedRequestList.innerHTML = processedRequests.length
+      ? processedRequests.map((request) => renderRequest(request, true)).join('')
+      : '<p class="muted">No processed requests yet.</p>';
+    bindRequestActions();
+  }
+
+  function setView(view) {
+    state.view = view;
+    render();
+  }
+
+  function updateViewTabs() {
+    const listActive = state.view === 'list';
+    $('listViewBtn').classList.toggle('active', listActive);
+    $('calendarViewBtn').classList.toggle('active', !listActive);
+    $('listViewBtn').setAttribute('aria-pressed', String(listActive));
+    $('calendarViewBtn').setAttribute('aria-pressed', String(!listActive));
+  }
+
+  function bindEventActions(root) {
+    root.querySelectorAll('[data-cancel]').forEach((button) => {
       button.addEventListener('click', () => openCancel(button.dataset.cancel));
     });
-    scheduleList.querySelectorAll('[data-replace]').forEach((button) => {
+    root.querySelectorAll('[data-replace]').forEach((button) => {
       button.addEventListener('click', () => openReplace(button.dataset.replace));
     });
+  }
 
-    requestList.classList.toggle('empty', state.requests.length === 0);
-    requestList.innerHTML = state.requests.map(renderRequest).join('');
+  function bindCalendarActions() {
+    calendarView.querySelectorAll('[data-calendar-date]').forEach((button) => {
+      button.addEventListener('click', () => {
+        state.selectedDate = button.dataset.calendarDate;
+        render();
+      });
+    });
+    bindEventActions(calendarView);
   }
 
   function renderMonthGroups(events) {
@@ -295,16 +511,135 @@
     `).join('');
   }
 
+  function renderCalendar(events) {
+    if (!events.length) {
+      state.selectedDate = '';
+      return '<p class="muted">No events match this view in calendar mode.</p>';
+    }
+
+    const allEventMap = new Map();
+    events.forEach((event) => {
+      if (!allEventMap.has(event.date)) allEventMap.set(event.date, []);
+      allEventMap.get(event.date).push(event);
+    });
+
+    const firstEventDate = events[0].date;
+    if (!state.selectedDate || !allEventMap.has(state.selectedDate)) {
+      state.selectedDate = firstEventDate;
+    }
+
+    const initiallySelectedEvents = (allEventMap.get(state.selectedDate) || []).sort((a, b) => `${a.time} ${a.opponent}`.localeCompare(`${b.time} ${b.opponent}`));
+    if (!initiallySelectedEvents.length && firstEventDate) {
+      state.selectedDate = firstEventDate;
+    }
+
+    const monthNames = state.month === 'All months'
+      ? [...new Set(events.map((event) => event.month))]
+      : [state.month];
+    const monthSections = monthNames.map((month) => {
+      const monthEvents = events.filter((event) => event.month === month);
+      if (!monthEvents.length) return '';
+      const monthDates = monthEvents.map((event) => new Date(`${event.date}T12:00:00`));
+      const firstDate = new Date(Math.min(...monthDates));
+      const monthStart = new Date(firstDate.getFullYear(), firstDate.getMonth(), 1, 12);
+      const monthEnd = new Date(firstDate.getFullYear(), firstDate.getMonth() + 1, 0, 12);
+      const startOffset = monthStart.getDay();
+      const totalDays = monthEnd.getDate();
+      const eventMap = new Map();
+
+      monthEvents.forEach((event) => {
+        if (!eventMap.has(event.date)) eventMap.set(event.date, []);
+        eventMap.get(event.date).push(event);
+      });
+
+      const selectedInMonth = state.selectedDate && eventMap.has(state.selectedDate);
+      const selectedEvents = selectedInMonth
+        ? (eventMap.get(state.selectedDate) || []).sort((a, b) => `${a.time} ${a.opponent}`.localeCompare(`${b.time} ${b.opponent}`))
+        : [];
+      const selectedLabel = selectedInMonth
+        ? new Date(`${state.selectedDate}T12:00:00`).toLocaleDateString(undefined, {
+            weekday: 'long',
+            month: 'long',
+            day: 'numeric'
+          })
+        : '';
+
+      const cells = [];
+      for (let i = 0; i < startOffset; i += 1) cells.push('<div class="calendar-day filler" aria-hidden="true"></div>');
+      for (let day = 1; day <= totalDays; day += 1) {
+        const cellDate = new Date(firstDate.getFullYear(), firstDate.getMonth(), day, 12);
+        const dateKey = cellDate.toISOString().slice(0, 10);
+        const dayEvents = (eventMap.get(dateKey) || []).sort((a, b) => `${a.time} ${a.opponent}`.localeCompare(`${b.time} ${b.opponent}`));
+        const preview = dayEvents.slice(0, 2).map((event) => `
+          <span class="calendar-pill ${eventClass(event)}${/cancel|replace/.test(event.pendingState || '') || isCancelledSourceEvent(event) ? ' strike' : ''}">${escapeHtml(event.time)} ${escapeHtml(shortEventLabel(event))}</span>
+        `).join('');
+        const moreLabel = dayEvents.length > 2 ? `<span class="calendar-more">+${dayEvents.length - 2} more</span>` : '';
+        const activeClass = state.selectedDate === dateKey ? ' active' : '';
+        const hasEventsClass = dayEvents.length ? ' has-events' : ' empty';
+        cells.push(`
+          <button class="calendar-day${activeClass}${hasEventsClass}" type="button" data-calendar-date="${dateKey}">
+            <span class="calendar-date">${day}</span>
+            <span class="calendar-count">${dayEvents.length ? `${dayEvents.length} event${dayEvents.length === 1 ? '' : 's'}` : 'No events'}</span>
+            <span class="calendar-preview">${preview}${moreLabel}</span>
+          </button>
+        `);
+      }
+
+      return `
+        <section class="calendar-shell">
+          <div class="calendar-head">
+            <h3>${escapeHtml(month)}</h3>
+            <span>Click a day to open that day's events.</span>
+          </div>
+          <div class="calendar-grid" role="grid" aria-label="${escapeHtml(month)} team calendar">
+            ${['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => `<div class="calendar-weekday">${day}</div>`).join('')}
+            ${cells.join('')}
+          </div>
+          ${selectedInMonth ? `
+            <section class="calendar-detail">
+              <div class="month-head">
+                <h3>${escapeHtml(selectedLabel)}</h3>
+                <span>${selectedEvents.length} ${selectedEvents.length === 1 ? 'event' : 'events'}</span>
+              </div>
+              <div class="month-events">
+                ${selectedEvents.length ? selectedEvents.map(renderEvent).join('') : '<p class="muted">No events on this day.</p>'}
+              </div>
+            </section>
+          ` : ''}
+        </section>
+      `;
+    }).join('');
+
+    return monthSections;
+  }
+
+  function shortEventLabel(event) {
+    const label = String(event.opponent || event.eventKind || event.type || 'Event').trim();
+    return label.length > 28 ? `${label.slice(0, 28).trim()}...` : label;
+  }
+
+  function isCancelledSourceEvent(event) {
+    return `${event.eventKind || ''} ${event.type || ''}`.toLowerCase().includes('cancelled');
+  }
+
   function renderEvent(event) {
     const date = new Date(`${event.date}T12:00:00`);
     const dateLabel = date.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
     const kindClass = eventClass(event);
     const end = event.endTime ? `-${escapeHtml(event.endTime)}` : '';
     const pendingStateClass = event.pendingState ? ` ${event.pendingState}` : '';
-    const pendingBadge = event.pendingLabel ? `<span class="pending-badge">${escapeHtml(event.pendingLabel)}</span>` : '';
-    const strikeClass = /cancel|replace/.test(event.pendingState || '') ? ' strike' : '';
+    const sourceCancelled = isCancelledSourceEvent(event);
+    const pendingBadge = event.pendingLabel
+      ? `<span class="pending-badge">${escapeHtml(event.pendingLabel)}</span>`
+      : sourceCancelled
+        ? '<span class="pending-badge">Cancelled on Turtle Club</span>'
+        : '';
+    const strikeClass = /cancel|replace/.test(event.pendingState || '') || sourceCancelled ? ' strike' : '';
+    const alreadyCancelled = sourceCancelled;
     const actions = event.pendingState
       ? `<div class="row-actions"><button class="replace-btn static-btn" type="button" disabled>${event.status === 'approved' ? 'Approved' : 'Queued'}</button></div>`
+      : alreadyCancelled
+        ? `<div class="row-actions"><button class="replace-btn static-btn" type="button" disabled>Already cancelled</button></div>`
       : `<div class="row-actions">
           <button class="replace-btn" data-replace="${event.id}">Replace</button>
           <button class="cancel-btn" data-cancel="${event.id}">Cancel</button>
@@ -324,21 +659,47 @@
     `;
   }
 
-  function renderRequest(request) {
+  function renderRequest(request, processed) {
     const statusLabel = request.status === 'approved' ? 'Approved' : request.status === 'rejected' ? 'Rejected' : 'Pending';
+    const reviewed = processed && request.reviewedAt
+      ? `<span class="request-meta">Processed ${escapeHtml(formatDateTime(request.reviewedAt))}</span>`
+      : '';
+    const note = request.adminNote
+      ? `<span class="request-note"><strong>Admin note:</strong> ${escapeHtml(request.adminNote)}</span>`
+      : '';
     return `
-      <article class="request-card ${escapeHtml(request.status || 'pending')}">
+      <article class="request-card ${escapeHtml(request.status || 'pending')} ${processed ? 'processed' : ''}">
+        <button class="request-dismiss" type="button" data-delete-request="${escapeHtml(request.id)}" aria-label="Delete request">x</button>
         <strong>${escapeHtml(request.action)} - ${escapeHtml(request.team)}</strong>
         <span>${escapeHtml(request.date)} ${escapeHtml(request.start || '')} ${escapeHtml(request.opponent || '')}</span>
         <span>${escapeHtml(request.diamond || '')}</span>
         <span>${escapeHtml(statusLabel)}</span>
+        ${reviewed}
+        ${note}
       </article>
     `;
+  }
+
+  function bindRequestActions() {
+    document.querySelectorAll('[data-delete-request]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const response = await fetch(`/api/requests/${button.dataset.deleteRequest}`, {
+          method: 'DELETE'
+        });
+        if (!response.ok) return;
+        await loadRequests();
+        render();
+      });
+    });
   }
 
   function openCancel(eventId) {
     const event = data.schedule.find((item) => item.id === eventId);
     if (!event) return;
+    if (`${event.eventKind || ''} ${event.type || ''}`.toLowerCase().includes('cancelled')) {
+      alert('This event is already marked cancelled on Turtle Club, so there is nothing left to cancel.');
+      return;
+    }
     $('dialogTitle').textContent = `Cancel ${event.opponent}`;
     $('requestMode').value = 'cancel';
     $('eventId').value = eventId;
@@ -370,6 +731,10 @@
   function openReplace(eventId) {
     const original = data.schedule.find((item) => item.id === eventId);
     if (!original) return;
+    if (`${original.eventKind || ''} ${original.type || ''}`.toLowerCase().includes('cancelled')) {
+      alert('This event is already marked cancelled on Turtle Club. Create a new event instead of replacing it.');
+      return;
+    }
     $('dialogTitle').textContent = `Replace ${original.eventKind || original.type}`;
     $('requestMode').value = 'replace';
     $('eventId').value = eventId;
@@ -449,18 +814,32 @@
       };
     }
 
+    if ((mode === 'new' || mode === 'replace') && payload.date && payload.date < todayIsoLocal()) {
+      alert('Turtle Club does not allow creating back-dated events. Please choose today or a future date.');
+      return;
+    }
+
     try {
       const response = await fetch('/api/requests', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
-      if (!response.ok) throw new Error('Unable to save request');
+      if (!response.ok) {
+        let message = 'The request could not be saved to the server.';
+        try {
+          const errorPayload = await response.json();
+          message = errorPayload.details || errorPayload.error || message;
+        } catch (_) {
+          // Leave the generic message in place.
+        }
+        throw new Error(message);
+      }
       await loadRequests();
       dialog.close();
       render();
-    } catch (_) {
-      alert('The request could not be saved to the server.');
+    } catch (error) {
+      alert(error.message || 'The request could not be saved to the server.');
     }
   }
 
@@ -478,6 +857,9 @@
     const start = minutes($('startTime').value);
     const end = minutes($('endTime').value);
     if (!date || !diamond || start >= end) return { ok: false, message: 'Enter a valid date, start, and end time.' };
+    if (($('requestMode').value === 'new' || $('requestMode').value === 'replace') && date < todayIsoLocal()) {
+      return { ok: false, message: 'Turtle Club does not allow creating back-dated events. Choose today or a future date.' };
+    }
 
     const ignoredId = $('requestMode').value === 'replace' ? $('eventId').value : '';
     const original = ignoredId ? data.schedule.find((item) => item.id === ignoredId) : null;
@@ -570,6 +952,11 @@
   function monthLabelFromDate(dateString) {
     const date = new Date(`${dateString}T12:00:00`);
     return date.toLocaleDateString(undefined, { month: 'short', year: 'numeric' });
+  }
+
+  function todayIsoLocal() {
+    const now = new Date();
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
   }
 
   function getDateBounds() {

@@ -1,12 +1,16 @@
 (function () {
   const $ = (id) => document.getElementById(id);
   let currentRequests = [];
+  let currentAccounts = [];
 
   async function init() {
     $('loginForm').addEventListener('submit', login);
     $('logoutBtn').addEventListener('click', logout);
     $('adminExportBtn').addEventListener('click', exportRequests);
-    $('resetScheduleBtn').addEventListener('click', resetSchedule);
+    $('refreshScheduleBtn').addEventListener('click', refreshSchedule);
+    $('sendDiamondStatusEmailBtn').addEventListener('click', sendDiamondStatusEmail);
+    $('rescanTeamsBtn').addEventListener('click', rescanTeams);
+    $('saveCoachPasswordsBtn').addEventListener('click', saveCoachPasswords);
     await refreshSession();
   }
 
@@ -19,7 +23,7 @@
         return;
       }
       showAdmin();
-      await loadRequests();
+      await loadDashboard();
       return;
     }
     showLogin();
@@ -40,7 +44,7 @@
     $('adminPassword').value = '';
     $('loginMessage').textContent = '';
     showAdmin();
-    await loadRequests();
+    await loadDashboard();
   }
 
   async function logout() {
@@ -69,6 +73,23 @@
     });
   }
 
+  async function loadCoachAccounts() {
+    const response = await fetch('/api/admin/coach-accounts', { cache: 'no-store' });
+    if (!response.ok) return;
+    const payload = await response.json();
+    currentAccounts = payload.accounts || [];
+    $('coachAccountsMessage').textContent = currentAccounts.length
+      ? `Generated from ${currentAccounts.length} Titans team login${currentAccounts.length === 1 ? '' : 's'}.`
+      : 'No Titans teams were found in the latest Turtle Club sync.';
+    $('coachAccountsList').innerHTML = currentAccounts.length
+      ? currentAccounts.map(renderCoachAccount).join('')
+      : '<p class="muted">No coach logins are available yet.</p>';
+  }
+
+  async function loadDashboard() {
+    await Promise.all([loadRequests(), loadCoachAccounts()]);
+  }
+
   function renderRequest(request) {
     const disabled = request.status !== 'pending' ? ' disabled' : '';
     const showClear = request.status === 'approved' || request.status === 'rejected';
@@ -82,6 +103,8 @@
         <p>${escapeHtml(request.diamond || '')}</p>
         <p>${escapeHtml(request.reason || '')}</p>
         <p>${escapeHtml(request.availabilityStatus || '')}</p>
+        <label class="admin-note-label" for="admin-note-${escapeHtml(request.id)}">Admin note</label>
+        <textarea id="admin-note-${escapeHtml(request.id)}" class="admin-note-input" data-admin-note="${escapeHtml(request.id)}" rows="3" placeholder="Why was this approved or rejected?">${escapeHtml(request.adminNote || '')}</textarea>
         <div class="admin-request-actions">
           <button class="primary" type="button" data-approve="${request.id}"${disabled}>Approve</button>
           <button class="cancel-btn" type="button" data-reject="${request.id}"${disabled}>Reject</button>
@@ -91,14 +114,72 @@
     `;
   }
 
+  function renderCoachAccount(account) {
+    return `
+      <article class="coach-account-card">
+        <div>
+          <strong>${escapeHtml(account.team)}</strong>
+          <p>${escapeHtml(account.username)}</p>
+        </div>
+        <div class="coach-account-fields">
+          <div class="coach-account-password">
+            <label for="coach-password-${escapeHtml(account.username)}">Password</label>
+            <input
+              id="coach-password-${escapeHtml(account.username)}"
+              type="text"
+              value="${escapeHtml(account.password)}"
+              data-coach-password="${escapeHtml(account.username)}"
+              autocomplete="off"
+            >
+          </div>
+          <div class="coach-account-email">
+            <label for="coach-email-${escapeHtml(account.username)}">Email</label>
+            <input
+              id="coach-email-${escapeHtml(account.username)}"
+              type="email"
+              value="${escapeHtml(account.email || '')}"
+              data-coach-email="${escapeHtml(account.username)}"
+              autocomplete="off"
+              placeholder="coach@example.com"
+            >
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
   async function reviewRequest(requestId, action) {
+    const noteField = document.getElementById(`admin-note-${requestId}`);
+    const adminNote = noteField ? noteField.value.trim() : '';
+    $('adminMessage').textContent = action === 'approve'
+      ? 'Applying approved change to Turtle Club...'
+      : 'Saving request review...';
     const response = await fetch(`/api/admin/requests/${requestId}/${action}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ adminNote: '' })
+      body: JSON.stringify({ adminNote })
     });
-    if (!response.ok) return;
+    if (!response.ok) {
+      let message = action === 'approve'
+        ? 'The request could not be applied on Turtle Club.'
+        : 'The request review could not be saved.';
+      try {
+        const payload = await response.json();
+        if (payload.details) {
+          message = `${message} ${payload.details}`;
+        } else if (payload.error) {
+          message = `${message} ${payload.error}`;
+        }
+      } catch (_) {
+        // Ignore JSON parsing errors and keep the generic message.
+      }
+      $('adminMessage').textContent = message;
+      return;
+    }
     await loadRequests();
+    $('adminMessage').textContent = action === 'approve'
+      ? 'Approved request was applied to Turtle Club and synced back into the scheduler.'
+      : 'Request rejected.';
   }
 
   async function clearRequest(requestId) {
@@ -106,20 +187,104 @@
       method: 'DELETE'
     });
     if (!response.ok) return;
-    await loadRequests();
+    await loadDashboard();
   }
 
-  async function resetSchedule() {
+  async function refreshSchedule() {
     $('adminMessage').textContent = 'Refreshing schedule from Turtle Club...';
-    const response = await fetch('/api/admin/reset-schedule', {
+    const response = await fetch('/api/admin/refresh-schedule', {
       method: 'POST'
     });
     if (!response.ok) {
-      $('adminMessage').textContent = 'The schedule reset did not complete.';
+      $('adminMessage').textContent = 'The schedule refresh did not complete.';
       return;
     }
-    await loadRequests();
-    $('adminMessage').textContent = 'Schedule reset to the current Turtle Club version. Coach requests were cleared.';
+    await loadDashboard();
+    $('adminMessage').textContent = 'Schedule refreshed from Turtle Club. Coach requests were left in place.';
+  }
+
+  async function sendDiamondStatusEmail() {
+    $('adminMessage').textContent = 'Sending diamond status email...';
+    const response = await fetch('/api/admin/test-diamond-status-email', {
+      method: 'POST'
+    });
+    if (!response.ok) {
+      let message = 'The diamond status email could not be sent.';
+      try {
+        const payload = await response.json();
+        if (payload.details) message = `${message} ${payload.details}`;
+        else if (payload.error) message = `${message} ${payload.error}`;
+      } catch (_) {
+        // Keep the generic message.
+      }
+      $('adminMessage').textContent = message;
+      return;
+    }
+    const payload = await response.json();
+    const sent = payload.result && payload.result.sent ? payload.result.sent : 0;
+    const deliveries = payload.result && Array.isArray(payload.result.deliveries) ? payload.result.deliveries : [];
+    $('adminMessage').textContent = deliveries.length
+      ? `Diamond status email sent for ${deliveries.length} status row${deliveries.length === 1 ? '' : 's'} affecting today. ${sent} email${sent === 1 ? '' : 's'} delivered.`
+      : `Diamond status email sent. ${sent} email${sent === 1 ? '' : 's'} delivered.`;
+  }
+
+  async function rescanTeams() {
+    $('coachAccountsMessage').textContent = 'Rescanning Titans teams from Turtle Club...';
+    const response = await fetch('/api/admin/rescan-teams', {
+      method: 'POST'
+    });
+    if (!response.ok) {
+      let message = 'The Titans team rescan did not complete.';
+      try {
+        const payload = await response.json();
+        if (payload.details) message = `${message} ${payload.details}`;
+      } catch (_) {
+        // Keep the generic message.
+      }
+      $('coachAccountsMessage').textContent = message;
+      return;
+    }
+    const payload = await response.json();
+    currentAccounts = payload.accounts || [];
+    $('coachAccountsMessage').textContent = currentAccounts.length
+      ? `Rescan complete. ${currentAccounts.length} coach login${currentAccounts.length === 1 ? '' : 's'} regenerated from Turtle Club.`
+      : 'Rescan complete, but no Titans teams were found.';
+    $('coachAccountsList').innerHTML = currentAccounts.length
+      ? currentAccounts.map(renderCoachAccount).join('')
+      : '<p class="muted">No coach logins are available yet.</p>';
+  }
+
+  async function saveCoachPasswords() {
+    const fields = Array.from(document.querySelectorAll('[data-coach-password]'));
+    const accounts = fields.map((field) => {
+      const username = field.dataset.coachPassword;
+      const emailField = document.querySelector(`[data-coach-email="${cssEscape(username)}"]`);
+      return {
+        username,
+        password: field.value.trim(),
+        email: emailField ? emailField.value.trim() : ''
+      };
+    });
+    if (accounts.some((account) => !account.password)) {
+      $('coachAccountsMessage').textContent = 'Every coach login needs a password before saving.';
+      return;
+    }
+    $('coachAccountsMessage').textContent = 'Saving coach login details...';
+    const response = await fetch('/api/admin/coach-accounts/update-passwords', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ accounts })
+    });
+    if (!response.ok) {
+      $('coachAccountsMessage').textContent = 'Coach login details could not be saved.';
+      return;
+    }
+    const payload = await response.json();
+    currentAccounts = payload.accounts || [];
+    $('coachAccountsMessage').textContent = 'Coach login details saved.';
+    $('coachAccountsList').innerHTML = currentAccounts.length
+      ? currentAccounts.map(renderCoachAccount).join('')
+      : '<p class="muted">No coach logins are available yet.</p>';
   }
 
   function exportRequests() {
@@ -158,11 +323,13 @@
   function showAdmin() {
     $('loginPanel').hidden = true;
     $('adminPanel').hidden = false;
+    $('coachAccountsPanel').hidden = false;
   }
 
   function showLogin() {
     $('loginPanel').hidden = false;
     $('adminPanel').hidden = true;
+    $('coachAccountsPanel').hidden = true;
   }
 
   function escapeHtml(value) {
@@ -173,6 +340,10 @@
       '"': '&quot;',
       "'": '&#039;'
     })[char]);
+  }
+
+  function cssEscape(value) {
+    return String(value || '').replace(/["\\]/g, '\\$&');
   }
 
   init();

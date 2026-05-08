@@ -13,8 +13,9 @@
 <body>
   <div class="topbar">
     <div class="wrap topbar-inner">
-      <a class="topbar-link" href="/">Team Finder</a>
+      <a class="topbar-link" href="/">Log in</a>
       <a class="topbar-link" href="/availability.html">Diamond Availability</a>
+      <a class="topbar-link" href="/diamond-status.html">Diamond Status</a>
       <a class="topbar-link" href="/contact.html">Contact</a>
     </div>
   </div>
@@ -26,9 +27,7 @@
         <h1>Coach Schedule Requests</h1>
       </div>
       <div class="source">
-        <span id="scrapeDate">Schedule loaded</span>
         <span id="sessionLabel" hidden></span>
-        <a href="https://turtleclubbaseball.com/Categories/1017/Schedule/" target="_blank" rel="noreferrer">Turtle Club schedule</a>
         <a id="adminLink" href="/admin.html">Admin approval</a>
         <button id="logoutBtn" class="link-button" type="button" hidden>Log out</button>
       </div>
@@ -57,6 +56,16 @@
         <button class="primary" type="submit">Log in</button>
         <span>Default coach password: <strong>password</strong></span>
       </div>
+      <div class="login-status" aria-live="polite">
+        <div class="login-status-head">
+          <strong>Turtle Club live sync</strong>
+          <span id="preloadStatusText">Checking daily sync status...</span>
+        </div>
+        <div class="titans-loader">
+          <div id="preloadBar" class="titans-loader-bar"></div>
+        </div>
+        <p id="preloadStatusDetail" class="login-status-detail">The scheduler refreshes from Turtle Club every day at 8:00 AM, and you can also refresh it from the admin portal.</p>
+      </div>
     </form>
   </section>
 
@@ -73,6 +82,13 @@
       <div class="field grow">
         <label for="searchInput">Find opponent or diamond</label>
         <input id="searchInput" type="search" placeholder="Start typing">
+      </div>
+      <div class="field">
+        <label>View</label>
+        <div class="view-switch" role="tablist" aria-label="Schedule view">
+          <button id="listViewBtn" class="view-tab active" type="button" aria-pressed="true">List</button>
+          <button id="calendarViewBtn" class="view-tab" type="button" aria-pressed="false">Calendar</button>
+        </div>
       </div>
       <button id="newGameBtn" class="primary">New event</button>
     </section>
@@ -99,6 +115,7 @@
           <span id="teamScope">Only this coach's team is shown</span>
         </div>
         <div id="scheduleList" class="schedule-list"></div>
+        <div id="calendarView" class="calendar-view" hidden></div>
       </section>
 
       <aside class="requests-section">
@@ -106,6 +123,11 @@
           <h2>Update Queue</h2>
         </div>
         <div id="requestList" class="request-list empty"></div>
+        <div class="section-head subsection-head">
+          <h2>Processed Requests</h2>
+          <span>Approved and rejected updates</span>
+        </div>
+        <div id="processedRequestList" class="request-list empty"></div>
       </aside>
     </div>
   </main>
