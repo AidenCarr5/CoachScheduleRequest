@@ -49,16 +49,20 @@ Fill in the real values for:
 
 - `SESSION_SECRET`
 - `DISCORD_WEBHOOK_URL`
-- `RESEND_API_KEY`
+- `GMAIL_CLIENT_ID`
+- `GMAIL_CLIENT_SECRET`
+- `GMAIL_REFRESH_TOKEN`
 - `EMAIL_FROM`
 - `TURTLE_CLUB_USERNAME`
 - `TURTLE_CLUB_PASSWORD`
 
-For Resend, `EMAIL_FROM` must be a sender address on a verified domain, for example:
+For Gmail API, `EMAIL_FROM` should match the Gmail account you authenticated, for example:
 
 ```env
-EMAIL_FROM=Titans Updates <updates@yourdomain.com>
+EMAIL_FROM=Titans Updates <titansupdate@gmail.com>
 ```
+
+If you later buy a domain, you can switch to Resend by setting `RESEND_API_KEY` and a verified-domain `EMAIL_FROM`.
 
 The old SMTP variables (`EMAIL_USER` and `EMAIL_APP_PASSWORD`) are now only an optional fallback.
 

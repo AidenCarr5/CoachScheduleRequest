@@ -58,7 +58,9 @@ Required for production:
 - `COACH_PASSWORD`
 - `SESSION_SECRET`
 - `DISCORD_WEBHOOK_URL`
-- `RESEND_API_KEY`
+- `GMAIL_CLIENT_ID`
+- `GMAIL_CLIENT_SECRET`
+- `GMAIL_REFRESH_TOKEN`
 - `EMAIL_FROM`
 - `EMAIL_ALERT_CC`
 - `TURTLE_CLUB_USERNAME`
@@ -66,6 +68,7 @@ Required for production:
 
 Optional fallback:
 
+- `RESEND_API_KEY`
 - `EMAIL_USER`
 - `EMAIL_APP_PASSWORD`
 
