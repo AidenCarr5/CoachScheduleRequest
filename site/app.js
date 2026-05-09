@@ -5,6 +5,8 @@
   const scheduleList = $('scheduleList');
   const requestList = $('requestList');
   const dialog = $('requestDialog');
+  const queueRequestBtn = $('queueRequestBtn');
+  const defaultQueueRequestText = queueRequestBtn ? queueRequestBtn.textContent : 'Queue request';
   let data = null;
   let months = ['All months'];
   let diamonds = [];
@@ -16,6 +18,7 @@
     month: 'All months',
     query: '',
     requests: [],
+    submittingRequest: false,
     publicConfig: { adminPath: '/admin.html' }
   };
 
@@ -281,6 +284,7 @@
     $('cancelFields').hidden = false;
     $('newFields').hidden = true;
     $('checkBtn').hidden = true;
+    setRequestSubmitting(false);
     dialog.showModal();
   }
 
@@ -299,6 +303,7 @@
     $('cancelFields').hidden = true;
     $('newFields').hidden = false;
     $('checkBtn').hidden = false;
+    setRequestSubmitting(false);
     dialog.showModal();
   }
 
@@ -320,6 +325,7 @@
     $('cancelFields').hidden = true;
     $('newFields').hidden = false;
     $('checkBtn').hidden = false;
+    setRequestSubmitting(false);
     dialog.showModal();
   }
 
@@ -330,6 +336,7 @@
 
   async function queueRequest(event) {
     event.preventDefault();
+    if (state.submittingRequest) return;
     const mode = $('requestMode').value;
     let payload;
 
@@ -385,18 +392,40 @@
     }
 
     try {
+      setRequestSubmitting(true);
       const response = await fetch('/api/requests', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
-      if (!response.ok) throw new Error('Unable to save request');
+      if (!response.ok) {
+        let message = 'Unable to save request';
+        try {
+          const errorPayload = await response.json();
+          message = errorPayload.details || errorPayload.error || message;
+        } catch (_) {
+          message = 'Unable to save request';
+        }
+        throw new Error(message);
+      }
       await loadRequests();
       dialog.close();
       render();
-    } catch (_) {
-      alert('The request could not be saved to the server.');
+    } catch (error) {
+      alert(error.message || 'The request could not be saved to the server.');
+    } finally {
+      setRequestSubmitting(false);
     }
+  }
+
+  function setRequestSubmitting(isSubmitting) {
+    state.submittingRequest = isSubmitting;
+    if (queueRequestBtn) {
+      queueRequestBtn.disabled = isSubmitting;
+      queueRequestBtn.textContent = isSubmitting ? 'Queueing...' : defaultQueueRequestText;
+    }
+    $('checkBtn').disabled = isSubmitting;
+    $('closeDialog').disabled = isSubmitting;
   }
 
   function renderAvailabilityCheck() {
