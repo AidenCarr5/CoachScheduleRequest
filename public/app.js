@@ -7,6 +7,7 @@
   const requestList = $('requestList');
   const processedRequestList = $('processedRequestList');
   const dialog = $('requestDialog');
+  const calendarDayDialog = $('calendarDayDialog');
   const preloadBar = $('preloadBar');
   let data = null;
   let months = ['All months'];
@@ -81,6 +82,12 @@
       $('calendarViewBtn').addEventListener('click', () => setView('calendar'));
       $('newGameBtn').addEventListener('click', openNewEvent);
       $('closeDialog').addEventListener('click', () => dialog.close());
+      $('closeCalendarDayDialog').addEventListener('click', () => calendarDayDialog.close());
+      $('calendarDayNewEventBtn').addEventListener('click', () => {
+        const date = $('calendarDayNewEventBtn').dataset.date || state.selectedDate || '';
+        calendarDayDialog.close();
+        openNewEvent(date);
+      });
       $('checkBtn').addEventListener('click', renderAvailabilityCheck);
       $('requestForm').addEventListener('submit', queueRequest);
       window.addEventListener('focus', syncRequests);
@@ -492,13 +499,9 @@
           openNewEvent(date);
           return;
         }
-        render();
+        openCalendarDayDialog(date);
       });
     });
-    calendarView.querySelectorAll('[data-calendar-new]').forEach((button) => {
-      button.addEventListener('click', () => openNewEvent(button.dataset.calendarNew));
-    });
-    bindEventActions(calendarView);
   }
 
   function renderMonthGroups(events) {
@@ -604,20 +607,6 @@
             ${['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => `<div class="calendar-weekday">${day}</div>`).join('')}
             ${cells.join('')}
           </div>
-          ${selectedInMonth ? `
-            <section class="calendar-detail">
-              <div class="month-head">
-                <div>
-                  <h3>${escapeHtml(selectedLabel)}</h3>
-                  <span>${selectedEvents.length} ${selectedEvents.length === 1 ? 'event' : 'events'}</span>
-                </div>
-                <button class="secondary" type="button" data-calendar-new="${escapeHtml(state.selectedDate)}">New event</button>
-              </div>
-              <div class="month-events">
-                ${selectedEvents.length ? selectedEvents.map(renderEvent).join('') : '<p class="muted">No events on this day.</p>'}
-              </div>
-            </section>
-          ` : ''}
         </section>
       `;
     }).join('');
@@ -671,6 +660,23 @@
     `;
   }
 
+  function openCalendarDayDialog(date) {
+    const events = visibleEvents().filter((event) => event.date === date);
+    const dayDate = new Date(`${date}T12:00:00`);
+    $('calendarDayTitle').textContent = dayDate.toLocaleDateString(undefined, {
+      weekday: 'long',
+      month: 'long',
+      day: 'numeric'
+    });
+    $('calendarDaySubtitle').textContent = `${events.length} ${events.length === 1 ? 'event' : 'events'} for ${state.team}`;
+    $('calendarDayEvents').innerHTML = events.length
+      ? events.map(renderEvent).join('')
+      : '<p class="muted">No events on this day.</p>';
+    $('calendarDayNewEventBtn').dataset.date = date;
+    bindEventActions($('calendarDayEvents'));
+    calendarDayDialog.showModal();
+  }
+
   function renderRequest(request, processed) {
     const statusLabel = request.status === 'approved' ? 'Approved' : request.status === 'rejected' ? 'Rejected' : 'Pending';
     const reviewed = processed && request.reviewedAt
@@ -706,6 +712,7 @@
   }
 
   function openCancel(eventId) {
+    if (calendarDayDialog.open) calendarDayDialog.close();
     const event = data.schedule.find((item) => item.id === eventId);
     if (!event) return;
     if (`${event.eventKind || ''} ${event.type || ''}`.toLowerCase().includes('cancelled')) {
@@ -723,6 +730,7 @@
   }
 
   function openNewEvent(initialDate = '') {
+    if (calendarDayDialog.open) calendarDayDialog.close();
     $('dialogTitle').textContent = 'Create New Event';
     $('requestMode').value = 'new';
     $('eventId').value = '';
@@ -741,6 +749,7 @@
   }
 
   function openReplace(eventId) {
+    if (calendarDayDialog.open) calendarDayDialog.close();
     const original = data.schedule.find((item) => item.id === eventId);
     if (!original) return;
     if (`${original.eventKind || ''} ${original.type || ''}`.toLowerCase().includes('cancelled')) {

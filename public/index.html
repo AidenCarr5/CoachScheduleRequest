@@ -191,6 +191,22 @@
     </form>
   </dialog>
 
+  <dialog id="calendarDayDialog">
+    <div id="calendarDayPanel">
+      <div class="dialog-head">
+        <div>
+          <h2 id="calendarDayTitle">Day Events</h2>
+          <p id="calendarDaySubtitle" class="dialog-subtitle"></p>
+        </div>
+        <button type="button" class="icon" id="closeCalendarDayDialog" aria-label="Close">x</button>
+      </div>
+      <div id="calendarDayEvents" class="calendar-day-events"></div>
+      <div class="dialog-actions">
+        <button type="button" class="secondary" id="calendarDayNewEventBtn">New event</button>
+      </div>
+    </div>
+  </dialog>
+
   <script src="app.js"></script>
 </body>
 </html>
