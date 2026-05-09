@@ -485,7 +485,13 @@
   function bindCalendarActions() {
     calendarView.querySelectorAll('[data-calendar-date]').forEach((button) => {
       button.addEventListener('click', () => {
-        state.selectedDate = button.dataset.calendarDate;
+        const date = button.dataset.calendarDate;
+        const hasEvents = button.dataset.calendarHasEvents === 'true';
+        state.selectedDate = date;
+        if (!hasEvents) {
+          openNewEvent(date);
+          return;
+        }
         render();
       });
     });
@@ -577,7 +583,7 @@
         const activeClass = state.selectedDate === dateKey ? ' active' : '';
         const hasEventsClass = dayEvents.length ? ' has-events' : ' empty';
         cells.push(`
-          <button class="calendar-day${activeClass}${hasEventsClass}" type="button" data-calendar-date="${dateKey}">
+          <button class="calendar-day${activeClass}${hasEventsClass}" type="button" data-calendar-date="${dateKey}" data-calendar-has-events="${dayEvents.length ? 'true' : 'false'}">
             <span class="calendar-date">${day}</span>
             <span class="calendar-count">${dayEvents.length ? `${dayEvents.length} event${dayEvents.length === 1 ? '' : 's'}` : 'No events'}</span>
             <span class="calendar-preview">${preview}${moreLabel}</span>
@@ -589,7 +595,7 @@
         <section class="calendar-shell">
           <div class="calendar-head">
             <h3>${escapeHtml(month)}</h3>
-            <span>Click a day to open that day's events.</span>
+            <span>Click a day with events to review it, or an empty day to start a new request.</span>
           </div>
           <div class="calendar-grid" role="grid" aria-label="${escapeHtml(month)} team calendar">
             ${['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => `<div class="calendar-weekday">${day}</div>`).join('')}
@@ -710,12 +716,12 @@
     dialog.showModal();
   }
 
-  function openNewEvent() {
+  function openNewEvent(initialDate = '') {
     $('dialogTitle').textContent = 'Create New Event';
     $('requestMode').value = 'new';
     $('eventId').value = '';
     $('eventTypeSelect').value = 'Home Game';
-    $('gameDate').value = nextOpenDate();
+    $('gameDate').value = initialDate || state.selectedDate || nextOpenDate();
     $('startTime').value = '18:00';
     $('endTime').value = '20:00';
     $('opponentInput').value = '';
