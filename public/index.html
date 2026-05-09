@@ -186,7 +186,7 @@
 
       <div class="dialog-actions">
         <button type="button" class="secondary" id="checkBtn">Check availability</button>
-        <button type="submit" class="primary">Queue request</button>
+        <button type="submit" class="primary" id="queueRequestBtn">Queue request</button>
       </div>
     </form>
   </dialog>
@@ -206,6 +206,14 @@
       </div>
     </div>
   </dialog>
+
+  <div id="loadingOverlay" class="loading-overlay" hidden>
+    <div class="loading-overlay-card" role="status" aria-live="assertive">
+      <div class="loading-spinner" aria-hidden="true"></div>
+      <strong id="loadingOverlayTitle">Working...</strong>
+      <p id="loadingOverlayText">Please wait.</p>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>

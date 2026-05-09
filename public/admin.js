@@ -2,6 +2,7 @@
   const $ = (id) => document.getElementById(id);
   let currentRequests = [];
   let currentAccounts = [];
+  let adminBusy = false;
 
   async function init() {
     $('loginForm').addEventListener('submit', login);
@@ -149,37 +150,45 @@
   }
 
   async function reviewRequest(requestId, action) {
+    if (adminBusy) return;
     const noteField = document.getElementById(`admin-note-${requestId}`);
     const adminNote = noteField ? noteField.value.trim() : '';
     $('adminMessage').textContent = action === 'approve'
       ? 'Applying approved change to Turtle Club...'
       : 'Saving request review...';
-    const response = await fetch(`/api/admin/requests/${requestId}/${action}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ adminNote })
-    });
-    if (!response.ok) {
-      let message = action === 'approve'
-        ? 'The request could not be applied on Turtle Club.'
-        : 'The request review could not be saved.';
-      try {
-        const payload = await response.json();
-        if (payload.details) {
-          message = `${message} ${payload.details}`;
-        } else if (payload.error) {
-          message = `${message} ${payload.error}`;
+    setAdminBusy(true, action === 'approve' ? 'Applying approval...' : 'Saving rejection...', action === 'approve'
+      ? 'Please wait while Turtle Club is updated and the scheduler syncs back.'
+      : 'Please wait while the request review is saved.');
+    try {
+      const response = await fetch(`/api/admin/requests/${requestId}/${action}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ adminNote })
+      });
+      if (!response.ok) {
+        let message = action === 'approve'
+          ? 'The request could not be applied on Turtle Club.'
+          : 'The request review could not be saved.';
+        try {
+          const payload = await response.json();
+          if (payload.details) {
+            message = `${message} ${payload.details}`;
+          } else if (payload.error) {
+            message = `${message} ${payload.error}`;
+          }
+        } catch (_) {
+          // Ignore JSON parsing errors and keep the generic message.
         }
-      } catch (_) {
-        // Ignore JSON parsing errors and keep the generic message.
+        $('adminMessage').textContent = message;
+        return;
       }
-      $('adminMessage').textContent = message;
-      return;
+      await loadRequests();
+      $('adminMessage').textContent = action === 'approve'
+        ? 'Approved request was applied to Turtle Club and synced back into the scheduler.'
+        : 'Request rejected.';
+    } finally {
+      setAdminBusy(false);
     }
-    await loadRequests();
-    $('adminMessage').textContent = action === 'approve'
-      ? 'Approved request was applied to Turtle Club and synced back into the scheduler.'
-      : 'Request rejected.';
   }
 
   async function clearRequest(requestId) {
@@ -330,6 +339,19 @@
     $('loginPanel').hidden = false;
     $('adminPanel').hidden = true;
     $('coachAccountsPanel').hidden = true;
+  }
+
+  function setAdminBusy(isBusy, title = 'Working...', detail = 'Please wait.') {
+    adminBusy = isBusy;
+    const overlay = $('loadingOverlay');
+    if (overlay) {
+      overlay.hidden = !isBusy;
+      $('loadingOverlayTitle').textContent = title;
+      $('loadingOverlayText').textContent = detail;
+    }
+    document.querySelectorAll('[data-approve], [data-reject], [data-clear], #refreshScheduleBtn, #sendDiamondStatusEmailBtn, #rescanTeamsBtn, #saveCoachPasswordsBtn, #logoutBtn, #adminExportBtn').forEach((element) => {
+      element.disabled = isBusy;
+    });
   }
 
   function escapeHtml(value) {

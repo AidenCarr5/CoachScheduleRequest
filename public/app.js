@@ -9,6 +9,7 @@
   const dialog = $('requestDialog');
   const calendarDayDialog = $('calendarDayDialog');
   const preloadBar = $('preloadBar');
+  const loadingOverlay = $('loadingOverlay');
   let data = null;
   let months = ['All months'];
   let diamonds = [];
@@ -24,6 +25,7 @@
     query: '',
     selectedDate: '',
     requests: [],
+    submittingRequest: false,
     publicConfig: { adminPath: '/admin.html' },
     user: null,
     preload: {
@@ -781,6 +783,7 @@
 
   async function queueRequest(event) {
     event.preventDefault();
+    if (state.submittingRequest) return;
     const mode = $('requestMode').value;
     let payload;
 
@@ -841,6 +844,11 @@
     }
 
     try {
+      setRequestSubmitting(true, mode === 'cancel'
+        ? 'Queueing cancellation...'
+        : mode === 'replace'
+          ? 'Queueing replacement...'
+          : 'Queueing request...');
       const response = await fetch('/api/requests', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -861,7 +869,26 @@
       render();
     } catch (error) {
       alert(error.message || 'The request could not be saved to the server.');
+    } finally {
+      setRequestSubmitting(false);
     }
+  }
+
+  function setRequestSubmitting(isSubmitting, title = 'Working...', detail = 'Please wait while the scheduler saves your request.') {
+    state.submittingRequest = isSubmitting;
+    if (loadingOverlay) {
+      loadingOverlay.hidden = !isSubmitting;
+      $('loadingOverlayTitle').textContent = title;
+      $('loadingOverlayText').textContent = detail;
+    }
+    const submitButton = $('queueRequestBtn');
+    if (submitButton) {
+      submitButton.disabled = isSubmitting;
+      submitButton.textContent = isSubmitting ? 'Queueing...' : 'Queue request';
+    }
+    $('checkBtn').disabled = isSubmitting;
+    $('closeDialog').disabled = isSubmitting;
+    $('newGameBtn').disabled = isSubmitting;
   }
 
   function renderAvailabilityCheck() {
