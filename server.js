@@ -1,3 +1,5 @@
+require('./lib/load-env');
+
 const http = require('http');
 const fs = require('fs');
 const os = require('os');

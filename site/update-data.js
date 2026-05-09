@@ -1,3 +1,5 @@
+require('../lib/load-env');
+
 const fs = require('fs');
 const path = require('path');
 
