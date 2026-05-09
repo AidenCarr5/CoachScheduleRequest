@@ -495,6 +495,9 @@
         render();
       });
     });
+    calendarView.querySelectorAll('[data-calendar-new]').forEach((button) => {
+      button.addEventListener('click', () => openNewEvent(button.dataset.calendarNew));
+    });
     bindEventActions(calendarView);
   }
 
@@ -604,8 +607,11 @@
           ${selectedInMonth ? `
             <section class="calendar-detail">
               <div class="month-head">
-                <h3>${escapeHtml(selectedLabel)}</h3>
-                <span>${selectedEvents.length} ${selectedEvents.length === 1 ? 'event' : 'events'}</span>
+                <div>
+                  <h3>${escapeHtml(selectedLabel)}</h3>
+                  <span>${selectedEvents.length} ${selectedEvents.length === 1 ? 'event' : 'events'}</span>
+                </div>
+                <button class="secondary" type="button" data-calendar-new="${escapeHtml(state.selectedDate)}">New event</button>
               </div>
               <div class="month-events">
                 ${selectedEvents.length ? selectedEvents.map(renderEvent).join('') : '<p class="muted">No events on this day.</p>'}
