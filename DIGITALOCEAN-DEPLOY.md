@@ -5,7 +5,7 @@ This app is best deployed on a small Ubuntu VM because it needs:
 - an always-on Node server
 - local JSON storage
 - scheduled refresh jobs
-- Gmail + Discord notifications
+- API email + Discord notifications
 - Turtle Club browser automation
 
 ## Recommended Droplet
@@ -49,9 +49,18 @@ Fill in the real values for:
 
 - `SESSION_SECRET`
 - `DISCORD_WEBHOOK_URL`
-- `EMAIL_APP_PASSWORD`
+- `RESEND_API_KEY`
+- `EMAIL_FROM`
 - `TURTLE_CLUB_USERNAME`
 - `TURTLE_CLUB_PASSWORD`
+
+For Resend, `EMAIL_FROM` must be a sender address on a verified domain, for example:
+
+```env
+EMAIL_FROM=Titans Updates <updates@yourdomain.com>
+```
+
+The old SMTP variables (`EMAIL_USER` and `EMAIL_APP_PASSWORD`) are now only an optional fallback.
 
 ## 5. Start the app with PM2
 
