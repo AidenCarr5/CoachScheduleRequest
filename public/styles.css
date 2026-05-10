@@ -948,6 +948,14 @@ button {
   border: 1px solid #cbd3c8;
 }
 
+.button-loading-text::after {
+  content: "";
+  display: inline-block;
+  width: 1.6em;
+  text-align: left;
+  animation: loading-ellipsis 1.1s steps(4, end) infinite;
+}
+
 .static-btn {
   opacity: 0.8;
   cursor: default;

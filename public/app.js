@@ -884,7 +884,8 @@
     const submitButton = $('queueRequestBtn');
     if (submitButton) {
       submitButton.disabled = isSubmitting;
-      submitButton.textContent = isSubmitting ? 'Queueing...' : 'Queue request';
+      submitButton.textContent = isSubmitting ? 'Queueing' : 'Queue request';
+      submitButton.classList.toggle('button-loading-text', isSubmitting);
     }
     $('checkBtn').disabled = isSubmitting;
     $('closeDialog').disabled = isSubmitting;
