@@ -879,7 +879,7 @@
     if (loadingOverlay) {
       loadingOverlay.hidden = !isSubmitting;
       $('loadingOverlayTitle').textContent = title;
-      $('loadingOverlayText').textContent = detail;
+      $('loadingOverlayTextLabel').textContent = detail;
     }
     const submitButton = $('queueRequestBtn');
     if (submitButton) {

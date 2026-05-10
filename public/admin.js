@@ -347,7 +347,7 @@
     if (overlay) {
       overlay.hidden = !isBusy;
       $('loadingOverlayTitle').textContent = title;
-      $('loadingOverlayText').textContent = detail;
+      $('loadingOverlayTextLabel').textContent = detail;
     }
     document.querySelectorAll('[data-approve], [data-reject], [data-clear], #refreshScheduleBtn, #sendDiamondStatusEmailBtn, #rescanTeamsBtn, #saveCoachPasswordsBtn, #logoutBtn, #adminExportBtn').forEach((element) => {
       element.disabled = isBusy;
