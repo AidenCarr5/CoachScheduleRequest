@@ -13,6 +13,7 @@
   let data = null;
   let months = ['All months'];
   let diamonds = [];
+  let opponentOptions = [];
   let dateBounds = { min: '', max: '' };
   let refreshTimer = 0;
   let preloadTimer = 0;
@@ -60,6 +61,7 @@
     teamSelect.innerHTML = data.teams.map((team) => `<option>${escapeHtml(team)}</option>`).join('');
     monthSelect.innerHTML = months.map((month) => `<option>${escapeHtml(month)}</option>`).join('');
     $('diamondSelect').innerHTML = diamonds.map((diamond) => `<option>${escapeHtml(diamond)}</option>`).join('');
+    rebuildOpponentSelect();
     $('gameDate').min = dateBounds.min;
     $('gameDate').max = dateBounds.max;
 
@@ -83,6 +85,7 @@
       $('listViewBtn').addEventListener('click', () => setView('list'));
       $('calendarViewBtn').addEventListener('click', () => setView('calendar'));
       $('newGameBtn').addEventListener('click', openNewEvent);
+      $('eventTypeSelect').addEventListener('change', syncEventTypeControls);
       $('closeDialog').addEventListener('click', () => dialog.close());
       $('closeCalendarDayDialog').addEventListener('click', () => calendarDayDialog.close());
       $('calendarDayNewEventBtn').addEventListener('click', () => {
@@ -251,6 +254,7 @@
   function rebuildDerivedData() {
     months = ['All months', ...new Set(data.schedule.map((event) => event.month))];
     diamonds = [...new Set(data.availability.map((slot) => slot.diamond))].sort();
+    opponentOptions = buildOpponentOptions();
     dateBounds = getDateBounds();
   }
 
@@ -295,6 +299,7 @@
         teamSelect.innerHTML = data.teams.map((team) => `<option>${escapeHtml(team)}</option>`).join('');
         monthSelect.innerHTML = months.map((month) => `<option>${escapeHtml(month)}</option>`).join('');
         $('diamondSelect').innerHTML = diamonds.map((diamond) => `<option>${escapeHtml(diamond)}</option>`).join('');
+        rebuildOpponentSelect();
         if (!data.teams.includes(state.team)) state.team = isAdminUser() ? data.teams[0] : state.user.team;
         state.month = preferredMonth(state.month);
         teamSelect.value = state.team;
@@ -740,13 +745,14 @@
     $('gameDate').value = initialDate || state.selectedDate || nextOpenDate();
     $('startTime').value = '18:00';
     $('endTime').value = '20:00';
-    $('opponentInput').value = '';
+    setOpponentValue(opponentOptions[0] || '');
     $('notesInput').value = '';
     $('availabilityResult').className = 'availability-result';
     $('availabilityResult').textContent = 'Choose a diamond and time, then check availability.';
     $('cancelFields').hidden = true;
     $('newFields').hidden = false;
     $('checkBtn').hidden = false;
+    syncEventTypeControls();
     dialog.showModal();
   }
 
@@ -766,19 +772,100 @@
     $('startTime').value = toInputTime(original.time);
     $('endTime').value = original.endTime ? toInputTime(original.endTime) : toInputTimeFromMinutes(minutesFromDisplay(original.time) + 120);
     if (diamonds.includes(original.diamond)) $('diamondSelect').value = original.diamond;
-    $('opponentInput').value = original.eventKind === 'Practice' ? 'vs ' : 'Practice';
+    setOpponentValue(original.eventKind === 'Practice' ? original.opponent : '');
     $('notesInput').value = `Replacing ${original.eventKind || original.type}: ${original.opponent} at ${original.diamond}`;
     $('availabilityResult').className = 'availability-result';
     $('availabilityResult').textContent = 'This replacement will be checked against published availability and Turtle Club event conflicts.';
     $('cancelFields').hidden = true;
     $('newFields').hidden = false;
     $('checkBtn').hidden = false;
+    syncEventTypeControls();
     dialog.showModal();
   }
 
   function nextOpenDate() {
     const teamEvents = data.schedule.filter((event) => event.team === state.team);
     return (teamEvents[0] && teamEvents[0].date) || dateBounds.min;
+  }
+
+  function buildOpponentOptions() {
+    if (Array.isArray(data.opponentOptions) && data.opponentOptions.length) {
+      return [...new Set(data.opponentOptions.map(normalizeOpponentLabel).filter(isOpponentChoice))].sort((a, b) => a.localeCompare(b));
+    }
+
+    const titansTeams = new Set(data.teams || []);
+    const choices = new Set();
+    const sources = [...(data.schedule || []), ...(data.conflictEvents || [])];
+    sources.forEach((event) => {
+      const isGame = /game/i.test(String(event.eventKind || event.type || ''));
+      if (!isGame) return;
+
+      const opponent = normalizeOpponentLabel(event.opponent);
+      if (isOpponentChoice(opponent)) choices.add(opponent);
+
+      const team = normalizeOpponentLabel(event.team);
+      if (isOpponentChoice(team) && !titansTeams.has(team)) choices.add(team);
+    });
+    return [...choices].sort((a, b) => a.localeCompare(b));
+  }
+
+  function normalizeOpponentLabel(value) {
+    return String(value || '')
+      .replace(/^vs\.?\s*/i, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function isOpponentChoice(value) {
+    const clean = normalizeOpponentLabel(value);
+    if (!clean) return false;
+    return !/^(practice|tryout|field booking|event|home game|away game|tournament|regular season)$/i.test(clean);
+  }
+
+  function rebuildOpponentSelect() {
+    const select = $('opponentSelect');
+    if (!select) return;
+    const previous = normalizeOpponentLabel(select.value);
+    if (!opponentOptions.length) {
+      select.innerHTML = '<option value="">Opponent list unavailable</option>';
+      select.value = '';
+      return;
+    }
+    select.innerHTML = opponentOptions.map((option) => `<option>${escapeHtml(option)}</option>`).join('');
+    setOpponentValue(opponentOptions.includes(previous) ? previous : opponentOptions[0]);
+  }
+
+  function setOpponentValue(value) {
+    const select = $('opponentSelect');
+    if (!select) return;
+    const normalized = normalizeOpponentLabel(value);
+    if (!normalized) {
+      if (select.options.length) select.value = select.options[0].value;
+      return;
+    }
+    const existing = [...select.options].find((option) => normalizeOpponentLabel(option.value) === normalized);
+    if (!existing) {
+      const option = document.createElement('option');
+      option.value = normalized;
+      option.textContent = normalized;
+      select.appendChild(option);
+    }
+    select.value = normalized;
+  }
+
+  function selectedOpponentValue() {
+    const eventType = $('eventTypeSelect').value;
+    if (/practice/i.test(eventType)) return 'Practice';
+    return normalizeOpponentLabel($('opponentSelect').value);
+  }
+
+  function syncEventTypeControls() {
+    const isPractice = /practice/i.test($('eventTypeSelect').value);
+    $('opponentField').hidden = isPractice;
+    $('opponentSelect').disabled = isPractice;
+    if (!isPractice && !$('opponentSelect').value && opponentOptions.length) {
+      setOpponentValue(opponentOptions[0]);
+    }
   }
 
   async function queueRequest(event) {
@@ -816,6 +903,13 @@
         box.textContent = check.message;
         return;
       }
+      const selectedOpponent = selectedOpponentValue();
+      if (!/practice/i.test($('eventTypeSelect').value) && !selectedOpponent) {
+        const box = $('availabilityResult');
+        box.className = 'availability-result bad';
+        box.textContent = 'Choose the opponent team from the Turtle Club list before queuing this request.';
+        return;
+      }
       const original = mode === 'replace' ? data.schedule.find((item) => item.id === $('eventId').value) : null;
       payload = {
         action: mode === 'replace' ? `Replace ${original.eventKind || 'event'}` : `Create ${$('eventTypeSelect').value}`,
@@ -830,7 +924,7 @@
         date: $('gameDate').value,
         start: toDisplayTime($('startTime').value),
         end: toDisplayTime($('endTime').value),
-        opponent: $('opponentInput').value || $('eventTypeSelect').value,
+        opponent: selectedOpponent || 'Practice',
         diamond: $('diamondSelect').value,
         reason: $('notesInput').value,
         availabilityStatus: check.message,

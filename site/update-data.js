@@ -375,6 +375,37 @@ function dedupeAvailability(availability) {
   });
 }
 
+function normalizeOpponentOption(value) {
+  return String(value || '')
+    .replace(/^vs\.?\s*/i, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function isOpponentOption(value) {
+  const clean = normalizeOpponentOption(value);
+  if (!clean) return false;
+  return !/^(practice|tryout|field booking|event|home game|away game|tournament|regular season)$/i.test(clean);
+}
+
+function buildOpponentOptions(schedule, conflictEvents, teams) {
+  const titansTeams = new Set(teams || []);
+  const choices = new Set();
+
+  [...(schedule || []), ...(conflictEvents || [])].forEach((event) => {
+    const isGame = /game/i.test(String(event.eventKind || event.type || ''));
+    if (!isGame) return;
+
+    const opponent = normalizeOpponentOption(event.opponent);
+    if (isOpponentOption(opponent)) choices.add(opponent);
+
+    const team = normalizeOpponentOption(event.team);
+    if (isOpponentOption(team) && !titansTeams.has(team)) choices.add(team);
+  });
+
+  return [...choices].sort((a, b) => a.localeCompare(b));
+}
+
 function cpScheduleUrl() {
   return `${baseUrl}/CP/Content/Scheduling/Schedule.aspx?ParentID=${config.teamCategoryId}`;
 }
@@ -574,6 +605,7 @@ async function generateData() {
     sourceCalendar: usedControlPanel ? cpScheduleUrl() : `${baseUrl}/Calendar/`,
     sourceAvailability: usedControlPanel ? cpScheduleUrl() : `${baseUrl}/Availabilities/${config.availabilityId}/`,
     teams,
+    opponentOptions: buildOpponentOptions(dedupedSchedule, dedupedConflicts, teams),
     schedule: dedupedSchedule,
     conflictEvents: dedupedConflicts,
     availability: dedupedAvailability
