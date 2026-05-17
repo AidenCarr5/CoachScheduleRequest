@@ -390,6 +390,16 @@
           }
         }
 
+        if (request.status === 'approved') {
+          const approvedEvent = schedule.find((event) => eventMatchesApprovedRequest(event, request));
+          if (approvedEvent) {
+            approvedEvent.pendingState = 'approved-new';
+            approvedEvent.pendingLabel = 'Approved request';
+            approvedEvent.requestIndex = index;
+            return;
+          }
+        }
+
         schedule.push({
           id: `request-${request.id}`,
           date: request.date,
@@ -411,6 +421,48 @@
       });
 
     return schedule;
+  }
+
+  function eventMatchesApprovedRequest(event, request) {
+    if (!event || !request) return false;
+    if (event.id === request.originalId) return false;
+    if (event.pendingState && event.pendingState !== 'approved-new') return false;
+
+    const eventTeam = normalizeScheduleComparison(event.team);
+    const requestTeam = normalizeScheduleComparison(request.team);
+    if (eventTeam !== requestTeam) return false;
+
+    const eventDate = String(event.date || '');
+    const requestDate = String(request.date || '');
+    if (eventDate !== requestDate) return false;
+
+    const eventDiamond = normalizeScheduleComparison(event.diamond);
+    const requestDiamond = normalizeScheduleComparison(request.diamond);
+    if (eventDiamond !== requestDiamond) return false;
+
+    const eventStart = normalizeScheduleComparison(event.time);
+    const requestStart = normalizeScheduleComparison(request.start);
+    if (eventStart !== requestStart) return false;
+
+    const eventEnd = normalizeScheduleComparison(event.endTime || '');
+    const requestEnd = normalizeScheduleComparison(request.end || '');
+    if (eventEnd !== requestEnd) return false;
+
+    const eventKind = normalizeScheduleComparison(event.eventKind || event.type);
+    const requestKind = normalizeScheduleComparison(request.newType || request.originalType || 'Event');
+    if (eventKind !== requestKind) return false;
+
+    const eventOpponent = normalizeScheduleComparison(event.opponent);
+    const requestOpponent = normalizeScheduleComparison(request.opponent);
+    return eventOpponent === requestOpponent;
+  }
+
+  function normalizeScheduleComparison(value) {
+    return String(value || '')
+      .replace(/^vs\.?\s*/i, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .toLowerCase();
   }
 
   function buildHistoricalEvent(request, index, pendingState, pendingLabel) {
@@ -644,7 +696,7 @@
         : '';
     const strikeClass = /cancel|replace/.test(event.pendingState || '') || sourceCancelled ? ' strike' : '';
     const alreadyCancelled = sourceCancelled;
-    const actions = event.pendingState
+    const actions = event.pendingState && event.pendingState !== 'approved-new'
       ? `<div class="row-actions"><button class="replace-btn static-btn" type="button" disabled>${event.status === 'approved' ? 'Approved' : 'Queued'}</button></div>`
       : alreadyCancelled
         ? `<div class="row-actions"><button class="replace-btn static-btn" type="button" disabled>Already cancelled</button></div>`
