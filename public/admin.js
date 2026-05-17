@@ -182,9 +182,20 @@
         $('adminMessage').textContent = message;
         return;
       }
+      const payload = await response.json();
       await loadRequests();
-      $('adminMessage').textContent = action === 'approve'
-        ? 'Approved request was applied to Turtle Club and synced back into the scheduler.'
+      if (action === 'approve') {
+        let message = payload.verified
+          ? `Approved request was applied to Turtle Club and synced back into the scheduler. ${payload.verificationDetails || ''}`.trim()
+          : `Approved request was applied, but the follow-up verification did not confirm the change yet. ${payload.verificationDetails || ''}`.trim();
+        if (!payload.emailSent && payload.emailError) {
+          message = `${message} Coach email failed: ${payload.emailError}`;
+        }
+        $('adminMessage').textContent = message;
+        return;
+      }
+      $('adminMessage').textContent = !payload.emailSent && payload.emailError
+        ? `Request rejected. Coach email failed: ${payload.emailError}`
         : 'Request rejected.';
     } finally {
       setAdminBusy(false);
