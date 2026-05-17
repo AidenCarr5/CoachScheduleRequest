@@ -928,6 +928,11 @@
 
     if (mode === 'cancel') {
       const original = data.schedule.find((item) => item.id === $('eventId').value);
+      const cancelReason = $('cancelReason').value.trim();
+      if (!cancelReason) {
+        alert('Please enter a reason for cancellation before queuing this request.');
+        return;
+      }
       payload = {
         action: `Cancel ${original.eventKind || 'event'}`,
         team: original.team,
@@ -943,7 +948,7 @@
         end: original.endTime || '',
         opponent: original.opponent,
         diamond: original.diamond,
-        reason: $('cancelReason').value,
+        reason: cancelReason,
         availabilityStatus: 'Original event cancellation',
         submittedBy: state.team
       };
@@ -978,7 +983,7 @@
         end: toDisplayTime($('endTime').value),
         opponent: selectedOpponent || 'Practice',
         diamond: $('diamondSelect').value,
-        reason: $('notesInput').value,
+        reason: $('notesInput').value.trim(),
         availabilityStatus: check.message,
         submittedBy: state.team
       };
