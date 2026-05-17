@@ -1149,6 +1149,9 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
 
 #requestForm { padding: 18px; }
 #calendarDayPanel { padding: 18px; }
+#requestForm {
+  position: relative;
+}
 
 .dialog-head,
 .dialog-actions {
@@ -1242,6 +1245,16 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
   margin: 0;
   color: var(--muted);
   line-height: 1.5;
+}
+
+.dialog-loading-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(24, 32, 24, 0.45);
 }
 
 .loading-ellipsis::after {

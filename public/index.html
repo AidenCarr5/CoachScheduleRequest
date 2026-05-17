@@ -134,6 +134,13 @@
 
   <dialog id="requestDialog">
     <form method="dialog" id="requestForm">
+      <div id="requestDialogOverlay" class="dialog-loading-overlay" hidden>
+        <div class="loading-overlay-card" role="status" aria-live="assertive">
+          <div class="loading-spinner" aria-hidden="true"></div>
+          <strong id="requestDialogOverlayTitle">Working...</strong>
+          <p><span id="requestDialogOverlayTextLabel">Please wait</span><span class="loading-ellipsis" aria-hidden="true"></span></p>
+        </div>
+      </div>
       <div class="dialog-head">
         <h2 id="dialogTitle">Request</h2>
         <button type="button" class="icon" id="closeDialog" aria-label="Close">x</button>

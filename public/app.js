@@ -975,6 +975,12 @@
       $('loadingOverlayTitle').textContent = title;
       $('loadingOverlayTextLabel').textContent = detail;
     }
+    const dialogOverlay = $('requestDialogOverlay');
+    if (dialogOverlay) {
+      dialogOverlay.hidden = !isSubmitting;
+      $('requestDialogOverlayTitle').textContent = title;
+      $('requestDialogOverlayTextLabel').textContent = detail;
+    }
     const submitButton = $('queueRequestBtn');
     if (submitButton) {
       submitButton.disabled = isSubmitting;
