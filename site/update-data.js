@@ -261,6 +261,10 @@ function parseCpEventBlock(block, date) {
   if (/pnlAway/i.test(className)) type = 'Away Game';
   if (/pnlHome/i.test(className)) type = 'Home Game';
   if (/pnlTour/i.test(className)) type = 'Tournament';
+  const cancelled = /cancel/i.test(className) || /cancelled/i.test(subject) || /cancelled/i.test(opponent);
+  const baseKind = eventKind(type);
+  const finalType = cancelled ? `${type} Cancelled` : type;
+  const finalKind = cancelled ? `${baseKind} Cancelled` : baseKind;
   const titansTeams = organization === 'Titans'
     ? (extractTitansTeams(rawTeam).length ? extractTitansTeams(rawTeam) : (isTitansTeam(rawTeam) ? [rawTeam] : []))
     : [];
@@ -272,8 +276,8 @@ function parseCpEventBlock(block, date) {
     time: timeRange.start,
     endTime: timeRange.end,
     durationMinutes: timeRange.end ? null : 120,
-    type,
-    eventKind: eventKind(type),
+    type: finalType,
+    eventKind: finalKind,
     team: teamLabel,
     opponent: opponent || subject || type,
     diamond: venue,
