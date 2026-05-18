@@ -277,6 +277,21 @@ input, select, textarea {
   font: inherit;
 }
 
+.filter-select {
+  display: grid;
+  gap: 6px;
+}
+
+.filter-select select {
+  min-height: 0;
+  height: auto;
+  padding: 0;
+}
+
+.filter-select option {
+  padding: 8px 10px;
+}
+
 select:disabled {
   color: var(--ink);
   background: #eef1eb;

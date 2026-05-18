@@ -118,6 +118,24 @@
         calendarDayDialog.close();
         openNewEvent(date);
       });
+      $('opponentInput').addEventListener('input', () => {
+        renderFilteredSelect('opponent');
+      });
+      $('opponentSelect').addEventListener('change', () => {
+        syncFilterSelectChoice('opponent');
+      });
+      $('opponentSelect').addEventListener('dblclick', () => {
+        syncFilterSelectChoice('opponent');
+      });
+      $('awayDiamondInput').addEventListener('input', () => {
+        renderFilteredSelect('venue');
+      });
+      $('awayDiamondSelect').addEventListener('change', () => {
+        syncFilterSelectChoice('venue');
+      });
+      $('awayDiamondSelect').addEventListener('dblclick', () => {
+        syncFilterSelectChoice('venue');
+      });
       $('checkBtn').addEventListener('click', renderAvailabilityCheck);
       $('requestForm').addEventListener('submit', queueRequest);
       window.addEventListener('focus', syncRequests);
@@ -910,6 +928,12 @@
       .trim();
   }
 
+  function normalizeVenueLabel(value) {
+    return String(value || '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
   function isOpponentChoice(value) {
     const clean = normalizeOpponentLabel(value);
     if (!clean) return false;
@@ -917,23 +941,24 @@
   }
 
   function rebuildOpponentSelect() {
-    const input = $('opponentInput');
-    const list = $('opponentOptions');
-    if (!input || !list) return;
-    const previous = normalizeOpponentLabel(input.value);
     if (!opponentOptions.length) {
-      list.innerHTML = '';
-      input.value = '';
+      $('opponentInput').value = '';
+      $('opponentSelect').innerHTML = '';
       return;
     }
-    list.innerHTML = opponentOptions.map((option) => `<option value="${escapeHtml(option)}"></option>`).join('');
-    setOpponentValue(opponentOptions.includes(previous) ? previous : opponentOptions[0]);
+    setOpponentValue(opponentOptions.includes(normalizeOpponentLabel($('opponentInput').value)) ? normalizeOpponentLabel($('opponentInput').value) : opponentOptions[0]);
+    renderFilteredSelect('opponent');
   }
 
   function rebuildAwayVenueOptions() {
-    const list = $('awayDiamondOptions');
-    if (!list) return;
-    list.innerHTML = venueOptions.map((venue) => `<option value="${escapeHtml(venue)}"></option>`).join('');
+    if (!venueOptions.length) {
+      $('awayDiamondInput').value = '';
+      $('awayDiamondSelect').innerHTML = '';
+      return;
+    }
+    const current = normalizeVenueLabel($('awayDiamondInput').value);
+    $('awayDiamondInput').value = venueOptions.includes(current) ? current : venueOptions[0];
+    renderFilteredSelect('venue');
   }
 
   function setOpponentValue(value) {
@@ -945,6 +970,49 @@
       return;
     }
     input.value = normalized;
+  }
+
+  function filterSelectConfig(kind) {
+    if (kind === 'opponent') {
+      return {
+        input: $('opponentInput'),
+        select: $('opponentSelect'),
+        options: opponentOptions,
+        normalize: normalizeOpponentLabel
+      };
+    }
+    return {
+      input: $('awayDiamondInput'),
+      select: $('awayDiamondSelect'),
+      options: venueOptions,
+      normalize: normalizeVenueLabel
+    };
+  }
+
+  function renderFilteredSelect(kind) {
+    const config = filterSelectConfig(kind);
+    if (!config.input || !config.select) return;
+    const query = config.normalize(config.input.value);
+    const filtered = config.options.filter((option) => {
+      const normalized = config.normalize(option);
+      return !query || normalized.includes(query);
+    });
+    const choices = filtered.length ? filtered : config.options;
+    config.select.innerHTML = choices.map((option) => `<option>${escapeHtml(option)}</option>`).join('');
+    config.select.size = Math.max(1, Math.min(6, choices.length || 1));
+    const exact = choices.find((option) => config.normalize(option) === query);
+    if (exact) {
+      config.select.value = exact;
+    } else if (choices.length) {
+      config.select.selectedIndex = 0;
+    }
+  }
+
+  function syncFilterSelectChoice(kind) {
+    const config = filterSelectConfig(kind);
+    if (!config.input || !config.select || !config.select.value) return;
+    config.input.value = config.select.value;
+    renderFilteredSelect(kind);
   }
 
   function selectedOpponentValue() {

@@ -182,13 +182,17 @@
         </div>
         <div class="field" id="awayFieldField" hidden>
           <label for="awayDiamondInput">Away field</label>
-          <input id="awayDiamondInput" type="text" list="awayDiamondOptions" placeholder="Start typing a field name">
-          <datalist id="awayDiamondOptions"></datalist>
+          <div class="filter-select">
+            <input id="awayDiamondInput" type="text" placeholder="Type to filter fields" autocomplete="off">
+            <select id="awayDiamondSelect" size="6"></select>
+          </div>
         </div>
         <div class="field span" id="opponentField">
           <label for="opponentInput" id="opponentLabel">Opponent</label>
-          <input id="opponentInput" type="text" list="opponentOptions" placeholder="Start typing an opponent">
-          <datalist id="opponentOptions"></datalist>
+          <div class="filter-select">
+            <input id="opponentInput" type="text" placeholder="Type to filter opponents" autocomplete="off">
+            <select id="opponentSelect" size="6"></select>
+          </div>
         </div>
         <div class="field span">
           <label for="notesInput">Notes</label>
