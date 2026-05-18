@@ -10,6 +10,29 @@
   const calendarDayDialog = $('calendarDayDialog');
   const preloadBar = $('preloadBar');
   const loadingOverlay = $('loadingOverlay');
+  const turtleClubVenueCatalog = [
+    'Turtle Club - Diamond #1',
+    'Turtle Club - Diamond #2',
+    'Turtle Club - Diamond #3',
+    'Turtle Club - Diamond #4',
+    'Turtle Club - Diamond #5',
+    'Turtle Club - Diamond #6',
+    'Turtle Club - Diamond #7',
+    'Villanova - Diamond #1',
+    'Villanova - Diamond #2',
+    'Vollmer #1',
+    'Vollmer #2',
+    'Vollmer #3',
+    'Vollmer #4',
+    'Vollmer #5',
+    'Vollmer #6',
+    'Vollmer #7',
+    'Vollmer #8',
+    'River Canard #1',
+    'River Canard #2',
+    'River Canard #3',
+    'River Canard #4'
+  ];
   let data = null;
   let months = ['All months'];
   let diamonds = [];
@@ -869,9 +892,13 @@
 
   function buildVenueOptions() {
     const choices = new Set();
-    [...(data.availability || []), ...(data.schedule || []), ...(data.conflictEvents || [])].forEach((item) => {
+    const homeVenueSet = new Set((diamonds || []).map((venue) => String(venue || '').trim()).filter(Boolean));
+    turtleClubVenueCatalog.forEach((venue) => {
+      if (venue && !homeVenueSet.has(venue)) choices.add(venue);
+    });
+    [...(data.schedule || []), ...(data.conflictEvents || [])].forEach((item) => {
       const venue = String(item.diamond || '').trim();
-      if (venue) choices.add(venue);
+      if (venue && !homeVenueSet.has(venue)) choices.add(venue);
     });
     return [...choices].sort((a, b) => a.localeCompare(b));
   }
