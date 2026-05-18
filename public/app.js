@@ -843,7 +843,7 @@
     $('startTime').value = '18:00';
     $('endTime').value = '20:00';
     $('awayDiamondInput').value = '';
-    setOpponentValue(opponentOptions[0] || '');
+    setOpponentValue('');
     $('notesInput').value = '';
     $('availabilityResult').className = 'availability-result';
     $('availabilityResult').textContent = 'Choose a diamond and time, then check availability.';
@@ -941,23 +941,12 @@
   }
 
   function rebuildOpponentSelect() {
-    if (!opponentOptions.length) {
-      $('opponentInput').value = '';
-      $('opponentSelect').innerHTML = '';
-      return;
-    }
-    setOpponentValue(opponentOptions.includes(normalizeOpponentLabel($('opponentInput').value)) ? normalizeOpponentLabel($('opponentInput').value) : opponentOptions[0]);
+    if (!opponentOptions.length) $('opponentInput').value = '';
     renderFilteredSelect('opponent');
   }
 
   function rebuildAwayVenueOptions() {
-    if (!venueOptions.length) {
-      $('awayDiamondInput').value = '';
-      $('awayDiamondSelect').innerHTML = '';
-      return;
-    }
-    const current = normalizeVenueLabel($('awayDiamondInput').value);
-    $('awayDiamondInput').value = venueOptions.includes(current) ? current : venueOptions[0];
+    if (!venueOptions.length) $('awayDiamondInput').value = '';
     renderFilteredSelect('venue');
   }
 
@@ -993,18 +982,21 @@
     const config = filterSelectConfig(kind);
     if (!config.input || !config.select) return;
     const query = config.normalize(config.input.value);
-    const filtered = config.options.filter((option) => {
+    const choices = (query ? config.options.filter((option) => {
       const normalized = config.normalize(option);
       return !query || normalized.includes(query);
-    });
-    const choices = filtered.length ? filtered : config.options;
-    config.select.innerHTML = choices.map((option) => `<option>${escapeHtml(option)}</option>`).join('');
+    }) : config.options);
+    config.select.innerHTML = choices.length
+      ? choices.map((option) => `<option>${escapeHtml(option)}</option>`).join('')
+      : '<option value="" disabled>No matches</option>';
     config.select.size = Math.max(1, Math.min(6, choices.length || 1));
     const exact = choices.find((option) => config.normalize(option) === query);
     if (exact) {
       config.select.value = exact;
     } else if (choices.length) {
       config.select.selectedIndex = 0;
+    } else {
+      config.select.selectedIndex = -1;
     }
   }
 
@@ -1034,16 +1026,12 @@
     const isAwayGame = /away game/i.test(eventType);
     $('opponentField').hidden = isPractice;
     $('opponentInput').disabled = isPractice;
-    if (!isPractice && !$('opponentInput').value && opponentOptions.length) {
-      setOpponentValue(opponentOptions[0]);
-    }
+    renderFilteredSelect('opponent');
     $('diamondSelect').parentElement.hidden = isAwayGame;
     $('diamondSelect').disabled = isAwayGame;
     $('awayFieldField').hidden = !isAwayGame;
     $('awayDiamondInput').disabled = !isAwayGame;
-    if (isAwayGame && !$('awayDiamondInput').value && venueOptions.length) {
-      $('awayDiamondInput').value = venueOptions[0];
-    }
+    renderFilteredSelect('venue');
   }
 
   async function queueRequest(event) {
