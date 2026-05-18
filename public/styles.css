@@ -278,6 +278,7 @@ input, select, textarea {
 }
 
 .filter-select {
+  position: relative;
   display: grid;
   gap: 6px;
 }
@@ -288,18 +289,41 @@ input, select, textarea {
   box-shadow: inset 0 0 0 1px rgba(29, 82, 36, 0.12);
 }
 
-.filter-select select {
+.filter-select-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 30;
+  max-height: 216px;
+  overflow-y: auto;
+  border: 1px solid #bec8bc;
+  background: #fff;
+  box-shadow: 0 14px 26px rgba(20, 28, 20, 0.14);
+}
+
+.filter-select-item {
+  display: block;
+  width: 100%;
   min-height: 0;
-  height: auto;
-  padding: 0;
+  padding: 9px 10px;
+  border: 0;
+  border-bottom: 1px solid rgba(24, 32, 24, 0.08);
+  color: var(--ink);
+  background: #fff;
+  font: inherit;
+  font-weight: 400;
+  text-align: left;
 }
 
-.filter-select.is-selected select {
-  border-color: var(--green);
+.filter-select-item:last-child {
+  border-bottom: 0;
 }
 
-.filter-select option {
-  padding: 8px 10px;
+.filter-select-item:hover,
+.filter-select-item:focus-visible {
+  background: #eef6ee;
+  outline: none;
 }
 
 select:disabled {

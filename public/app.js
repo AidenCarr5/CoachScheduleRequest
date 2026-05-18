@@ -105,11 +105,12 @@
         showFilterSelect('opponent');
         renderFilteredSelect('opponent');
       });
-      $('opponentSelect').addEventListener('change', () => {
-        syncFilterSelectChoice('opponent');
-      });
-      $('opponentSelect').addEventListener('dblclick', () => {
-        syncFilterSelectChoice('opponent');
+      $('opponentInput').addEventListener('blur', () => scheduleHideFilterSelect('opponent'));
+      $('opponentMenu').addEventListener('mousedown', (event) => {
+        const option = event.target.closest('[data-filter-value]');
+        if (!option) return;
+        event.preventDefault();
+        syncFilterSelectChoice('opponent', option.dataset.filterValue);
       });
       $('awayDiamondInput').addEventListener('input', () => {
         showFilterSelect('venue');
@@ -119,11 +120,12 @@
         showFilterSelect('venue');
         renderFilteredSelect('venue');
       });
-      $('awayDiamondSelect').addEventListener('change', () => {
-        syncFilterSelectChoice('venue');
-      });
-      $('awayDiamondSelect').addEventListener('dblclick', () => {
-        syncFilterSelectChoice('venue');
+      $('awayDiamondInput').addEventListener('blur', () => scheduleHideFilterSelect('venue'));
+      $('awayDiamondMenu').addEventListener('mousedown', (event) => {
+        const option = event.target.closest('[data-filter-value]');
+        if (!option) return;
+        event.preventDefault();
+        syncFilterSelectChoice('venue', option.dataset.filterValue);
       });
       $('checkBtn').addEventListener('click', renderAvailabilityCheck);
       $('requestForm').addEventListener('submit', queueRequest);
@@ -839,8 +841,6 @@
     $('endTime').value = '20:00';
     $('awayDiamondInput').value = '';
     setOpponentValue('');
-    showFilterSelect('opponent');
-    showFilterSelect('venue');
     $('notesInput').value = '';
     $('availabilityResult').className = 'availability-result';
     $('availabilityResult').textContent = 'Choose a diamond and time, then check availability.';
@@ -869,8 +869,6 @@
     if (diamonds.includes(original.diamond)) $('diamondSelect').value = original.diamond;
     $('awayDiamondInput').value = original.diamond || '';
     setOpponentValue(original.eventKind === 'Practice' ? original.opponent : '');
-    showFilterSelect('opponent');
-    showFilterSelect('venue');
     $('notesInput').value = `Replacing ${original.eventKind || original.type}: ${original.opponent} at ${original.diamond}`;
     $('availabilityResult').className = 'availability-result';
     $('availabilityResult').textContent = 'This replacement will be checked against published availability and Turtle Club event conflicts.';
@@ -992,8 +990,24 @@
 
   function showFilterSelect(kind) {
     const config = filterSelectConfig(kind);
-    if (!config.select) return;
-    config.select.hidden = false;
+    if (!config.menu) return;
+    config.menu.hidden = false;
+  }
+
+  function hideFilterSelect(kind) {
+    const config = filterSelectConfig(kind);
+    if (!config.menu) return;
+    config.menu.hidden = true;
+  }
+
+  function scheduleHideFilterSelect(kind) {
+    window.setTimeout(() => {
+      const config = filterSelectConfig(kind);
+      if (!config.shell) return;
+      const active = document.activeElement;
+      if (active && config.shell.contains(active)) return;
+      hideFilterSelect(kind);
+    }, 120);
   }
 
   function filterSelectConfig(kind) {
@@ -1001,7 +1015,7 @@
       return {
         shell: $('opponentInput').parentElement,
         input: $('opponentInput'),
-        select: $('opponentSelect'),
+        menu: $('opponentMenu'),
         options: opponentOptions,
         normalize: normalizeOpponentLabel
       };
@@ -1009,7 +1023,7 @@
     return {
       shell: $('awayDiamondInput').parentElement,
       input: $('awayDiamondInput'),
-      select: $('awayDiamondSelect'),
+      menu: $('awayDiamondMenu'),
       options: venueOptions,
       normalize: normalizeVenueLabel
     };
@@ -1017,35 +1031,34 @@
 
   function renderFilteredSelect(kind) {
     const config = filterSelectConfig(kind);
-    if (!config.input || !config.select) return;
+    if (!config.input || !config.menu) return;
     const query = config.normalize(config.input.value);
     const queryKey = normalizedSearchKey(query);
     const choices = (query ? config.options.filter((option) => {
       const normalized = normalizedSearchKey(config.normalize(option));
       return !queryKey || normalized.includes(queryKey);
     }) : config.options);
-    config.select.innerHTML = choices.length
-      ? choices.map((option) => `<option>${escapeHtml(option)}</option>`).join('')
-      : '<option value="" disabled>No matches</option>';
-    config.select.size = Math.max(1, Math.min(6, choices.length || 1));
     const exact = choices.find((option) => normalizedSearchKey(config.normalize(option)) === queryKey);
+    config.menu.innerHTML = choices.map((option) => `
+      <button class="filter-select-item" type="button" data-filter-value="${escapeHtml(option)}">${escapeHtml(option)}</button>
+    `).join('');
+    if (!choices.length) {
+      config.menu.hidden = true;
+    }
     if (exact) {
-      config.select.value = exact;
       config.shell && config.shell.classList.add('is-selected');
     } else if (choices.length) {
-      config.select.selectedIndex = 0;
       config.shell && config.shell.classList.remove('is-selected');
     } else {
-      config.select.selectedIndex = -1;
       config.shell && config.shell.classList.remove('is-selected');
     }
   }
 
-  function syncFilterSelectChoice(kind) {
+  function syncFilterSelectChoice(kind, value) {
     const config = filterSelectConfig(kind);
-    if (!config.input || !config.select || !config.select.value) return;
-    config.input.value = config.select.value;
-    config.select.hidden = true;
+    if (!config.input || !value) return;
+    config.input.value = value;
+    hideFilterSelect(kind);
     renderFilteredSelect(kind);
   }
 
@@ -1070,11 +1083,13 @@
     const isAwayGame = /away game/i.test(eventType);
     $('opponentField').hidden = isPractice;
     $('opponentInput').disabled = isPractice;
+    if (isPractice) hideFilterSelect('opponent');
     renderFilteredSelect('opponent');
     $('diamondSelect').parentElement.hidden = isAwayGame;
     $('diamondSelect').disabled = isAwayGame;
     $('awayFieldField').hidden = !isAwayGame;
     $('awayDiamondInput').disabled = !isAwayGame;
+    if (!isAwayGame) hideFilterSelect('venue');
     renderFilteredSelect('venue');
   }
 
