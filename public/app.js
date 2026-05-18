@@ -33,6 +33,52 @@
     'River Canard #3',
     'River Canard #4'
   ];
+  const turtleClubOpponentCatalog = [
+    'Amherstburg Cardinals',
+    'Blenheim',
+    'Chatham Diamonds',
+    'Chatham Golden Eagles',
+    'Corunna',
+    'Dorchester Diamondbacks',
+    'Essex Stingers',
+    'Essex Yellow Jackets',
+    'Essex Yellow Jackets #1',
+    'Essex Yellow Jackets #2',
+    'Forest Glade Falcons',
+    'Great Lakes Canadians',
+    'Kingsville Knights',
+    'Kingsville Krush #1',
+    'Kingsville Krush #2',
+    'Lakeshore Storm',
+    'Lakeshore Storm #1',
+    'Lakeshore Storm #2',
+    'Lakeshore Whitecaps',
+    'Leamington',
+    'Leamington Atlas Tube',
+    'Leamington Lakers',
+    'Leamington White Caps #1',
+    'Leamington Whitecaps',
+    'Ontario Nationals',
+    'Ontario Terriers',
+    'Port Lambton Pirates',
+    'Riverside Royals',
+    'Sarnia Brigade',
+    'Tecumseh Blue',
+    'Tecumseh Rangers',
+    'Tecumseh Red',
+    'Toronto Mets',
+    'Trenton Travelers',
+    'Windsor Hawks',
+    'Windsor Selects 13U',
+    'Windsor Selects 15U',
+    'Windsor Stars',
+    'Windsor Wildcats',
+    'Windsor Wildcats U19',
+    'Windsor WLE Int.',
+    'Windsor WLE U19',
+    'Woodslee Orioles',
+    'York University'
+  ];
   let data = null;
   let months = ['All months'];
   let diamonds = [];
@@ -902,24 +948,28 @@
   }
 
   function buildOpponentOptions() {
-    if (Array.isArray(data.opponentOptions) && data.opponentOptions.length) {
-      return [...new Set(data.opponentOptions.map(normalizeOpponentLabel).filter(isOpponentChoice))].sort((a, b) => a.localeCompare(b));
+    const titansTeams = new Set((data.teams || []).map((team) => normalizedSearchKey(normalizeOpponentLabel(team))).filter(Boolean));
+    const choiceMap = new Map();
+
+    function maybeAddOpponent(value) {
+      const label = normalizeOpponentLabel(value);
+      const key = normalizedSearchKey(label);
+      if (!key || titansTeams.has(key) || !isOpponentChoice(label)) return;
+      if (!choiceMap.has(key)) {
+        choiceMap.set(key, label);
+      }
     }
 
-    const titansTeams = new Set(data.teams || []);
-    const choices = new Set();
+    turtleClubOpponentCatalog.forEach(maybeAddOpponent);
+    (data.opponentOptions || []).forEach(maybeAddOpponent);
     const sources = [...(data.schedule || []), ...(data.conflictEvents || [])];
     sources.forEach((event) => {
       const isGame = /game/i.test(String(event.eventKind || event.type || ''));
       if (!isGame) return;
-
-      const opponent = normalizeOpponentLabel(event.opponent);
-      if (isOpponentChoice(opponent)) choices.add(opponent);
-
-      const team = normalizeOpponentLabel(event.team);
-      if (isOpponentChoice(team) && !titansTeams.has(team)) choices.add(team);
+      maybeAddOpponent(event.opponent);
+      maybeAddOpponent(event.team);
     });
-    return [...choices].sort((a, b) => a.localeCompare(b));
+    return [...choiceMap.values()].sort((a, b) => a.localeCompare(b));
   }
 
   function buildVenueOptions() {
@@ -929,10 +979,11 @@
     function maybeAddVenue(value) {
       const label = String(value || '').trim();
       const normalized = normalizeVenueLabel(label);
-      if (!normalized) return;
-      if (excludedVenuePrefixes.some((prefix) => normalized.startsWith(prefix))) return;
-      if (!choiceMap.has(normalized)) {
-        choiceMap.set(normalized, label);
+      const key = normalizedSearchKey(normalized);
+      if (!key) return;
+      if (excludedVenuePrefixes.some((prefix) => key.startsWith(prefix))) return;
+      if (!choiceMap.has(key)) {
+        choiceMap.set(key, label);
       }
     }
 
@@ -961,7 +1012,11 @@
   function isOpponentChoice(value) {
     const clean = normalizeOpponentLabel(value);
     if (!clean) return false;
-    return !/^(practice|tryout|field booking|event|home game|away game|tournament|regular season)$/i.test(clean);
+    return !/^(practice|tryout|field booking|event|home game|away game|tournament|regular season|local game|tbd)$/i.test(clean)
+      && !/^shared practice with /i.test(clean)
+      && !/\bshared practice\b/i.test(clean)
+      && !/\s-\s.*\(/.test(clean)
+      && !/\bG\d{1,2}-\d\b/i.test(clean);
   }
 
   function rebuildOpponentSelect() {

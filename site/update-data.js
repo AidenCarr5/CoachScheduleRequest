@@ -381,33 +381,96 @@ function dedupeAvailability(availability) {
 
 function normalizeOpponentOption(value) {
   return String(value || '')
+    .replace(/^@+\s*/, '')
     .replace(/^vs\.?\s*/i, '')
     .replace(/\s+/g, ' ')
     .trim();
 }
 
+const turtleClubOpponentCatalog = [
+  'Amherstburg Cardinals',
+  'Blenheim',
+  'Chatham Diamonds',
+  'Chatham Golden Eagles',
+  'Corunna',
+  'Dorchester Diamondbacks',
+  'Essex Stingers',
+  'Essex Yellow Jackets',
+  'Essex Yellow Jackets #1',
+  'Essex Yellow Jackets #2',
+  'Forest Glade Falcons',
+  'Great Lakes Canadians',
+  'Kingsville Knights',
+  'Kingsville Krush #1',
+  'Kingsville Krush #2',
+  'Lakeshore Storm',
+  'Lakeshore Storm #1',
+  'Lakeshore Storm #2',
+  'Lakeshore Whitecaps',
+  'Leamington',
+  'Leamington Atlas Tube',
+  'Leamington Lakers',
+  'Leamington White Caps #1',
+  'Leamington Whitecaps',
+  'Ontario Nationals',
+  'Ontario Terriers',
+  'Port Lambton Pirates',
+  'Riverside Royals',
+  'Sarnia Brigade',
+  'Tecumseh Blue',
+  'Tecumseh Rangers',
+  'Tecumseh Red',
+  'Toronto Mets',
+  'Trenton Travelers',
+  'Windsor Hawks',
+  'Windsor Selects 13U',
+  'Windsor Selects 15U',
+  'Windsor Stars',
+  'Windsor Wildcats',
+  'Windsor Wildcats U19',
+  'Windsor WLE Int.',
+  'Windsor WLE U19',
+  'Woodslee Orioles',
+  'York University'
+];
+
+function normalizedSearchKey(value) {
+  return String(value || '').trim().toLowerCase();
+}
+
 function isOpponentOption(value) {
   const clean = normalizeOpponentOption(value);
   if (!clean) return false;
-  return !/^(practice|tryout|field booking|event|home game|away game|tournament|regular season)$/i.test(clean);
+  return !/^(practice|tryout|field booking|event|home game|away game|tournament|regular season|local game|tbd)$/i.test(clean)
+    && !/^shared practice with /i.test(clean)
+    && !/\bshared practice\b/i.test(clean)
+    && !/\s-\s.*\(/.test(clean)
+    && !/\bG\d{1,2}-\d\b/i.test(clean);
 }
 
 function buildOpponentOptions(schedule, conflictEvents, teams) {
-  const titansTeams = new Set(teams || []);
-  const choices = new Set();
+  const titansTeams = new Set((teams || []).map((team) => normalizedSearchKey(normalizeOpponentOption(team))).filter(Boolean));
+  const choiceMap = new Map();
+
+  function maybeAddOpponent(value) {
+    const clean = normalizeOpponentOption(value);
+    const key = normalizedSearchKey(clean);
+    if (!key || titansTeams.has(key) || !isOpponentOption(clean)) return;
+    if (!choiceMap.has(key)) {
+      choiceMap.set(key, clean);
+    }
+  }
+
+  turtleClubOpponentCatalog.forEach(maybeAddOpponent);
 
   [...(schedule || []), ...(conflictEvents || [])].forEach((event) => {
     const isGame = /game/i.test(String(event.eventKind || event.type || ''));
     if (!isGame) return;
-
-    const opponent = normalizeOpponentOption(event.opponent);
-    if (isOpponentOption(opponent)) choices.add(opponent);
-
-    const team = normalizeOpponentOption(event.team);
-    if (isOpponentOption(team) && !titansTeams.has(team)) choices.add(team);
+    maybeAddOpponent(event.opponent);
+    maybeAddOpponent(event.team);
   });
 
-  return [...choices].sort((a, b) => a.localeCompare(b));
+  return [...choiceMap.values()].sort((a, b) => a.localeCompare(b));
 }
 
 function cpScheduleUrl() {
