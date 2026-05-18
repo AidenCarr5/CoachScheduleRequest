@@ -917,15 +917,16 @@
   }
 
   function rebuildOpponentSelect() {
-    const select = $('opponentSelect');
-    if (!select) return;
-    const previous = normalizeOpponentLabel(select.value);
+    const input = $('opponentInput');
+    const list = $('opponentOptions');
+    if (!input || !list) return;
+    const previous = normalizeOpponentLabel(input.value);
     if (!opponentOptions.length) {
-      select.innerHTML = '<option value="">Opponent list unavailable</option>';
-      select.value = '';
+      list.innerHTML = '';
+      input.value = '';
       return;
     }
-    select.innerHTML = opponentOptions.map((option) => `<option>${escapeHtml(option)}</option>`).join('');
+    list.innerHTML = opponentOptions.map((option) => `<option value="${escapeHtml(option)}"></option>`).join('');
     setOpponentValue(opponentOptions.includes(previous) ? previous : opponentOptions[0]);
   }
 
@@ -936,27 +937,20 @@
   }
 
   function setOpponentValue(value) {
-    const select = $('opponentSelect');
-    if (!select) return;
+    const input = $('opponentInput');
+    if (!input) return;
     const normalized = normalizeOpponentLabel(value);
     if (!normalized) {
-      if (select.options.length) select.value = select.options[0].value;
+      input.value = '';
       return;
     }
-    const existing = [...select.options].find((option) => normalizeOpponentLabel(option.value) === normalized);
-    if (!existing) {
-      const option = document.createElement('option');
-      option.value = normalized;
-      option.textContent = normalized;
-      select.appendChild(option);
-    }
-    select.value = normalized;
+    input.value = normalized;
   }
 
   function selectedOpponentValue() {
     const eventType = $('eventTypeSelect').value;
     if (/practice/i.test(eventType)) return 'Practice';
-    return normalizeOpponentLabel($('opponentSelect').value);
+    return normalizeOpponentLabel($('opponentInput').value);
   }
 
   function selectedVenueValue() {
@@ -971,8 +965,8 @@
     const isPractice = /practice/i.test(eventType);
     const isAwayGame = /away game/i.test(eventType);
     $('opponentField').hidden = isPractice;
-    $('opponentSelect').disabled = isPractice;
-    if (!isPractice && !$('opponentSelect').value && opponentOptions.length) {
+    $('opponentInput').disabled = isPractice;
+    if (!isPractice && !$('opponentInput').value && opponentOptions.length) {
       setOpponentValue(opponentOptions[0]);
     }
     $('diamondSelect').parentElement.hidden = isAwayGame;
@@ -1030,6 +1024,12 @@
         const box = $('availabilityResult');
         box.className = 'availability-result bad';
         box.textContent = 'Choose the opponent team from the Turtle Club list before queuing this request.';
+        return;
+      }
+      if (!/practice/i.test($('eventTypeSelect').value) && opponentOptions.length && !opponentOptions.includes(selectedOpponent)) {
+        const box = $('availabilityResult');
+        box.className = 'availability-result bad';
+        box.textContent = 'Choose an opponent from the Turtle Club suggestion list.';
         return;
       }
       if (!selectedVenue) {
