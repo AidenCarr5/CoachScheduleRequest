@@ -282,10 +282,20 @@ input, select, textarea {
   gap: 6px;
 }
 
+.filter-select.is-selected input {
+  border-color: var(--green);
+  background: #eef6ee;
+  box-shadow: inset 0 0 0 1px rgba(29, 82, 36, 0.12);
+}
+
 .filter-select select {
   min-height: 0;
   height: auto;
   padding: 0;
+}
+
+.filter-select.is-selected select {
+  border-color: var(--green);
 }
 
 .filter-select option {

@@ -973,6 +973,7 @@
   function filterSelectConfig(kind) {
     if (kind === 'opponent') {
       return {
+        shell: $('opponentInput').parentElement,
         input: $('opponentInput'),
         select: $('opponentSelect'),
         options: opponentOptions,
@@ -980,6 +981,7 @@
       };
     }
     return {
+      shell: $('awayDiamondInput').parentElement,
       input: $('awayDiamondInput'),
       select: $('awayDiamondSelect'),
       options: venueOptions,
@@ -1002,10 +1004,13 @@
     const exact = choices.find((option) => config.normalize(option) === query);
     if (exact) {
       config.select.value = exact;
+      config.shell && config.shell.classList.add('is-selected');
     } else if (choices.length) {
       config.select.selectedIndex = 0;
+      config.shell && config.shell.classList.remove('is-selected');
     } else {
       config.select.selectedIndex = -1;
+      config.shell && config.shell.classList.remove('is-selected');
     }
   }
 
