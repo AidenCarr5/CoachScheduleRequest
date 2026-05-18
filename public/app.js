@@ -13,6 +13,7 @@
   let data = null;
   let months = ['All months'];
   let diamonds = [];
+  let venueOptions = [];
   let opponentOptions = [];
   let dateBounds = { min: '', max: '' };
   let refreshTimer = 0;
@@ -61,6 +62,7 @@
     teamSelect.innerHTML = data.teams.map((team) => `<option>${escapeHtml(team)}</option>`).join('');
     monthSelect.innerHTML = months.map((month) => `<option>${escapeHtml(month)}</option>`).join('');
     $('diamondSelect').innerHTML = diamonds.map((diamond) => `<option>${escapeHtml(diamond)}</option>`).join('');
+    rebuildAwayVenueOptions();
     rebuildOpponentSelect();
     $('gameDate').min = dateBounds.min;
     $('gameDate').max = dateBounds.max;
@@ -254,6 +256,7 @@
   function rebuildDerivedData() {
     months = ['All months', ...new Set(data.schedule.map((event) => event.month))];
     diamonds = [...new Set(data.availability.map((slot) => slot.diamond))].sort();
+    venueOptions = buildVenueOptions();
     opponentOptions = buildOpponentOptions();
     dateBounds = getDateBounds();
   }
@@ -299,6 +302,7 @@
         teamSelect.innerHTML = data.teams.map((team) => `<option>${escapeHtml(team)}</option>`).join('');
         monthSelect.innerHTML = months.map((month) => `<option>${escapeHtml(month)}</option>`).join('');
         $('diamondSelect').innerHTML = diamonds.map((diamond) => `<option>${escapeHtml(diamond)}</option>`).join('');
+        rebuildAwayVenueOptions();
         rebuildOpponentSelect();
         if (!data.teams.includes(state.team)) state.team = isAdminUser() ? data.teams[0] : state.user.team;
         state.month = preferredMonth(state.month);
@@ -797,6 +801,7 @@
     $('gameDate').value = initialDate || state.selectedDate || nextOpenDate();
     $('startTime').value = '18:00';
     $('endTime').value = '20:00';
+    $('awayDiamondInput').value = '';
     setOpponentValue(opponentOptions[0] || '');
     $('notesInput').value = '';
     $('availabilityResult').className = 'availability-result';
@@ -824,6 +829,7 @@
     $('startTime').value = toInputTime(original.time);
     $('endTime').value = original.endTime ? toInputTime(original.endTime) : toInputTimeFromMinutes(minutesFromDisplay(original.time) + 120);
     if (diamonds.includes(original.diamond)) $('diamondSelect').value = original.diamond;
+    $('awayDiamondInput').value = original.diamond || '';
     setOpponentValue(original.eventKind === 'Practice' ? original.opponent : '');
     $('notesInput').value = `Replacing ${original.eventKind || original.type}: ${original.opponent} at ${original.diamond}`;
     $('availabilityResult').className = 'availability-result';
@@ -861,6 +867,15 @@
     return [...choices].sort((a, b) => a.localeCompare(b));
   }
 
+  function buildVenueOptions() {
+    const choices = new Set();
+    [...(data.availability || []), ...(data.schedule || []), ...(data.conflictEvents || [])].forEach((item) => {
+      const venue = String(item.diamond || '').trim();
+      if (venue) choices.add(venue);
+    });
+    return [...choices].sort((a, b) => a.localeCompare(b));
+  }
+
   function normalizeOpponentLabel(value) {
     return String(value || '')
       .replace(/^vs\.?\s*/i, '')
@@ -887,6 +902,12 @@
     setOpponentValue(opponentOptions.includes(previous) ? previous : opponentOptions[0]);
   }
 
+  function rebuildAwayVenueOptions() {
+    const list = $('awayDiamondOptions');
+    if (!list) return;
+    list.innerHTML = venueOptions.map((venue) => `<option value="${escapeHtml(venue)}"></option>`).join('');
+  }
+
   function setOpponentValue(value) {
     const select = $('opponentSelect');
     if (!select) return;
@@ -911,12 +932,28 @@
     return normalizeOpponentLabel($('opponentSelect').value);
   }
 
+  function selectedVenueValue() {
+    if (/away game/i.test($('eventTypeSelect').value)) {
+      return String($('awayDiamondInput').value || '').trim();
+    }
+    return $('diamondSelect').value;
+  }
+
   function syncEventTypeControls() {
-    const isPractice = /practice/i.test($('eventTypeSelect').value);
+    const eventType = $('eventTypeSelect').value;
+    const isPractice = /practice/i.test(eventType);
+    const isAwayGame = /away game/i.test(eventType);
     $('opponentField').hidden = isPractice;
     $('opponentSelect').disabled = isPractice;
     if (!isPractice && !$('opponentSelect').value && opponentOptions.length) {
       setOpponentValue(opponentOptions[0]);
+    }
+    $('diamondSelect').parentElement.hidden = isAwayGame;
+    $('diamondSelect').disabled = isAwayGame;
+    $('awayFieldField').hidden = !isAwayGame;
+    $('awayDiamondInput').disabled = !isAwayGame;
+    if (isAwayGame && !$('awayDiamondInput').value && venueOptions.length) {
+      $('awayDiamondInput').value = venueOptions[0];
     }
   }
 
@@ -961,10 +998,25 @@
         return;
       }
       const selectedOpponent = selectedOpponentValue();
+      const selectedVenue = selectedVenueValue();
       if (!/practice/i.test($('eventTypeSelect').value) && !selectedOpponent) {
         const box = $('availabilityResult');
         box.className = 'availability-result bad';
         box.textContent = 'Choose the opponent team from the Turtle Club list before queuing this request.';
+        return;
+      }
+      if (!selectedVenue) {
+        const box = $('availabilityResult');
+        box.className = 'availability-result bad';
+        box.textContent = /away game/i.test($('eventTypeSelect').value)
+          ? 'Choose the away field before queuing this request.'
+          : 'Choose a diamond before queuing this request.';
+        return;
+      }
+      if (/away game/i.test($('eventTypeSelect').value) && venueOptions.length && !venueOptions.includes(selectedVenue)) {
+        const box = $('availabilityResult');
+        box.className = 'availability-result bad';
+        box.textContent = 'Choose an away field from the Turtle Club venue suggestions.';
         return;
       }
       const original = mode === 'replace' ? data.schedule.find((item) => item.id === $('eventId').value) : null;
@@ -982,7 +1034,7 @@
         start: toDisplayTime($('startTime').value),
         end: toDisplayTime($('endTime').value),
         opponent: selectedOpponent || 'Practice',
-        diamond: $('diamondSelect').value,
+        diamond: selectedVenue,
         reason: $('notesInput').value.trim(),
         availabilityStatus: check.message,
         submittedBy: state.team
@@ -1058,8 +1110,9 @@
 
   function checkAvailability() {
     const date = $('gameDate').value;
-    const diamond = $('diamondSelect').value;
+    const diamond = selectedVenueValue();
     const eventType = $('eventTypeSelect').value;
+    const isAwayGame = /away game/i.test(eventType);
     const start = minutes($('startTime').value);
     const end = minutes($('endTime').value);
     if (!date || !diamond || start >= end) return { ok: false, message: 'Enter a valid date, start, and end time.' };
@@ -1094,12 +1147,6 @@
         });
       });
 
-    const openSlot = data.availability.find((slot) => {
-      return slot.date === date && slot.diamond === diamond && minutesFromDisplay(slot.start) <= start && minutesFromDisplay(slot.end) >= end;
-    });
-    const fitsFreedSlot = freedSlots.find((slot) => slot.start <= start && slot.end >= end);
-    if (!openSlot && !fitsFreedSlot) return { ok: false, message: 'This request does not fit a published open diamond block or a time slot already being freed by a queued change.' };
-
     const conflict = (data.conflictEvents || data.schedule).find((item) => {
       if (item.id === ignoredId) return false;
       if (freedSlots.some((slot) => slot.id === item.id)) return false;
@@ -1108,6 +1155,16 @@
       return item.date === date && item.diamond === diamond && start < eventEnd && end > eventStart;
     });
     if (conflict) return { ok: false, message: `Diamond conflict with ${conflict.team} ${conflict.opponent} (${conflict.eventKind || conflict.type}) at ${conflict.time}.` };
+
+    if (isAwayGame) {
+      return { ok: true, message: `Available: no Turtle Club away-game conflict overlaps at ${diamond}.` };
+    }
+
+    const openSlot = data.availability.find((slot) => {
+      return slot.date === date && slot.diamond === diamond && minutesFromDisplay(slot.start) <= start && minutesFromDisplay(slot.end) >= end;
+    });
+    const fitsFreedSlot = freedSlots.find((slot) => slot.start <= start && slot.end >= end);
+    if (!openSlot && !fitsFreedSlot) return { ok: false, message: 'This request does not fit a published open diamond block or a time slot already being freed by a queued change.' };
 
     if (fitsFreedSlot && !openSlot) {
       return { ok: true, message: `Available: this request uses the ${fitsFreedSlot.source} time being freed, and no other Turtle Club ${eventType.toLowerCase()} conflict overlaps.` };

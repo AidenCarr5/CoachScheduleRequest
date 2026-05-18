@@ -177,8 +177,13 @@
           <input id="endTime" type="time" value="20:00">
         </div>
         <div class="field">
-          <label for="diamondSelect">Diamond</label>
+          <label for="diamondSelect" id="diamondLabel">Diamond</label>
           <select id="diamondSelect"></select>
+        </div>
+        <div class="field" id="awayFieldField" hidden>
+          <label for="awayDiamondInput">Away field</label>
+          <input id="awayDiamondInput" type="text" list="awayDiamondOptions" placeholder="Start typing a field name">
+          <datalist id="awayDiamondOptions"></datalist>
         </div>
         <div class="field span" id="opponentField">
           <label for="opponentSelect" id="opponentLabel">Opponent</label>
