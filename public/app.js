@@ -909,13 +909,14 @@
   }
 
   function buildVenueOptions() {
-    const homeVenueSet = new Set((diamonds || []).map(normalizeVenueLabel).filter(Boolean));
     const choiceMap = new Map();
+    const excludedVenuePrefixes = ['turtle club', 'vollmer', 'villanova'];
 
     function maybeAddVenue(value) {
       const label = String(value || '').trim();
       const normalized = normalizeVenueLabel(label);
-      if (!normalized || homeVenueSet.has(normalized)) return;
+      if (!normalized) return;
+      if (excludedVenuePrefixes.some((prefix) => normalized.startsWith(prefix))) return;
       if (!choiceMap.has(normalized)) {
         choiceMap.set(normalized, label);
       }
