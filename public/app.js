@@ -119,6 +119,11 @@
         openNewEvent(date);
       });
       $('opponentInput').addEventListener('input', () => {
+        showFilterSelect('opponent');
+        renderFilteredSelect('opponent');
+      });
+      $('opponentInput').addEventListener('focus', () => {
+        showFilterSelect('opponent');
         renderFilteredSelect('opponent');
       });
       $('opponentSelect').addEventListener('change', () => {
@@ -128,6 +133,11 @@
         syncFilterSelectChoice('opponent');
       });
       $('awayDiamondInput').addEventListener('input', () => {
+        showFilterSelect('venue');
+        renderFilteredSelect('venue');
+      });
+      $('awayDiamondInput').addEventListener('focus', () => {
+        showFilterSelect('venue');
         renderFilteredSelect('venue');
       });
       $('awayDiamondSelect').addEventListener('change', () => {
@@ -844,6 +854,8 @@
     $('endTime').value = '20:00';
     $('awayDiamondInput').value = '';
     setOpponentValue('');
+    showFilterSelect('opponent');
+    showFilterSelect('venue');
     $('notesInput').value = '';
     $('availabilityResult').className = 'availability-result';
     $('availabilityResult').textContent = 'Choose a diamond and time, then check availability.';
@@ -872,6 +884,8 @@
     if (diamonds.includes(original.diamond)) $('diamondSelect').value = original.diamond;
     $('awayDiamondInput').value = original.diamond || '';
     setOpponentValue(original.eventKind === 'Practice' ? original.opponent : '');
+    showFilterSelect('opponent');
+    showFilterSelect('venue');
     $('notesInput').value = `Replacing ${original.eventKind || original.type}: ${original.opponent} at ${original.diamond}`;
     $('availabilityResult').className = 'availability-result';
     $('availabilityResult').textContent = 'This replacement will be checked against published availability and Turtle Club event conflicts.';
@@ -932,6 +946,7 @@
 
   function normalizeOpponentLabel(value) {
     return String(value || '')
+      .replace(/^@+/, '')
       .replace(/^vs\.?\s*/i, '')
       .replace(/\s+/g, ' ')
       .trim();
@@ -970,6 +985,22 @@
     input.value = normalized;
   }
 
+  function normalizedSearchKey(value) {
+    return String(value || '').trim().toLowerCase();
+  }
+
+  function canonicalOptionValue(options, value, normalize) {
+    const target = normalizedSearchKey(normalize(value));
+    if (!target) return '';
+    return options.find((option) => normalizedSearchKey(normalize(option)) === target) || '';
+  }
+
+  function showFilterSelect(kind) {
+    const config = filterSelectConfig(kind);
+    if (!config.select) return;
+    config.select.hidden = false;
+  }
+
   function filterSelectConfig(kind) {
     if (kind === 'opponent') {
       return {
@@ -993,15 +1024,16 @@
     const config = filterSelectConfig(kind);
     if (!config.input || !config.select) return;
     const query = config.normalize(config.input.value);
+    const queryKey = normalizedSearchKey(query);
     const choices = (query ? config.options.filter((option) => {
-      const normalized = config.normalize(option);
-      return !query || normalized.includes(query);
+      const normalized = normalizedSearchKey(config.normalize(option));
+      return !queryKey || normalized.includes(queryKey);
     }) : config.options);
     config.select.innerHTML = choices.length
       ? choices.map((option) => `<option>${escapeHtml(option)}</option>`).join('')
       : '<option value="" disabled>No matches</option>';
     config.select.size = Math.max(1, Math.min(6, choices.length || 1));
-    const exact = choices.find((option) => config.normalize(option) === query);
+    const exact = choices.find((option) => normalizedSearchKey(config.normalize(option)) === queryKey);
     if (exact) {
       config.select.value = exact;
       config.shell && config.shell.classList.add('is-selected');
@@ -1018,18 +1050,21 @@
     const config = filterSelectConfig(kind);
     if (!config.input || !config.select || !config.select.value) return;
     config.input.value = config.select.value;
+    config.select.hidden = true;
     renderFilteredSelect(kind);
   }
 
   function selectedOpponentValue() {
     const eventType = $('eventTypeSelect').value;
     if (/practice/i.test(eventType)) return 'Practice';
-    return normalizeOpponentLabel($('opponentInput').value);
+    const selected = canonicalOptionValue(opponentOptions, $('opponentInput').value, normalizeOpponentLabel);
+    return selected || normalizeOpponentLabel($('opponentInput').value);
   }
 
   function selectedVenueValue() {
     if (/away game/i.test($('eventTypeSelect').value)) {
-      return String($('awayDiamondInput').value || '').trim();
+      const selected = canonicalOptionValue(venueOptions, $('awayDiamondInput').value, normalizeVenueLabel);
+      return selected || String($('awayDiamondInput').value || '').trim();
     }
     return $('diamondSelect').value;
   }
