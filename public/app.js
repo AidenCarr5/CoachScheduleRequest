@@ -909,16 +909,24 @@
   }
 
   function buildVenueOptions() {
-    const choices = new Set();
-    const homeVenueSet = new Set((diamonds || []).map((venue) => String(venue || '').trim()).filter(Boolean));
-    turtleClubVenueCatalog.forEach((venue) => {
-      if (venue && !homeVenueSet.has(venue)) choices.add(venue);
-    });
+    const homeVenueSet = new Set((diamonds || []).map(normalizeVenueLabel).filter(Boolean));
+    const choiceMap = new Map();
+
+    function maybeAddVenue(value) {
+      const label = String(value || '').trim();
+      const normalized = normalizeVenueLabel(label);
+      if (!normalized || homeVenueSet.has(normalized)) return;
+      if (!choiceMap.has(normalized)) {
+        choiceMap.set(normalized, label);
+      }
+    }
+
+    turtleClubVenueCatalog.forEach(maybeAddVenue);
     [...(data.schedule || []), ...(data.conflictEvents || [])].forEach((item) => {
-      const venue = String(item.diamond || '').trim();
-      if (venue && !homeVenueSet.has(venue)) choices.add(venue);
+      maybeAddVenue(item.diamond);
     });
-    return [...choices].sort((a, b) => a.localeCompare(b));
+
+    return [...choiceMap.values()].sort((a, b) => a.localeCompare(b));
   }
 
   function normalizeOpponentLabel(value) {
