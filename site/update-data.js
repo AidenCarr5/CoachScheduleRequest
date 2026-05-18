@@ -31,6 +31,13 @@ function strip(value) {
     .trim();
 }
 
+function normalizeDiamondLabel(value) {
+  return strip(value)
+    .replace(/\s*\[[A-Z0-9-]+\]\s*$/i, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 function monthName(month) {
   return monthNames[month - 1];
 }
@@ -254,7 +261,7 @@ function parseCpEventBlock(block, date) {
   const organization = teams[0] || '';
   const rawTeam = teams[teams.length - 1] || organization || 'Turtle Club';
   const timeText = strip((block.match(/<div class="time">([\s\S]*?)<\/div>/i) || [])[1] || '');
-  const venue = strip((block.match(/<div class="venue[^"]*">([\s\S]*?)<\/div>/i) || [])[1] || '');
+  const venue = normalizeDiamondLabel((block.match(/<div class="venue[^"]*">([\s\S]*?)<\/div>/i) || [])[1] || '');
   const subject = strip((block.match(/<div class="subject">([\s\S]*?)<\/div>/i) || [])[1] || '');
   const opponent = strip((block.match(/<div class="opponent">([\s\S]*?)<\/div>/i) || [])[1] || '');
   if (!timeText || !venue) return null;
@@ -340,7 +347,7 @@ function parseCpAvailability(html, allowedMonths) {
   const availability = [];
   const items = [...sectionMatch[1].matchAll(/<li class="boxed">([\s\S]*?)<\/li>/gi)];
   for (const item of items) {
-    const venue = strip((item[1].match(/<div class="venue">([\s\S]*?)<\/div>/i) || [])[1] || '');
+    const venue = normalizeDiamondLabel((item[1].match(/<div class="venue">([\s\S]*?)<\/div>/i) || [])[1] || '');
     if (!venue) continue;
     const openings = [...item[1].matchAll(/<div class="opening[^"]*">([\s\S]*?)<\/div>/gi)];
     for (const opening of openings) {
@@ -489,7 +496,7 @@ async function loadGames(schedule, conflictEvents) {
       const type = strip((body.match(/<div class="tag [^"]+">([\s\S]*?)<\/div>/) || [])[1] || '');
       const team = strip((body.match(/<div class="subject-owner[^>]*">([\s\S]*?)<\/div>/) || [])[1] || '');
       const opponent = strip((body.match(/<div class="subject-text">([\s\S]*?)<\/div>/) || [])[1] || '');
-      const diamond = strip((body.match(/<div class="location local">([\s\S]*?)<\/div>/) || [])[1] || '');
+      const diamond = normalizeDiamondLabel((body.match(/<div class="location local">([\s\S]*?)<\/div>/) || [])[1] || '');
       if (team && diamond && isTitansTeam(team)) {
         const event = {
           id: `tc-game-${month}-${++index}`,
@@ -534,7 +541,7 @@ async function loadFullCalendar(schedule, conflictEvents, teams, availability, s
 
       const time = strip((body.match(/<div class="time-primary">([\s\S]*?)<\/div>/) || [])[1] || '');
       const endTime = strip((body.match(/<div class="time-secondary">([\s\S]*?)<\/div>/) || [])[1] || '').replace(/^-/, '');
-      const diamond = strip((body.match(/<div class="location local">([\s\S]*?)<\/div>/) || [])[1] || '');
+      const diamond = normalizeDiamondLabel((body.match(/<div class="location local">([\s\S]*?)<\/div>/) || [])[1] || '');
       if (!time.match(/\d+:\d+\s*(AM|PM)/i) || !diamond) continue;
 
       const owner = strip((body.match(/<div class="subject-owner[^>]*">([\s\S]*?)<\/div>/) || [])[1] || '');
@@ -572,7 +579,7 @@ async function loadAvailability() {
   const blocks = section.split(/<div class="M">/).slice(1);
   const availability = [];
   for (const block of blocks) {
-    const diamond = strip(block.split('</div>')[0]);
+    const diamond = normalizeDiamondLabel(block.split('</div>')[0]);
     const rows = [...block.matchAll(/<tr><td>([^<]+)<\/td><td>([^<]+)<\/td><td>([^<]+)<\/td><td>([^<]+)<\/td>/g)];
     for (const row of rows) {
       const [, date, start, end, mins] = row;
