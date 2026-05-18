@@ -10,75 +10,8 @@
   const calendarDayDialog = $('calendarDayDialog');
   const preloadBar = $('preloadBar');
   const loadingOverlay = $('loadingOverlay');
-  const turtleClubVenueCatalog = [
-    'Turtle Club - Diamond #1',
-    'Turtle Club - Diamond #2',
-    'Turtle Club - Diamond #3',
-    'Turtle Club - Diamond #4',
-    'Turtle Club - Diamond #5',
-    'Turtle Club - Diamond #6',
-    'Turtle Club - Diamond #7',
-    'Villanova - Diamond #1',
-    'Villanova - Diamond #2',
-    'Vollmer #1',
-    'Vollmer #2',
-    'Vollmer #3',
-    'Vollmer #4',
-    'Vollmer #5',
-    'Vollmer #6',
-    'Vollmer #7',
-    'Vollmer #8',
-    'River Canard #1',
-    'River Canard #2',
-    'River Canard #3',
-    'River Canard #4'
-  ];
-  const turtleClubOpponentCatalog = [
-    'Amherstburg Cardinals',
-    'Blenheim',
-    'Chatham Diamonds',
-    'Chatham Golden Eagles',
-    'Corunna',
-    'Dorchester Diamondbacks',
-    'Essex Stingers',
-    'Essex Yellow Jackets',
-    'Essex Yellow Jackets #1',
-    'Essex Yellow Jackets #2',
-    'Forest Glade Falcons',
-    'Great Lakes Canadians',
-    'Kingsville Knights',
-    'Kingsville Krush #1',
-    'Kingsville Krush #2',
-    'Lakeshore Storm',
-    'Lakeshore Storm #1',
-    'Lakeshore Storm #2',
-    'Lakeshore Whitecaps',
-    'Leamington',
-    'Leamington Atlas Tube',
-    'Leamington Lakers',
-    'Leamington White Caps #1',
-    'Leamington Whitecaps',
-    'Ontario Nationals',
-    'Ontario Terriers',
-    'Port Lambton Pirates',
-    'Riverside Royals',
-    'Sarnia Brigade',
-    'Tecumseh Blue',
-    'Tecumseh Rangers',
-    'Tecumseh Red',
-    'Toronto Mets',
-    'Trenton Travelers',
-    'Windsor Hawks',
-    'Windsor Selects 13U',
-    'Windsor Selects 15U',
-    'Windsor Stars',
-    'Windsor Wildcats',
-    'Windsor Wildcats U19',
-    'Windsor WLE Int.',
-    'Windsor WLE U19',
-    'Woodslee Orioles',
-    'York University'
-  ];
+  let turtleClubVenueCatalog = [];
+  let turtleClubOpponentCatalog = [];
   let data = null;
   let months = ['All months'];
   let diamonds = [];
@@ -339,11 +272,17 @@
   }
 
   async function loadBootstrap() {
-    const response = await fetch('/api/bootstrap', { cache: 'no-store' });
-    if (!response.ok) {
-      throw new Error('Unable to load schedule data');
-    }
+    const [response, catalogResponse] = await Promise.all([
+      fetch('/api/bootstrap', { cache: 'no-store' }),
+      fetch('/turtle-club-dropdowns.json', { cache: 'no-store' }).catch(() => null)
+    ]);
+    if (!response.ok) throw new Error('Unable to load schedule data');
     const payload = await response.json();
+    if (catalogResponse && catalogResponse.ok) {
+      const catalog = await catalogResponse.json().catch(() => ({}));
+      turtleClubVenueCatalog = Array.isArray(catalog.venues) ? catalog.venues : [];
+      turtleClubOpponentCatalog = Array.isArray(catalog.opponents) ? catalog.opponents : [];
+    }
     data = payload.data;
     state.publicConfig = payload.publicConfig || { adminPath: '/admin.html' };
     state.user = state.publicConfig.user || state.user;
@@ -962,25 +901,28 @@
 
     turtleClubOpponentCatalog.forEach(maybeAddOpponent);
     (data.opponentOptions || []).forEach(maybeAddOpponent);
-    const sources = [...(data.schedule || []), ...(data.conflictEvents || [])];
-    sources.forEach((event) => {
-      const isGame = /game/i.test(String(event.eventKind || event.type || ''));
-      if (!isGame) return;
-      maybeAddOpponent(event.opponent);
-      maybeAddOpponent(event.team);
-    });
+    if (!choiceMap.size) {
+      const sources = [...(data.schedule || []), ...(data.conflictEvents || [])];
+      sources.forEach((event) => {
+        const isGame = /game/i.test(String(event.eventKind || event.type || ''));
+        if (!isGame) return;
+        maybeAddOpponent(event.opponent);
+        maybeAddOpponent(event.team);
+      });
+    }
     return [...choiceMap.values()].sort((a, b) => a.localeCompare(b));
   }
 
   function buildVenueOptions() {
     const choiceMap = new Map();
-    const excludedVenuePrefixes = ['turtle club', 'vollmer', 'villanova'];
+    const excludedVenuePrefixes = ['turtle club', 'tc -', 'vollmer', 'villanova'];
 
     function maybeAddVenue(value) {
       const label = String(value || '').trim();
       const normalized = normalizeVenueLabel(label);
       const key = normalizedSearchKey(normalized);
       if (!key) return;
+      if (key === 'home venues') return;
       if (excludedVenuePrefixes.some((prefix) => key.startsWith(prefix))) return;
       if (!choiceMap.has(key)) {
         choiceMap.set(key, label);
@@ -988,9 +930,11 @@
     }
 
     turtleClubVenueCatalog.forEach(maybeAddVenue);
-    [...(data.schedule || []), ...(data.conflictEvents || [])].forEach((item) => {
-      maybeAddVenue(item.diamond);
-    });
+    if (!choiceMap.size) {
+      [...(data.schedule || []), ...(data.conflictEvents || [])].forEach((item) => {
+        maybeAddVenue(item.diamond);
+      });
+    }
 
     return [...choiceMap.values()].sort((a, b) => a.localeCompare(b));
   }
@@ -1012,11 +956,7 @@
   function isOpponentChoice(value) {
     const clean = normalizeOpponentLabel(value);
     if (!clean) return false;
-    return !/^(practice|tryout|field booking|event|home game|away game|tournament|regular season|local game|tbd)$/i.test(clean)
-      && !/^shared practice with /i.test(clean)
-      && !/\bshared practice\b/i.test(clean)
-      && !/\s-\s.*\(/.test(clean)
-      && !/\bG\d{1,2}-\d\b/i.test(clean);
+    return !/^(select an opponent|practice|tryout|field booking|event|home game|away game|tournament|regular season|local game|playoff round|intrasquad|global note)$/i.test(clean);
   }
 
   function rebuildOpponentSelect() {

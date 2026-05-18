@@ -4,7 +4,11 @@ const fs = require('fs');
 const path = require('path');
 
 const configPath = path.join(__dirname, 'config.json');
+const dropdownCatalogPath = path.join(__dirname, '..', 'public', 'turtle-club-dropdowns.json');
 const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+const dropdownCatalog = fs.existsSync(dropdownCatalogPath)
+  ? JSON.parse(fs.readFileSync(dropdownCatalogPath, 'utf8'))
+  : { opponents: [], venues: [] };
 const seasonYear = config.seasonYear === 'auto' ? new Date().getFullYear() : Number(config.seasonYear);
 const baseUrl = 'https://turtleclubbaseball.com';
 const loginUrl = `${baseUrl}/Account/Login/?ReturnUrl=%2fCP%2f`;
@@ -387,52 +391,7 @@ function normalizeOpponentOption(value) {
     .trim();
 }
 
-const turtleClubOpponentCatalog = [
-  'Amherstburg Cardinals',
-  'Blenheim',
-  'Chatham Diamonds',
-  'Chatham Golden Eagles',
-  'Corunna',
-  'Dorchester Diamondbacks',
-  'Essex Stingers',
-  'Essex Yellow Jackets',
-  'Essex Yellow Jackets #1',
-  'Essex Yellow Jackets #2',
-  'Forest Glade Falcons',
-  'Great Lakes Canadians',
-  'Kingsville Knights',
-  'Kingsville Krush #1',
-  'Kingsville Krush #2',
-  'Lakeshore Storm',
-  'Lakeshore Storm #1',
-  'Lakeshore Storm #2',
-  'Lakeshore Whitecaps',
-  'Leamington',
-  'Leamington Atlas Tube',
-  'Leamington Lakers',
-  'Leamington White Caps #1',
-  'Leamington Whitecaps',
-  'Ontario Nationals',
-  'Ontario Terriers',
-  'Port Lambton Pirates',
-  'Riverside Royals',
-  'Sarnia Brigade',
-  'Tecumseh Blue',
-  'Tecumseh Rangers',
-  'Tecumseh Red',
-  'Toronto Mets',
-  'Trenton Travelers',
-  'Windsor Hawks',
-  'Windsor Selects 13U',
-  'Windsor Selects 15U',
-  'Windsor Stars',
-  'Windsor Wildcats',
-  'Windsor Wildcats U19',
-  'Windsor WLE Int.',
-  'Windsor WLE U19',
-  'Woodslee Orioles',
-  'York University'
-];
+const turtleClubOpponentCatalog = Array.isArray(dropdownCatalog.opponents) ? dropdownCatalog.opponents : [];
 
 function normalizedSearchKey(value) {
   return String(value || '').trim().toLowerCase();
@@ -441,11 +400,7 @@ function normalizedSearchKey(value) {
 function isOpponentOption(value) {
   const clean = normalizeOpponentOption(value);
   if (!clean) return false;
-  return !/^(practice|tryout|field booking|event|home game|away game|tournament|regular season|local game|tbd)$/i.test(clean)
-    && !/^shared practice with /i.test(clean)
-    && !/\bshared practice\b/i.test(clean)
-    && !/\s-\s.*\(/.test(clean)
-    && !/\bG\d{1,2}-\d\b/i.test(clean);
+  return !/^(select an opponent|practice|tryout|field booking|event|home game|away game|tournament|regular season|local game|playoff round|intrasquad|global note)$/i.test(clean);
 }
 
 function buildOpponentOptions(schedule, conflictEvents, teams) {
@@ -462,13 +417,14 @@ function buildOpponentOptions(schedule, conflictEvents, teams) {
   }
 
   turtleClubOpponentCatalog.forEach(maybeAddOpponent);
-
-  [...(schedule || []), ...(conflictEvents || [])].forEach((event) => {
-    const isGame = /game/i.test(String(event.eventKind || event.type || ''));
-    if (!isGame) return;
-    maybeAddOpponent(event.opponent);
-    maybeAddOpponent(event.team);
-  });
+  if (!choiceMap.size) {
+    [...(schedule || []), ...(conflictEvents || [])].forEach((event) => {
+      const isGame = /game/i.test(String(event.eventKind || event.type || ''));
+      if (!isGame) return;
+      maybeAddOpponent(event.opponent);
+      maybeAddOpponent(event.team);
+    });
+  }
 
   return [...choiceMap.values()].sort((a, b) => a.localeCompare(b));
 }
