@@ -293,7 +293,7 @@
 
   function rebuildDerivedData() {
     months = ['All months', ...new Set(data.schedule.map((event) => event.month))];
-    diamonds = [...new Set(data.availability.map((slot) => slot.diamond))].sort();
+    diamonds = [...new Set(data.availability.map((slot) => normalizeAvailabilityDiamond(slot.diamond)).filter(Boolean))].sort();
     venueOptions = buildVenueOptions();
     opponentOptions = buildOpponentOptions();
     dateBounds = getDateBounds();
@@ -505,6 +505,13 @@
       .replace(/\s+/g, ' ')
       .trim()
       .toLowerCase();
+  }
+
+  function normalizeAvailabilityDiamond(value) {
+    return String(value || '')
+      .replace(/\s*\[[A-Z0-9-]+\]\s*$/i, '')
+      .replace(/\s+/g, ' ')
+      .trim();
   }
 
   function buildHistoricalEvent(request, index, pendingState, pendingLabel) {
@@ -1253,6 +1260,7 @@
   function checkAvailability() {
     const date = $('gameDate').value;
     const diamond = selectedVenueValue();
+    const normalizedDiamond = normalizeAvailabilityDiamond(diamond);
     const eventType = $('eventTypeSelect').value;
     const isAwayGame = /away game/i.test(eventType);
     const start = minutes($('startTime').value);
@@ -1266,7 +1274,7 @@
     const original = ignoredId ? data.schedule.find((item) => item.id === ignoredId) : null;
     const freedSlots = [];
 
-    if (original && original.date === date && original.diamond === diamond) {
+    if (original && original.date === date && normalizeAvailabilityDiamond(original.diamond) === normalizedDiamond) {
       freedSlots.push({
         id: original.id,
         start: minutesFromDisplay(original.time),
@@ -1279,7 +1287,7 @@
       .filter((request) => request.status !== 'rejected')
       .filter((request) => request.action.startsWith('Cancel ') || request.action.startsWith('Replace '))
       .forEach((request) => {
-        if (request.originalDate !== date || request.originalDiamond !== diamond || !request.originalId) return;
+        if (request.originalDate !== date || normalizeAvailabilityDiamond(request.originalDiamond) !== normalizedDiamond || !request.originalId) return;
         if (ignoredId && request.originalId === ignoredId) return;
         freedSlots.push({
           id: request.originalId,
@@ -1294,7 +1302,7 @@
       if (freedSlots.some((slot) => slot.id === item.id)) return false;
       const eventStart = minutesFromDisplay(item.time);
       const eventEnd = item.endTime ? minutesFromDisplay(item.endTime) : eventStart + (item.durationMinutes || 120);
-      return item.date === date && item.diamond === diamond && start < eventEnd && end > eventStart;
+      return item.date === date && normalizeAvailabilityDiamond(item.diamond) === normalizedDiamond && start < eventEnd && end > eventStart;
     });
     if (conflict) return { ok: false, message: `Diamond conflict with ${conflict.team} ${conflict.opponent} (${conflict.eventKind || conflict.type}) at ${conflict.time}.` };
 
@@ -1303,7 +1311,7 @@
     }
 
     const openSlot = data.availability.find((slot) => {
-      return slot.date === date && slot.diamond === diamond && minutesFromDisplay(slot.start) <= start && minutesFromDisplay(slot.end) >= end;
+      return slot.date === date && normalizeAvailabilityDiamond(slot.diamond) === normalizedDiamond && minutesFromDisplay(slot.start) <= start && minutesFromDisplay(slot.end) >= end;
     });
     const fitsFreedSlot = freedSlots.find((slot) => slot.start <= start && slot.end >= end);
     if (!openSlot && !fitsFreedSlot) return { ok: false, message: 'This request does not fit a published open diamond block or a time slot already being freed by a queued change.' };
