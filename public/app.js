@@ -30,7 +30,7 @@
     selectedDate: '',
     requests: [],
     submittingRequest: false,
-    publicConfig: { adminPath: '/admin.html' },
+    publicConfig: { adminPath: '/admin.html', fieldStatusPath: '' },
     user: null,
     preload: {
       promise: null,
@@ -286,7 +286,7 @@
       turtleClubOpponentCatalog = Array.isArray(catalog.opponents) ? catalog.opponents : [];
     }
     data = payload.data;
-    state.publicConfig = payload.publicConfig || { adminPath: '/admin.html' };
+    state.publicConfig = payload.publicConfig || { adminPath: '/admin.html', fieldStatusPath: '' };
     state.user = state.publicConfig.user || state.user;
     currentDataVersion = state.publicConfig.dataVersion || data.scrapedAt || '';
   }
@@ -307,7 +307,7 @@
       state.publicConfig = payload;
       currentDataVersion = payload.dataVersion || currentDataVersion;
     } catch (_) {
-      state.publicConfig = { adminPath: '/admin.html' };
+      state.publicConfig = { adminPath: '/admin.html', fieldStatusPath: '' };
     }
   }
 
@@ -549,6 +549,8 @@
       : `${state.team} schedule only`;
     $('adminLink').href = state.publicConfig.adminPath || '/admin.html';
     $('adminLink').hidden = !isAdminUser();
+    $('fieldStatusLink').href = state.publicConfig.fieldStatusPath || '/diamond-status-admin.html';
+    $('fieldStatusLink').hidden = !state.publicConfig.fieldStatusPath;
     $('sessionLabel').hidden = false;
     $('sessionLabel').textContent = isAdminUser()
       ? 'Signed in as admin'
@@ -1420,6 +1422,7 @@
     $('sessionLabel').hidden = true;
     $('logoutBtn').hidden = true;
     $('adminLink').hidden = true;
+    $('fieldStatusLink').hidden = true;
   }
 
   function showApp() {
