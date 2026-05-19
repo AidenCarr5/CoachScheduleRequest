@@ -52,6 +52,11 @@ body {
   display: none !important;
 }
 
+.topbar-link.current {
+  font-weight: 700;
+  text-decoration: none;
+}
+
 .masthead {
   color: white;
   background:

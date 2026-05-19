@@ -21,13 +21,16 @@
       const payload = await response.json();
       if (!payload.authenticated) {
         showLogin();
+        if (window.refreshTopNav) window.refreshTopNav();
         return;
       }
       showAdmin();
+      if (window.refreshTopNav) window.refreshTopNav();
       await loadDashboard();
       return;
     }
     showLogin();
+    if (window.refreshTopNav) window.refreshTopNav();
   }
 
   async function login(event) {
@@ -45,12 +48,14 @@
     $('adminPassword').value = '';
     $('loginMessage').textContent = '';
     showAdmin();
+    if (window.refreshTopNav) window.refreshTopNav();
     await loadDashboard();
   }
 
   async function logout() {
     await fetch('/api/admin/logout', { method: 'POST' });
     showLogin();
+    if (window.refreshTopNav) window.refreshTopNav();
   }
 
   async function loadRequests() {

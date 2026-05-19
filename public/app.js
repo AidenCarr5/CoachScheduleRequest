@@ -137,6 +137,9 @@
     }
 
     await loadPublicConfig();
+    if (window.refreshTopNav) {
+      window.refreshTopNav();
+    }
     await loadRequests();
     showApp();
     window.clearInterval(refreshTimer);
@@ -184,6 +187,9 @@
     refreshTimer = 0;
     beginPreload(true);
     showLogin();
+    if (window.refreshTopNav) {
+      window.refreshTopNav();
+    }
   }
 
   function beginPreload(force = false) {

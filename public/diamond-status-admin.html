@@ -10,12 +10,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-nav="field-status">
   <div class="topbar">
     <div class="wrap topbar-inner">
-      <a class="topbar-link" href="/">Coach view</a>
-      <a class="topbar-link" href="/admin.html">Admin approval</a>
-      <a class="topbar-link" href="/diamond-status.html">Public Diamond Status</a>
+      <a id="homeNavLink" class="topbar-link" data-nav-key="home" href="/">Log in</a>
+      <a class="topbar-link" data-nav-key="availability" href="/availability.html">Diamond Availability</a>
+      <a class="topbar-link" data-nav-key="status" href="/diamond-status.html">Diamond Status</a>
+      <a class="topbar-link" data-nav-key="contact" href="/contact.html">Contact</a>
+      <a id="adminLink" class="topbar-link" data-nav-key="admin" href="/admin.html" hidden>Admin approval</a>
+      <a id="fieldStatusLink" class="topbar-link" data-nav-key="field-status" href="/diamond-status-admin.html" hidden>Field Status Control</a>
       <button id="logoutBtn" class="link-button topbar-link" type="button">Log out</button>
     </div>
   </div>
@@ -67,7 +70,7 @@
       <p id="loadingOverlayText"><span id="loadingOverlayTextLabel">Please wait while the status page updates</span><span class="loading-ellipsis" aria-hidden="true"></span></p>
     </div>
   </div>
-
+  <script src="nav.js"></script>
   <script src="diamond-status-admin.js"></script>
 </body>
 </html>
