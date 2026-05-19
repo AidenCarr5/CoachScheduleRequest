@@ -2,6 +2,7 @@
   const $ = (id) => document.getElementById(id);
   let currentRequests = [];
   let currentAccounts = [];
+  let currentAdminLogins = [];
   let adminBusy = false;
   let adminSession = { authenticated: false, user: null };
 
@@ -88,8 +89,21 @@
     applyReadOnlyUi();
   }
 
+  async function loadAdminLogins() {
+    const response = await fetch('/api/admin/logins', { cache: 'no-store' });
+    if (!response.ok) return;
+    const payload = await response.json();
+    currentAdminLogins = payload.logins || [];
+    $('adminLoginsMessage').textContent = currentAdminLogins.length
+      ? 'These accounts can reach the protected admin tools shown in this portal.'
+      : 'No admin logins are available right now.';
+    $('adminLoginsList').innerHTML = currentAdminLogins.length
+      ? currentAdminLogins.map(renderAdminLogin).join('')
+      : '<p class="muted">No admin logins are available right now.</p>';
+  }
+
   async function loadDashboard() {
-    await Promise.all([loadRequests(), loadCoachAccounts()]);
+    await Promise.all([loadRequests(), loadCoachAccounts(), loadAdminLogins()]);
   }
 
   function renderRequest(request) {
@@ -151,6 +165,27 @@
               placeholder="coach@example.com"
               ${inputAttributes}
             >
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function renderAdminLogin(login) {
+    return `
+      <article class="coach-account-card admin-login-card">
+        <div>
+          <strong>${escapeHtml(login.label || 'Admin Login')}</strong>
+          <p>${escapeHtml(login.access || '')}</p>
+        </div>
+        <div class="coach-account-fields">
+          <div class="coach-account-password">
+            <label>Username</label>
+            <input type="text" value="${escapeHtml(login.username || '')}" readonly aria-readonly="true">
+          </div>
+          <div class="coach-account-password">
+            <label>Password</label>
+            <input type="text" value="${escapeHtml(login.password || '')}" readonly aria-readonly="true">
           </div>
         </div>
       </article>
@@ -359,6 +394,7 @@
     $('loginPanel').hidden = true;
     $('adminPanel').hidden = false;
     $('coachAccountsPanel').hidden = false;
+    $('adminLoginsPanel').hidden = false;
     applyReadOnlyUi();
   }
 
@@ -366,6 +402,7 @@
     $('loginPanel').hidden = false;
     $('adminPanel').hidden = true;
     $('coachAccountsPanel').hidden = true;
+    $('adminLoginsPanel').hidden = true;
     adminSession = { authenticated: false, user: null };
   }
 

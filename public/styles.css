@@ -1367,6 +1367,11 @@ dialog {
   font-weight: 700;
 }
 
+.admin-login-card {
+  border-left-color: var(--green);
+  background: #f7fbfa;
+}
+
 .coach-account-fields {
   display: grid;
   grid-template-columns: repeat(2, minmax(180px, 1fr));
