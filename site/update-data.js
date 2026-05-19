@@ -60,6 +60,34 @@ function eventKind(type) {
   return type || 'Event';
 }
 
+function isCancelledMarker(value) {
+  return /cancel/i.test(String(value || ''));
+}
+
+function normalizeEventType(value) {
+  return strip(value).replace(/\bcancelled?\b/gi, '').replace(/\s+/g, ' ').trim();
+}
+
+function inferEventType(markup, label, fallback = '') {
+  const source = String(markup || '');
+  if (/tag\s+shared/i.test(source) && /tag\s+practice/i.test(source)) return 'Shared Practice';
+  if (/tag\s+practice/i.test(source) || /pnlPrac/i.test(source)) return 'Practice';
+  if (/tag\s+tryout/i.test(source)) return 'Tryout';
+  if (/tag\s+home game/i.test(source) || /pnlHome/i.test(source)) return 'Home Game';
+  if (/tag\s+away game/i.test(source) || /pnlAway/i.test(source)) return 'Away Game';
+  if (/tag\s+tournament/i.test(source) || /pnlTour/i.test(source)) return 'Tournament';
+  return normalizeEventType(label) || normalizeEventType(fallback) || 'Event';
+}
+
+function withCancellation(baseType, cancelled) {
+  const resolvedType = normalizeEventType(baseType) || strip(baseType) || 'Event';
+  const baseKind = eventKind(resolvedType);
+  return {
+    type: cancelled ? `${resolvedType} Cancelled` : resolvedType,
+    eventKind: cancelled ? `${baseKind} Cancelled` : baseKind
+  };
+}
+
 function isTitansTeam(team) {
   return /^(\d+U(?:\s*T\d+)?|8U\/9U)\s*\([^)]+\)$/.test(strip(team));
 }
@@ -276,14 +304,9 @@ function parseCpEventBlock(block, date) {
 
   const teamLabel = organization && organization !== 'Titans' ? `${organization} - ${rawTeam}` : rawTeam;
   const timeRange = splitTimeRange(timeText);
-  let type = subject || 'Practice';
-  if (/pnlAway/i.test(className)) type = 'Away Game';
-  if (/pnlHome/i.test(className)) type = 'Home Game';
-  if (/pnlTour/i.test(className)) type = 'Tournament';
-  const cancelled = /cancel/i.test(className) || /cancelled/i.test(subject) || /cancelled/i.test(opponent);
-  const baseKind = eventKind(type);
-  const finalType = cancelled ? `${type} Cancelled` : type;
-  const finalKind = cancelled ? `${baseKind} Cancelled` : baseKind;
+  const type = inferEventType(block, subject, 'Practice');
+  const cancelled = isCancelledMarker(className) || isCancelledMarker(subject) || isCancelledMarker(opponent);
+  const finalEvent = withCancellation(type, cancelled);
   const titansTeams = organization === 'Titans'
     ? (extractTitansTeams(rawTeam).length ? extractTitansTeams(rawTeam) : (isTitansTeam(rawTeam) ? [rawTeam] : []))
     : [];
@@ -296,8 +319,8 @@ function parseCpEventBlock(block, date) {
     time: timeRange.start,
     endTime: timeRange.end,
     durationMinutes: timeRange.end ? null : 120,
-    type: finalType,
-    eventKind: finalKind,
+    type: finalEvent.type,
+    eventKind: finalEvent.eventKind,
     team: teamLabel,
     opponent: opponent || subject || type,
     diamond: venue,
@@ -644,6 +667,9 @@ async function loadGames(schedule, conflictEvents) {
       const opponent = strip((body.match(/<div class="subject-text">([\s\S]*?)<\/div>/) || [])[1] || '');
       const diamond = strip((body.match(/<div class="location local">([\s\S]*?)<\/div>/) || [])[1] || '');
       if (team && diamond && isTitansTeam(team)) {
+        const cancelled = isCancelledMarker(body) || isCancelledMarker(type) || isCancelledMarker(opponent);
+        const finalType = inferEventType(body, type, opponent || 'Game');
+        const finalEvent = withCancellation(finalType, cancelled);
         const event = {
           id: `tc-game-${month}-${++index}`,
           date: fullDate(day, month, seasonYear),
@@ -651,8 +677,8 @@ async function loadGames(schedule, conflictEvents) {
           time: strip(time),
           endTime: '',
           durationMinutes: 120,
-          type,
-          eventKind: eventKind(type),
+          type: finalEvent.type,
+          eventKind: finalEvent.eventKind,
           team,
           opponent,
           diamond,
@@ -695,6 +721,9 @@ async function loadFullCalendar(schedule, conflictEvents, teams, availability, s
       const subject = strip((body.match(/<div class="subject-text[^>]*">([\s\S]*?)<\/div>/) || [])[1] || '');
       const tagList = strip((body.match(/<div class="tag-list">([\s\S]*?)<\/div>\s*<\/div>/) || [])[1] || '');
       const team = titansTeamFromOwner(owner);
+      const cancelled = isCancelledMarker(body) || isCancelledMarker(tagList) || isCancelledMarker(subject);
+      const finalType = inferEventType(body, tagList, subject || 'Calendar Event');
+      const finalEvent = withCancellation(finalType, cancelled);
       const event = {
         id: `tc-calendar-${month}-${++index}`,
         date: `${href[3]}-${href[2].padStart(2, '0')}-${href[1].padStart(2, '0')}`,
@@ -702,8 +731,8 @@ async function loadFullCalendar(schedule, conflictEvents, teams, availability, s
         time,
         endTime,
         durationMinutes: time && endTime ? null : 120,
-        type: tagList || 'Calendar Event',
-        eventKind: eventKind(tagList || subject),
+        type: finalEvent.type,
+        eventKind: finalEvent.eventKind,
         team: team || owner || group || 'Turtle Club',
         opponent: subject || tagList || 'Field booking',
         diamond,
