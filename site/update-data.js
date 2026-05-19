@@ -64,6 +64,21 @@ function isTitansTeam(team) {
   return /^(\d+U(?:\s*T\d+)?|8U\/9U)\s*\([^)]+\)$/.test(strip(team));
 }
 
+function teamAge(team) {
+  const match = String(team || '').match(/(\d+)U/i);
+  return match ? Number(match[1]) : NaN;
+}
+
+function isHomeGame(event) {
+  return String(event && event.eventKind || '').toLowerCase() === 'home game'
+    && !/cancelled/i.test(String(event && event.type || ''));
+}
+
+function autoConfirmUmpires(event) {
+  const age = teamAge(event && event.team);
+  return Number.isFinite(age) && age >= 14;
+}
+
 function extractTitansTeams(text) {
   const matches = [...strip(text).matchAll(titanTeamPattern)].map((match) => match[1].trim());
   return [...new Set(matches.filter(Boolean))];
@@ -275,6 +290,7 @@ function parseCpEventBlock(block, date) {
 
   return {
     id: eventId ? `tc-cp-${eventId}` : `tc-cp-${date}-${teamLabel}-${venue}-${timeText}`,
+    cpGameId: eventId || '',
     date,
     month: monthLabelFromDate(date),
     time: timeRange.start,
@@ -289,6 +305,12 @@ function parseCpEventBlock(block, date) {
     source: 'Turtle Club Control Panel',
     titansTeams
   };
+}
+
+function cpGameIdFromEvent(event) {
+  if (event && event.cpGameId) return String(event.cpGameId);
+  const match = String(event && event.id || '').match(/^tc-cp-(\d+)$/);
+  return match ? match[1] : '';
 }
 
 function parseCpCalendar(html, allowedMonths) {
@@ -442,6 +464,134 @@ async function fetchCpScheduleHtml(session, viewDate) {
     throw new Error('Authenticated Turtle Club schedule request did not return the scheduling page.');
   }
   return html;
+}
+
+async function fetchOfficialsDailyHtml(session, date) {
+  const [year, month, day] = String(date || '').split('-').map(Number);
+  const queryDate = `${month}/${day}/${year}`;
+  session.cookies.set('GameOfficials_ViewDate', `${day}/${month}/${year}`);
+  const url = `${baseUrl}/CP/Content/Officials/Daily.aspx?gt=Assignable%20Games&d=${encodeURIComponent(queryDate)}&t=&p=&v=`;
+  const response = await fetchWithSession(url, session);
+  if (!response.ok) throw new Error(`Failed to fetch officials daily page: ${response.status}`);
+  const html = await response.text();
+  if (/Login Page|Forgot Password|Human Verification/i.test(html)) {
+    throw new Error('Authenticated Turtle Club officials request did not return the daily page.');
+  }
+  return html;
+}
+
+function parseOfficialsAssignments(html) {
+  const assignmentsByGameId = new Map();
+  const rowPattern = /<tr id="multischedule_(\d+)"[\s\S]*?<\/tr>\s*<tr class="assignments">([\s\S]*?)<\/tr>/gi;
+  let match = rowPattern.exec(html);
+
+  while (match) {
+    const gameId = match[1];
+    const assignmentHtml = match[2];
+    const assignmentInfo = {
+      umpire1Confirmed: false,
+      umpire2Confirmed: false,
+      umpire1Name: '',
+      umpire2Name: ''
+    };
+
+    const officialPattern = /<span class="gameOfficial\s+([^"]+)"[\s\S]*?<span[^>]*>([^<]+)<\/span>\s*\(([^)]+)\)/gi;
+    let officialMatch = officialPattern.exec(assignmentHtml);
+    while (officialMatch) {
+      const classes = String(officialMatch[1] || '').toLowerCase();
+      const name = strip(officialMatch[2]);
+      const position = strip(officialMatch[3]).toLowerCase();
+      if (classes.includes('confirmed')) {
+        if (position.includes('home plate') && !assignmentInfo.umpire1Confirmed) {
+          assignmentInfo.umpire1Confirmed = true;
+          assignmentInfo.umpire1Name = name;
+        }
+        if (position.includes('bases') && !assignmentInfo.umpire2Confirmed) {
+          assignmentInfo.umpire2Confirmed = true;
+          assignmentInfo.umpire2Name = name;
+        }
+      }
+      officialMatch = officialPattern.exec(assignmentHtml);
+    }
+
+    assignmentsByGameId.set(gameId, assignmentInfo);
+    match = rowPattern.exec(html);
+  }
+
+  return assignmentsByGameId;
+}
+
+function attachUmpireStatus(event, status) {
+  return {
+    ...event,
+    umpireStatus: {
+      source: status.source,
+      autoConfirmed: Boolean(status.autoConfirmed),
+      umpire1Confirmed: Boolean(status.umpire1Confirmed),
+      umpire2Confirmed: Boolean(status.umpire2Confirmed),
+      umpire1Name: status.umpire1Name || '',
+      umpire2Name: status.umpire2Name || ''
+    }
+  };
+}
+
+async function enrichScheduleWithUmpires(schedule, session) {
+  if (!Array.isArray(schedule) || !schedule.length) return schedule;
+
+  const enriched = schedule.map((event) => {
+    if (!isHomeGame(event)) return event;
+    if (autoConfirmUmpires(event)) {
+      return attachUmpireStatus(event, {
+        source: 'auto-age',
+        autoConfirmed: true,
+        umpire1Confirmed: true,
+        umpire2Confirmed: true
+      });
+    }
+    return event;
+  });
+
+  if (!session) {
+    return enriched.map((event) => {
+      if (!isHomeGame(event) || event.umpireStatus) return event;
+      return attachUmpireStatus(event, {
+        source: 'unavailable',
+        umpire1Confirmed: false,
+        umpire2Confirmed: false
+      });
+    });
+  }
+
+  const targetDates = [...new Set(
+    enriched
+      .filter((event) => isHomeGame(event) && !event.umpireStatus && cpGameIdFromEvent(event))
+      .map((event) => event.date)
+  )].sort();
+
+  const assignmentsByDate = new Map();
+  for (const date of targetDates) {
+    try {
+      const html = await fetchOfficialsDailyHtml(session, date);
+      assignmentsByDate.set(date, parseOfficialsAssignments(html));
+    } catch (error) {
+      console.warn(`Skipping officials daily sync for ${date}: ${error.message}`);
+      assignmentsByDate.set(date, new Map());
+    }
+  }
+
+  return enriched.map((event) => {
+    if (!isHomeGame(event) || event.umpireStatus) return event;
+    const gameId = cpGameIdFromEvent(event);
+    const dayAssignments = assignmentsByDate.get(event.date) || new Map();
+    const assignment = gameId ? dayAssignments.get(gameId) : null;
+    return attachUmpireStatus(event, {
+      source: assignment ? 'officials-daily' : 'officials-daily-missing',
+      umpire1Confirmed: assignment ? assignment.umpire1Confirmed : false,
+      umpire2Confirmed: assignment ? assignment.umpire2Confirmed : false,
+      umpire1Name: assignment ? assignment.umpire1Name : '',
+      umpire2Name: assignment ? assignment.umpire2Name : ''
+    });
+  });
 }
 
 async function loadCpSchedule(schedule, conflictEvents, availability, session) {
@@ -615,7 +765,7 @@ async function generateData() {
   }
 
   schedule.sort((a, b) => `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`));
-  const dedupedSchedule = dedupe(schedule);
+  const dedupedSchedule = await enrichScheduleWithUmpires(dedupe(schedule), session);
   const dedupedConflicts = dedupe(conflictEvents);
   const dedupedAvailability = dedupeAvailability(availability).sort((a, b) => `${a.date} ${a.start} ${a.diamond}`.localeCompare(`${b.date} ${b.start} ${b.diamond}`));
   const teams = [...new Set(dedupedSchedule.map((event) => event.team))].sort();

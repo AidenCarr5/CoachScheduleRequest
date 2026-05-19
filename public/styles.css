@@ -1067,6 +1067,56 @@ button {
   color: white;
 }
 
+.umpire-status-block {
+  display: grid;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.umpire-status-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.umpire-status-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  background: #f3f5f0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.umpire-status-pill.confirmed {
+  border-color: #9dcaac;
+  background: #eff8f1;
+  color: var(--good);
+}
+
+.umpire-status-pill.pending {
+  border-color: #d7dccc;
+  background: #f5f6f3;
+  color: #66715e;
+}
+
+.umpire-status-name {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.umpire-status-note {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .game-main.strike strong,
 .game-main.strike span:not(.tag):not(.pending-badge) {
   text-decoration: line-through;

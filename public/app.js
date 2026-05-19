@@ -731,6 +731,34 @@
     return `${event.eventKind || ''} ${event.type || ''}`.toLowerCase().includes('cancelled');
   }
 
+  function showUmpireStatus(event) {
+    return String(event && event.eventKind || '').toLowerCase() === 'home game'
+      && !isCancelledSourceEvent(event)
+      && event
+      && event.umpireStatus;
+  }
+
+  function renderUmpireStatus(event) {
+    if (!showUmpireStatus(event)) return '';
+    const status = event.umpireStatus || {};
+    const autoNote = status.autoConfirmed
+      ? '<span class="umpire-status-note">14U+ auto-confirmed</span>'
+      : '';
+    return `
+      <div class="umpire-status-block">
+        <div class="umpire-status-row">
+          <span class="umpire-status-pill ${status.umpire1Confirmed ? 'confirmed' : 'pending'}">Umpire #1 ${status.umpire1Confirmed ? 'confirmed' : 'pending'}</span>
+          ${status.umpire1Name ? `<span class="umpire-status-name">${escapeHtml(status.umpire1Name)}</span>` : ''}
+        </div>
+        <div class="umpire-status-row">
+          <span class="umpire-status-pill ${status.umpire2Confirmed ? 'confirmed' : 'pending'}">Umpire #2 ${status.umpire2Confirmed ? 'confirmed' : 'pending'}</span>
+          ${status.umpire2Name ? `<span class="umpire-status-name">${escapeHtml(status.umpire2Name)}</span>` : ''}
+        </div>
+        ${autoNote}
+      </div>
+    `;
+  }
+
   function renderEvent(event) {
     const date = new Date(`${event.date}T12:00:00`);
     const dateLabel = date.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
@@ -764,6 +792,7 @@
           ${pendingBadge}
           <strong>${escapeHtml(event.opponent)}</strong>
           <span>${escapeHtml(event.diamond)}</span>
+          ${renderUmpireStatus(event)}
         </div>
         ${actions}
       </article>
