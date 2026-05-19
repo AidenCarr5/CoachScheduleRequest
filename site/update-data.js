@@ -88,6 +88,61 @@ function withCancellation(baseType, cancelled) {
   };
 }
 
+function sourcePriority(event) {
+  const source = String(event && event.source || '').toLowerCase();
+  if (source.includes('control panel')) return 3;
+  if (source.includes('turtle club schedule')) return 2;
+  if (source.includes('full calendar')) return 1;
+  return 0;
+}
+
+function typeSpecificity(type) {
+  const normalized = normalizeEventType(type).toLowerCase();
+  if (normalized === 'home game' || normalized === 'away game' || normalized === 'shared practice') return 3;
+  if (normalized === 'practice' || normalized === 'tournament' || normalized === 'tryout') return 2;
+  if (normalized === 'game' || normalized === 'event' || normalized === 'calendar event') return 1;
+  return normalized ? 2 : 0;
+}
+
+function isCancelledEvent(event) {
+  return isCancelledMarker(`${event && event.type || ''} ${event && event.eventKind || ''}`);
+}
+
+function dedupeBaseType(event) {
+  return normalizeEventType(event && (event.type || event.eventKind) || '');
+}
+
+function normalizeDedupeValue(value) {
+  return strip(value).toLowerCase();
+}
+
+function mergeDuplicateEvents(existing, candidate) {
+  const existingCancelled = isCancelledEvent(existing);
+  const candidateCancelled = isCancelledEvent(candidate);
+  const existingBaseType = dedupeBaseType(existing);
+  const candidateBaseType = dedupeBaseType(candidate);
+
+  const mergedType = typeSpecificity(candidateBaseType) > typeSpecificity(existingBaseType)
+    ? candidateBaseType
+    : existingBaseType;
+  const cancelled = existingCancelled || candidateCancelled;
+  const finalEvent = withCancellation(mergedType || candidateBaseType || existingBaseType || candidate.type || existing.type || 'Event', cancelled);
+
+  const preferred = (() => {
+    if (candidateCancelled !== existingCancelled) return candidateCancelled ? candidate : existing;
+    if (typeSpecificity(candidateBaseType) !== typeSpecificity(existingBaseType)) {
+      return typeSpecificity(candidateBaseType) > typeSpecificity(existingBaseType) ? candidate : existing;
+    }
+    return sourcePriority(candidate) > sourcePriority(existing) ? candidate : existing;
+  })();
+
+  return {
+    ...preferred,
+    type: finalEvent.type,
+    eventKind: finalEvent.eventKind
+  };
+}
+
 function isTitansTeam(team) {
   return /^(\d+U(?:\s*T\d+)?|8U\/9U)\s*\([^)]+\)$/.test(strip(team));
 }
@@ -409,13 +464,21 @@ function parseCpAvailability(html, allowedMonths) {
 }
 
 function dedupe(events) {
-  const seen = new Set();
-  return events.filter((event) => {
-    const key = `${event.date}|${event.time}|${event.endTime}|${event.team}|${event.eventKind}|${event.diamond}`;
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
+  const byKey = new Map();
+  for (const event of events) {
+    const key = [
+      event.date,
+      event.time,
+      event.endTime,
+      normalizeDedupeValue(event.team),
+      dedupeBaseType(event),
+      normalizeDedupeValue(event.diamond),
+      normalizeDedupeValue(event.opponent)
+    ].join('|');
+    const existing = byKey.get(key);
+    byKey.set(key, existing ? mergeDuplicateEvents(existing, event) : event);
+  }
+  return [...byKey.values()];
 }
 
 function dedupeAvailability(availability) {
