@@ -62,8 +62,33 @@
     logoutButton.addEventListener('click', logout);
   }
 
+  function ensureProfileLink() {
+    const topbarInner = document.querySelector('.topbar-inner');
+    if (!topbarInner) return null;
+    let profileLink = document.getElementById('profileLink');
+    if (profileLink) return profileLink;
+
+    profileLink = document.createElement('a');
+    profileLink.id = 'profileLink';
+    profileLink.className = 'topbar-link';
+    profileLink.dataset.navKey = 'profile';
+    profileLink.href = '/profile.html';
+    profileLink.hidden = true;
+    profileLink.textContent = 'Profile';
+
+    const adminLink = document.getElementById('adminLink');
+    if (adminLink && adminLink.parentElement === topbarInner) {
+      topbarInner.insertBefore(profileLink, adminLink);
+      return profileLink;
+    }
+
+    topbarInner.appendChild(profileLink);
+    return profileLink;
+  }
+
   function applyNavState(session, publicConfig) {
     const homeLink = document.getElementById('homeNavLink');
+    const profileLink = ensureProfileLink();
     const adminLink = document.getElementById('adminLink');
     const fieldStatusLink = document.getElementById('fieldStatusLink');
     const sessionLabel = document.getElementById('sessionLabel');
@@ -72,6 +97,12 @@
 
     const role = session && session.authenticated && session.user ? session.user.role : '';
     homeLink.href = '/';
+
+    if (profileLink) {
+      const canAccessProfile = Boolean(publicConfig.profilePath) && role === 'coach';
+      profileLink.href = publicConfig.profilePath || '/profile.html';
+      profileLink.hidden = !canAccessProfile;
+    }
 
     if (adminLink) {
       adminLink.href = publicConfig.adminPath || '/admin.html';
@@ -114,7 +145,7 @@
 
   async function refreshTopNav() {
     let session = { authenticated: false };
-    let publicConfig = { adminPath: '/admin.html', fieldStatusPath: '' };
+    let publicConfig = { adminPath: '/admin.html', fieldStatusPath: '', profilePath: '' };
     const cached = readCachedState();
     if (cached) {
       session = cached.session || session;

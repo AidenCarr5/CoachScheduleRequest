@@ -1095,6 +1095,69 @@ button {
   justify-content: flex-end;
 }
 
+.profile-shell {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.profile-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+
+.profile-summary,
+.profile-form {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+}
+
+.profile-summary-row {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.profile-summary-row:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.profile-summary-row strong {
+  color: var(--green);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.profile-summary-row span {
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.profile-message {
+  min-height: 20px;
+  margin: 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.profile-message.ok {
+  color: var(--good);
+}
+
+.profile-message.error {
+  color: var(--bad);
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .replace-btn {
   color: var(--green);
   background: #e8ebdf;
@@ -1486,6 +1549,7 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
 
   .status-strip,
   .layout,
+  .profile-shell,
   .contact-grid,
   .diamond-status-grid,
   .status-editor-list { grid-template-columns: 1fr; }
@@ -1548,9 +1612,14 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
   }
 
   .coach-account-card,
+  .profile-summary-row,
   .diamond-status-head,
   .status-editor-head {
     flex-direction: column;
+  }
+
+  .profile-summary-row span {
+    text-align: left;
   }
 
   .coach-account-fields {
@@ -1579,5 +1648,9 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
   .row-actions {
     width: 100%;
     flex-direction: column;
+  }
+
+  .profile-actions button {
+    width: 100%;
   }
 }

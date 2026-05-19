@@ -30,7 +30,7 @@
     selectedDate: '',
     requests: [],
     submittingRequest: false,
-    publicConfig: { adminPath: '/admin.html', fieldStatusPath: '' },
+    publicConfig: { adminPath: '/admin.html', fieldStatusPath: '', profilePath: '' },
     user: null,
     preload: {
       promise: null,
@@ -277,7 +277,7 @@
       turtleClubOpponentCatalog = Array.isArray(catalog.opponents) ? catalog.opponents : [];
     }
     data = payload.data;
-    state.publicConfig = payload.publicConfig || { adminPath: '/admin.html', fieldStatusPath: '' };
+    state.publicConfig = payload.publicConfig || { adminPath: '/admin.html', fieldStatusPath: '', profilePath: '' };
     state.user = state.publicConfig.user || state.user;
     currentDataVersion = state.publicConfig.dataVersion || data.scrapedAt || '';
   }
@@ -298,7 +298,7 @@
       state.publicConfig = payload;
       currentDataVersion = payload.dataVersion || currentDataVersion;
     } catch (_) {
-      state.publicConfig = { adminPath: '/admin.html', fieldStatusPath: '' };
+      state.publicConfig = { adminPath: '/admin.html', fieldStatusPath: '', profilePath: '' };
     }
   }
 
@@ -1414,6 +1414,8 @@
     $('logoutBtn').hidden = true;
     $('adminLink').hidden = true;
     $('fieldStatusLink').hidden = true;
+    const profileLink = $('profileLink');
+    if (profileLink) profileLink.hidden = true;
   }
 
   function showApp() {

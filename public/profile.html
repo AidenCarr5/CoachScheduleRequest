@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coach Profile</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-nav="profile">
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <a id="homeNavLink" class="topbar-link" data-nav-key="home" href="/">Coach Schedule</a>
+      <a class="topbar-link" data-nav-key="availability" href="/availability.html">Diamond Availability</a>
+      <a class="topbar-link" data-nav-key="status" href="/diamond-status.html">Diamond Status</a>
+      <a class="topbar-link" data-nav-key="contact" href="/contact.html">Contact</a>
+      <a id="adminLink" class="topbar-link" data-nav-key="admin" href="/admin.html" hidden>Admin approval</a>
+      <a id="fieldStatusLink" class="topbar-link" data-nav-key="field-status" href="/diamond-status-admin.html" hidden>Field Status Control</a>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <div>
+        <p class="eyebrow">LaSalle Titans</p>
+        <h1>Coach Profile</h1>
+      </div>
+      <div class="source">
+        <span id="sessionLabel" hidden></span>
+        <button id="logoutBtn" class="link-button" type="button" hidden>Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap app-shell">
+    <section class="profile-shell">
+      <article class="profile-card">
+        <div class="section-head">
+          <h2>Account</h2>
+          <span>Your username stays the same. Only the password changes here.</span>
+        </div>
+        <div id="profileSummary" class="profile-summary">
+          <p class="muted">Loading coach account...</p>
+        </div>
+      </article>
+
+      <article class="profile-card">
+        <div class="section-head">
+          <h2>Change Password</h2>
+          <span>Use at least 6 characters.</span>
+        </div>
+        <form id="profilePasswordForm" class="profile-form">
+          <div class="field">
+            <label for="currentPassword">Current password</label>
+            <input id="currentPassword" type="password" autocomplete="current-password" required>
+          </div>
+          <div class="field">
+            <label for="newPassword">New password</label>
+            <input id="newPassword" type="password" autocomplete="new-password" required>
+          </div>
+          <div class="field">
+            <label for="confirmPassword">Confirm new password</label>
+            <input id="confirmPassword" type="password" autocomplete="new-password" required>
+          </div>
+          <p id="profileMessage" class="profile-message" aria-live="polite"></p>
+          <div class="profile-actions">
+            <button id="saveProfilePasswordBtn" class="primary" type="submit">Save new password</button>
+          </div>
+        </form>
+      </article>
+    </section>
+  </main>
+
+  <script src="nav.js"></script>
+  <script src="profile.js"></script>
+</body>
+</html>
