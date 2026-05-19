@@ -1069,40 +1069,96 @@ button {
 
 .umpire-status-block {
   display: grid;
-  gap: 6px;
+  gap: 10px;
   margin-top: 10px;
+  padding: 12px;
+  border: 1px solid #d9e0d4;
+  background: linear-gradient(180deg, #fafcf8 0%, #f3f6ef 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
 }
 
-.umpire-status-row {
+.umpire-status-head {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
 }
 
-.umpire-status-pill {
-  display: inline-flex;
-  align-items: center;
-  min-height: 28px;
-  padding: 0 10px;
-  border: 1px solid var(--line);
-  background: #f3f5f0;
-  color: var(--muted);
+.umpire-status-title {
+  color: var(--green);
   font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.umpire-status-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.umpire-status-card {
+  display: grid;
+  gap: 6px;
+  padding: 10px 12px;
+  border: 1px solid #d6ddd2;
+  background: rgba(255,255,255,0.8);
+  min-width: 0;
+}
+
+.umpire-status-card.confirmed {
+  border-color: #98c9aa;
+  background: linear-gradient(180deg, #f7fcf8 0%, #edf8f0 100%);
+}
+
+.umpire-status-card.pending {
+  border-color: #d7ddcd;
+  background: linear-gradient(180deg, #fbfcfa 0%, #f3f5f0 100%);
+}
+
+.umpire-status-label {
+  color: var(--muted);
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
 }
 
-.umpire-status-pill.confirmed {
-  border-color: #9dcaac;
-  background: #eff8f1;
+.umpire-status-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.umpire-status-state::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: #a0ab96;
+  box-shadow: 0 0 0 3px rgba(160,171,150,0.18);
+}
+
+.umpire-status-card.confirmed .umpire-status-state {
   color: var(--good);
 }
 
-.umpire-status-pill.pending {
-  border-color: #d7dccc;
-  background: #f5f6f3;
+.umpire-status-card.confirmed .umpire-status-state::before {
+  background: var(--good);
+  box-shadow: 0 0 0 3px rgba(38, 134, 66, 0.15);
+}
+
+.umpire-status-card.pending .umpire-status-state {
   color: #66715e;
+}
+
+.umpire-status-card.pending .umpire-status-state::before {
+  background: #86927d;
+  box-shadow: 0 0 0 3px rgba(134,146,125,0.16);
 }
 
 .umpire-status-name {
@@ -1616,6 +1672,10 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
   .game-row {
     grid-template-columns: 1fr;
     align-items: start;
+  }
+
+  .umpire-status-grid {
+    grid-template-columns: 1fr;
   }
 
   .calendar-day {

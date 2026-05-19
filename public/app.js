@@ -778,15 +778,22 @@
     }
     return `
       <div class="umpire-status-block">
-        <div class="umpire-status-row">
-          <span class="umpire-status-pill ${status.umpire1Confirmed ? 'confirmed' : 'pending'}">Umpire #1 ${status.umpire1Confirmed ? 'confirmed' : 'pending'}</span>
-          ${status.umpire1Name ? `<span class="umpire-status-name">${escapeHtml(status.umpire1Name)}</span>` : ''}
+        <div class="umpire-status-head">
+          <span class="umpire-status-title">Umpires</span>
+          ${note}
         </div>
-        <div class="umpire-status-row">
-          <span class="umpire-status-pill ${status.umpire2Confirmed ? 'confirmed' : 'pending'}">Umpire #2 ${status.umpire2Confirmed ? 'confirmed' : 'pending'}</span>
-          ${status.umpire2Name ? `<span class="umpire-status-name">${escapeHtml(status.umpire2Name)}</span>` : ''}
+        <div class="umpire-status-grid">
+          <div class="umpire-status-card ${status.umpire1Confirmed ? 'confirmed' : 'pending'}">
+            <span class="umpire-status-label">Umpire #1</span>
+            <span class="umpire-status-state">${status.umpire1Confirmed ? 'Confirmed' : 'Pending'}</span>
+            ${status.umpire1Name ? `<span class="umpire-status-name">${escapeHtml(status.umpire1Name)}</span>` : ''}
+          </div>
+          <div class="umpire-status-card ${status.umpire2Confirmed ? 'confirmed' : 'pending'}">
+            <span class="umpire-status-label">Umpire #2</span>
+            <span class="umpire-status-state">${status.umpire2Confirmed ? 'Confirmed' : 'Pending'}</span>
+            ${status.umpire2Name ? `<span class="umpire-status-name">${escapeHtml(status.umpire2Name)}</span>` : ''}
+          </div>
         </div>
-        ${note}
       </div>
     `;
   }
