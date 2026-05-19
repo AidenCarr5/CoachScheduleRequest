@@ -6,7 +6,6 @@
 
   async function init() {
     $('loginForm').addEventListener('submit', login);
-    $('logoutBtn').addEventListener('click', logout);
     $('adminExportBtn').addEventListener('click', exportRequests);
     $('refreshScheduleBtn').addEventListener('click', refreshSchedule);
     $('sendDiamondStatusEmailBtn').addEventListener('click', sendDiamondStatusEmail);
@@ -50,12 +49,6 @@
     showAdmin();
     if (window.refreshTopNav) window.refreshTopNav();
     await loadDashboard();
-  }
-
-  async function logout() {
-    await fetch('/api/admin/logout', { method: 'POST' });
-    showLogin();
-    if (window.refreshTopNav) window.refreshTopNav();
   }
 
   async function loadRequests() {

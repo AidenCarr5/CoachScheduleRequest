@@ -13,13 +13,12 @@
 <body data-nav="field-status">
   <div class="topbar">
     <div class="wrap topbar-inner">
-      <a id="homeNavLink" class="topbar-link" data-nav-key="home" href="/">Log in</a>
+      <a id="homeNavLink" class="topbar-link" data-nav-key="home" href="/">Coach Schedule</a>
       <a class="topbar-link" data-nav-key="availability" href="/availability.html">Diamond Availability</a>
       <a class="topbar-link" data-nav-key="status" href="/diamond-status.html">Diamond Status</a>
       <a class="topbar-link" data-nav-key="contact" href="/contact.html">Contact</a>
       <a id="adminLink" class="topbar-link" data-nav-key="admin" href="/admin.html" hidden>Admin approval</a>
       <a id="fieldStatusLink" class="topbar-link" data-nav-key="field-status" href="/diamond-status-admin.html" hidden>Field Status Control</a>
-      <button id="logoutBtn" class="link-button topbar-link" type="button">Log out</button>
     </div>
   </div>
 
@@ -30,7 +29,8 @@
         <h1>Field Status Control</h1>
       </div>
       <div class="source">
-        <span id="statusEditorUserLabel">Loading access...</span>
+        <span id="sessionLabel" hidden></span>
+        <button id="logoutBtn" class="link-button" type="button" hidden>Log out</button>
       </div>
     </div>
   </header>

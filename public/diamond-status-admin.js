@@ -1,11 +1,9 @@
 (function () {
   const $ = (id) => document.getElementById(id);
   let currentRows = [];
-  let currentUser = null;
   let busyTargetId = '';
 
   async function init() {
-    $('logoutBtn').addEventListener('click', logout);
     await loadEditor();
   }
 
@@ -23,9 +21,7 @@
 
     const payload = await response.json();
     currentRows = payload.rows || [];
-    currentUser = payload.user || null;
     renderSummary(payload.fetchedAt);
-    renderUser();
     renderRows();
   }
 
@@ -34,15 +30,6 @@
     $('statusClosedCount').textContent = currentRows.filter((row) => /^closed/i.test(row.status || '')).length;
     $('statusUpdatedAt').textContent = formatDateTime(fetchedAt);
     $('diamondStatusMeta').textContent = 'This page writes directly to Turtle Club status and then checks the public status page again.';
-  }
-
-  function renderUser() {
-    if (!currentUser) {
-      $('statusEditorUserLabel').textContent = 'Status editor access';
-      return;
-    }
-    const initials = currentUser.initials ? ` (${currentUser.initials})` : '';
-    $('statusEditorUserLabel').textContent = `${currentUser.username || 'Authorized user'}${initials}`;
   }
 
   function renderRows() {
@@ -110,11 +97,6 @@
     } finally {
       setBusy('', false);
     }
-  }
-
-  async function logout() {
-    await fetch('/api/coach/logout', { method: 'POST' });
-    window.location.href = '/';
   }
 
   function setBusy(targetId, isBusy) {

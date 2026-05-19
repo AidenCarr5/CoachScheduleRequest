@@ -41,7 +41,6 @@
 
   async function init() {
     $('coachLoginForm').addEventListener('submit', login);
-    $('logoutBtn').addEventListener('click', logout);
     beginPreload();
     const session = await loadSession();
     if (!session.authenticated) {
@@ -176,20 +175,6 @@
     }
     state.user = payload.user;
     await startApp();
-  }
-
-  async function logout() {
-    await fetch('/api/coach/logout', { method: 'POST' });
-    state.user = null;
-    state.requests = [];
-    data = null;
-    window.clearInterval(refreshTimer);
-    refreshTimer = 0;
-    beginPreload(true);
-    showLogin();
-    if (window.refreshTopNav) {
-      window.refreshTopNav();
-    }
   }
 
   function beginPreload(force = false) {
@@ -559,10 +544,10 @@
     $('fieldStatusLink').hidden = !state.publicConfig.fieldStatusPath;
     $('sessionLabel').hidden = false;
     $('sessionLabel').textContent = isAdminUser()
-      ? 'Signed in as admin'
+      ? `${state.user.initials || 'AC'} · admin`
       : isStatusEditorUser()
-        ? `Signed in: ${state.user.username} (all coach view)`
-        : `Signed in: ${state.user.username}`;
+        ? `${state.user.initials || 'EC'} · ${state.user.username} (all coach view)`
+        : `${state.user.initials ? `${state.user.initials} · ` : ''}${state.user.username}`;
     $('logoutBtn').hidden = false;
     $('newGameBtn').hidden = isReadOnlyCoachViewer();
     updateViewTabs();
