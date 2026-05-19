@@ -48,6 +48,10 @@
       showLogin();
       return;
     }
+    if (session.user && session.user.role === 'status_editor') {
+      window.location.href = '/diamond-status-admin.html';
+      return;
+    }
     state.user = session.user;
     await startApp();
   }

@@ -381,6 +381,15 @@ button {
   border: 1px solid #cbd3c8;
 }
 
+.toolbar-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  text-decoration: none;
+}
+
 .status-strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -497,6 +506,92 @@ button {
   margin: 0;
   color: var(--muted);
   line-height: 1.45;
+}
+
+.status-editor-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  padding: 16px;
+}
+
+.status-editor-card {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  background: var(--wash);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--gold);
+}
+
+.status-editor-card.open {
+  border-left-color: var(--good);
+}
+
+.status-editor-card.closed {
+  border-left-color: var(--bad);
+}
+
+.status-editor-head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.status-editor-head strong {
+  display: block;
+  color: var(--green);
+  font: 600 23px Oswald, Arial, sans-serif;
+}
+
+.status-editor-head p,
+.status-editor-meta {
+  margin: 0;
+  color: var(--muted);
+}
+
+.status-editor-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--muted);
+}
+
+.status-editor-pill.open {
+  border-color: #9dcaac;
+  color: var(--good);
+  background: #eff8f1;
+}
+
+.status-editor-pill.closed {
+  border-color: #dca9a3;
+  color: var(--bad);
+  background: #fff1ef;
+}
+
+.status-editor-label {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.status-editor-notes {
+  min-height: 92px;
+  resize: vertical;
+}
+
+.status-editor-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
 }
 
 .section-head {
@@ -1383,7 +1478,8 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
   .status-strip,
   .layout,
   .contact-grid,
-  .diamond-status-grid { grid-template-columns: 1fr; }
+  .diamond-status-grid,
+  .status-editor-list { grid-template-columns: 1fr; }
 
   .status-strip div {
     border-right: 0;
@@ -1434,6 +1530,7 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
   }
 
   .admin-toolbar button,
+  .admin-toolbar a,
   .coach-panel button,
   .admin-form button,
   .dialog-actions button,
@@ -1442,7 +1539,8 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
   }
 
   .coach-account-card,
-  .diamond-status-head {
+  .diamond-status-head,
+  .status-editor-head {
     flex-direction: column;
   }
 
