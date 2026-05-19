@@ -498,10 +498,13 @@ function parseOfficialsAssignments(html) {
     const officialPattern = /<span class="gameOfficial\s+([^"]+)"[\s\S]*?<span[^>]*>([^<]+)<\/span>\s*\(([^)]+)\)/gi;
     let officialMatch = officialPattern.exec(assignmentHtml);
     while (officialMatch) {
-      const classes = String(officialMatch[1] || '').toLowerCase();
+      const classTokens = String(officialMatch[1] || '')
+        .toLowerCase()
+        .split(/\s+/)
+        .filter(Boolean);
       const name = strip(officialMatch[2]);
       const position = strip(officialMatch[3]).toLowerCase();
-      if (classes.includes('confirmed')) {
+      if (classTokens.includes('confirmed')) {
         if (position.includes('home plate') && !assignmentInfo.umpire1Confirmed) {
           assignmentInfo.umpire1Confirmed = true;
           assignmentInfo.umpire1Name = name;
