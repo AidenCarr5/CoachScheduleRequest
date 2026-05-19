@@ -134,6 +134,31 @@ h2 { font-size: 24px; }
   box-shadow: 0 12px 28px rgba(0, 68, 17, 0.08);
 }
 
+.loading-shell-card {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  width: min(540px, 100%);
+  margin: 0 auto;
+  padding: 28px 24px;
+  text-align: center;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--gold);
+  box-shadow: 0 12px 28px rgba(0, 68, 17, 0.08);
+}
+
+.loading-shell-card strong {
+  color: var(--green);
+  font: 600 24px Oswald, Arial, sans-serif;
+}
+
+.loading-shell-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
 .login-intro {
   display: grid;
   align-content: start;

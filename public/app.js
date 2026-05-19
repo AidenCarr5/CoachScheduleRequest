@@ -1478,6 +1478,7 @@
   }
 
   function showLogin() {
+    $('loadingShell').hidden = true;
     $('loginShell').hidden = false;
     $('appShell').hidden = true;
     $('sessionLabel').hidden = true;
@@ -1489,6 +1490,7 @@
   }
 
   function showApp() {
+    $('loadingShell').hidden = true;
     $('loginShell').hidden = true;
     $('appShell').hidden = false;
   }
