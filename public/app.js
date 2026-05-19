@@ -771,9 +771,7 @@
     if (!showUmpireStatus(event)) return '';
     const status = derivedUmpireStatus(event);
     let note = '';
-    if (status.autoConfirmed) {
-      note = '<span class="umpire-status-note">14U+ auto-confirmed</span>';
-    } else if (status.source === 'pending-refresh') {
+    if (status.source === 'pending-refresh') {
       note = '<span class="umpire-status-note">Official confirmation appears after Turtle Club refresh.</span>';
     }
     return `
