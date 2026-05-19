@@ -5,7 +5,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const { URL } = require('url');
-const { handleApi, useSupabaseStore, notificationsEnabled, storageFile, canAccessStatusEditorRequest } = require('./lib/app-handler');
+const { handleApi, useSupabaseStore, notificationsEnabled, storageFile, canAccessStatusEditorRequest, canAccessAdminPortalRequest } = require('./lib/app-handler');
 const { refreshData } = require('./lib/data-store');
 const { checkForDiamondStatusAlerts, smtpConfigured } = require('./lib/diamond-status-monitor');
 
@@ -118,6 +118,11 @@ const server = http.createServer(async (req, res) => {
     const url = new URL(req.url, `http://${req.headers.host}`);
     if (url.pathname.startsWith('/api/')) {
       await handleApi(req, res, url.pathname);
+      return;
+    }
+    if (url.pathname === '/admin.html' && !canAccessAdminPortalRequest(req)) {
+      res.writeHead(302, { Location: '/' });
+      res.end();
       return;
     }
     if (url.pathname === '/diamond-status-admin.html' && !canAccessStatusEditorRequest(req)) {

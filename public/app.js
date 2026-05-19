@@ -48,10 +48,6 @@
       showLogin();
       return;
     }
-    if (session.user && session.user.role === 'status_editor') {
-      window.location.href = '/diamond-status-admin.html';
-      return;
-    }
     state.user = session.user;
     await startApp();
   }
@@ -61,7 +57,7 @@
     if (!data || !data.teams.length) {
       throw new Error('No schedule data was returned by the server.');
     }
-    state.team = isAdminUser() ? data.teams[0] : state.user.team;
+    state.team = canViewAllTeams() ? data.teams[0] : state.user.team;
     rebuildDerivedData();
     state.month = preferredMonth(state.month);
 
@@ -74,7 +70,7 @@
     $('gameDate').max = dateBounds.max;
 
     teamSelect.value = state.team;
-    teamSelect.disabled = !isAdminUser();
+    teamSelect.disabled = !canViewAllTeams();
     monthSelect.value = state.month;
 
     if (!appStarted) {
@@ -346,10 +342,10 @@
         $('diamondSelect').innerHTML = diamonds.map((diamond) => `<option>${escapeHtml(diamond)}</option>`).join('');
         rebuildAwayVenueOptions();
         rebuildOpponentSelect();
-        if (!data.teams.includes(state.team)) state.team = isAdminUser() ? data.teams[0] : state.user.team;
+        if (!data.teams.includes(state.team)) state.team = canViewAllTeams() ? data.teams[0] : state.user.team;
         state.month = preferredMonth(state.month);
         teamSelect.value = state.team;
-        teamSelect.disabled = !isAdminUser();
+        teamSelect.disabled = !canViewAllTeams();
         monthSelect.value = state.month;
         $('gameDate').min = dateBounds.min;
         $('gameDate').max = dateBounds.max;
@@ -548,12 +544,19 @@
     $('visibleCount').textContent = events.length;
     $('requestCount').textContent = pendingRequests.length;
     $('availableCount').textContent = data.availability.length;
-    $('teamScope').textContent = `${state.team} schedule only`;
+    $('teamScope').textContent = canViewAllTeams()
+      ? `Viewing coach schedule: ${state.team}`
+      : `${state.team} schedule only`;
     $('adminLink').href = state.publicConfig.adminPath || '/admin.html';
     $('adminLink').hidden = !isAdminUser();
     $('sessionLabel').hidden = false;
-    $('sessionLabel').textContent = isAdminUser() ? 'Signed in as admin' : `Signed in: ${state.user.username}`;
+    $('sessionLabel').textContent = isAdminUser()
+      ? 'Signed in as admin'
+      : isStatusEditorUser()
+        ? `Signed in: ${state.user.username} (all coach view)`
+        : `Signed in: ${state.user.username}`;
     $('logoutBtn').hidden = false;
+    $('newGameBtn').hidden = isReadOnlyCoachViewer();
     updateViewTabs();
 
     if (state.view === 'calendar') {
@@ -749,7 +752,9 @@
         : '';
     const strikeClass = /cancel|replace/.test(event.pendingState || '') || sourceCancelled ? ' strike' : '';
     const alreadyCancelled = sourceCancelled;
-    const actions = event.pendingState && event.pendingState !== 'approved-new'
+    const actions = isReadOnlyCoachViewer()
+      ? '<div class="row-actions"><button class="replace-btn static-btn" type="button" disabled>View only</button></div>'
+      : event.pendingState && event.pendingState !== 'approved-new'
       ? `<div class="row-actions"><button class="replace-btn static-btn" type="button" disabled>${event.status === 'approved' ? 'Approved' : 'Queued'}</button></div>`
       : alreadyCancelled
         ? `<div class="row-actions"><button class="replace-btn static-btn" type="button" disabled>Already cancelled</button></div>`
@@ -785,6 +790,7 @@
       ? events.map(renderEvent).join('')
       : '<p class="muted">No events on this day.</p>';
     $('calendarDayNewEventBtn').dataset.date = date;
+    $('calendarDayNewEventBtn').hidden = isReadOnlyCoachViewer();
     bindEventActions($('calendarDayEvents'));
     calendarDayDialog.showModal();
   }
@@ -799,7 +805,7 @@
       : '';
     return `
       <article class="request-card ${escapeHtml(request.status || 'pending')} ${processed ? 'processed' : ''}">
-        <button class="request-dismiss" type="button" data-delete-request="${escapeHtml(request.id)}" aria-label="Delete request">x</button>
+        ${isReadOnlyCoachViewer() ? '' : `<button class="request-dismiss" type="button" data-delete-request="${escapeHtml(request.id)}" aria-label="Delete request">x</button>`}
         <strong>${escapeHtml(request.action)} - ${escapeHtml(request.team)}</strong>
         <span>${escapeHtml(request.date)} ${escapeHtml(request.start || '')} ${escapeHtml(request.opponent || '')}</span>
         <span>${escapeHtml(request.diamond || '')}</span>
@@ -1107,6 +1113,10 @@
   async function queueRequest(event) {
     event.preventDefault();
     if (state.submittingRequest) return;
+    if (isReadOnlyCoachViewer()) {
+      alert('This account can review all coach requests here, but it cannot queue schedule changes from the coach page.');
+      return;
+    }
     const mode = $('requestMode').value;
     let payload;
 
@@ -1390,6 +1400,18 @@
 
   function isAdminUser() {
     return state.user && state.user.role === 'admin';
+  }
+
+  function isStatusEditorUser() {
+    return state.user && state.user.role === 'status_editor';
+  }
+
+  function canViewAllTeams() {
+    return isAdminUser() || isStatusEditorUser();
+  }
+
+  function isReadOnlyCoachViewer() {
+    return isStatusEditorUser();
   }
 
   function showLogin() {
