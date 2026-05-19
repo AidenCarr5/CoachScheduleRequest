@@ -540,7 +540,11 @@
   function render() {
     const events = visibleEvents();
     const pendingRequests = state.requests.filter((request) => (request.status || 'pending') === 'pending');
-    const processedRequests = state.requests.filter((request) => ['approved', 'rejected'].includes(request.status || 'pending'));
+    const processedRequests = state.requests.filter((request) => {
+      const status = request.status || 'pending';
+      if (isAdminUser()) return ['approved', 'rejected'].includes(status);
+      return status === 'approved';
+    });
     $('visibleCount').textContent = events.length;
     $('requestCount').textContent = pendingRequests.length;
     $('availableCount').textContent = data.availability.length;
@@ -571,7 +575,7 @@
     processedRequestList.classList.toggle('empty', processedRequests.length === 0);
     processedRequestList.innerHTML = processedRequests.length
       ? processedRequests.map((request) => renderRequest(request, true)).join('')
-      : '<p class="muted">No processed requests yet.</p>';
+      : `<p class="muted">${isAdminUser() ? 'No processed requests yet.' : 'No approved requests yet.'}</p>`;
     bindRequestActions();
   }
 
