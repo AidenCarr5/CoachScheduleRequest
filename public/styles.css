@@ -46,6 +46,7 @@ body {
 
 .topbar-link {
   color: white;
+  white-space: nowrap;
 }
 
 .topbar-inner .topbar-link[hidden] {
@@ -1315,8 +1316,10 @@ button {
 
 dialog {
   width: min(680px, calc(100% - 26px));
+  max-height: calc(100vh - 24px);
   border: 0;
   padding: 0;
+  overflow: auto;
   box-shadow: 0 24px 70px rgba(0,0,0,.25);
 }
 
@@ -1665,6 +1668,14 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
   .diamond-status-grid,
   .status-editor-list { grid-template-columns: 1fr; }
 
+  .calendar-shell {
+    overflow-x: auto;
+  }
+
+  .calendar-grid {
+    min-width: 700px;
+  }
+
   .status-strip div {
     border-right: 0;
     border-bottom: 1px solid var(--line);
@@ -1767,5 +1778,122 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
 
   .profile-actions button {
     width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    width: min(100%, calc(100% - 18px));
+  }
+
+  .topbar {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .topbar-inner {
+    flex-wrap: nowrap;
+    gap: 14px;
+    min-height: 0;
+    padding: 10px 0;
+    width: max-content;
+    min-width: 100%;
+  }
+
+  .masthead-inner {
+    min-height: 0;
+    padding: 18px 0 20px;
+  }
+
+  h1 {
+    font-size: clamp(28px, 10vw, 42px);
+  }
+
+  h2 {
+    font-size: 21px;
+  }
+
+  .app-shell {
+    padding: 16px 0 24px;
+  }
+
+  .coach-panel,
+  .schedule-list,
+  .request-list,
+  .admin-request-list,
+  .coach-account-list,
+  .calendar-view,
+  .diamond-status-list,
+  .status-editor-list {
+    padding: 12px;
+  }
+
+  .section-head,
+  .subsection-head {
+    padding: 14px 12px;
+  }
+
+  .status-strip strong {
+    font-size: 22px;
+  }
+
+  .month-head h3,
+  .calendar-head h3,
+  .status-editor-head strong,
+  .diamond-status-head strong,
+  .contact-card h3 {
+    font-size: 20px;
+  }
+
+  .game-row {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .date-box {
+    font-size: 18px;
+  }
+
+  .time-box,
+  .tag,
+  .request-card span,
+  .section-head span,
+  .calendar-head span,
+  .month-head span,
+  .source,
+  .status-editor-meta,
+  .diamond-status-card p,
+  .contact-card,
+  .admin-message {
+    font-size: 13px;
+  }
+
+  .status-editor-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .availability-legend {
+    gap: 10px;
+    padding: 12px 12px 0;
+    font-size: 13px;
+  }
+
+  dialog {
+    width: calc(100vw - 12px);
+    max-height: calc(100vh - 12px);
+    margin: 6px auto;
+  }
+
+  .dialog-head,
+  .dialog-body,
+  .dialog-actions,
+  .profile-summary,
+  .profile-form {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .calendar-day-events {
+    gap: 10px;
   }
 }
