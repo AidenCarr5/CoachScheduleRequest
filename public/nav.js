@@ -36,12 +36,15 @@
     const initials = String(user.initials || '').trim();
     const username = String(user.username || '').trim();
     if (user.role === 'admin') {
-      return initials ? `${initials} · admin` : 'admin';
+      return initials ? `${initials} - admin` : 'admin';
+    }
+    if (user.role === 'admin_viewer') {
+      return initials ? `${initials} - ${username || 'DonHunt'} (view only)` : `${username || 'DonHunt'} (view only)`;
     }
     if (user.role === 'status_editor') {
-      return initials ? `${initials} · ${username || 'ecarr'}` : (username || 'ecarr');
+      return initials ? `${initials} - ${username || 'ecarr'}` : (username || 'ecarr');
     }
-    return initials && username ? `${initials} · ${username}` : (username || '');
+    return initials && username ? `${initials} - ${username}` : (username || '');
   }
 
   async function logout() {
@@ -106,11 +109,11 @@
 
     if (adminLink) {
       adminLink.href = publicConfig.adminPath || '/admin.html';
-      adminLink.hidden = role !== 'admin';
+      adminLink.hidden = !(role === 'admin' || role === 'admin_viewer');
     }
 
     if (fieldStatusLink) {
-      const canAccessFieldStatus = Boolean(publicConfig.fieldStatusPath) && (role === 'admin' || role === 'status_editor');
+      const canAccessFieldStatus = Boolean(publicConfig.fieldStatusPath) && (role === 'admin' || role === 'admin_viewer' || role === 'status_editor');
       fieldStatusLink.href = publicConfig.fieldStatusPath || '/diamond-status-admin.html';
       fieldStatusLink.hidden = !canAccessFieldStatus;
     }

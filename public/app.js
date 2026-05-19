@@ -539,15 +539,17 @@
       ? `Viewing coach schedule: ${state.team}`
       : `${state.team} schedule only`;
     $('adminLink').href = state.publicConfig.adminPath || '/admin.html';
-    $('adminLink').hidden = !isAdminUser();
+    $('adminLink').hidden = !(isAdminUser() || isReadOnlyAdminUser());
     $('fieldStatusLink').href = state.publicConfig.fieldStatusPath || '/diamond-status-admin.html';
-    $('fieldStatusLink').hidden = !state.publicConfig.fieldStatusPath;
+    $('fieldStatusLink').hidden = !(state.publicConfig.fieldStatusPath && (isAdminUser() || isReadOnlyAdminUser() || isStatusEditorUser()));
     $('sessionLabel').hidden = false;
     $('sessionLabel').textContent = isAdminUser()
-      ? `${state.user.initials || 'AC'} · admin`
-      : isStatusEditorUser()
-        ? `${state.user.initials || 'EC'} · ${state.user.username} (all coach view)`
-        : `${state.user.initials ? `${state.user.initials} · ` : ''}${state.user.username}`;
+      ? `${state.user.initials || 'AC'} - admin`
+      : isReadOnlyAdminUser()
+        ? `${state.user.initials || 'DH'} - ${state.user.username || 'DonHunt'} (view only)`
+        : isStatusEditorUser()
+          ? `${state.user.initials || 'EC'} - ${state.user.username} (all coach view)`
+          : `${state.user.initials ? `${state.user.initials} - ` : ''}${state.user.username}`;
     $('logoutBtn').hidden = false;
     $('newGameBtn').hidden = isReadOnlyCoachViewer();
     updateViewTabs();
@@ -1459,16 +1461,20 @@
     return state.user && state.user.role === 'admin';
   }
 
+  function isReadOnlyAdminUser() {
+    return state.user && state.user.role === 'admin_viewer';
+  }
+
   function isStatusEditorUser() {
     return state.user && state.user.role === 'status_editor';
   }
 
   function canViewAllTeams() {
-    return isAdminUser() || isStatusEditorUser();
+    return isAdminUser() || isReadOnlyAdminUser() || isStatusEditorUser();
   }
 
   function isReadOnlyCoachViewer() {
-    return isStatusEditorUser();
+    return isStatusEditorUser() || isReadOnlyAdminUser();
   }
 
   function showLogin() {
@@ -1501,3 +1507,4 @@
     alert('The schedule could not be loaded from the server.');
   });
 })();
+

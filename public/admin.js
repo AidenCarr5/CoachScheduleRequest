@@ -3,6 +3,7 @@
   let currentRequests = [];
   let currentAccounts = [];
   let adminBusy = false;
+  let adminSession = { authenticated: false, user: null };
 
   async function init() {
     $('loginForm').addEventListener('submit', login);
@@ -18,6 +19,7 @@
     const response = await fetch('/api/admin/session', { cache: 'no-store' });
     if (response.ok) {
       const payload = await response.json();
+      adminSession = payload;
       if (!payload.authenticated) {
         showLogin();
         if (window.refreshTopNav) window.refreshTopNav();
@@ -46,9 +48,7 @@
     }
     $('adminPassword').value = '';
     $('loginMessage').textContent = '';
-    showAdmin();
-    if (window.refreshTopNav) window.refreshTopNav();
-    await loadDashboard();
+    await refreshSession();
   }
 
   async function loadRequests() {
@@ -61,6 +61,8 @@
     currentRequests = payload.requests || [];
     const list = $('adminRequestList');
     list.innerHTML = currentRequests.length ? currentRequests.map(renderRequest).join('') : '<p class="muted">No coach requests yet.</p>';
+    applyReadOnlyUi();
+    if (isReadOnlyAdminViewer()) return;
     list.querySelectorAll('[data-approve]').forEach((button) => {
       button.addEventListener('click', () => reviewRequest(button.dataset.approve, 'approve'));
     });
@@ -83,6 +85,7 @@
     $('coachAccountsList').innerHTML = currentAccounts.length
       ? currentAccounts.map(renderCoachAccount).join('')
       : '<p class="muted">No coach logins are available yet.</p>';
+    applyReadOnlyUi();
   }
 
   async function loadDashboard() {
@@ -90,8 +93,11 @@
   }
 
   function renderRequest(request) {
-    const disabled = request.status !== 'pending' ? ' disabled' : '';
+    const forceDisabled = request.status !== 'pending' ? ' disabled data-force-disabled="true"' : '';
     const showClear = request.status === 'approved' || request.status === 'rejected';
+    const readOnly = isReadOnlyAdminViewer();
+    const noteAttributes = readOnly ? ' readonly aria-readonly="true"' : '';
+    const actionDisabled = readOnly ? ' disabled' : '';
     return `
       <article class="admin-request-card ${escapeHtml(request.status || 'pending')}">
         <div class="admin-request-head">
@@ -103,17 +109,19 @@
         <p>${escapeHtml(request.reason || '')}</p>
         <p>${escapeHtml(request.availabilityStatus || '')}</p>
         <label class="admin-note-label" for="admin-note-${escapeHtml(request.id)}">Admin note</label>
-        <textarea id="admin-note-${escapeHtml(request.id)}" class="admin-note-input" data-admin-note="${escapeHtml(request.id)}" rows="3" placeholder="Why was this approved or rejected?">${escapeHtml(request.adminNote || '')}</textarea>
+        <textarea id="admin-note-${escapeHtml(request.id)}" class="admin-note-input" data-admin-note="${escapeHtml(request.id)}" rows="3" placeholder="Why was this approved or rejected?"${noteAttributes}>${escapeHtml(request.adminNote || '')}</textarea>
         <div class="admin-request-actions">
-          <button class="primary" type="button" data-approve="${request.id}"${disabled}>Approve</button>
-          <button class="cancel-btn" type="button" data-reject="${request.id}"${disabled}>Reject</button>
-          ${showClear ? `<button class="secondary" type="button" data-clear="${request.id}">Clear</button>` : ''}
+          <button class="primary" type="button" data-approve="${request.id}"${forceDisabled}${actionDisabled}>Approve</button>
+          <button class="cancel-btn" type="button" data-reject="${request.id}"${forceDisabled}${actionDisabled}>Reject</button>
+          ${showClear ? `<button class="secondary" type="button" data-clear="${request.id}"${actionDisabled}>Clear</button>` : ''}
         </div>
       </article>
     `;
   }
 
   function renderCoachAccount(account) {
+    const readOnly = isReadOnlyAdminViewer();
+    const inputAttributes = readOnly ? ' readonly aria-readonly="true"' : '';
     return `
       <article class="coach-account-card">
         <div>
@@ -129,6 +137,7 @@
               value="${escapeHtml(account.password)}"
               data-coach-password="${escapeHtml(account.username)}"
               autocomplete="off"
+              ${inputAttributes}
             >
           </div>
           <div class="coach-account-email">
@@ -140,6 +149,7 @@
               data-coach-email="${escapeHtml(account.username)}"
               autocomplete="off"
               placeholder="coach@example.com"
+              ${inputAttributes}
             >
           </div>
         </div>
@@ -148,7 +158,7 @@
   }
 
   async function reviewRequest(requestId, action) {
-    if (adminBusy) return;
+    if (adminBusy || isReadOnlyAdminViewer()) return;
     const noteField = document.getElementById(`admin-note-${requestId}`);
     const adminNote = noteField ? noteField.value.trim() : '';
     $('adminMessage').textContent = action === 'approve'
@@ -201,6 +211,7 @@
   }
 
   async function clearRequest(requestId) {
+    if (isReadOnlyAdminViewer()) return;
     const response = await fetch(`/api/admin/requests/${requestId}`, {
       method: 'DELETE'
     });
@@ -209,6 +220,7 @@
   }
 
   async function refreshSchedule() {
+    if (isReadOnlyAdminViewer()) return;
     $('adminMessage').textContent = 'Refreshing schedule from Turtle Club...';
     const response = await fetch('/api/admin/refresh-schedule', {
       method: 'POST'
@@ -222,6 +234,7 @@
   }
 
   async function sendDiamondStatusEmail() {
+    if (isReadOnlyAdminViewer()) return;
     $('adminMessage').textContent = 'Sending diamond status email...';
     const response = await fetch('/api/admin/test-diamond-status-email', {
       method: 'POST'
@@ -247,6 +260,7 @@
   }
 
   async function rescanTeams() {
+    if (isReadOnlyAdminViewer()) return;
     $('coachAccountsMessage').textContent = 'Rescanning Titans teams from Turtle Club...';
     const response = await fetch('/api/admin/rescan-teams', {
       method: 'POST'
@@ -270,9 +284,11 @@
     $('coachAccountsList').innerHTML = currentAccounts.length
       ? currentAccounts.map(renderCoachAccount).join('')
       : '<p class="muted">No coach logins are available yet.</p>';
+    applyReadOnlyUi();
   }
 
   async function saveCoachPasswords() {
+    if (isReadOnlyAdminViewer()) return;
     const fields = Array.from(document.querySelectorAll('[data-coach-password]'));
     const accounts = fields.map((field) => {
       const username = field.dataset.coachPassword;
@@ -303,6 +319,7 @@
     $('coachAccountsList').innerHTML = currentAccounts.length
       ? currentAccounts.map(renderCoachAccount).join('')
       : '<p class="muted">No coach logins are available yet.</p>';
+    applyReadOnlyUi();
   }
 
   function exportRequests() {
@@ -342,12 +359,14 @@
     $('loginPanel').hidden = true;
     $('adminPanel').hidden = false;
     $('coachAccountsPanel').hidden = false;
+    applyReadOnlyUi();
   }
 
   function showLogin() {
     $('loginPanel').hidden = false;
     $('adminPanel').hidden = true;
     $('coachAccountsPanel').hidden = true;
+    adminSession = { authenticated: false, user: null };
   }
 
   function setAdminBusy(isBusy, title = 'Working...', detail = 'Please wait.') {
@@ -359,7 +378,44 @@
       $('loadingOverlayTextLabel').textContent = detail;
     }
     document.querySelectorAll('[data-approve], [data-reject], [data-clear], #refreshScheduleBtn, #sendDiamondStatusEmailBtn, #rescanTeamsBtn, #saveCoachPasswordsBtn, #logoutBtn, #adminExportBtn').forEach((element) => {
-      element.disabled = isBusy;
+      if (element.id === 'adminExportBtn' || element.id === 'logoutBtn') {
+        element.disabled = isBusy;
+        return;
+      }
+      element.disabled = isBusy || isReadOnlyAdminViewer();
+    });
+  }
+
+  function isReadOnlyAdminViewer() {
+    return Boolean(adminSession && adminSession.user && adminSession.user.role === 'admin_viewer');
+  }
+
+  function applyReadOnlyUi() {
+    const readOnly = isReadOnlyAdminViewer();
+    const adminMessage = $('adminMessage');
+    const coachAccountsMessage = $('coachAccountsMessage');
+    if (readOnly) {
+      if (!adminMessage.textContent) {
+        adminMessage.textContent = 'View-only access: you can review requests here, but only the full admin account can approve, reject, refresh, or save changes.';
+      }
+      if (!coachAccountsMessage.textContent || /^Generated from /.test(coachAccountsMessage.textContent) || /^Rescan complete/.test(coachAccountsMessage.textContent)) {
+        coachAccountsMessage.textContent = currentAccounts.length
+          ? `Generated from ${currentAccounts.length} Titans team login${currentAccounts.length === 1 ? '' : 's'}. View-only access: this account cannot edit the coach passwords or emails.`
+          : 'No Titans teams were found in the latest Turtle Club sync. View-only access is active for this account.';
+      }
+    }
+    ['refreshScheduleBtn', 'sendDiamondStatusEmailBtn', 'rescanTeamsBtn', 'saveCoachPasswordsBtn'].forEach((id) => {
+      const button = $(id);
+      if (button) button.disabled = readOnly;
+    });
+    document.querySelectorAll('[data-approve], [data-reject], [data-clear]').forEach((element) => {
+      const shouldStayDisabled = element.hasAttribute('data-force-disabled');
+      element.disabled = readOnly || adminBusy || shouldStayDisabled;
+    });
+    document.querySelectorAll('[data-admin-note], [data-coach-password], [data-coach-email]').forEach((element) => {
+      if ('readOnly' in element) element.readOnly = readOnly;
+      if (readOnly) element.setAttribute('aria-readonly', 'true');
+      else element.removeAttribute('aria-readonly');
     });
   }
 

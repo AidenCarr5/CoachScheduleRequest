@@ -2,6 +2,7 @@
   const $ = (id) => document.getElementById(id);
   let currentRows = [];
   let busyTargetId = '';
+  let currentUser = null;
 
   async function init() {
     await loadEditor();
@@ -20,6 +21,7 @@
     }
 
     const payload = await response.json();
+    currentUser = payload.user || null;
     currentRows = payload.rows || [];
     renderSummary(payload.fetchedAt);
     renderRows();
@@ -29,7 +31,12 @@
     $('statusOpenCount').textContent = currentRows.filter((row) => /^open/i.test(row.status || '')).length;
     $('statusClosedCount').textContent = currentRows.filter((row) => /^closed/i.test(row.status || '')).length;
     $('statusUpdatedAt').textContent = formatDateTime(fetchedAt);
-    $('diamondStatusMeta').textContent = 'This page writes directly to Turtle Club status and then checks the public status page again.';
+    $('diamondStatusMeta').textContent = isReadOnlyViewer()
+      ? 'View-only access. This page shows the live Turtle Club status rows but cannot submit updates from this account.'
+      : 'This page writes directly to Turtle Club status and then checks the public status page again.';
+    $('statusEditorMessage').textContent = isReadOnlyViewer()
+      ? 'View-only access: you can review the live field status rows here, but only the full admin or field-status editor accounts can change them.'
+      : '';
   }
 
   function renderRows() {
@@ -39,18 +46,22 @@
       return;
     }
     list.innerHTML = currentRows.map(renderRow).join('');
+    if (isReadOnlyViewer()) return;
     list.querySelectorAll('[data-status-action]').forEach((button) => {
       button.addEventListener('click', () => applyStatus(button.dataset.targetId, button.dataset.statusAction));
     });
   }
 
   function renderRow(row) {
+    const readOnly = isReadOnlyViewer();
     const normalizedStatus = /^open/i.test(row.status || '')
       ? 'open'
       : /^closed/i.test(row.status || '')
         ? 'closed'
         : 'unknown';
     const detailBits = [row.updatedAt, row.updatedBy].filter(Boolean).join(' | ');
+    const noteAttributes = readOnly ? ' readonly aria-readonly="true"' : '';
+    const buttonDisabled = readOnly ? ' disabled' : '';
     return `
       <article class="status-editor-card ${escapeHtml(normalizedStatus)}">
         <div class="status-editor-head">
@@ -62,17 +73,17 @@
         </div>
         <p class="status-editor-meta">${escapeHtml(detailBits || 'No update time or initials are posted yet.')}</p>
         <label class="status-editor-label" for="status-note-${escapeHtml(row.targetId)}">Notes</label>
-        <textarea id="status-note-${escapeHtml(row.targetId)}" class="status-editor-notes" rows="3" placeholder="Optional notes for coaches and families">${escapeHtml(row.comments || '')}</textarea>
+        <textarea id="status-note-${escapeHtml(row.targetId)}" class="status-editor-notes" rows="3" placeholder="Optional notes for coaches and families"${noteAttributes}>${escapeHtml(row.comments || '')}</textarea>
         <div class="status-editor-actions">
-          <button class="primary" type="button" data-target-id="${escapeHtml(row.targetId)}" data-status-action="Open">Open</button>
-          <button class="cancel-btn" type="button" data-target-id="${escapeHtml(row.targetId)}" data-status-action="Closed">Closed</button>
+          <button class="primary" type="button" data-target-id="${escapeHtml(row.targetId)}" data-status-action="Open"${buttonDisabled}>Open</button>
+          <button class="cancel-btn" type="button" data-target-id="${escapeHtml(row.targetId)}" data-status-action="Closed"${buttonDisabled}>Closed</button>
         </div>
       </article>
     `;
   }
 
   async function applyStatus(targetId, status) {
-    if (busyTargetId) return;
+    if (busyTargetId || isReadOnlyViewer()) return;
     const noteField = $(`status-note-${targetId}`);
     const notes = noteField ? noteField.value.trim() : '';
     $('statusEditorMessage').textContent = `Updating ${status} status on Turtle Club...`;
@@ -105,6 +116,10 @@
     document.querySelectorAll('[data-status-action], #logoutBtn').forEach((element) => {
       element.disabled = isBusy;
     });
+  }
+
+  function isReadOnlyViewer() {
+    return Boolean(currentUser && currentUser.readOnly);
   }
 
   function formatDateTime(value) {
