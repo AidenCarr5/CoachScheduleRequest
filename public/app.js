@@ -731,19 +731,51 @@
     return `${event.eventKind || ''} ${event.type || ''}`.toLowerCase().includes('cancelled');
   }
 
+  function eventTeamAge(event) {
+    const match = String(event && event.team || '').match(/(\d+)U/i);
+    return match ? Number(match[1]) : NaN;
+  }
+
+  function derivedUmpireStatus(event) {
+    const savedStatus = event && event.umpireStatus;
+    if (savedStatus) return savedStatus;
+
+    const age = eventTeamAge(event);
+    if (Number.isFinite(age) && age >= 14) {
+      return {
+        source: 'auto-age',
+        autoConfirmed: true,
+        umpire1Confirmed: true,
+        umpire2Confirmed: true,
+        umpire1Name: '',
+        umpire2Name: ''
+      };
+    }
+
+    return {
+      source: 'pending-refresh',
+      autoConfirmed: false,
+      umpire1Confirmed: false,
+      umpire2Confirmed: false,
+      umpire1Name: '',
+      umpire2Name: ''
+    };
+  }
+
   function showUmpireStatus(event) {
     return String(event && event.eventKind || '').toLowerCase() === 'home game'
-      && !isCancelledSourceEvent(event)
-      && event
-      && event.umpireStatus;
+      && !isCancelledSourceEvent(event);
   }
 
   function renderUmpireStatus(event) {
     if (!showUmpireStatus(event)) return '';
-    const status = event.umpireStatus || {};
-    const autoNote = status.autoConfirmed
-      ? '<span class="umpire-status-note">14U+ auto-confirmed</span>'
-      : '';
+    const status = derivedUmpireStatus(event);
+    let note = '';
+    if (status.autoConfirmed) {
+      note = '<span class="umpire-status-note">14U+ auto-confirmed</span>';
+    } else if (status.source === 'pending-refresh') {
+      note = '<span class="umpire-status-note">Official confirmation appears after Turtle Club refresh.</span>';
+    }
     return `
       <div class="umpire-status-block">
         <div class="umpire-status-row">
@@ -754,7 +786,7 @@
           <span class="umpire-status-pill ${status.umpire2Confirmed ? 'confirmed' : 'pending'}">Umpire #2 ${status.umpire2Confirmed ? 'confirmed' : 'pending'}</span>
           ${status.umpire2Name ? `<span class="umpire-status-name">${escapeHtml(status.umpire2Name)}</span>` : ''}
         </div>
-        ${autoNote}
+        ${note}
       </div>
     `;
   }
