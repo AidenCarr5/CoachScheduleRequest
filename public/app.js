@@ -784,12 +784,10 @@
           <div class="umpire-status-card ${status.umpire1Confirmed ? 'confirmed' : 'pending'}">
             <span class="umpire-status-label">Umpire #1</span>
             <span class="umpire-status-state">${status.umpire1Confirmed ? 'Confirmed' : 'Pending'}</span>
-            ${status.umpire1Name ? `<span class="umpire-status-name">${escapeHtml(status.umpire1Name)}</span>` : ''}
           </div>
           <div class="umpire-status-card ${status.umpire2Confirmed ? 'confirmed' : 'pending'}">
             <span class="umpire-status-label">Umpire #2</span>
             <span class="umpire-status-state">${status.umpire2Confirmed ? 'Confirmed' : 'Pending'}</span>
-            ${status.umpire2Name ? `<span class="umpire-status-name">${escapeHtml(status.umpire2Name)}</span>` : ''}
           </div>
         </div>
       </div>
