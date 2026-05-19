@@ -346,7 +346,7 @@ function extractTableCells(rowHtml) {
 }
 
 function parseCpEventBlock(block, date) {
-  const className = (block.match(/<div class="(pnl[^"\s]+)/i) || [])[1] || '';
+  const className = (block.match(/<div class="([^"]*\bpnl[^"]*)"/i) || [])[1] || '';
   const eventId = (block.match(/multischedule_edit\((\d+),'[^']+'\)/) || block.match(/(?:del|cmd)_[A-Za-z]+_(\d+)/) || [])[1] || '';
   const teams = [...block.matchAll(/<div class="team">([\s\S]*?)<\/div>/gi)].map((match) => strip(match[1])).filter(Boolean);
   const organization = teams[0] || '';
