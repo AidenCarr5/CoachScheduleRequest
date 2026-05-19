@@ -48,6 +48,10 @@ body {
   color: white;
 }
 
+.topbar-inner .topbar-link[hidden] {
+  display: none !important;
+}
+
 .masthead {
   color: white;
   background:
