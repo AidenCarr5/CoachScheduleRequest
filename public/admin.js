@@ -81,7 +81,9 @@
     const payload = await response.json();
     currentAccounts = payload.accounts || [];
     $('coachAccountsMessage').textContent = currentAccounts.length
-      ? `Generated from ${currentAccounts.length} Titans team login${currentAccounts.length === 1 ? '' : 's'}.`
+      ? (payload.canRevealPasswords
+        ? `Generated from ${currentAccounts.length} Titans team login${currentAccounts.length === 1 ? '' : 's'}.`
+        : `Generated from ${currentAccounts.length} Titans team login${currentAccounts.length === 1 ? '' : 's'}. Passwords are masked for view-only access.`)
       : 'No Titans teams were found in the latest Turtle Club sync.';
     $('coachAccountsList').innerHTML = currentAccounts.length
       ? currentAccounts.map(renderCoachAccount).join('')
