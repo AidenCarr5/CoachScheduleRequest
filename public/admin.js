@@ -95,7 +95,9 @@
     const payload = await response.json();
     currentAdminLogins = payload.logins || [];
     $('adminLoginsMessage').textContent = currentAdminLogins.length
-      ? 'These accounts can reach the protected admin tools shown in this portal.'
+      ? (payload.canRevealPasswords
+        ? 'These accounts can reach the protected admin tools shown in this portal.'
+        : 'These accounts can reach the protected admin tools shown in this portal. Passwords are masked for view-only access.')
       : 'No admin logins are available right now.';
     $('adminLoginsList').innerHTML = currentAdminLogins.length
       ? currentAdminLogins.map(renderAdminLogin).join('')
