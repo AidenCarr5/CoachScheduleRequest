@@ -40,11 +40,21 @@
       <article class="profile-card">
         <div class="section-head">
           <h2>Account</h2>
-          <span>Your username stays the same. Only the password changes here.</span>
+          <span>Your username stays the same. You can update the email here.</span>
         </div>
-        <div id="profileSummary" class="profile-summary">
-          <p class="muted">Loading coach account...</p>
-        </div>
+        <form id="profileEmailForm" class="profile-form">
+          <div id="profileSummary" class="profile-summary">
+            <p class="muted">Loading coach account...</p>
+          </div>
+          <div class="field">
+            <label for="profileEmail">Email</label>
+            <input id="profileEmail" type="email" autocomplete="email" placeholder="coach@example.com">
+          </div>
+          <p id="profileEmailMessage" class="profile-message" aria-live="polite"></p>
+          <div class="profile-actions">
+            <button id="saveProfileEmailBtn" class="secondary" type="submit">Save email</button>
+          </div>
+        </form>
       </article>
 
       <article class="profile-card">

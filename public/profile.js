@@ -1,8 +1,10 @@
 (function () {
   const $ = (id) => document.getElementById(id);
-  let saving = false;
+  let savingPassword = false;
+  let savingEmail = false;
 
   async function init() {
+    $('profileEmailForm').addEventListener('submit', updateEmail);
     $('profilePasswordForm').addEventListener('submit', changePassword);
     await loadProfile();
   }
@@ -32,11 +34,12 @@
         <span>${escapeHtml(profile.email || 'Not set yet')}</span>
       </div>
     `;
+    $('profileEmail').value = profile.email || '';
   }
 
   async function changePassword(event) {
     event.preventDefault();
-    if (saving) return;
+    if (savingPassword) return;
 
     const currentPassword = $('currentPassword').value;
     const newPassword = $('newPassword').value;
@@ -56,7 +59,7 @@
       return;
     }
 
-    saving = true;
+    savingPassword = true;
     message.textContent = 'Saving your new password...';
     message.className = 'profile-message';
     $('saveProfilePasswordBtn').disabled = true;
@@ -77,15 +80,55 @@
       setMessage('Password updated.', true);
       if (payload.profile) renderProfile(payload.profile);
     } finally {
-      saving = false;
+      savingPassword = false;
       $('saveProfilePasswordBtn').disabled = false;
     }
   }
 
+  async function updateEmail(event) {
+    event.preventDefault();
+    if (savingEmail) return;
+
+    const email = $('profileEmail').value.trim();
+    const message = $('profileEmailMessage');
+
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setNamedMessage(message, 'Enter a valid email address.', false);
+      return;
+    }
+
+    savingEmail = true;
+    message.textContent = 'Saving your email...';
+    message.className = 'profile-message';
+    $('saveProfileEmailBtn').disabled = true;
+
+    try {
+      const response = await fetch('/api/coach/profile/update-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        setNamedMessage(message, payload.error || 'The email could not be updated.', false);
+        return;
+      }
+
+      setNamedMessage(message, 'Email updated.', true);
+      if (payload.profile) renderProfile(payload.profile);
+    } finally {
+      savingEmail = false;
+      $('saveProfileEmailBtn').disabled = false;
+    }
+  }
+
   function setMessage(text, ok) {
-    const message = $('profileMessage');
-    message.textContent = text;
-    message.className = `profile-message ${ok ? 'ok' : 'error'}`;
+    setNamedMessage($('profileMessage'), text, ok);
+  }
+
+  function setNamedMessage(element, text, ok) {
+    element.textContent = text;
+    element.className = `profile-message ${ok ? 'ok' : 'error'}`;
   }
 
   function escapeHtml(value) {
