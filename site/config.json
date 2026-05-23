@@ -13,7 +13,7 @@
   "adminUsername": "admin",
   "serviceName": "Titans scheduler",
   "alternateAdminSite": {
-    "label": "Athletics Admin",
+    "label": "Athletics",
     "url": "https://lasalleathleticssoftball.com/admin.html"
   },
   "contacts": [
