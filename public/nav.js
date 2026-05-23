@@ -89,9 +89,50 @@
     return profileLink;
   }
 
+  function ensureAdminSiteSwitchLink() {
+    const topbarInner = document.querySelector('.topbar-inner');
+    if (!topbarInner) return null;
+    let switchLink = document.getElementById('topbarSiteSwitchLink');
+    if (switchLink) return switchLink;
+
+    switchLink = document.createElement('a');
+    switchLink.id = 'topbarSiteSwitchLink';
+    switchLink.className = 'topbar-link';
+    switchLink.dataset.navKey = 'site-switch';
+    switchLink.href = '#';
+    switchLink.hidden = true;
+    switchLink.textContent = 'Switch Admin Site';
+
+    const fieldStatusLink = document.getElementById('fieldStatusLink');
+    if (fieldStatusLink && fieldStatusLink.parentElement === topbarInner) {
+      topbarInner.insertBefore(switchLink, fieldStatusLink.nextSibling);
+      return switchLink;
+    }
+
+    topbarInner.appendChild(switchLink);
+    return switchLink;
+  }
+
+  async function switchAdminSite(event) {
+    event.preventDefault();
+    const link = event.currentTarget;
+    const originalText = link.textContent;
+    link.textContent = 'Switching...';
+    try {
+      const response = await fetch('/api/admin/switch-link', { cache: 'no-store' });
+      if (!response.ok) throw new Error('Switch failed');
+      const payload = await response.json();
+      window.location.href = payload.url;
+    } catch (_) {
+      link.textContent = originalText;
+      window.location.href = '/admin.html';
+    }
+  }
+
   function applyNavState(session, publicConfig) {
     const homeLink = document.getElementById('homeNavLink');
     const profileLink = ensureProfileLink();
+    const siteSwitchLink = ensureAdminSiteSwitchLink();
     const adminLink = document.getElementById('adminLink');
     const fieldStatusLink = document.getElementById('fieldStatusLink');
     const sessionLabel = document.getElementById('sessionLabel');
@@ -116,6 +157,19 @@
       const canAccessFieldStatus = Boolean(publicConfig.fieldStatusPath) && (role === 'admin' || role === 'admin_viewer' || role === 'status_editor');
       fieldStatusLink.href = publicConfig.fieldStatusPath || '/diamond-status-admin.html';
       fieldStatusLink.hidden = !canAccessFieldStatus;
+    }
+
+    if (siteSwitchLink) {
+      const canSwitchAdminSite = Boolean(publicConfig.alternateAdminSite && publicConfig.alternateAdminSite.url)
+        && (role === 'admin' || role === 'admin_viewer');
+      siteSwitchLink.textContent = publicConfig.alternateAdminSite && publicConfig.alternateAdminSite.label
+        ? `Switch to ${publicConfig.alternateAdminSite.label}`
+        : 'Switch Admin Site';
+      siteSwitchLink.hidden = !canSwitchAdminSite;
+      if (!siteSwitchLink.dataset.boundSwitch) {
+        siteSwitchLink.dataset.boundSwitch = 'true';
+        siteSwitchLink.addEventListener('click', switchAdminSite);
+      }
     }
 
     if (sessionLabel) {
