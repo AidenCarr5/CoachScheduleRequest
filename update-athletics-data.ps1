@@ -8,7 +8,7 @@ $env:SITE_DATA_PATH = "site/athletics-data.js"
 $env:REQUESTS_FILE = "storage/athletics-requests.json"
 $env:COACH_ACCOUNTS_FILE = "storage/athletics-coach-accounts.json"
 $env:STATUS_MONITOR_FILE = "storage/athletics-diamond-status-monitor.json"
-$env:ADMIN_USERNAME = "adminsoftball"
+$env:ADMIN_USERNAME = "admin"
 $env:ADMIN_PASSWORD = "55aiden55"
 
 $nodeCommand = $null

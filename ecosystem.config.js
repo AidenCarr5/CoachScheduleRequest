@@ -38,7 +38,7 @@ module.exports = {
         REQUESTS_FILE: 'storage/athletics-requests.json',
         COACH_ACCOUNTS_FILE: 'storage/athletics-coach-accounts.json',
         STATUS_MONITOR_FILE: 'storage/athletics-diamond-status-monitor.json',
-        ADMIN_USERNAME: 'adminsoftball',
+        ADMIN_USERNAME: 'admin',
         ADMIN_PASSWORD: '55aiden55'
       }
     }
