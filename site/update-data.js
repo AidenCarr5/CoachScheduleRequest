@@ -51,6 +51,17 @@ function fullDate(day, month, year) {
   return `${year}-${String(month).padStart(2, '0')}-${dayNumber}`;
 }
 
+function fullDateFromParts(monthNameValue, day, year = seasonYear) {
+  const month = monthNumber(monthNameValue);
+  if (!month || !day) return '';
+  return fullDate(day, month, year);
+}
+
+function dateFromDaySectionId(sectionId) {
+  const match = String(sectionId || '').match(/^day-([A-Za-z]{3})-(\d{1,2})-(\d{4})$/);
+  return match ? fullDateFromParts(match[1], match[2], Number(match[3])) : '';
+}
+
 function monthLabelFromDate(date) {
   const match = String(date || '').match(/^(\d{4})-(\d{2})-/);
   if (!match) return '';
@@ -179,6 +190,13 @@ function targetTeamFromOwner(owner) {
   const escapedOrganization = organizationName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const match = normalized.match(new RegExp(`^${escapedOrganization}\\s*(?:-|\\u2022|\\.)\\s*(.+)$`, 'i'));
   return match ? match[1].trim() : '';
+}
+
+function eventListItemsFromHtml(html) {
+  return String(html || '')
+    .split('<div class="event-list-item')
+    .slice(1)
+    .map((chunk) => `<div class="event-list-item${chunk.split('<div class="event-list-item')[0]}`);
 }
 
 function configuredMonths() {
@@ -728,7 +746,7 @@ async function loadGames(schedule, conflictEvents) {
   for (const month of config.scheduleMonths) {
     const url = `${baseUrl}/Categories/${config.teamCategoryId}/Schedule/?Month=${month}&Year=${seasonYear}`;
     const html = await fetchText(url);
-    const items = html.split('<div class="event-list-item').slice(1).map((chunk) => `<div class="event-list-item${chunk.split('<div class="event-list-item')[0]}`);
+    const items = eventListItemsFromHtml(html);
     let index = 0;
     for (const body of items) {
       const day = (body.match(/<div class="day_of_month">([^<]+)/) || [])[1] || '';
@@ -763,7 +781,51 @@ async function loadGames(schedule, conflictEvents) {
   }
 }
 
-async function loadFullCalendar(schedule, conflictEvents, teams, availability, session) {
+function parsePublicCalendarTournaments(html, month, teams) {
+  const teamSet = new Set(teams || []);
+  const daySections = String(html || '').split(/<div class="day-details[^"]*" id="([^"]+)"/i).slice(1);
+  const events = [];
+  for (let index = 0; index < daySections.length; index += 2) {
+    const sectionId = daySections[index];
+    const sectionHtml = daySections[index + 1] || '';
+    const date = dateFromDaySectionId(sectionId);
+    if (!date || Number(date.slice(5, 7)) !== Number(month)) continue;
+
+    eventListItemsFromHtml(sectionHtml).forEach((body, itemIndex) => {
+      const tagList = strip((body.match(/<div class="tag-list">([\s\S]*?)<\/div>\s*<\/div>/) || [])[1] || '');
+      const finalType = inferEventType(body, tagList, 'Calendar Event');
+      if (!/tournament/i.test(`${tagList} ${finalType}`)) return;
+
+      const owner = strip((body.match(/<div class="subject-owner[^>]*">([\s\S]*?)<\/div>/) || [])[1] || '');
+      const team = targetTeamFromOwner(owner);
+      if (!team || !teamSet.has(team)) return;
+
+      const timeText = strip((body.match(/<div class="time-primary">([\s\S]*?)<\/div>/) || [])[1] || '');
+      const subject = strip((body.match(/<div class="subject-text[^>]*">([\s\S]*?)<\/div>/) || [])[1] || '');
+      const diamond = strip((body.match(/<div class="location[^"]*">([\s\S]*?)<\/div>/) || [])[1] || '');
+      const cancelled = isCancelledMarker(body) || isCancelledMarker(tagList) || isCancelledMarker(subject);
+      const finalEvent = withCancellation(finalType, cancelled);
+      events.push({
+        id: `tc-calendar-tournament-${date}-${team}-${subject || timeText || itemIndex}`,
+        date,
+        month: monthLabelFromDate(date),
+        time: timeText || 'All Day',
+        endTime: '',
+        durationMinutes: null,
+        type: finalEvent.type,
+        eventKind: finalEvent.eventKind,
+        team,
+        opponent: subject || 'Tournament',
+        diamond: diamond || 'Tournament',
+        status: 'Scheduled',
+        source: 'Turtle Club full calendar'
+      });
+    });
+  }
+  return events;
+}
+
+async function loadFullCalendar(schedule, conflictEvents, teams, availability, session, options = {}) {
   const months = localCalendarMonths(availability);
   for (const month of months) {
     const url = `${baseUrl}/Calendar/?Month=${month}&Year=${seasonYear}`;
@@ -774,7 +836,13 @@ async function loadFullCalendar(schedule, conflictEvents, teams, availability, s
       console.warn(`Skipped full calendar for ${monthName(month)} ${seasonYear}: human verification page returned.`);
       continue;
     }
-    const items = html.split('<div class="event-list-item').slice(1).map((chunk) => `<div class="event-list-item${chunk.split('<div class="event-list-item')[0]}`);
+    const tournamentEvents = parsePublicCalendarTournaments(html, month, teams);
+    schedule.push(...tournamentEvents);
+    conflictEvents.push(...tournamentEvents);
+
+    if (options.tournamentsOnly) continue;
+
+    const items = eventListItemsFromHtml(html);
     let index = 0;
     for (const body of items) {
       const href = body.match(/href="[^"]*\?Day=(\d+)&(?:amp;)?Month=(\d+)&(?:amp;)?Year=(\d+)/);
@@ -855,6 +923,10 @@ async function generateData() {
   if (session) {
     try {
       usedControlPanel = await loadCpSchedule(schedule, conflictEvents, availability, session);
+      const teams = [...new Set(schedule.map((event) => event.team))].sort();
+      if (teams.length) {
+        await loadFullCalendar(schedule, conflictEvents, teams, availability, session, { tournamentsOnly: true });
+      }
     } catch (error) {
       console.warn(`Falling back to public Turtle Club pages: ${error.message}`);
     }

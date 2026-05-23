@@ -1078,6 +1078,12 @@ button {
 
 .tag.practice { background: var(--practice); }
 
+.tag.tournament { background: #7c3aed; }
+
+.game-row.tournament {
+  border-left-color: #7c3aed;
+}
+
 .game-main strong {
   display: block;
   margin-bottom: 4px;

@@ -733,6 +733,10 @@
     return `${event.eventKind || ''} ${event.type || ''}`.toLowerCase().includes('cancelled');
   }
 
+  function isTournamentEvent(event) {
+    return `${event.eventKind || ''} ${event.type || ''}`.toLowerCase().includes('tournament');
+  }
+
   function eventTeamAge(event) {
     const match = String(event && event.team || '').match(/(\d+)U/i);
     return match ? Number(match[1]) : NaN;
@@ -811,6 +815,8 @@
     const strikeClass = /cancel|replace/.test(event.pendingState || '') || sourceCancelled ? ' strike' : '';
     const alreadyCancelled = sourceCancelled;
     const actions = isReadOnlyCoachViewer()
+      ? '<div class="row-actions"><button class="replace-btn static-btn" type="button" disabled>View only</button></div>'
+      : isTournamentEvent(event)
       ? '<div class="row-actions"><button class="replace-btn static-btn" type="button" disabled>View only</button></div>'
       : event.pendingState && event.pendingState !== 'approved-new'
       ? `<div class="row-actions"><button class="replace-btn static-btn" type="button" disabled>${event.status === 'approved' ? 'Approved' : 'Queued'}</button></div>`
@@ -1430,6 +1436,7 @@
 
   function eventClass(event) {
     const type = `${event.eventKind || event.type}`.toLowerCase();
+    if (type.includes('tournament')) return 'tournament';
     if (type.includes('practice')) return 'practice';
     if (type.includes('away')) return 'away';
     return 'home';
