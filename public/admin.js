@@ -15,7 +15,10 @@
     $('sendDiamondStatusEmailBtn').addEventListener('click', sendDiamondStatusEmail);
     $('rescanTeamsBtn').addEventListener('click', rescanTeams);
     $('saveCoachPasswordsBtn').addEventListener('click', saveCoachPasswords);
+    const siteSwitchLink = $('siteSwitchAdminLink');
+    if (siteSwitchLink) siteSwitchLink.addEventListener('click', switchAdminSite);
     await loadPublicConfig();
+    await acceptIncomingSwitchLogin();
     await refreshSession();
   }
 
@@ -42,6 +45,45 @@
     link.href = alternateAdminSite.url;
     link.textContent = `Switch to ${alternateAdminSite.label || 'Other Site'}`;
     link.hidden = false;
+  }
+
+  async function acceptIncomingSwitchLogin() {
+    const params = new URLSearchParams(window.location.search);
+    const switchToken = params.get('switchToken');
+    if (!switchToken) return;
+    params.delete('switchToken');
+    const cleanQuery = params.toString();
+    const cleanUrl = `${window.location.pathname}${cleanQuery ? `?${cleanQuery}` : ''}${window.location.hash || ''}`;
+    window.history.replaceState({}, '', cleanUrl);
+    try {
+      const response = await fetch('/api/admin/switch-login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ switchToken })
+      });
+      if (!response.ok) {
+        $('loginMessage').textContent = 'The admin switch login expired. Please switch again from the original admin page.';
+      }
+    } catch (_) {
+      $('loginMessage').textContent = 'The admin switch login could not be completed.';
+    }
+  }
+
+  async function switchAdminSite(event) {
+    event.preventDefault();
+    if (!alternateAdminSite || !alternateAdminSite.url || adminBusy) return;
+    const link = $('siteSwitchAdminLink');
+    const originalText = link.textContent;
+    link.textContent = 'Switching...';
+    try {
+      const response = await fetch('/api/admin/switch-link', { cache: 'no-store' });
+      if (!response.ok) throw new Error('Switch failed');
+      const payload = await response.json();
+      window.location.href = payload.url || alternateAdminSite.url;
+    } catch (_) {
+      link.textContent = originalText;
+      $('adminMessage').textContent = 'Could not switch admin sites. Please log into the other admin page directly.';
+    }
   }
 
   async function refreshSession() {
