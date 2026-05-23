@@ -119,7 +119,8 @@
     const originalText = link.textContent;
     link.textContent = 'Switching...';
     try {
-      const response = await fetch('/api/admin/switch-link', { cache: 'no-store' });
+      const targetPath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+      const response = await fetch(`/api/admin/switch-link?targetPath=${encodeURIComponent(targetPath)}`, { cache: 'no-store' });
       if (!response.ok) throw new Error('Switch failed');
       const payload = await response.json();
       window.location.href = payload.url;
