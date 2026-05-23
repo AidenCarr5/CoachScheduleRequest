@@ -1401,7 +1401,15 @@
       const eventEnd = item.endTime ? minutesFromDisplay(item.endTime) : eventStart + (item.durationMinutes || 120);
       return item.date === date && normalizeAvailabilityDiamond(item.diamond) === normalizedDiamond && start < eventEnd && end > eventStart;
     });
-    if (conflict) return { ok: false, message: `Diamond conflict with ${conflict.team} ${conflict.opponent} (${conflict.eventKind || conflict.type}) at ${conflict.time}.` };
+    if (conflict) {
+      if (isOwnTeam(conflict.team)) {
+        return {
+          ok: false,
+          message: `This overlaps your own ${conflict.eventKind || conflict.type || 'event'} vs ${conflict.opponent || 'Practice'} at ${conflict.time}. To change that event, click the existing event on your schedule and choose Replace instead of creating a new request.`
+        };
+      }
+      return { ok: false, message: `Diamond conflict with ${conflict.team} ${conflict.opponent} (${conflict.eventKind || conflict.type}) at ${conflict.time}.` };
+    }
 
     const queuedConflict = queuedConflicts.find((item) => start < item.end && end > item.start);
     if (queuedConflict) {
@@ -1468,6 +1476,10 @@
 
   function findEventById(id) {
     return [...(data.schedule || []), ...(data.conflictEvents || [])].find((event) => event.id === id) || null;
+  }
+
+  function isOwnTeam(team) {
+    return normalizeScheduleComparison(team) === normalizeScheduleComparison(state.team);
   }
 
   function eventToFreedSlot(event) {
