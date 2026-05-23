@@ -488,13 +488,14 @@
     const requestStart = normalizeScheduleComparison(request.start);
     if (eventStart !== requestStart) return false;
 
-    const eventEnd = normalizeScheduleComparison(event.endTime || '');
-    const requestEnd = normalizeScheduleComparison(request.end || '');
-    if (eventEnd !== requestEnd) return false;
-
     const eventKind = normalizeScheduleComparison(event.eventKind || event.type);
     const requestKind = normalizeScheduleComparison(request.newType || request.originalType || 'Event');
     if (eventKind !== requestKind) return false;
+
+    const eventEnd = normalizeScheduleComparison(event.endTime || '');
+    const requestEnd = normalizeScheduleComparison(request.end || '');
+    if (eventEnd && requestEnd && eventEnd !== requestEnd) return false;
+    if ((!eventEnd || !requestEnd) && !eventKind.includes('game')) return false;
 
     const eventOpponent = normalizeScheduleComparison(event.opponent);
     const requestOpponent = normalizeScheduleComparison(request.opponent);
