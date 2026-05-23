@@ -523,9 +523,9 @@
       date: request.originalDate || request.date,
       month: monthLabelFromDate(request.originalDate || request.date),
       time: request.originalStart || request.start,
-      endTime: request.end || '',
-      durationMinutes: request.end
-        ? Math.max(30, minutesFromDisplay(request.end) - minutesFromDisplay(request.originalStart || request.start))
+      endTime: request.originalEnd || request.end || '',
+      durationMinutes: (request.originalEnd || request.end)
+        ? Math.max(30, minutesFromDisplay(request.originalEnd || request.end) - minutesFromDisplay(request.originalStart || request.start))
         : 120,
       type: request.originalType || request.newType || 'Event',
       eventKind: request.originalType || request.newType || 'Event',
@@ -1236,6 +1236,7 @@
         originalType: original.eventKind || original.type,
         originalDate: original.date,
         originalStart: original.time,
+        originalEnd: original.endTime || '',
         originalOpponent: original.opponent,
         originalDiamond: original.diamond,
         newType: '',
@@ -1294,6 +1295,7 @@
         originalType: original ? (original.eventKind || original.type) : '',
         originalDate: original ? original.date : '',
         originalStart: original ? original.time : '',
+        originalEnd: original ? (original.endTime || '') : '',
         originalOpponent: original ? original.opponent : '',
         originalDiamond: original ? original.diamond : '',
         newType: $('eventTypeSelect').value,
@@ -1390,30 +1392,7 @@
 
     const ignoredId = $('requestMode').value === 'replace' ? $('eventId').value : '';
     const original = ignoredId ? data.schedule.find((item) => item.id === ignoredId) : null;
-    const freedSlots = [];
-
-    if (original && original.date === date && normalizeAvailabilityDiamond(original.diamond) === normalizedDiamond) {
-      freedSlots.push({
-        id: original.id,
-        start: minutesFromDisplay(original.time),
-        end: original.endTime ? minutesFromDisplay(original.endTime) : minutesFromDisplay(original.time) + (original.durationMinutes || 120),
-        source: original.eventKind || original.type
-      });
-    }
-
-    state.requests
-      .filter((request) => request.status !== 'rejected')
-      .filter((request) => request.action.startsWith('Cancel ') || request.action.startsWith('Replace '))
-      .forEach((request) => {
-        if (request.originalDate !== date || normalizeAvailabilityDiamond(request.originalDiamond) !== normalizedDiamond || !request.originalId) return;
-        if (ignoredId && request.originalId === ignoredId) return;
-        freedSlots.push({
-          id: request.originalId,
-          start: minutesFromDisplay(request.originalStart),
-          end: request.end ? minutesFromDisplay(request.end) : minutesFromDisplay(request.originalStart) + 120,
-          source: request.originalType || 'event'
-        });
-      });
+    const { freedSlots, queuedConflicts } = queuedScheduleAdjustments(date, normalizedDiamond, ignoredId, original);
 
     const conflict = (data.conflictEvents || data.schedule).find((item) => {
       if (item.id === ignoredId) return false;
@@ -1423,6 +1402,11 @@
       return item.date === date && normalizeAvailabilityDiamond(item.diamond) === normalizedDiamond && start < eventEnd && end > eventStart;
     });
     if (conflict) return { ok: false, message: `Diamond conflict with ${conflict.team} ${conflict.opponent} (${conflict.eventKind || conflict.type}) at ${conflict.time}.` };
+
+    const queuedConflict = queuedConflicts.find((item) => start < item.end && end > item.start);
+    if (queuedConflict) {
+      return { ok: false, message: `Queued ${state.team} conflict with ${queuedConflict.opponent} (${queuedConflict.source}) at ${queuedConflict.time}.` };
+    }
 
     if (isAwayGame) {
       return { ok: true, message: `Available: no Turtle Club away-game conflict overlaps at ${diamond}.` };
@@ -1438,6 +1422,79 @@
       return { ok: true, message: `Available: this request uses the ${fitsFreedSlot.source} time being freed, and no other Turtle Club ${eventType.toLowerCase()} conflict overlaps.` };
     }
     return { ok: true, message: `Available: ${diamond} is open ${openSlot.start}-${openSlot.end}, and no Turtle Club ${eventType.toLowerCase()} conflict overlaps.` };
+  }
+
+  function queuedScheduleAdjustments(date, normalizedDiamond, ignoredId, original) {
+    const freedSlots = [];
+    const queuedConflicts = [];
+    if (original && original.date === date && normalizeAvailabilityDiamond(original.diamond) === normalizedDiamond) {
+      freedSlots.push(eventToFreedSlot(original));
+    }
+
+    state.requests
+      .filter((request) => request.status !== 'rejected')
+      .filter((request) => request.team === state.team)
+      .forEach((request) => {
+        const action = String(request.action || '');
+        if ((action.startsWith('Cancel ') || action.startsWith('Replace ')) && request.originalId) {
+          if (!(ignoredId && request.originalId === ignoredId)) {
+            const originalEvent = findEventById(request.originalId);
+            const slot = originalEvent ? eventToFreedSlot(originalEvent) : originalRequestToFreedSlot(request);
+            if (slot && slot.date === date && normalizeAvailabilityDiamond(slot.diamond) === normalizedDiamond) {
+              freedSlots.push(slot);
+            }
+          }
+        }
+
+        if ((action.startsWith('Create ') || action.startsWith('Replace '))
+          && request.date === date
+          && normalizeAvailabilityDiamond(request.diamond) === normalizedDiamond) {
+          const queuedStart = minutesFromDisplay(request.start);
+          const queuedEnd = request.end ? minutesFromDisplay(request.end) : queuedStart + 120;
+          if (queuedStart && queuedEnd > queuedStart) {
+            queuedConflicts.push({
+              start: queuedStart,
+              end: queuedEnd,
+              time: request.start,
+              opponent: request.opponent || 'event',
+              source: request.newType || request.action || 'event'
+            });
+          }
+        }
+      });
+
+    return { freedSlots, queuedConflicts };
+  }
+
+  function findEventById(id) {
+    return [...(data.schedule || []), ...(data.conflictEvents || [])].find((event) => event.id === id) || null;
+  }
+
+  function eventToFreedSlot(event) {
+    const start = minutesFromDisplay(event.time);
+    const end = event.endTime ? minutesFromDisplay(event.endTime) : start + (event.durationMinutes || 120);
+    return {
+      id: event.id,
+      date: event.date,
+      diamond: event.diamond,
+      start,
+      end,
+      source: event.eventKind || event.type || 'event'
+    };
+  }
+
+  function originalRequestToFreedSlot(request) {
+    const start = minutesFromDisplay(request.originalStart);
+    if (!start) return null;
+    const end = request.originalEnd ? minutesFromDisplay(request.originalEnd) : start + 120;
+    return {
+      id: request.originalId,
+      date: request.originalDate,
+      diamond: request.originalDiamond,
+      start,
+      end,
+      source: request.originalType || 'event'
+    };
   }
 
   function minutes(value) {
