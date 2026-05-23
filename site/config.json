@@ -12,6 +12,10 @@
   "teamExtractPattern": "((?:\\d+U(?:\\s*T\\d+)?|8U\\/9U)\\s*\\([^)]+\\))",
   "adminUsername": "admin",
   "serviceName": "Titans scheduler",
+  "alternateAdminSite": {
+    "label": "Athletics Admin",
+    "url": "https://lasalleathleticssoftball.com/admin.html"
+  },
   "contacts": [
     {
       "name": "Aiden Carr / Ashton Carr",

@@ -6,6 +6,7 @@
   let adminBusy = false;
   let adminSession = { authenticated: false, user: null };
   let teamLabel = 'Titans';
+  let alternateAdminSite = null;
 
   async function init() {
     $('loginForm').addEventListener('submit', login);
@@ -24,9 +25,23 @@
       if (!response.ok) return;
       const payload = await response.json();
       teamLabel = payload.teamLabel || teamLabel;
+      alternateAdminSite = payload.alternateAdminSite || null;
+      renderAdminSiteSwitch();
     } catch (_) {
       // Keep the default label.
     }
+  }
+
+  function renderAdminSiteSwitch() {
+    const link = $('siteSwitchAdminLink');
+    if (!link) return;
+    if (!alternateAdminSite || !alternateAdminSite.url) {
+      link.hidden = true;
+      return;
+    }
+    link.href = alternateAdminSite.url;
+    link.textContent = `Switch to ${alternateAdminSite.label || 'Other Site'}`;
+    link.hidden = false;
   }
 
   async function refreshSession() {

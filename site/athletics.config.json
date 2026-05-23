@@ -12,6 +12,10 @@
   "teamExtractPattern": "((?:U\\d+(?:\\/U\\d+)?(?:\\s+[A-Za-z]+)?|Intermediate)\\s*\\([^)]+\\))",
   "adminUsername": "admin",
   "serviceName": "Athletics scheduler",
+  "alternateAdminSite": {
+    "label": "Titans Admin",
+    "url": "https://lasalletitansbaseball.com/admin.html"
+  },
   "contacts": [
     {
       "name": "Aiden Carr / Ashton Carr",
