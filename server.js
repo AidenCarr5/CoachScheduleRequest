@@ -12,6 +12,11 @@ const { checkForDiamondStatusAlerts, smtpConfigured } = require('./lib/diamond-s
 const rootDir = __dirname;
 const publicDir = path.join(rootDir, 'public');
 const port = Number(process.env.PORT || 4173);
+const siteConfigPath = process.env.SITE_CONFIG_PATH
+  ? path.resolve(process.env.SITE_CONFIG_PATH)
+  : path.join(rootDir, 'site', 'config.json');
+const siteConfig = JSON.parse(fs.readFileSync(siteConfigPath, 'utf8'));
+const serviceName = siteConfig.serviceName || `${siteConfig.teamLabel || 'Titans'} scheduler`;
 
 function contentType(filePath) {
   const ext = path.extname(filePath).toLowerCase();
@@ -143,7 +148,7 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(port, '0.0.0.0', () => {
-  console.log(`Titans scheduler listening on http://127.0.0.1:${port}`);
+  console.log(`${serviceName} listening on http://127.0.0.1:${port}`);
   const addresses = localAddresses();
   if (addresses.length) {
     console.log('Share this link with coaches on the same network:');

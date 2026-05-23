@@ -3,9 +3,14 @@ require('../lib/load-env');
 const fs = require('fs');
 const path = require('path');
 
-const configPath = path.join(__dirname, 'config.json');
+const siteConfigPath = process.env.SITE_CONFIG_PATH
+  ? path.resolve(process.env.SITE_CONFIG_PATH)
+  : path.join(__dirname, 'config.json');
+const siteDataPath = process.env.SITE_DATA_PATH
+  ? path.resolve(process.env.SITE_DATA_PATH)
+  : path.join(__dirname, 'data.js');
 const dropdownCatalogPath = path.join(__dirname, '..', 'public', 'turtle-club-dropdowns.json');
-const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+const config = JSON.parse(fs.readFileSync(siteConfigPath, 'utf8'));
 const dropdownCatalog = fs.existsSync(dropdownCatalogPath)
   ? JSON.parse(fs.readFileSync(dropdownCatalogPath, 'utf8'))
   : { opponents: [], venues: [] };
@@ -15,14 +20,16 @@ const loginUrl = `${baseUrl}/Account/Login/?ReturnUrl=%2fCP%2f`;
 const turtleClubUsername = process.env.TURTLE_CLUB_USERNAME || '';
 const turtleClubPassword = process.env.TURTLE_CLUB_PASSWORD || '';
 const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const titanTeamPattern = /((?:\d+U(?:\s*T\d+)?|8U\/9U)\s*\([^)]+\))/g;
+const organizationName = config.organizationName || 'Titans';
+const teamNamePattern = new RegExp(config.teamNamePattern || '^(\\d+U(?:\\s*T\\d+)?|8U\\/9U)\\s*\\([^)]+\\)$', 'i');
+const teamExtractPattern = new RegExp(config.teamExtractPattern || '((?:\\d+U(?:\\s*T\\d+)?|8U\\/9U)\\s*\\([^)]+\\))', 'gi');
 
 function strip(value) {
   return String(value || '')
     .replace(/<[^>]*>/g, ' ')
     .replace(/&nbsp;/gi, ' ')
     .replace(/&amp;/gi, '&')
-    .replace(/&bull;|&#8226;/gi, ' - ')
+    .replace(/&bull;|&#8226;|\u2022/gi, ' - ')
     .replace(/&#39;/g, "'")
     .replace(/&quot;/g, '"')
     .replace(/&lt;/g, '<')
@@ -143,8 +150,8 @@ function mergeDuplicateEvents(existing, candidate) {
   };
 }
 
-function isTitansTeam(team) {
-  return /^(\d+U(?:\s*T\d+)?|8U\/9U)\s*\([^)]+\)$/.test(strip(team));
+function isTargetTeam(team) {
+  return teamNamePattern.test(strip(team));
 }
 
 function teamAge(team) {
@@ -162,14 +169,15 @@ function autoConfirmUmpires(event) {
   return Number.isFinite(age) && age >= 14;
 }
 
-function extractTitansTeams(text) {
-  const matches = [...strip(text).matchAll(titanTeamPattern)].map((match) => match[1].trim());
+function extractTargetTeams(text) {
+  const matches = [...strip(text).matchAll(teamExtractPattern)].map((match) => match[1].trim());
   return [...new Set(matches.filter(Boolean))];
 }
 
-function titansTeamFromOwner(owner) {
+function targetTeamFromOwner(owner) {
   const normalized = strip(owner);
-  const match = normalized.match(/^Titans\s*(?:-|.)\s*(.+)$/);
+  const escapedOrganization = organizationName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const match = normalized.match(new RegExp(`^${escapedOrganization}\\s*(?:-|\\u2022|\\.)\\s*(.+)$`, 'i'));
   return match ? match[1].trim() : '';
 }
 
@@ -357,13 +365,13 @@ function parseCpEventBlock(block, date) {
   const opponent = strip((block.match(/<div class="opponent">([\s\S]*?)<\/div>/i) || [])[1] || '');
   if (!timeText || !venue) return null;
 
-  const teamLabel = organization && organization !== 'Titans' ? `${organization} - ${rawTeam}` : rawTeam;
+  const teamLabel = organization && organization !== organizationName ? `${organization} - ${rawTeam}` : rawTeam;
   const timeRange = splitTimeRange(timeText);
   const type = inferEventType(block, subject, 'Practice');
   const cancelled = isCancelledMarker(className) || isCancelledMarker(subject) || isCancelledMarker(opponent);
   const finalEvent = withCancellation(type, cancelled);
-  const titansTeams = organization === 'Titans'
-    ? (extractTitansTeams(rawTeam).length ? extractTitansTeams(rawTeam) : (isTitansTeam(rawTeam) ? [rawTeam] : []))
+  const titansTeams = organization === organizationName
+    ? (extractTargetTeams(rawTeam).length ? extractTargetTeams(rawTeam) : (isTargetTeam(rawTeam) ? [rawTeam] : []))
     : [];
 
   return {
@@ -729,7 +737,7 @@ async function loadGames(schedule, conflictEvents) {
       const team = strip((body.match(/<div class="subject-owner[^>]*">([\s\S]*?)<\/div>/) || [])[1] || '');
       const opponent = strip((body.match(/<div class="subject-text">([\s\S]*?)<\/div>/) || [])[1] || '');
       const diamond = strip((body.match(/<div class="location local">([\s\S]*?)<\/div>/) || [])[1] || '');
-      if (team && diamond && isTitansTeam(team)) {
+      if (team && diamond && isTargetTeam(team)) {
         const cancelled = isCancelledMarker(body) || isCancelledMarker(type) || isCancelledMarker(opponent);
         const finalType = inferEventType(body, type, opponent || 'Game');
         const finalEvent = withCancellation(finalType, cancelled);
@@ -783,7 +791,7 @@ async function loadFullCalendar(schedule, conflictEvents, teams, availability, s
       const group = strip((body.match(/<div class="subject-group[^>]*">([\s\S]*?)<\/div>/) || [])[1] || '');
       const subject = strip((body.match(/<div class="subject-text[^>]*">([\s\S]*?)<\/div>/) || [])[1] || '');
       const tagList = strip((body.match(/<div class="tag-list">([\s\S]*?)<\/div>\s*<\/div>/) || [])[1] || '');
-      const team = titansTeamFromOwner(owner);
+      const team = targetTeamFromOwner(owner);
       const cancelled = isCancelledMarker(body) || isCancelledMarker(tagList) || isCancelledMarker(subject);
       const finalType = inferEventType(body, tagList, subject || 'Calendar Event');
       const finalEvent = withCancellation(finalType, cancelled);
@@ -880,7 +888,7 @@ async function generateData() {
   };
 }
 
-function writeDataFile(data, targetPath = path.join(__dirname, 'data.js')) {
+function writeDataFile(data, targetPath = siteDataPath) {
   fs.writeFileSync(targetPath, `window.TITANS_DATA = ${JSON.stringify(data, null, 2)};\n`);
 }
 

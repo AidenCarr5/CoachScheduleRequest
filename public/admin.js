@@ -5,6 +5,7 @@
   let currentAdminLogins = [];
   let adminBusy = false;
   let adminSession = { authenticated: false, user: null };
+  let teamLabel = 'Titans';
 
   async function init() {
     $('loginForm').addEventListener('submit', login);
@@ -13,7 +14,19 @@
     $('sendDiamondStatusEmailBtn').addEventListener('click', sendDiamondStatusEmail);
     $('rescanTeamsBtn').addEventListener('click', rescanTeams);
     $('saveCoachPasswordsBtn').addEventListener('click', saveCoachPasswords);
+    await loadPublicConfig();
     await refreshSession();
+  }
+
+  async function loadPublicConfig() {
+    try {
+      const response = await fetch('/api/public-config', { cache: 'no-store' });
+      if (!response.ok) return;
+      const payload = await response.json();
+      teamLabel = payload.teamLabel || teamLabel;
+    } catch (_) {
+      // Keep the default label.
+    }
   }
 
   async function refreshSession() {
@@ -82,9 +95,9 @@
     currentAccounts = payload.accounts || [];
     $('coachAccountsMessage').textContent = currentAccounts.length
       ? (payload.canRevealPasswords
-        ? `Generated from ${currentAccounts.length} Titans team login${currentAccounts.length === 1 ? '' : 's'}.`
-        : `Generated from ${currentAccounts.length} Titans team login${currentAccounts.length === 1 ? '' : 's'}. Passwords are masked for view-only access.`)
-      : 'No Titans teams were found in the latest Turtle Club sync.';
+        ? `Generated from ${currentAccounts.length} ${teamLabel} team login${currentAccounts.length === 1 ? '' : 's'}.`
+        : `Generated from ${currentAccounts.length} ${teamLabel} team login${currentAccounts.length === 1 ? '' : 's'}. Passwords are masked for view-only access.`)
+      : `No ${teamLabel} teams were found in the latest Turtle Club sync.`;
     $('coachAccountsList').innerHTML = currentAccounts.length
       ? currentAccounts.map(renderCoachAccount).join('')
       : '<p class="muted">No coach logins are available yet.</p>';
@@ -300,12 +313,12 @@
 
   async function rescanTeams() {
     if (isReadOnlyAdminViewer()) return;
-    $('coachAccountsMessage').textContent = 'Rescanning Titans teams from Turtle Club...';
+    $('coachAccountsMessage').textContent = `Rescanning ${teamLabel} teams from Turtle Club...`;
     const response = await fetch('/api/admin/rescan-teams', {
       method: 'POST'
     });
     if (!response.ok) {
-      let message = 'The Titans team rescan did not complete.';
+      let message = `The ${teamLabel} team rescan did not complete.`;
       try {
         const payload = await response.json();
         if (payload.details) message = `${message} ${payload.details}`;
@@ -319,7 +332,7 @@
     currentAccounts = payload.accounts || [];
     $('coachAccountsMessage').textContent = currentAccounts.length
       ? `Rescan complete. ${currentAccounts.length} coach login${currentAccounts.length === 1 ? '' : 's'} regenerated from Turtle Club.`
-      : 'Rescan complete, but no Titans teams were found.';
+      : `Rescan complete, but no ${teamLabel} teams were found.`;
     $('coachAccountsList').innerHTML = currentAccounts.length
       ? currentAccounts.map(renderCoachAccount).join('')
       : '<p class="muted">No coach logins are available yet.</p>';
@@ -441,8 +454,8 @@
       }
       if (!coachAccountsMessage.textContent || /^Generated from /.test(coachAccountsMessage.textContent) || /^Rescan complete/.test(coachAccountsMessage.textContent)) {
         coachAccountsMessage.textContent = currentAccounts.length
-          ? `Generated from ${currentAccounts.length} Titans team login${currentAccounts.length === 1 ? '' : 's'}. View-only access: this account cannot edit the coach passwords or emails.`
-          : 'No Titans teams were found in the latest Turtle Club sync. View-only access is active for this account.';
+          ? `Generated from ${currentAccounts.length} ${teamLabel} team login${currentAccounts.length === 1 ? '' : 's'}. View-only access: this account cannot edit the coach passwords or emails.`
+          : `No ${teamLabel} teams were found in the latest Turtle Club sync. View-only access is active for this account.`;
       }
     }
     ['refreshScheduleBtn', 'sendDiamondStatusEmailBtn', 'rescanTeamsBtn', 'saveCoachPasswordsBtn'].forEach((id) => {

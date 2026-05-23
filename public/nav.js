@@ -144,6 +144,37 @@
     }
 
     document.body.classList.add('nav-ready');
+    applyBrandText(publicConfig);
+  }
+
+  function replaceTextNodeContent(root, replacements) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    while (walker.nextNode()) textNodes.push(walker.currentNode);
+    textNodes.forEach((node) => {
+      let value = node.nodeValue;
+      replacements.forEach(([from, to]) => {
+        value = value.replace(from, to);
+      });
+      node.nodeValue = value;
+    });
+  }
+
+  function applyBrandText(publicConfig) {
+    const brandName = publicConfig.brandName || 'LaSalle Titans';
+    const teamLabel = publicConfig.teamLabel || 'Titans';
+    const sportName = publicConfig.sportName || 'Baseball';
+    if (brandName === 'LaSalle Titans' && teamLabel === 'Titans' && sportName === 'Baseball') return;
+
+    document.title = document.title
+      .replace(/LaSalle Titans/g, brandName)
+      .replace(/\bTitans\b/g, teamLabel)
+      .replace(/\bBaseball\b/g, sportName);
+    replaceTextNodeContent(document.body, [
+      [/LaSalle Titans/g, brandName],
+      [/\bTitans\b/g, teamLabel],
+      [/\bBaseball\b/g, sportName]
+    ]);
   }
 
   async function refreshTopNav() {

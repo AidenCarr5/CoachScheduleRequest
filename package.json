@@ -8,8 +8,10 @@
   "scripts": {
     "start": "node server.js",
     "update-data": "node site/update-data.js",
+    "start:athletics": "powershell -ExecutionPolicy Bypass -File ./start-athletics.ps1",
+    "update-data:athletics": "powershell -ExecutionPolicy Bypass -File ./update-athletics-data.ps1",
     "pm2:start": "pm2 start ecosystem.config.js",
-    "pm2:restart": "pm2 restart titans-coach-scheduler"
+    "pm2:restart": "pm2 restart ecosystem.config.js --update-env"
   },
   "dependencies": {
     "playwright": "^1.54.2"

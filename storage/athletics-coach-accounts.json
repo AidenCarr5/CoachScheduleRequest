@@ -1,0 +1,46 @@
+{
+  "accounts": [
+    {
+      "username": "StadlerIntermediate",
+      "password": "nEqRRMbYAC",
+      "email": "",
+      "team": "Intermediate (Stadler)"
+    },
+    {
+      "username": "Hunt13U",
+      "password": "JutLhCHVhi",
+      "email": "",
+      "team": "U13 Gold (Hunt)"
+    },
+    {
+      "username": "Grondin13U",
+      "password": "THPSSJrvkF",
+      "email": "",
+      "team": "U13 Green (Grondin)"
+    },
+    {
+      "username": "Baltzer15U",
+      "password": "gJTSwYKHDp",
+      "email": "",
+      "team": "U15 (Baltzer)"
+    },
+    {
+      "username": "Signorelli17U",
+      "password": "fNRDhzvJLN",
+      "email": "",
+      "team": "U17 (Signorelli)"
+    },
+    {
+      "username": "Natyshak9U11U",
+      "password": "DTVrAXAASz",
+      "email": "",
+      "team": "U9/U11 Gold (Natyshak)"
+    },
+    {
+      "username": "Lussier9U11U",
+      "password": "DukRGupFtT",
+      "email": "",
+      "team": "U9/U11 Green (Lussier)"
+    }
+  ]
+}

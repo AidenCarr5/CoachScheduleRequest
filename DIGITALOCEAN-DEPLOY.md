@@ -66,7 +66,7 @@ If you later buy a domain, you can switch to Resend by setting `RESEND_API_KEY` 
 
 The old SMTP variables (`EMAIL_USER` and `EMAIL_APP_PASSWORD`) are now only an optional fallback.
 
-## 5. Start the app with PM2
+## 5. Start both sites with PM2
 
 ```bash
 npm run pm2:start
@@ -80,7 +80,15 @@ Run the command printed by `pm2 startup`, then:
 pm2 save
 ```
 
-## 6. Configure Nginx
+This starts two processes on the same Droplet:
+
+- `titans-coach-scheduler` on `127.0.0.1:4173`
+- `athletics-coach-scheduler` on `127.0.0.1:4184`
+
+The Titans process uses `site/config.json`, `site/data.js`, and `storage/coach-accounts.json`.
+The Athletics process uses `site/athletics.config.json`, `site/athletics-data.js`, and `storage/athletics-coach-accounts.json`.
+
+## 6. Configure Nginx domain routing
 
 ```bash
 sudo cp deploy/nginx/titans-coach-scheduler.conf /etc/nginx/sites-available/titans-coach-scheduler
@@ -88,6 +96,11 @@ sudo ln -s /etc/nginx/sites-available/titans-coach-scheduler /etc/nginx/sites-en
 sudo nginx -t
 sudo systemctl reload nginx
 ```
+
+Nginx routes by domain:
+
+- `lasalletitansbaseball.com` and `www.lasalletitansbaseball.com` go to the Titans app on port `4173`.
+- `lasalleathleticssoftball.com` and `www.lasalleathleticssoftball.com` go to the Athletics app on port `4184`.
 
 ## 7. Open the firewall
 
@@ -101,9 +114,13 @@ sudo ufw enable
 
 ```bash
 curl http://127.0.0.1:4173/api/health
+curl http://127.0.0.1:4184/api/health
+curl -H "Host: lasalletitansbaseball.com" http://127.0.0.1/api/public-config
+curl -H "Host: lasalleathleticssoftball.com" http://127.0.0.1/api/public-config
 curl http://YOUR_SERVER_IP/
 pm2 status
 pm2 logs titans-coach-scheduler
+pm2 logs athletics-coach-scheduler
 ```
 
 ## 9. Optional domain + HTTPS
@@ -121,5 +138,7 @@ sudo certbot --nginx
 cd CoachScheduleRequest
 git pull
 npm install
-pm2 restart titans-coach-scheduler
+pm2 restart ecosystem.config.js --update-env
+sudo nginx -t
+sudo systemctl reload nginx
 ```

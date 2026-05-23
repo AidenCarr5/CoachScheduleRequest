@@ -4,5 +4,12 @@
   "availabilityId": 3497,
   "scheduleMonths": [5, 6, 7, 8],
   "practiceMonths": [4, 5, 6],
-  "brandName": "LaSalle Titans"
+  "brandName": "LaSalle Titans",
+  "teamLabel": "Titans",
+  "sportName": "Baseball",
+  "organizationName": "Titans",
+  "teamNamePattern": "^(\\d+U(?:\\s*T\\d+)?|8U\\/9U)\\s*\\([^)]+\\)$",
+  "teamExtractPattern": "((?:\\d+U(?:\\s*T\\d+)?|8U\\/9U)\\s*\\([^)]+\\))",
+  "adminUsername": "admin",
+  "serviceName": "Titans scheduler"
 }
