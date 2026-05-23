@@ -11,5 +11,19 @@
   "teamNamePattern": "^(\\d+U(?:\\s*T\\d+)?|8U\\/9U)\\s*\\([^)]+\\)$",
   "teamExtractPattern": "((?:\\d+U(?:\\s*T\\d+)?|8U\\/9U)\\s*\\([^)]+\\))",
   "adminUsername": "admin",
-  "serviceName": "Titans scheduler"
+  "serviceName": "Titans scheduler",
+  "contacts": [
+    {
+      "name": "Aiden Carr / Ashton Carr",
+      "email": "titansupdate@gmail.com"
+    },
+    {
+      "name": "Elliot Carr",
+      "email": "ECarr@flexngate.com"
+    },
+    {
+      "name": "Bill Sivell",
+      "email": "Bill.Sivell@hotmail.com"
+    }
+  ]
 }

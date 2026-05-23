@@ -11,5 +11,15 @@
   "teamNamePattern": "^(?:U\\d+(?:\\/U\\d+)?(?:\\s+[A-Za-z]+)?|Intermediate)\\s*\\([^)]+\\)$",
   "teamExtractPattern": "((?:U\\d+(?:\\/U\\d+)?(?:\\s+[A-Za-z]+)?|Intermediate)\\s*\\([^)]+\\))",
   "adminUsername": "admin",
-  "serviceName": "Athletics scheduler"
+  "serviceName": "Athletics scheduler",
+  "contacts": [
+    {
+      "name": "Don Hunt",
+      "email": "donhunttc@gmail.com"
+    },
+    {
+      "name": "Joe Hancock",
+      "email": "vp_athletics@turtleclubbaseball.com"
+    }
+  ]
 }
