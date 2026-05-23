@@ -152,6 +152,7 @@
     const textNodes = [];
     while (walker.nextNode()) textNodes.push(walker.currentNode);
     textNodes.forEach((node) => {
+      if (node.parentElement && node.parentElement.closest('[data-brand-static]')) return;
       let value = node.nodeValue;
       replacements.forEach(([from, to]) => {
         value = value.replace(from, to);

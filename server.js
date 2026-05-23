@@ -17,6 +17,9 @@ const siteConfigPath = process.env.SITE_CONFIG_PATH
   : path.join(rootDir, 'site', 'config.json');
 const siteConfig = JSON.parse(fs.readFileSync(siteConfigPath, 'utf8'));
 const serviceName = siteConfig.serviceName || `${siteConfig.teamLabel || 'Titans'} scheduler`;
+const brandName = siteConfig.brandName || 'LaSalle Titans';
+const teamLabel = siteConfig.teamLabel || 'Titans';
+const sportName = siteConfig.sportName || 'Baseball';
 
 function contentType(filePath) {
   const ext = path.extname(filePath).toLowerCase();
@@ -59,8 +62,37 @@ function serveStatic(res, pathname) {
       return;
     }
     res.writeHead(200, { 'Content-Type': contentType(filePath) });
+    if (path.extname(filePath).toLowerCase() === '.html') {
+      res.end(applyServerBranding(file.toString('utf8')));
+      return;
+    }
     res.end(file);
   });
+}
+
+function applyServerBranding(html) {
+  if (brandName === 'LaSalle Titans' && teamLabel === 'Titans' && sportName === 'Baseball') return html;
+
+  const masks = new Map();
+  let masked = html;
+  [
+    'Turtle Club Baseball &amp; Softball',
+    'Turtle Club Baseball & Softball'
+  ].forEach((value, index) => {
+    const token = `__STATIC_BRAND_${index}__`;
+    masks.set(token, value);
+    masked = masked.replaceAll(value, token);
+  });
+
+  masked = masked
+    .replace(/LaSalle Titans/g, brandName)
+    .replace(/\bTitans\b/g, teamLabel)
+    .replace(/\bBaseball\b/g, sportName);
+
+  for (const [token, value] of masks.entries()) {
+    masked = masked.replaceAll(token, value);
+  }
+  return masked;
 }
 
 function nextDailyRefreshTime() {
