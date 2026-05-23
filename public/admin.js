@@ -245,8 +245,9 @@
       const payload = await response.json();
       await loadRequests();
       if (action === 'approve') {
+        const approvedTarget = payload.appliedToTurtleClub === false ? 'recorded in the scheduler' : 'applied to Turtle Club and synced back into the scheduler';
         let message = payload.verified
-          ? `Approved request was applied to Turtle Club and synced back into the scheduler. ${payload.verificationDetails || ''}`.trim()
+          ? `Approved request was ${approvedTarget}. ${payload.verificationDetails || ''}`.trim()
           : `Approved request was applied, but the follow-up verification did not confirm the change yet. ${payload.verificationDetails || ''}`.trim();
         if (!payload.emailSent && payload.emailError) {
           message = `${message} Coach email failed: ${payload.emailError}`;

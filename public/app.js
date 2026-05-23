@@ -401,11 +401,13 @@
       .forEach((request, index) => {
         const eventStatus = request.status || 'pending';
         if (request.action.startsWith('Cancel ')) {
-          const original = byId.get(request.originalId);
-          if (original) {
-            original.pendingState = eventStatus === 'approved' ? 'approved-cancel' : 'cancelled';
-            original.pendingLabel = eventStatus === 'approved' ? 'Approved cancellation' : 'Pending cancellation';
-            original.requestIndex = index;
+          const originals = matchingCancellationEvents(schedule, request, byId);
+          if (originals.length) {
+            originals.forEach((original) => {
+              original.pendingState = eventStatus === 'approved' ? 'approved-cancel' : 'cancelled';
+              original.pendingLabel = eventStatus === 'approved' ? 'Approved cancellation' : 'Pending cancellation';
+              original.requestIndex = index;
+            });
           } else {
             schedule.push(buildHistoricalEvent(request, index, eventStatus === 'approved' ? 'approved-cancel' : 'cancelled', eventStatus === 'approved' ? 'Approved cancellation' : 'Pending cancellation'));
           }
@@ -454,6 +456,15 @@
       });
 
     return schedule;
+  }
+
+  function matchingCancellationEvents(schedule, request, byId) {
+    if (request.originalGroupId) {
+      const groupMatches = schedule.filter((event) => tournamentGroupKey(event) === request.originalGroupId);
+      if (groupMatches.length) return groupMatches;
+    }
+    const original = byId.get(request.originalId);
+    return original ? [original] : [];
   }
 
   function eventMatchesApprovedRequest(event, request) {
@@ -816,12 +827,12 @@
     const alreadyCancelled = sourceCancelled;
     const actions = isReadOnlyCoachViewer()
       ? '<div class="row-actions"><button class="replace-btn static-btn" type="button" disabled>View only</button></div>'
-      : isTournamentEvent(event)
-      ? '<div class="row-actions"><button class="replace-btn static-btn" type="button" disabled>View only</button></div>'
       : event.pendingState && event.pendingState !== 'approved-new'
-      ? `<div class="row-actions"><button class="replace-btn static-btn" type="button" disabled>${event.status === 'approved' ? 'Approved' : 'Queued'}</button></div>`
+      ? `<div class="row-actions"><button class="replace-btn static-btn" type="button" disabled>${String(event.pendingState).startsWith('approved') ? 'Approved' : 'Queued'}</button></div>`
       : alreadyCancelled
         ? `<div class="row-actions"><button class="replace-btn static-btn" type="button" disabled>Already cancelled</button></div>`
+      : isTournamentEvent(event)
+        ? `<div class="row-actions"><button class="cancel-btn" data-cancel="${event.id}">Cancel</button></div>`
       : `<div class="row-actions">
           <button class="replace-btn" data-replace="${event.id}">Replace</button>
           <button class="cancel-btn" data-cancel="${event.id}">Cancel</button>
@@ -902,7 +913,8 @@
       alert('This event is already marked cancelled on Turtle Club, so there is nothing left to cancel.');
       return;
     }
-    $('dialogTitle').textContent = `Cancel ${event.opponent}`;
+    const title = isTournamentEvent(event) ? tournamentCancelTitle(event) : `Cancel ${event.opponent}`;
+    $('dialogTitle').textContent = title;
     $('requestMode').value = 'cancel';
     $('eventId').value = eventId;
     $('cancelReason').value = '';
@@ -910,6 +922,29 @@
     $('newFields').hidden = true;
     $('checkBtn').hidden = true;
     dialog.showModal();
+  }
+
+  function tournamentCancelTitle(event) {
+    const groupEvents = tournamentGroupEvents(event);
+    if (groupEvents.length <= 1) return `Cancel ${event.opponent}`;
+    return `Cancel ${event.opponent} (${groupEvents.length} days)`;
+  }
+
+  function tournamentGroupEvents(event) {
+    if (!event) return [];
+    const groupId = tournamentGroupKey(event);
+    if (!groupId) return [event];
+    return data.schedule.filter((item) => tournamentGroupKey(item) === groupId);
+  }
+
+  function tournamentGroupKey(event) {
+    if (!event || !isTournamentEvent(event)) return '';
+    if (event.tournamentGroupId) return event.tournamentGroupId;
+    const key = `${event.team || ''}|${event.opponent || 'Tournament'}`
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+    return `tournament-${key || 'event'}`;
   }
 
   function openNewEvent(initialDate = '') {
@@ -1196,6 +1231,7 @@
         action: `Cancel ${original.eventKind || 'event'}`,
         team: original.team,
         originalId: original.id,
+        originalGroupId: tournamentGroupKey(original),
         originalType: original.eventKind || original.type,
         originalDate: original.date,
         originalStart: original.time,
@@ -1208,7 +1244,9 @@
         opponent: original.opponent,
         diamond: original.diamond,
         reason: cancelReason,
-        availabilityStatus: 'Original event cancellation',
+        availabilityStatus: isTournamentEvent(original)
+          ? `Tournament cancellation request: all ${tournamentGroupEvents(original).length} day(s) for this coach tournament will be cancelled in the scheduler.`
+          : 'Original event cancellation',
         submittedBy: state.team
       };
     } else {

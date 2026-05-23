@@ -134,6 +134,14 @@ function normalizeDedupeValue(value) {
   return strip(value).toLowerCase();
 }
 
+function tournamentGroupId(team, subject) {
+  const key = `${team || ''}|${subject || 'Tournament'}`
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  return `tournament-${key || 'event'}`;
+}
+
 function mergeDuplicateEvents(existing, candidate) {
   const existingCancelled = isCancelledEvent(existing);
   const candidateCancelled = isCancelledEvent(candidate);
@@ -807,6 +815,7 @@ function parsePublicCalendarTournaments(html, month, teams) {
       const finalEvent = withCancellation(finalType, cancelled);
       events.push({
         id: `tc-calendar-tournament-${date}-${team}-${subject || timeText || itemIndex}`,
+        tournamentGroupId: tournamentGroupId(team, subject || timeText || itemIndex),
         date,
         month: monthLabelFromDate(date),
         time: timeText || 'All Day',
@@ -838,7 +847,6 @@ async function loadFullCalendar(schedule, conflictEvents, teams, availability, s
     }
     const tournamentEvents = parsePublicCalendarTournaments(html, month, teams);
     schedule.push(...tournamentEvents);
-    conflictEvents.push(...tournamentEvents);
 
     if (options.tournamentsOnly) continue;
 
