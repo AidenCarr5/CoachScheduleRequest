@@ -130,6 +130,25 @@
     }
   }
 
+  async function acceptIncomingSwitchLogin() {
+    const params = new URLSearchParams(window.location.search);
+    const switchToken = params.get('switchToken');
+    if (!switchToken) return;
+    params.delete('switchToken');
+    const cleanQuery = params.toString();
+    const cleanUrl = `${window.location.pathname}${cleanQuery ? `?${cleanQuery}` : ''}${window.location.hash || ''}`;
+    window.history.replaceState({}, '', cleanUrl);
+    try {
+      await fetch('/api/admin/switch-login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ switchToken })
+      });
+    } catch (_) {
+      // The normal session refresh below will show the logged-out state if the handoff fails.
+    }
+  }
+
   function applyNavState(session, publicConfig) {
     const homeLink = document.getElementById('homeNavLink');
     const profileLink = ensureProfileLink();
@@ -234,6 +253,7 @@
   }
 
   async function refreshTopNav() {
+    await acceptIncomingSwitchLogin();
     let session = { authenticated: false };
     let publicConfig = { adminPath: '/admin.html', fieldStatusPath: '', profilePath: '' };
     const cached = readCachedState();
