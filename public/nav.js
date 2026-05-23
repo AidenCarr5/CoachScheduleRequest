@@ -99,6 +99,7 @@
     switchLink.id = 'topbarSiteSwitchLink';
     switchLink.className = 'topbar-link';
     switchLink.dataset.navKey = 'site-switch';
+    switchLink.dataset.brandStatic = 'true';
     switchLink.href = '#';
     switchLink.hidden = true;
     switchLink.textContent = 'Switch Admin Site';
