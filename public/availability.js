@@ -89,10 +89,9 @@
   }
 
   function renderGrid(day, rows) {
-    const timelineWidth = readableTimelineWidth(rows);
     return `
       <div class="availability-grid-wrap">
-        <div class="availability-range-grid" style="--timeline-width: ${timelineWidth}px;">
+        <div class="availability-range-grid">
           <div class="availability-grid-head diamond-title">Diamond</div>
           <div class="availability-grid-head">Availability window (${escapeHtml(day.windowStart)}-${escapeHtml(day.windowEnd)})</div>
           ${rows.map(renderDiamondRow).join('')}
@@ -101,29 +100,18 @@
     `;
   }
 
-  function readableTimelineWidth(rows) {
-    const minTimelineWidth = 760;
-    const minSegmentWidth = 180;
-    const maxSegments = rows.reduce((count, row) => Math.max(count, row.segments.length || 1), 1);
-    return Math.max(minTimelineWidth, maxSegments * minSegmentWidth);
-  }
-
   function renderDiamondRow(row) {
     return `
       <div class="availability-diamond-name">${escapeHtml(row.diamond)}</div>
       <div class="availability-timeline">
         ${row.segments.map((segment) => `
-          <div class="availability-segment ${escapeHtml(segment.status)}" style="--segment-width: ${segmentWidth(segment, row)}%;" title="${escapeHtml(segment.conflict || segment.label)}">
+          <div class="availability-segment ${escapeHtml(segment.status)}" style="width: ${segment.width}%;" title="${escapeHtml(segment.conflict || segment.label)}">
             <strong>${escapeHtml(segment.start)}-${escapeHtml(segment.end)}</strong>
             <span>${segment.conflict ? escapeHtml(segment.conflict) : escapeHtml(segment.label)}</span>
           </div>
         `).join('')}
       </div>
     `;
-  }
-
-  function segmentWidth(segment, row) {
-    return row.segments.length === 1 ? 100 : 100 / row.segments.length;
   }
 
   function escapeHtml(value) {
