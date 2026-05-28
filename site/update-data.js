@@ -220,6 +220,33 @@ function hasHostedTeamTournamentOnDate(events, team, date) {
   });
 }
 
+function hostedTournamentAvailabilityConflicts(events) {
+  const byKey = new Map();
+  (events || [])
+    .filter((event) => /hosted tournament/i.test(String(event.source || '')))
+    .forEach((event) => {
+      const key = `${event.date}|${strip(event.opponent).toLowerCase()}`;
+      if (byKey.has(key)) return;
+      byKey.set(key, {
+        id: `tc-hosted-tournament-availability-${event.date}-${event.opponent || event.id}`,
+        tournamentGroupId: event.tournamentGroupId || tournamentGroupId('Home Diamonds', event.opponent),
+        date: event.date,
+        month: event.month,
+        time: '8:00 AM',
+        endTime: '8:00 PM',
+        durationMinutes: null,
+        type: event.type,
+        eventKind: event.eventKind,
+        team: 'Turtle Club',
+        opponent: event.opponent || 'Hosted Tournament',
+        diamond: 'Home Diamonds',
+        status: event.status || 'Scheduled',
+        source: 'Turtle Club hosted tournament availability'
+      });
+    });
+  return [...byKey.values()];
+}
+
 function isHomeGame(event) {
   return String(event && event.eventKind || '').toLowerCase() === 'home game'
     && !/cancelled/i.test(String(event && event.type || ''));
@@ -898,6 +925,7 @@ async function loadFullCalendar(schedule, conflictEvents, teams, availability, s
     }
     const tournamentEvents = parsePublicCalendarTournaments(html, month, teams);
     schedule.push(...tournamentEvents);
+    conflictEvents.push(...hostedTournamentAvailabilityConflicts(tournamentEvents));
 
     if (options.tournamentsOnly) continue;
 

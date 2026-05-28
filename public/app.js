@@ -517,6 +517,20 @@
       .trim();
   }
 
+  function isHomeVenueDiamond(value) {
+    const normalized = normalizeScheduleComparison(normalizeAvailabilityDiamond(value));
+    return ['turtle club', 'vollmer', 'villanova', 'river canard'].some((prefix) => normalized.startsWith(prefix));
+  }
+
+  function isAllHomeDiamondsEvent(event) {
+    return normalizeScheduleComparison(normalizeAvailabilityDiamond(event && event.diamond)) === 'home diamonds';
+  }
+
+  function eventMatchesSelectedDiamond(event, normalizedDiamond) {
+    const eventDiamond = normalizeAvailabilityDiamond(event && event.diamond);
+    return eventDiamond === normalizedDiamond || (isAllHomeDiamondsEvent(event) && isHomeVenueDiamond(normalizedDiamond));
+  }
+
   function buildHistoricalEvent(request, index, pendingState, pendingLabel) {
     return {
       id: `history-${request.id}`,
@@ -1399,7 +1413,7 @@
       if (freedSlots.some((slot) => slot.id === item.id)) return false;
       const eventStart = minutesFromDisplay(item.time);
       const eventEnd = item.endTime ? minutesFromDisplay(item.endTime) : eventStart + (item.durationMinutes || 120);
-      return item.date === date && normalizeAvailabilityDiamond(item.diamond) === normalizedDiamond && start < eventEnd && end > eventStart;
+      return item.date === date && eventMatchesSelectedDiamond(item, normalizedDiamond) && start < eventEnd && end > eventStart;
     });
     if (conflict) {
       if (isOwnTeam(conflict.team)) {
