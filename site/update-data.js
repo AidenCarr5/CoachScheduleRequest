@@ -178,6 +178,48 @@ function teamAge(team) {
   return match ? Number(match[1]) : NaN;
 }
 
+function teamAges(team) {
+  const ages = new Set();
+  const value = strip(team);
+  for (const match of value.matchAll(/\b(\d{1,2})U\b/gi)) {
+    ages.add(Number(match[1]));
+  }
+  for (const match of value.matchAll(/\bU(\d{1,2})\b/gi)) {
+    ages.add(Number(match[1]));
+  }
+  return [...ages].filter((age) => Number.isFinite(age));
+}
+
+function hostedTournamentAges(subject) {
+  return teamAges(subject);
+}
+
+function isHostedTournament(body, tagList) {
+  return /hosted\s*tournament|hostedtournament/i.test(`${body || ''} ${tagList || ''}`);
+}
+
+function hostedTournamentTeams(subject, teams) {
+  const ages = new Set(hostedTournamentAges(subject));
+  if (!ages.size) return [];
+  return (teams || []).filter((team) => teamAges(team).some((age) => ages.has(age)));
+}
+
+function hasTeamTournamentOnDate(events, team, date) {
+  return (events || []).some((event) => {
+    return event.date === date
+      && strip(event.team).toLowerCase() === strip(team).toLowerCase()
+      && /tournament/i.test(`${event.type || ''} ${event.eventKind || ''}`);
+  });
+}
+
+function hasHostedTeamTournamentOnDate(events, team, date) {
+  return (events || []).some((event) => {
+    return event.date === date
+      && strip(event.team).toLowerCase() === strip(team).toLowerCase()
+      && /hosted tournament/i.test(String(event.source || ''));
+  });
+}
+
 function isHomeGame(event) {
   return String(event && event.eventKind || '').toLowerCase() === 'home game'
     && !/cancelled/i.test(String(event && event.type || ''));
@@ -805,29 +847,38 @@ function parsePublicCalendarTournaments(html, month, teams) {
       if (!/tournament/i.test(`${tagList} ${finalType}`)) return;
 
       const owner = strip((body.match(/<div class="subject-owner[^>]*">([\s\S]*?)<\/div>/) || [])[1] || '');
-      const team = targetTeamFromOwner(owner);
-      if (!team || !teamSet.has(team)) return;
-
       const timeText = strip((body.match(/<div class="time-primary">([\s\S]*?)<\/div>/) || [])[1] || '');
       const subject = strip((body.match(/<div class="subject-text[^>]*">([\s\S]*?)<\/div>/) || [])[1] || '');
       const diamond = strip((body.match(/<div class="location[^"]*">([\s\S]*?)<\/div>/) || [])[1] || '');
       const cancelled = isCancelledMarker(body) || isCancelledMarker(tagList) || isCancelledMarker(subject);
       const finalEvent = withCancellation(finalType, cancelled);
-      events.push({
-        id: `tc-calendar-tournament-${date}-${team}-${subject || timeText || itemIndex}`,
-        tournamentGroupId: tournamentGroupId(team, subject || timeText || itemIndex),
-        date,
-        month: monthLabelFromDate(date),
-        time: timeText || 'All Day',
-        endTime: '',
-        durationMinutes: null,
-        type: finalEvent.type,
-        eventKind: finalEvent.eventKind,
-        team,
-        opponent: subject || 'Tournament',
-        diamond: diamond || 'Tournament',
-        status: 'Scheduled',
-        source: 'Turtle Club full calendar'
+
+      const team = targetTeamFromOwner(owner);
+      const hosted = !team && isHostedTournament(body, tagList);
+      const eventTeams = team && teamSet.has(team)
+        ? [team]
+        : (hosted ? hostedTournamentTeams(subject, teams) : []);
+      if (!eventTeams.length) return;
+
+      eventTeams.forEach((eventTeam) => {
+        if (hosted && hasTeamTournamentOnDate(events, eventTeam, date)) return;
+        if (!hosted && hasHostedTeamTournamentOnDate(events, eventTeam, date)) return;
+        events.push({
+          id: `tc-calendar-tournament-${date}-${eventTeam}-${subject || timeText || itemIndex}`,
+          tournamentGroupId: tournamentGroupId(eventTeam, subject || timeText || itemIndex),
+          date,
+          month: monthLabelFromDate(date),
+          time: timeText || 'All Day',
+          endTime: '',
+          durationMinutes: null,
+          type: finalEvent.type,
+          eventKind: finalEvent.eventKind,
+          team: eventTeam,
+          opponent: subject || 'Tournament',
+          diamond: diamond || (hosted ? 'Home Diamonds' : 'Tournament'),
+          status: 'Scheduled',
+          source: hosted ? 'Turtle Club hosted tournament' : 'Turtle Club full calendar'
+        });
       });
     });
   }
