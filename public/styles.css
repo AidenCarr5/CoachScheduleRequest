@@ -987,18 +987,21 @@ button {
 
 .availability-timeline {
   display: flex;
+  width: 100%;
   min-height: 70px;
   background: #fff;
+  overflow: hidden;
 }
 
 .availability-segment {
   display: grid;
   flex: 0 0 var(--segment-width, auto);
-  min-width: 92px;
+  min-width: 0;
   align-content: center;
   gap: 4px;
   border-left: 1px solid rgba(255,255,255,0.7);
   padding: 8px;
+  overflow: hidden;
 }
 
 .availability-segment.available {
