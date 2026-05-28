@@ -922,8 +922,9 @@ button {
 
 .availability-range-grid {
   display: grid;
-  grid-template-columns: minmax(190px, 260px) minmax(520px, 1fr);
-  min-width: 760px;
+  grid-template-columns: minmax(190px, 260px) var(--timeline-width, 760px);
+  width: max-content;
+  min-width: 100%;
   border: 1px solid var(--line);
   background: var(--line);
   gap: 1px;
@@ -1020,12 +1021,14 @@ button {
 }
 
 .availability-segment strong {
-  font-size: 13px;
+  font-size: 14px;
+  line-height: 1.2;
 }
 
 .availability-segment span {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
+  line-height: 1.25;
 }
 
 .game-row {
