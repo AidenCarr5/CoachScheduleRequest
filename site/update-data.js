@@ -220,31 +220,86 @@ function hasHostedTeamTournamentOnDate(events, team, date) {
   });
 }
 
-function hostedTournamentAvailabilityConflicts(events) {
-  const byKey = new Map();
+function tournamentScheduleUrlFromHref(href) {
+  const match = String(href || '').match(/\/Tournaments\/(\d+)\//i);
+  return match ? `${baseUrl}/Tournaments/${match[1]}/Schedule/` : '';
+}
+
+async function hostedTournamentAvailabilityConflicts(events, session) {
+  const byScheduleUrl = new Map();
   (events || [])
     .filter((event) => /hosted tournament/i.test(String(event.source || '')))
+    .filter((event) => event.tournamentScheduleUrl)
     .forEach((event) => {
-      const key = `${event.date}|${strip(event.opponent).toLowerCase()}`;
-      if (byKey.has(key)) return;
-      byKey.set(key, {
-        id: `tc-hosted-tournament-availability-${event.date}-${event.opponent || event.id}`,
-        tournamentGroupId: event.tournamentGroupId || tournamentGroupId('Home Diamonds', event.opponent),
-        date: event.date,
-        month: event.month,
-        time: '8:00 AM',
-        endTime: '8:00 PM',
-        durationMinutes: null,
-        type: event.type,
-        eventKind: event.eventKind,
-        team: 'Turtle Club',
-        opponent: event.opponent || 'Hosted Tournament',
-        diamond: 'Home Diamonds',
-        status: event.status || 'Scheduled',
-        source: 'Turtle Club hosted tournament availability'
-      });
+      if (!byScheduleUrl.has(event.tournamentScheduleUrl)) {
+        byScheduleUrl.set(event.tournamentScheduleUrl, event);
+      }
     });
-  return [...byKey.values()];
+
+  const conflicts = [];
+  for (const [scheduleUrl, tournamentEvent] of byScheduleUrl.entries()) {
+    try {
+      const html = session
+        ? await (await fetchWithSession(scheduleUrl, session)).text()
+        : await fetchText(scheduleUrl);
+      conflicts.push(...parseHostedTournamentScheduleConflicts(html, tournamentEvent));
+      for (const dayUrl of hostedTournamentSchedulePageUrls(html)) {
+        if (dayUrl === scheduleUrl) continue;
+        const dayHtml = session
+          ? await (await fetchWithSession(dayUrl, session)).text()
+          : await fetchText(dayUrl);
+        conflicts.push(...parseHostedTournamentScheduleConflicts(dayHtml, tournamentEvent));
+      }
+    } catch (error) {
+      console.warn(`Skipped hosted tournament availability for ${tournamentEvent.opponent}: ${error.message}`);
+    }
+  }
+  return conflicts;
+}
+
+function hostedTournamentSchedulePageUrls(html) {
+  return [...new Set([...String(html || '').matchAll(/href="([^"]*\/Tournaments\/\d+\/Schedule\/\?[^"]+)"/gi)]
+    .map((match) => match[1].replace(/&amp;/g, '&'))
+    .map((href) => {
+      try {
+        return new URL(href, baseUrl).toString();
+      } catch (_) {
+        return '';
+      }
+    })
+    .filter(Boolean))];
+}
+
+function parseHostedTournamentScheduleConflicts(html, tournamentEvent) {
+  return eventListItemsFromHtml(html).map((body, index) => {
+    const dateMatch = body.match(/[?&](?:amp;)?Day=(\d+)&(?:amp;)?Month=(\d+)&(?:amp;)?Year=(\d+)/i);
+    const time = strip((body.match(/<div class="time-primary">([\s\S]*?)<\/div>/) || [])[1] || '');
+    const diamond = strip((body.match(/<div class="location local">([\s\S]*?)<\/div>/) || [])[1] || '');
+    if (!dateMatch || !time || !diamond) return null;
+
+    const gameId = (body.match(/\/Games\/(\d+)\//i) || [])[1] || `${dateMatch[3]}-${dateMatch[2]}-${dateMatch[1]}-${index}`;
+    const division = strip((body.match(/<div class="subject-group[^"]*">([\s\S]*?)<\/div>/) || [])[1] || '');
+    const gameNo = strip((body.match(/<span class="game_no">([\s\S]*?)<\/span>/) || [])[1] || '');
+    const date = `${dateMatch[3]}-${String(dateMatch[2]).padStart(2, '0')}-${String(dateMatch[1]).padStart(2, '0')}`;
+    const opponent = [tournamentEvent.opponent || 'Hosted Tournament', division, gameNo].filter(Boolean).join(' - ');
+
+    return {
+      id: `tc-hosted-tournament-availability-${gameId}`,
+      tournamentGroupId: tournamentEvent.tournamentGroupId || tournamentGroupId('Hosted Tournament', tournamentEvent.opponent),
+      date,
+      month: monthLabelFromDate(date),
+      time,
+      endTime: '',
+      durationMinutes: 120,
+      type: tournamentEvent.type || 'Hosted Tournament',
+      eventKind: tournamentEvent.eventKind || 'Tournament',
+      team: 'Turtle Club',
+      opponent,
+      diamond,
+      status: tournamentEvent.status || 'Scheduled',
+      source: 'Turtle Club hosted tournament availability'
+    };
+  }).filter(Boolean);
 }
 
 function isHomeGame(event) {
@@ -877,6 +932,7 @@ function parsePublicCalendarTournaments(html, month, teams) {
       const timeText = strip((body.match(/<div class="time-primary">([\s\S]*?)<\/div>/) || [])[1] || '');
       const subject = strip((body.match(/<div class="subject-text[^>]*">([\s\S]*?)<\/div>/) || [])[1] || '');
       const diamond = strip((body.match(/<div class="location[^"]*">([\s\S]*?)<\/div>/) || [])[1] || '');
+      const tournamentHref = (body.match(/href="([^"]*\/Tournaments\/\d+\/[^"]*)"/i) || [])[1] || '';
       const cancelled = isCancelledMarker(body) || isCancelledMarker(tagList) || isCancelledMarker(subject);
       const finalEvent = withCancellation(finalType, cancelled);
 
@@ -904,7 +960,8 @@ function parsePublicCalendarTournaments(html, month, teams) {
           opponent: subject || 'Tournament',
           diamond: diamond || (hosted ? 'Home Diamonds' : 'Tournament'),
           status: 'Scheduled',
-          source: hosted ? 'Turtle Club hosted tournament' : 'Turtle Club full calendar'
+          source: hosted ? 'Turtle Club hosted tournament' : 'Turtle Club full calendar',
+          tournamentScheduleUrl: hosted ? tournamentScheduleUrlFromHref(tournamentHref) : ''
         });
       });
     });
@@ -925,7 +982,7 @@ async function loadFullCalendar(schedule, conflictEvents, teams, availability, s
     }
     const tournamentEvents = parsePublicCalendarTournaments(html, month, teams);
     schedule.push(...tournamentEvents);
-    conflictEvents.push(...hostedTournamentAvailabilityConflicts(tournamentEvents));
+    conflictEvents.push(...await hostedTournamentAvailabilityConflicts(tournamentEvents, session));
 
     if (options.tournamentsOnly) continue;
 
