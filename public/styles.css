@@ -993,6 +993,7 @@ button {
 
 .availability-segment {
   display: grid;
+  flex: 0 0 var(--segment-width, auto);
   min-width: 92px;
   align-content: center;
   gap: 4px;

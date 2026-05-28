@@ -105,13 +105,17 @@
       <div class="availability-diamond-name">${escapeHtml(row.diamond)}</div>
       <div class="availability-timeline">
         ${row.segments.map((segment) => `
-          <div class="availability-segment ${escapeHtml(segment.status)}" style="width: ${segment.width}%;" title="${escapeHtml(segment.conflict || segment.label)}">
+          <div class="availability-segment ${escapeHtml(segment.status)}" style="--segment-width: ${segmentWidth(segment, row)}%;" title="${escapeHtml(segment.conflict || segment.label)}">
             <strong>${escapeHtml(segment.start)}-${escapeHtml(segment.end)}</strong>
             <span>${segment.conflict ? escapeHtml(segment.conflict) : escapeHtml(segment.label)}</span>
           </div>
         `).join('')}
       </div>
     `;
+  }
+
+  function segmentWidth(segment, row) {
+    return row.segments.length === 1 ? 100 : segment.width;
   }
 
   function escapeHtml(value) {
