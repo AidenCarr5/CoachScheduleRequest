@@ -1026,7 +1026,7 @@ button {
 
 .game-row {
   display: grid;
-  grid-template-columns: 88px 106px 1fr auto;
+  grid-template-columns: 88px 106px minmax(0, 1fr);
   gap: 14px;
   align-items: center;
   padding: 12px;
@@ -1228,10 +1228,19 @@ button {
 }
 
 .row-actions {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 10px;
+  width: 100%;
+}
+
+.row-actions button {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  min-height: 58px;
+  justify-content: center;
+  font-size: 18px;
 }
 
 .profile-shell {
@@ -1510,8 +1519,10 @@ dialog {
 dialog::backdrop { background: rgba(0,0,0,.45); }
 
 #requestForm { padding: 18px; }
+#opponentForm { padding: 18px; }
 #calendarDayPanel { padding: 18px; }
-#requestForm {
+#requestForm,
+#opponentForm {
   position: relative;
 }
 
@@ -1550,6 +1561,43 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
 }
 
 .span { grid-column: 1 / -1; }
+
+#opponentDialog {
+  width: min(560px, calc(100% - 26px));
+}
+
+.opponent-change-summary {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 14px;
+  background: var(--wash);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--gold);
+}
+
+.opponent-change-summary div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.opponent-change-summary span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.opponent-change-summary strong {
+  color: var(--green);
+  text-align: right;
+}
+
+.opponent-change-grid {
+  margin-top: 14px;
+}
 
 .availability-result {
   grid-column: 1 / -1;
@@ -1914,6 +1962,19 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
     width: calc(100vw - 12px);
     max-height: calc(100vh - 12px);
     margin: 6px auto;
+  }
+
+  #opponentDialog {
+    width: calc(100vw - 12px);
+  }
+
+  .opponent-change-summary div {
+    display: grid;
+    gap: 4px;
+  }
+
+  .opponent-change-summary strong {
+    text-align: left;
   }
 
   .dialog-head,

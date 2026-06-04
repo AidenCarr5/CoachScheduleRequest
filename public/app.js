@@ -1046,13 +1046,21 @@
     if (!event || !canChangeOpponent(event)) return;
     $('opponentEventId').value = eventId;
     $('opponentDialogTitle').textContent = 'Change Opponent';
-    $('opponentDialogSubtitle').textContent = `${event.date} ${event.time} - ${event.eventKind || event.type} at ${event.diamond}`;
+    $('opponentDialogSubtitle').textContent = `${event.date} ${event.time} - ${event.eventKind || event.type}`;
+    $('opponentChangeEventLabel').textContent = `${event.time}${event.endTime ? `-${event.endTime}` : ''} at ${event.diamond}`;
+    $('opponentChangeCurrent').textContent = normalizeOpponentLabel(event.opponent) || 'Not set';
     $('opponentChangeInput').value = normalizeOpponentLabel(event.opponent);
     $('opponentDialogMessage').textContent = '';
     $('opponentDialogMessage').className = 'profile-message';
     renderFilteredSelect('opponentChange');
     setOpponentSubmitting(false);
     opponentDialog.showModal();
+    window.setTimeout(() => {
+      $('opponentChangeInput').focus();
+      $('opponentChangeInput').select();
+      showFilterSelect('opponentChange');
+      renderFilteredSelect('opponentChange');
+    }, 60);
   }
 
   function selectedOpponentChangeValue() {
