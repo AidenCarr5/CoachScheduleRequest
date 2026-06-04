@@ -215,6 +215,40 @@
     </form>
   </dialog>
 
+  <dialog id="opponentDialog">
+    <form method="dialog" id="opponentForm">
+      <div id="opponentDialogOverlay" class="dialog-loading-overlay" hidden>
+        <div class="loading-overlay-card" role="status" aria-live="assertive">
+          <div class="loading-spinner" aria-hidden="true"></div>
+          <strong>Updating opponent...</strong>
+          <p><span>Please wait</span><span class="loading-ellipsis" aria-hidden="true"></span></p>
+        </div>
+      </div>
+      <div class="dialog-head">
+        <div>
+          <h2 id="opponentDialogTitle">Change Opponent</h2>
+          <p id="opponentDialogSubtitle" class="dialog-subtitle"></p>
+        </div>
+        <button type="button" class="icon" id="closeOpponentDialog" aria-label="Close">x</button>
+      </div>
+      <input type="hidden" id="opponentEventId">
+      <div class="form-grid">
+        <div class="field span">
+          <label for="opponentChangeInput">Opponent</label>
+          <div class="filter-select">
+            <input id="opponentChangeInput" type="text" placeholder="Type to filter opponents" autocomplete="off">
+            <div id="opponentChangeMenu" class="filter-select-menu" hidden></div>
+          </div>
+        </div>
+      </div>
+      <p id="opponentDialogMessage" class="profile-message"></p>
+      <div class="dialog-actions">
+        <button type="button" class="secondary" id="cancelOpponentChangeBtn">Cancel</button>
+        <button type="submit" class="primary" id="saveOpponentChangeBtn">Update opponent</button>
+      </div>
+    </form>
+  </dialog>
+
   <dialog id="calendarDayDialog">
     <div id="calendarDayPanel">
       <div class="dialog-head">

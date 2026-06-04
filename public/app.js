@@ -8,6 +8,7 @@
   const processedRequestList = $('processedRequestList');
   const dialog = $('requestDialog');
   const calendarDayDialog = $('calendarDayDialog');
+  const opponentDialog = $('opponentDialog');
   const preloadBar = $('preloadBar');
   const loadingOverlay = $('loadingOverlay');
   let turtleClubVenueCatalog = [];
@@ -30,6 +31,7 @@
     selectedDate: '',
     requests: [],
     submittingRequest: false,
+    submittingOpponentChange: false,
     publicConfig: { adminPath: '/admin.html', fieldStatusPath: '', profilePath: '' },
     user: null,
     preload: {
@@ -91,6 +93,8 @@
       $('eventTypeSelect').addEventListener('change', syncEventTypeControls);
       $('closeDialog').addEventListener('click', () => dialog.close());
       $('closeCalendarDayDialog').addEventListener('click', () => calendarDayDialog.close());
+      $('closeOpponentDialog').addEventListener('click', () => opponentDialog.close());
+      $('cancelOpponentChangeBtn').addEventListener('click', () => opponentDialog.close());
       $('calendarDayNewEventBtn').addEventListener('click', () => {
         const date = $('calendarDayNewEventBtn').dataset.date || state.selectedDate || '';
         calendarDayDialog.close();
@@ -111,6 +115,21 @@
         event.preventDefault();
         syncFilterSelectChoice('opponent', option.dataset.filterValue);
       });
+      $('opponentChangeInput').addEventListener('input', () => {
+        showFilterSelect('opponentChange');
+        renderFilteredSelect('opponentChange');
+      });
+      $('opponentChangeInput').addEventListener('focus', () => {
+        showFilterSelect('opponentChange');
+        renderFilteredSelect('opponentChange');
+      });
+      $('opponentChangeInput').addEventListener('blur', () => scheduleHideFilterSelect('opponentChange'));
+      $('opponentChangeMenu').addEventListener('mousedown', (event) => {
+        const option = event.target.closest('[data-filter-value]');
+        if (!option) return;
+        event.preventDefault();
+        syncFilterSelectChoice('opponentChange', option.dataset.filterValue);
+      });
       $('awayDiamondInput').addEventListener('input', () => {
         showFilterSelect('venue');
         renderFilteredSelect('venue');
@@ -128,6 +147,7 @@
       });
       $('checkBtn').addEventListener('click', renderAvailabilityCheck);
       $('requestForm').addEventListener('submit', queueRequest);
+      $('opponentForm').addEventListener('submit', submitOpponentChange);
       window.addEventListener('focus', syncRequests);
       document.addEventListener('visibilitychange', () => {
         if (!document.hidden && state.user) syncRequests();
@@ -623,6 +643,9 @@
     root.querySelectorAll('[data-replace]').forEach((button) => {
       button.addEventListener('click', () => openReplace(button.dataset.replace));
     });
+    root.querySelectorAll('[data-change-opponent]').forEach((button) => {
+      button.addEventListener('click', () => openOpponentChange(button.dataset.changeOpponent));
+    });
   }
 
   function bindCalendarActions() {
@@ -849,6 +872,7 @@
       : isTournamentEvent(event)
         ? `<div class="row-actions"><button class="cancel-btn" data-cancel="${event.id}">Cancel</button></div>`
       : `<div class="row-actions">
+          ${canChangeOpponent(event) ? `<button class="secondary" data-change-opponent="${event.id}">Change opponent</button>` : ''}
           <button class="replace-btn" data-replace="${event.id}">Replace</button>
           <button class="cancel-btn" data-cancel="${event.id}">Cancel</button>
         </div>`;
@@ -866,6 +890,11 @@
         ${actions}
       </article>
     `;
+  }
+
+  function canChangeOpponent(event) {
+    const kind = `${event.eventKind || ''} ${event.type || ''}`.toLowerCase();
+    return kind.includes('game') && !kind.includes('cancelled') && !isTournamentEvent(event);
   }
 
   function openCalendarDayDialog(date) {
@@ -1011,6 +1040,89 @@
     dialog.showModal();
   }
 
+  function openOpponentChange(eventId) {
+    if (calendarDayDialog.open) calendarDayDialog.close();
+    const event = data.schedule.find((item) => item.id === eventId);
+    if (!event || !canChangeOpponent(event)) return;
+    $('opponentEventId').value = eventId;
+    $('opponentDialogTitle').textContent = 'Change Opponent';
+    $('opponentDialogSubtitle').textContent = `${event.date} ${event.time} - ${event.eventKind || event.type} at ${event.diamond}`;
+    $('opponentChangeInput').value = normalizeOpponentLabel(event.opponent);
+    $('opponentDialogMessage').textContent = '';
+    $('opponentDialogMessage').className = 'profile-message';
+    renderFilteredSelect('opponentChange');
+    setOpponentSubmitting(false);
+    opponentDialog.showModal();
+  }
+
+  function selectedOpponentChangeValue() {
+    const selected = canonicalOptionValue(opponentOptions, $('opponentChangeInput').value, normalizeOpponentLabel);
+    return selected || normalizeOpponentLabel($('opponentChangeInput').value);
+  }
+
+  async function submitOpponentChange(event) {
+    event.preventDefault();
+    if (state.submittingOpponentChange) return;
+    const eventId = $('opponentEventId').value;
+    const original = data.schedule.find((item) => item.id === eventId);
+    const opponent = selectedOpponentChangeValue();
+    if (!original || !canChangeOpponent(original)) {
+      $('opponentDialogMessage').textContent = 'This game can no longer be changed.';
+      $('opponentDialogMessage').className = 'profile-message error';
+      return;
+    }
+    if (!opponent) {
+      $('opponentDialogMessage').textContent = 'Choose the new opponent.';
+      $('opponentDialogMessage').className = 'profile-message error';
+      return;
+    }
+    if (opponentOptions.length && !canonicalOptionValue(opponentOptions, opponent, normalizeOpponentLabel)) {
+      $('opponentDialogMessage').textContent = 'Choose an opponent from the Turtle Club list.';
+      $('opponentDialogMessage').className = 'profile-message error';
+      return;
+    }
+    if (normalizeScheduleComparison(original.opponent) === normalizeScheduleComparison(opponent)) {
+      $('opponentDialogMessage').textContent = 'That opponent is already on this game.';
+      $('opponentDialogMessage').className = 'profile-message error';
+      return;
+    }
+
+    try {
+      setOpponentSubmitting(true);
+      const response = await fetch('/api/coach/events/opponent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ eventId, opponent })
+      });
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(payload.details || payload.error || 'Opponent could not be updated.');
+      }
+      data.schedule = data.schedule.map((item) => item.id === eventId ? { ...item, opponent } : item);
+      render();
+      opponentDialog.close();
+      const emailNote = payload.emailSent
+        ? 'Notification email sent.'
+        : payload.emailError
+          ? `Opponent updated. Email issue: ${payload.emailError}`
+          : 'Opponent updated.';
+      window.alert(emailNote);
+    } catch (error) {
+      $('opponentDialogMessage').textContent = error.message || 'Opponent could not be updated.';
+      $('opponentDialogMessage').className = 'profile-message error';
+    } finally {
+      setOpponentSubmitting(false);
+    }
+  }
+
+  function setOpponentSubmitting(isSubmitting) {
+    state.submittingOpponentChange = isSubmitting;
+    $('opponentDialogOverlay').hidden = !isSubmitting;
+    $('saveOpponentChangeBtn').disabled = isSubmitting;
+    $('cancelOpponentChangeBtn').disabled = isSubmitting;
+    $('closeOpponentDialog').disabled = isSubmitting;
+  }
+
   function nextOpenDate() {
     const teamEvents = data.schedule.filter((event) => event.team === state.team);
     return (teamEvents[0] && teamEvents[0].date) || dateBounds.min;
@@ -1143,6 +1255,15 @@
   }
 
   function filterSelectConfig(kind) {
+    if (kind === 'opponentChange') {
+      return {
+        shell: $('opponentChangeInput').parentElement,
+        input: $('opponentChangeInput'),
+        menu: $('opponentChangeMenu'),
+        options: opponentOptions,
+        normalize: normalizeOpponentLabel
+      };
+    }
     if (kind === 'opponent') {
       return {
         shell: $('opponentInput').parentElement,
