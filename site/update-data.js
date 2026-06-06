@@ -23,6 +23,7 @@ const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep
 const organizationName = config.organizationName || 'Titans';
 const teamNamePattern = new RegExp(config.teamNamePattern || '^(\\d+U(?:\\s*T\\d+)?|8U\\/9U)\\s*\\([^)]+\\)$', 'i');
 const teamExtractPattern = new RegExp(config.teamExtractPattern || '((?:\\d+U(?:\\s*T\\d+)?|8U\\/9U)\\s*\\([^)]+\\))', 'gi');
+const officialPositionIds = ['4010', '4020', '4090'];
 
 function strip(value) {
   return String(value || '')
@@ -360,6 +361,25 @@ function parseHiddenInput(html, name) {
   return match ? match[1] : '';
 }
 
+function parseInputAttributes(attributes) {
+  const parsed = {};
+  String(attributes || '').replace(/([a-zA-Z0-9_:$.-]+)="([^"]*)"/g, (_, key, value) => {
+    parsed[key.toLowerCase()] = value;
+    return '';
+  });
+  return parsed;
+}
+
+function formInputs(html) {
+  const form = new URLSearchParams();
+  for (const match of String(html || '').matchAll(/<input\b([^>]*)>/gi)) {
+    const attrs = parseInputAttributes(match[1]);
+    if (!attrs.name) continue;
+    form.set(attrs.name, attrs.value || '');
+  }
+  return form;
+}
+
 function storeCookies(session, response) {
   const setCookies = typeof response.headers.getSetCookie === 'function'
     ? response.headers.getSetCookie()
@@ -501,6 +521,14 @@ function extractTableCells(rowHtml) {
       content: match[2]
     };
   });
+}
+
+function extractTableRows(html) {
+  return [...String(html || '').matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)].map((match) => match[0]);
+}
+
+function extractTableCellText(rowHtml) {
+  return [...String(rowHtml || '').matchAll(/<t[dh]\b[^>]*>([\s\S]*?)<\/t[dh]>/gi)].map((match) => strip(match[1]));
 }
 
 function parseCpEventBlock(block, date) {
@@ -724,6 +752,87 @@ async function fetchOfficialsDailyHtml(session, date) {
   return html;
 }
 
+function parseOfficialsRosterPage(html, positionId) {
+  return extractTableRows(html)
+    .map((row) => extractTableCellText(row))
+    .filter((cells) => cells.length >= 2 && cells[0] && cells[1] && !/^username$/i.test(cells[0]))
+    .map((cells) => ({
+      username: cells[0],
+      name: cells[1],
+      qualification: cells[2] || '',
+      experience: cells[3] || '',
+      age: cells[4] || '',
+      city: cells[5] || '',
+      positionId: String(positionId || '')
+    }))
+    .filter((official) => official.username && official.name);
+}
+
+function officialsRosterPageCount(html) {
+  const text = strip(html);
+  const match = text.match(/Officials\s+\d+-\d+\s+of\s+\d+\s+\|\s+Page:\s+((?:\d+\s*)+)/i);
+  if (!match) return 1;
+  const pages = match[1].match(/\d+/g) || ['1'];
+  return Math.max(...pages.map(Number).filter(Boolean), 1);
+}
+
+function officialRosterPageForm(html, pageNumber) {
+  const form = formInputs(html);
+  form.set('__EVENTTARGET', 'cMain_cBot_hfPage');
+  form.set('__EVENTARGUMENT', '');
+  form.set('ctl00$ctl00$cMain$cBot$hfPage', String(pageNumber));
+  return form;
+}
+
+async function fetchOfficialsRosterPosition(session, positionId) {
+  const url = `${baseUrl}/CP/Content/Officials/Officials.aspx?Position=${encodeURIComponent(positionId)}`;
+  const response = await fetchWithSession(url, session);
+  if (!response.ok) throw new Error(`Failed to fetch officials roster: ${response.status}`);
+  const firstHtml = await response.text();
+  if (/Login Page|Forgot Password|Human Verification/i.test(firstHtml)) {
+    throw new Error('Authenticated Turtle Club officials roster request did not return the roster page.');
+  }
+
+  const officials = parseOfficialsRosterPage(firstHtml, positionId);
+  const pageCount = officialsRosterPageCount(firstHtml);
+  for (let page = 2; page <= pageCount; page += 1) {
+    const form = officialRosterPageForm(firstHtml, page);
+    const pageResponse = await fetchWithSession(url, session, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: form.toString()
+    });
+    if (!pageResponse.ok) continue;
+    officials.push(...parseOfficialsRosterPage(await pageResponse.text(), positionId));
+  }
+  return officials;
+}
+
+async function fetchOfficialsRoster(session) {
+  if (!session) return [];
+  const byUsername = new Map();
+  for (const positionId of officialPositionIds) {
+    try {
+      const officials = await fetchOfficialsRosterPosition(session, positionId);
+      officials.forEach((official) => {
+        const key = String(official.username || '').toLowerCase();
+        if (!key) return;
+        const existing = byUsername.get(key);
+        if (!existing) {
+          byUsername.set(key, { ...official, positions: [official.positionId] });
+          return;
+        }
+        if (!existing.positions.includes(official.positionId)) existing.positions.push(official.positionId);
+      });
+    } catch (error) {
+      console.warn(`Skipping officials roster position ${positionId}: ${error.message}`);
+    }
+  }
+  return [...byUsername.values()]
+    .map(({ positionId, ...official }) => official)
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
 function parseOfficialsAssignments(html) {
   const assignmentsByGameId = new Map();
   const rowPattern = /<tr id="multischedule_(\d+)"[\s\S]*?<\/tr>\s*<tr class="assignments">([\s\S]*?)<\/tr>/gi;
@@ -736,7 +845,8 @@ function parseOfficialsAssignments(html) {
       umpire1Confirmed: false,
       umpire2Confirmed: false,
       umpire1Name: '',
-      umpire2Name: ''
+      umpire2Name: '',
+      officials: []
     };
 
     const officialPattern = /<span class="gameOfficial\s+([^"]+)"[\s\S]*?<span[^>]*>([^<]+)<\/span>\s*\(([^)]+)\)/gi;
@@ -747,8 +857,17 @@ function parseOfficialsAssignments(html) {
         .split(/\s+/)
         .filter(Boolean);
       const name = strip(officialMatch[2]);
-      const position = strip(officialMatch[3]).toLowerCase();
-      if (classTokens.includes('confirmed')) {
+      const rawPosition = strip(officialMatch[3]);
+      const position = rawPosition.toLowerCase();
+      const confirmed = classTokens.includes('confirmed');
+      if (name) {
+        assignmentInfo.officials.push({
+          name,
+          position: rawPosition,
+          confirmed
+        });
+      }
+      if (confirmed) {
         if (position.includes('home plate') && !assignmentInfo.umpire1Confirmed) {
           assignmentInfo.umpire1Confirmed = true;
           assignmentInfo.umpire1Name = name;
@@ -777,7 +896,8 @@ function attachUmpireStatus(event, status) {
       umpire1Confirmed: Boolean(status.umpire1Confirmed),
       umpire2Confirmed: Boolean(status.umpire2Confirmed),
       umpire1Name: status.umpire1Name || '',
-      umpire2Name: status.umpire2Name || ''
+      umpire2Name: status.umpire2Name || '',
+      officials: Array.isArray(status.officials) ? status.officials : []
     }
   };
 }
@@ -836,7 +956,8 @@ async function enrichScheduleWithUmpires(schedule, session, assignmentsByDate = 
       umpire1Confirmed: assignment ? assignment.umpire1Confirmed : false,
       umpire2Confirmed: assignment ? assignment.umpire2Confirmed : false,
       umpire1Name: assignment ? assignment.umpire1Name : '',
-      umpire2Name: assignment ? assignment.umpire2Name : ''
+      umpire2Name: assignment ? assignment.umpire2Name : '',
+      officials: assignment ? assignment.officials : []
     });
   });
 }
@@ -1152,6 +1273,7 @@ async function generateData() {
   const dedupedConflicts = await enrichScheduleWithUmpires(dedupe(conflictEvents), session, officialsAssignmentsByDate);
   const dedupedAvailability = dedupeAvailability(availability).sort((a, b) => `${a.date} ${a.start} ${a.diamond}`.localeCompare(`${b.date} ${b.start} ${b.diamond}`));
   const teams = [...new Set(dedupedSchedule.map((event) => event.team))].sort();
+  const officials = await fetchOfficialsRoster(session);
 
   return {
     seasonYear,
@@ -1161,6 +1283,7 @@ async function generateData() {
     sourceCalendar: usedControlPanel ? cpScheduleUrl() : `${baseUrl}/Calendar/`,
     sourceAvailability: usedControlPanel ? cpScheduleUrl() : `${baseUrl}/Availabilities/${config.availabilityId}/`,
     teams,
+    officials,
     opponentOptions: buildOpponentOptions(dedupedSchedule, dedupedConflicts, teams),
     schedule: dedupedSchedule,
     conflictEvents: dedupedConflicts,

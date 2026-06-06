@@ -3,6 +3,7 @@
   const state = {
     user: null,
     games: [],
+    accounts: [],
     categories: ['Titans', 'Athletics', 'House League Baseball', 'House League Softball'],
     category: 'All programs',
     month: 'All months',
@@ -110,6 +111,7 @@
       rebuildFilters();
       $('umpireDataVersion').textContent = payload.version ? `Synced ${formatDateTime(payload.version)}` : '';
       message.textContent = 'Umpire data refreshed.';
+      if (state.user && state.user.role === 'admin') loadUmpireAccounts();
       render();
     } catch (error) {
       message.textContent = error.message || 'Umpire data refresh failed.';
@@ -127,6 +129,8 @@
     $('umpireLoginShell').hidden = true;
     $('umpireShell').hidden = false;
     $('umpireAdminRefreshField').hidden = !(state.user && state.user.role === 'admin');
+    $('umpireAccountsSection').hidden = !(state.user && state.user.role === 'admin');
+    if (state.user && state.user.role === 'admin') loadUmpireAccounts();
   }
 
   function setView(view) {
@@ -156,7 +160,8 @@
       if (state.month !== 'All months' && monthLabel(game.date) !== state.month) return false;
       if (state.status === 'Open games' && game.filled) return false;
       if (state.status === 'Filled games' && !game.filled) return false;
-      if (state.status === 'My selections' && !userClaimed(game, username)) return false;
+      if (state.status === 'My assigned games' && !userAssigned(game, username)) return false;
+      if (state.status === 'My availability' && !userClaimed(game, username)) return false;
       if (state.query) {
         const haystack = `${game.category} ${game.type} ${game.team} ${game.opponent} ${game.diamond}`.toLowerCase();
         if (!haystack.includes(state.query)) return false;
@@ -170,7 +175,7 @@
     const username = String(state.user && state.user.username || '').toLowerCase();
     $('umpireVisibleCount').textContent = games.length;
     $('umpireOpenCount').textContent = games.filter((game) => !game.filled).length;
-    $('umpireMyCount').textContent = state.games.filter((game) => userClaimed(game, username)).length;
+    $('umpireMyCount').textContent = state.games.filter((game) => userAssigned(game, username)).length;
     $('umpireCalendarSection').hidden = state.view !== 'calendar';
     $('umpireListSection').hidden = state.view !== 'list';
     if (state.view === 'calendar') {
@@ -274,9 +279,13 @@
 
   function renderGameCard(game, username) {
     const mine = userClaimed(game, username);
+    const assignedToMe = userAssigned(game, username);
     const claimLabel = mine ? 'Remove my availability' : 'I will umpire this';
     const claimAction = mine ? 'cancel' : 'claim';
-    const hideClaimButton = game.filled && !mine;
+    const hideClaimButton = assignedToMe || (game.filled && !mine);
+    const assignedText = assignedToMe
+      ? 'You are assigned to this game.'
+      : assignedOfficialsText(game);
     return `
       <article class="umpire-game-card ${categoryClass(game.category)} ${game.filled ? 'filled' : 'open'}">
         <div class="umpire-game-main">
@@ -293,7 +302,11 @@
           </div>
         </div>
         <div class="umpire-claim-row">
-          <span>${game.claims.length ? `Available: ${escapeHtml(game.claims.map((claim) => claim.name).join(', '))}` : 'No umpire availability submitted yet.'}</span>
+          <span>
+            ${assignedText ? `<strong>${escapeHtml(assignedText)}</strong>` : ''}
+            ${assignedText && game.claims.length ? '<br>' : ''}
+            ${game.claims.length ? `Available: ${escapeHtml(game.claims.map((claim) => claim.name).join(', '))}` : (assignedText ? '' : 'No umpire availability submitted yet.')}
+          </span>
           ${hideClaimButton ? '' : `<button class="${mine ? 'secondary' : 'primary'}" type="button" data-claim-game="${escapeHtml(game.id)}" data-claim-action="${claimAction}">${claimLabel}</button>`}
         </div>
       </article>
@@ -320,6 +333,51 @@
 
   function userClaimed(game, username) {
     return Boolean(username && (game.claims || []).some((claim) => String(claim.username || '').toLowerCase() === username));
+  }
+
+  function userAssigned(game, username) {
+    return Boolean(username && (game.assignedOfficials || []).some((official) => String(official.username || '').toLowerCase() === username));
+  }
+
+  function assignedOfficialsText(game) {
+    const assigned = game.assignedOfficials || [];
+    if (!assigned.length) return '';
+    return `Assigned: ${assigned.map((official) => `${official.name}${official.position ? ` (${official.position})` : ''}`).join(', ')}`;
+  }
+
+  async function loadUmpireAccounts() {
+    try {
+      const payload = await fetchJson('/api/umpire/accounts');
+      state.accounts = payload.accounts || [];
+      renderUmpireAccounts();
+    } catch (error) {
+      $('umpireAccountsSummary').textContent = error.message || 'Could not load official logins.';
+    }
+  }
+
+  function renderUmpireAccounts() {
+    $('umpireAccountsSummary').textContent = `${state.accounts.length} official account${state.accounts.length === 1 ? '' : 's'}`;
+    if (!state.accounts.length) {
+      $('umpireAccountsList').innerHTML = '<p class="muted">No official accounts found yet. Refresh umpire data first.</p>';
+      return;
+    }
+    $('umpireAccountsList').innerHTML = `
+      <table class="umpire-accounts-table">
+        <thead>
+          <tr><th>Official</th><th>Username</th><th>Password</th><th>Qualification</th></tr>
+        </thead>
+        <tbody>
+          ${state.accounts.map((account) => `
+            <tr>
+              <td>${escapeHtml(account.name)}</td>
+              <td>${escapeHtml(account.username)}</td>
+              <td>${escapeHtml(account.password)}</td>
+              <td>${escapeHtml(account.qualification || '')}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    `;
   }
 
   function categoryClass(category) {
