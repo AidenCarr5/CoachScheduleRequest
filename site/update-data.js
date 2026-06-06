@@ -874,6 +874,52 @@ async function loadCpSchedule(schedule, conflictEvents, availability, session) {
   return schedule.length > 0;
 }
 
+async function generateDateData(dateIso) {
+  const date = String(dateIso || '');
+  const match = date.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) {
+    throw new Error('A valid date is required for the one-day schedule refresh.');
+  }
+
+  const session = await createAuthenticatedSession();
+  if (!session) {
+    throw new Error('Turtle Club credentials are not configured for a one-day schedule refresh.');
+  }
+
+  const targetDate = new Date(`${date}T12:00:00`);
+  const allowedMonths = new Set([Number(match[2])]);
+  const html = await fetchCpScheduleHtml(session, targetDate);
+  const cpEvents = parseCpCalendar(html, allowedMonths).filter((event) => event.date === date);
+  const schedule = [];
+  const conflictEvents = [];
+
+  cpEvents.forEach((event) => {
+    const conflictEvent = { ...event };
+    delete conflictEvent.titansTeams;
+    conflictEvents.push(conflictEvent);
+    if (event.titansTeams && event.titansTeams.length) {
+      event.titansTeams.forEach((team, index) => {
+        schedule.push({
+          ...conflictEvent,
+          id: index === 0 ? conflictEvent.id : `${conflictEvent.id}-${index + 1}`,
+          team
+        });
+      });
+    }
+  });
+
+  const availability = parseCpAvailability(html, allowedMonths).filter((slot) => slot.date === date);
+
+  return {
+    schedule: await enrichScheduleWithUmpires(dedupe(schedule), session),
+    conflictEvents: dedupe(conflictEvents),
+    availability: dedupeAvailability(availability),
+    scrapedAt: new Date().toISOString(),
+    sourceSchedule: cpScheduleUrl(),
+    sourceAvailability: cpScheduleUrl()
+  };
+}
+
 async function loadGames(schedule, conflictEvents) {
   for (const month of config.scheduleMonths) {
     const url = `${baseUrl}/Categories/${config.teamCategoryId}/Schedule/?Month=${month}&Year=${seasonYear}`;
@@ -1125,6 +1171,7 @@ async function main() {
 
 module.exports = {
   generateData,
+  generateDateData,
   writeDataFile,
   parseCpCalendar
 };
