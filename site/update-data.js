@@ -874,7 +874,7 @@ async function loadCpSchedule(schedule, conflictEvents, availability, session) {
   return schedule.length > 0;
 }
 
-async function generateDateData(dateIso) {
+async function generateDateData(dateIso, knownTeams = []) {
   const date = String(dateIso || '');
   const match = date.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if (!match) {
@@ -887,7 +887,8 @@ async function generateDateData(dateIso) {
   }
 
   const targetDate = new Date(`${date}T12:00:00`);
-  const allowedMonths = new Set([Number(match[2])]);
+  const month = Number(match[2]);
+  const allowedMonths = new Set([month]);
   const html = await fetchCpScheduleHtml(session, targetDate);
   const cpEvents = parseCpCalendar(html, allowedMonths).filter((event) => event.date === date);
   const schedule = [];
@@ -909,6 +910,22 @@ async function generateDateData(dateIso) {
   });
 
   const availability = parseCpAvailability(html, allowedMonths).filter((slot) => slot.date === date);
+  const teams = Array.isArray(knownTeams) ? knownTeams.filter(Boolean) : [];
+  if (teams.length) {
+    try {
+      const calendarUrl = `${baseUrl}/Calendar/?Month=${month}&Year=${seasonYear}`;
+      const calendarHtml = await (await fetchWithSession(calendarUrl, session)).text();
+      if (!/Human Verification/i.test(calendarHtml)) {
+        const tournamentEvents = parsePublicCalendarTournaments(calendarHtml, month, teams)
+          .filter((event) => event.date === date);
+        schedule.push(...tournamentEvents);
+        const tournamentConflicts = await hostedTournamentAvailabilityConflicts(tournamentEvents, session);
+        conflictEvents.push(...tournamentConflicts.filter((event) => event.date === date));
+      }
+    } catch (error) {
+      console.warn(`Skipped one-day hosted tournament sync for ${date}: ${error.message}`);
+    }
+  }
 
   return {
     schedule: await enrichScheduleWithUmpires(dedupe(schedule), session),
