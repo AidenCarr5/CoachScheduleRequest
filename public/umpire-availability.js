@@ -221,9 +221,9 @@
 
   function renderGameCard(game, username) {
     const mine = userClaimed(game, username);
-    const claimLabel = mine ? 'Remove my availability' : 'I can umpire this';
+    const claimLabel = mine ? 'Remove my availability' : 'I will umpire this';
     const claimAction = mine ? 'cancel' : 'claim';
-    const disabled = game.filled && !mine && state.user.role !== 'admin';
+    const hideClaimButton = game.filled && !mine;
     return `
       <article class="umpire-game-card ${categoryClass(game.category)} ${game.filled ? 'filled' : 'open'}">
         <div class="umpire-game-main">
@@ -241,7 +241,7 @@
         </div>
         <div class="umpire-claim-row">
           <span>${game.claims.length ? `Available: ${escapeHtml(game.claims.map((claim) => claim.name).join(', '))}` : 'No umpire availability submitted yet.'}</span>
-          <button class="${mine ? 'secondary' : 'primary'}" type="button" data-claim-game="${escapeHtml(game.id)}" data-claim-action="${claimAction}"${disabled ? ' disabled' : ''}>${claimLabel}</button>
+          ${hideClaimButton ? '' : `<button class="${mine ? 'secondary' : 'primary'}" type="button" data-claim-game="${escapeHtml(game.id)}" data-claim-action="${claimAction}">${claimLabel}</button>`}
         </div>
       </article>
     `;
