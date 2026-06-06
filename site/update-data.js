@@ -782,7 +782,7 @@ function attachUmpireStatus(event, status) {
   };
 }
 
-async function enrichScheduleWithUmpires(schedule, session) {
+async function enrichScheduleWithUmpires(schedule, session, assignmentsByDate = new Map()) {
   if (!Array.isArray(schedule) || !schedule.length) return schedule;
 
   const enriched = schedule.map((event) => {
@@ -815,8 +815,8 @@ async function enrichScheduleWithUmpires(schedule, session) {
       .map((event) => event.date)
   )].sort();
 
-  const assignmentsByDate = new Map();
   for (const date of targetDates) {
+    if (assignmentsByDate.has(date)) continue;
     try {
       const html = await fetchOfficialsDailyHtml(session, date);
       assignmentsByDate.set(date, parseOfficialsAssignments(html));
@@ -1147,8 +1147,9 @@ async function generateData() {
   }
 
   schedule.sort((a, b) => `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`));
-  const dedupedSchedule = await enrichScheduleWithUmpires(dedupe(schedule), session);
-  const dedupedConflicts = dedupe(conflictEvents);
+  const officialsAssignmentsByDate = new Map();
+  const dedupedSchedule = await enrichScheduleWithUmpires(dedupe(schedule), session, officialsAssignmentsByDate);
+  const dedupedConflicts = await enrichScheduleWithUmpires(dedupe(conflictEvents), session, officialsAssignmentsByDate);
   const dedupedAvailability = dedupeAvailability(availability).sort((a, b) => `${a.date} ${a.start} ${a.diamond}`.localeCompare(`${b.date} ${b.start} ${b.diamond}`));
   const teams = [...new Set(dedupedSchedule.map((event) => event.team))].sort();
 
