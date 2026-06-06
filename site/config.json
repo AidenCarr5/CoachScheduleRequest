@@ -7,6 +7,7 @@
   "brandName": "LaSalle Titans",
   "teamLabel": "Titans",
   "sportName": "Baseball",
+  "faviconPath": "/titans-logo.png",
   "organizationName": "Titans",
   "teamNamePattern": "^(\\d+U(?:\\s*T\\d+)?|8U\\/9U)\\s*\\([^)]+\\)$",
   "teamExtractPattern": "((?:\\d+U(?:\\s*T\\d+)?|8U\\/9U)\\s*\\([^)]+\\))",

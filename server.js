@@ -20,6 +20,7 @@ const serviceName = siteConfig.serviceName || `${siteConfig.teamLabel || 'Titans
 const brandName = siteConfig.brandName || 'LaSalle Titans';
 const teamLabel = siteConfig.teamLabel || 'Titans';
 const sportName = siteConfig.sportName || 'Baseball';
+const faviconPath = String(siteConfig.faviconPath || '/titans-logo.png').trim() || '/titans-logo.png';
 
 function contentType(filePath) {
   const ext = path.extname(filePath).toLowerCase();
@@ -31,6 +32,7 @@ function contentType(filePath) {
     '.png': 'image/png',
     '.jpg': 'image/jpeg',
     '.jpeg': 'image/jpeg',
+    '.webp': 'image/webp',
     '.ico': 'image/x-icon'
   }[ext] || 'application/octet-stream';
 }
@@ -71,10 +73,14 @@ function serveStatic(res, pathname) {
 }
 
 function applyServerBranding(html) {
-  if (brandName === 'LaSalle Titans' && teamLabel === 'Titans' && sportName === 'Baseball') return html;
+  let branded = html.replace(
+    /<link\s+rel=["']icon["'][^>]*>/i,
+    `<link rel="icon" type="${faviconPath.endsWith('.webp') ? 'image/webp' : 'image/png'}" href="${faviconPath}">`
+  );
+  if (brandName === 'LaSalle Titans' && teamLabel === 'Titans' && sportName === 'Baseball') return branded;
 
   const masks = new Map();
-  let masked = html;
+  let masked = branded;
   [
     'Turtle Club Baseball &amp; Softball',
     'Turtle Club Baseball & Softball'
