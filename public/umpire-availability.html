@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Umpire Availability</title>
+  <title>Umpire Portal</title>
   <link rel="icon" type="image/png" href="/titans-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +26,7 @@
     <div class="wrap masthead-inner">
       <div>
         <p class="eyebrow" data-brand-static>Turtle Club Baseball &amp; Softball</p>
-        <h1>Umpire Availability</h1>
+        <h1>Umpire Portal</h1>
       </div>
       <div class="source">
         <span id="sessionLabel" hidden></span>
@@ -59,56 +59,89 @@
   </section>
 
   <main id="umpireShell" class="wrap app-shell" hidden>
-    <section class="coach-panel" aria-label="Umpire availability controls">
-      <div class="field">
-        <label for="umpireCategorySelect">Program</label>
-        <select id="umpireCategorySelect"></select>
-      </div>
-      <div class="field">
-        <label for="umpireMonthSelect">Month</label>
-        <select id="umpireMonthSelect"></select>
-      </div>
-      <div class="field">
-        <label for="umpireStatusSelect">Status</label>
-        <select id="umpireStatusSelect">
-          <option>All games</option>
-          <option>Open games</option>
-          <option>Filled games</option>
-          <option>My assigned games</option>
-          <option>My availability</option>
-        </select>
-      </div>
-      <div class="field grow">
-        <label for="umpireSearchInput">Find team, opponent, or diamond</label>
-        <input id="umpireSearchInput" type="search" placeholder="Start typing">
-      </div>
-      <div class="field">
-        <label>View</label>
-        <div class="view-switch" role="tablist" aria-label="Umpire schedule view">
-          <button id="umpireCalendarViewBtn" class="view-tab active" type="button" aria-pressed="true">Calendar</button>
-          <button id="umpireListViewBtn" class="view-tab" type="button" aria-pressed="false">List</button>
-        </div>
-      </div>
-      <div id="umpireAdminRefreshField" class="field" hidden>
-        <label for="refreshUmpireDataBtn">Officials data</label>
-        <button id="refreshUmpireDataBtn" class="secondary" type="button">Refresh umpire data</button>
-      </div>
-    </section>
-    <p id="umpireRefreshMessage" class="admin-message-neutral" hidden></p>
+    <nav class="umpire-portal-nav" aria-label="Umpire portal menu">
+      <button id="umpirePortalCalendarBtn" class="umpire-portal-tab active" type="button" aria-pressed="true">Availability Calendar</button>
+      <button id="umpirePortalMyGamesBtn" class="umpire-portal-tab" type="button" aria-pressed="false">My Games</button>
+      <button id="umpirePortalAccountsBtn" class="umpire-portal-tab" type="button" aria-pressed="false" hidden>Official Logins</button>
+    </nav>
 
-    <section class="status-strip" aria-label="Umpire game summary">
-      <div>
-        <strong id="umpireVisibleCount">0</strong>
-        <span>visible games</span>
+    <section id="umpireCalendarPage">
+      <section class="coach-panel" aria-label="Umpire availability controls">
+        <div class="field">
+          <label for="umpireCategorySelect">Program</label>
+          <select id="umpireCategorySelect"></select>
+        </div>
+        <div class="field">
+          <label for="umpireMonthSelect">Month</label>
+          <select id="umpireMonthSelect"></select>
+        </div>
+        <div class="field">
+          <label for="umpireStatusSelect">Status</label>
+          <select id="umpireStatusSelect">
+            <option>All games</option>
+            <option>Open games</option>
+            <option>Filled games</option>
+            <option>My assigned games</option>
+            <option>My availability</option>
+          </select>
+        </div>
+        <div class="field grow">
+          <label for="umpireSearchInput">Find team, opponent, or diamond</label>
+          <input id="umpireSearchInput" type="search" placeholder="Start typing">
+        </div>
+        <div class="field">
+          <label>View</label>
+          <div class="view-switch" role="tablist" aria-label="Umpire schedule view">
+            <button id="umpireCalendarViewBtn" class="view-tab active" type="button" aria-pressed="true">Calendar</button>
+            <button id="umpireListViewBtn" class="view-tab" type="button" aria-pressed="false">List</button>
+          </div>
+        </div>
+        <div id="umpireAdminRefreshField" class="field" hidden>
+          <label for="refreshUmpireDataBtn">Officials data</label>
+          <button id="refreshUmpireDataBtn" class="secondary" type="button">Refresh umpire data</button>
+        </div>
+      </section>
+      <p id="umpireRefreshMessage" class="admin-message-neutral" hidden></p>
+
+      <section class="status-strip" aria-label="Umpire game summary">
+        <div>
+          <strong id="umpireVisibleCount">0</strong>
+          <span>visible games</span>
+        </div>
+        <div>
+          <strong id="umpireOpenCount">0</strong>
+          <span>open games</span>
+        </div>
+        <div>
+          <strong id="umpireMyCount">0</strong>
+          <span>my assigned games</span>
+        </div>
+      </section>
+
+      <section class="umpire-view-section">
+        <div id="umpireCalendarSection" class="schedule-section">
+          <div class="section-head">
+            <h2>Game Calendar</h2>
+            <span id="umpireDataVersion">Loading games...</span>
+          </div>
+          <div id="umpireCalendar" class="calendar-view"></div>
+        </div>
+        <div id="umpireListSection" class="schedule-section" hidden>
+          <div class="section-head">
+            <h2>Visible Games</h2>
+            <span>Sorted by date and time</span>
+          </div>
+          <div id="umpireGameList" class="umpire-game-list"></div>
+        </div>
+      </section>
+    </section>
+
+    <section id="umpireMyGamesSection" class="schedule-section" hidden>
+      <div class="section-head">
+        <h2>My Games</h2>
+        <span id="umpireMyGamesSummary">Assigned games</span>
       </div>
-      <div>
-        <strong id="umpireOpenCount">0</strong>
-        <span>open games</span>
-      </div>
-      <div>
-        <strong id="umpireMyCount">0</strong>
-        <span>my assigned games</span>
-      </div>
+      <div id="umpireMyGamesList" class="umpire-game-list"></div>
     </section>
 
     <section id="umpireAccountsSection" class="schedule-section" hidden>
@@ -117,23 +150,6 @@
         <span id="umpireAccountsSummary">Loading accounts...</span>
       </div>
       <div id="umpireAccountsList" class="umpire-accounts-list"></div>
-    </section>
-
-    <section class="umpire-view-section">
-      <div id="umpireCalendarSection" class="schedule-section">
-        <div class="section-head">
-          <h2>Game Calendar</h2>
-          <span id="umpireDataVersion">Loading games...</span>
-        </div>
-        <div id="umpireCalendar" class="calendar-view"></div>
-      </div>
-      <div id="umpireListSection" class="schedule-section" hidden>
-        <div class="section-head">
-          <h2>Visible Games</h2>
-          <span>Sorted by date and time</span>
-        </div>
-        <div id="umpireGameList" class="umpire-game-list"></div>
-      </div>
     </section>
   </main>
 

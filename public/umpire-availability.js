@@ -9,7 +9,8 @@
     month: 'All months',
     status: 'All games',
     query: '',
-    view: 'calendar'
+    view: 'calendar',
+    portalView: 'calendar'
   };
 
   async function init() {
@@ -32,6 +33,9 @@
     });
     $('umpireCalendarViewBtn').addEventListener('click', () => setView('calendar'));
     $('umpireListViewBtn').addEventListener('click', () => setView('list'));
+    $('umpirePortalCalendarBtn').addEventListener('click', () => setPortalView('calendar'));
+    $('umpirePortalMyGamesBtn').addEventListener('click', () => setPortalView('my-games'));
+    $('umpirePortalAccountsBtn').addEventListener('click', () => setPortalView('accounts'));
     $('closeUmpireDayDialog').addEventListener('click', () => $('umpireDayDialog').close());
     $('refreshUmpireDataBtn').addEventListener('click', refreshUmpireData);
 
@@ -129,8 +133,35 @@
     $('umpireLoginShell').hidden = true;
     $('umpireShell').hidden = false;
     $('umpireAdminRefreshField').hidden = !(state.user && state.user.role === 'admin');
-    $('umpireAccountsSection').hidden = !(state.user && state.user.role === 'admin');
+    $('umpirePortalAccountsBtn').hidden = !(state.user && state.user.role === 'admin');
+    if (state.portalView === 'accounts' && !(state.user && state.user.role === 'admin')) {
+      state.portalView = 'calendar';
+    }
     if (state.user && state.user.role === 'admin') loadUmpireAccounts();
+    setPortalView(state.portalView);
+  }
+
+  function setPortalView(view) {
+    const canSeeAccounts = state.user && state.user.role === 'admin';
+    state.portalView = view === 'accounts' && !canSeeAccounts ? 'calendar' : view;
+    $('umpireCalendarPage').hidden = state.portalView !== 'calendar';
+    $('umpireMyGamesSection').hidden = state.portalView !== 'my-games';
+    $('umpireAccountsSection').hidden = state.portalView !== 'accounts' || !canSeeAccounts;
+    [
+      ['umpirePortalCalendarBtn', 'calendar'],
+      ['umpirePortalMyGamesBtn', 'my-games'],
+      ['umpirePortalAccountsBtn', 'accounts']
+    ].forEach(([id, key]) => {
+      const button = $(id);
+      if (!button) return;
+      const active = state.portalView === key;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    render();
+    if (state.portalView === 'accounts' && canSeeAccounts && !state.accounts.length) {
+      loadUmpireAccounts();
+    }
   }
 
   function setView(view) {
@@ -176,6 +207,7 @@
     $('umpireVisibleCount').textContent = games.length;
     $('umpireOpenCount').textContent = games.filter((game) => !game.filled).length;
     $('umpireMyCount').textContent = state.games.filter((game) => userAssigned(game, username)).length;
+    renderMyGames();
     $('umpireCalendarSection').hidden = state.view !== 'calendar';
     $('umpireListSection').hidden = state.view !== 'list';
     if (state.view === 'calendar') {
@@ -183,6 +215,24 @@
     } else {
       renderList(games);
     }
+  }
+
+  function renderMyGames() {
+    const username = String(state.user && state.user.username || '').toLowerCase();
+    const games = state.games
+      .filter((game) => userAssigned(game, username))
+      .sort((a, b) => `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`));
+    $('umpireMyGamesSummary').textContent = `${games.length} assigned game${games.length === 1 ? '' : 's'}`;
+    if (!games.length) {
+      $('umpireMyGamesList').innerHTML = '<p class="muted">No assigned games found for this login.</p>';
+      return;
+    }
+    let lastDate = '';
+    $('umpireMyGamesList').innerHTML = games.map((game) => {
+      const dateHead = game.date !== lastDate ? `<h3 class="umpire-date-head">${formatDate(game.date)}</h3>` : '';
+      lastDate = game.date;
+      return `${dateHead}${renderGameCard(game, username)}`;
+    }).join('');
   }
 
   function renderCalendar(games) {

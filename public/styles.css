@@ -892,6 +892,36 @@ button {
   gap: 18px;
 }
 
+.umpire-portal-nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+  padding: 10px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+
+.umpire-portal-tab {
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  background: #eef2e9;
+  color: var(--green);
+  font-weight: 800;
+  text-align: center;
+  cursor: pointer;
+}
+
+.umpire-portal-tab.active {
+  border-color: var(--green);
+  background: var(--green);
+  color: #fff;
+}
+
+.umpire-portal-tab[hidden] {
+  display: none !important;
+}
+
 .umpire-game-list {
   display: grid;
   gap: 12px;
@@ -1930,6 +1960,7 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
   .status-strip,
   .layout,
   .umpire-layout,
+  .umpire-portal-nav,
   .profile-shell,
   .contact-grid,
   .diamond-status-grid,

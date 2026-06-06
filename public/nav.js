@@ -129,7 +129,7 @@
     umpireLink.dataset.navKey = 'umpires';
     umpireLink.href = '/umpire-availability.html';
     umpireLink.hidden = true;
-    umpireLink.textContent = 'Umpire Availability';
+    umpireLink.textContent = 'Umpire';
 
     const fieldStatusLink = document.getElementById('fieldStatusLink');
     if (fieldStatusLink && fieldStatusLink.parentElement === topbarInner) {
