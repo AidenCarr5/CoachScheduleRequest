@@ -3,7 +3,7 @@
   const state = {
     user: null,
     games: [],
-    categories: ['Titans', 'Athletics', 'House League'],
+    categories: ['Titans', 'Athletics', 'House League Baseball', 'House League Softball'],
     category: 'All programs',
     month: 'All months',
     status: 'All games',

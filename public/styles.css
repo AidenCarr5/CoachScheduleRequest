@@ -877,8 +877,14 @@ button {
   background: #f2cf3c;
 }
 
-.calendar-pill.house-league {
+.calendar-pill.house-league,
+.calendar-pill.house-league-baseball {
   background: #4f5d63;
+}
+
+.calendar-pill.house-league-softball {
+  color: #063b1b;
+  background: #d7e65a;
 }
 
 .umpire-view-section {
@@ -923,8 +929,13 @@ button {
   border-left-color: #f2cf3c;
 }
 
-.umpire-game-card.house-league {
+.umpire-game-card.house-league,
+.umpire-game-card.house-league-baseball {
   border-left-color: #5d6b70;
+}
+
+.umpire-game-card.house-league-softball {
+  border-left-color: #d7e65a;
 }
 
 .umpire-game-card.filled {
@@ -965,8 +976,14 @@ button {
   background: #f2cf3c;
 }
 
-.umpire-game-card.house-league .umpire-category {
+.umpire-game-card.house-league .umpire-category,
+.umpire-game-card.house-league-baseball .umpire-category {
   background: #5d6b70;
+}
+
+.umpire-game-card.house-league-softball .umpire-category {
+  color: #063b1b;
+  background: #d7e65a;
 }
 
 .umpire-game-status {
