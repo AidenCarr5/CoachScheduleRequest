@@ -32,6 +32,7 @@
     $('umpireCalendarViewBtn').addEventListener('click', () => setView('calendar'));
     $('umpireListViewBtn').addEventListener('click', () => setView('list'));
     $('closeUmpireDayDialog').addEventListener('click', () => $('umpireDayDialog').close());
+    $('refreshUmpireDataBtn').addEventListener('click', refreshUmpireData);
 
     const session = await currentPortalSession();
     if (session.authenticated) {
@@ -97,6 +98,26 @@
     render();
   }
 
+  async function refreshUmpireData() {
+    const button = $('refreshUmpireDataBtn');
+    const message = $('umpireRefreshMessage');
+    button.disabled = true;
+    message.hidden = false;
+    message.textContent = 'Refreshing Titans, Athletics, House League, and Officials data...';
+    try {
+      const payload = await fetchJson('/api/umpire/refresh-data', { method: 'POST' });
+      state.games = payload.games || [];
+      rebuildFilters();
+      $('umpireDataVersion').textContent = payload.version ? `Synced ${formatDateTime(payload.version)}` : '';
+      message.textContent = 'Umpire data refreshed.';
+      render();
+    } catch (error) {
+      message.textContent = error.message || 'Umpire data refresh failed.';
+    } finally {
+      button.disabled = false;
+    }
+  }
+
   function showLogin() {
     $('umpireLoginShell').hidden = false;
     $('umpireShell').hidden = true;
@@ -105,6 +126,7 @@
   function showPortal() {
     $('umpireLoginShell').hidden = true;
     $('umpireShell').hidden = false;
+    $('umpireAdminRefreshField').hidden = !(state.user && state.user.role === 'admin');
   }
 
   function setView(view) {
