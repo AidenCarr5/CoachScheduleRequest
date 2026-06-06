@@ -29,7 +29,7 @@
       render();
     });
 
-    const session = await fetchJson('/api/umpire/session');
+    const session = await currentPortalSession();
     if (session.authenticated) {
       state.user = session.user;
       await loadGames();
@@ -44,6 +44,22 @@
     const payload = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(payload.error || 'Request failed');
     return payload;
+  }
+
+  async function currentPortalSession() {
+    try {
+      const session = await fetchJson('/api/umpire/session');
+      if (session.authenticated) return session;
+    } catch (_) {
+      // Fall back to the normal admin session below.
+    }
+    try {
+      const adminSession = await fetchJson('/api/admin/session');
+      if (adminSession.authenticated) return adminSession;
+    } catch (_) {
+      // The login form will be shown.
+    }
+    return { authenticated: false };
   }
 
   async function login(event) {
