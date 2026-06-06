@@ -81,6 +81,13 @@
         <label for="umpireSearchInput">Find team, opponent, or diamond</label>
         <input id="umpireSearchInput" type="search" placeholder="Start typing">
       </div>
+      <div class="field">
+        <label>View</label>
+        <div class="view-switch" role="tablist" aria-label="Umpire schedule view">
+          <button id="umpireCalendarViewBtn" class="view-tab active" type="button" aria-pressed="true">Calendar</button>
+          <button id="umpireListViewBtn" class="view-tab" type="button" aria-pressed="false">List</button>
+        </div>
+      </div>
     </section>
 
     <section class="status-strip" aria-label="Umpire game summary">
@@ -98,23 +105,34 @@
       </div>
     </section>
 
-    <section class="umpire-layout">
-      <div class="schedule-section">
+    <section class="umpire-view-section">
+      <div id="umpireCalendarSection" class="schedule-section">
         <div class="section-head">
           <h2>Game Calendar</h2>
           <span id="umpireDataVersion">Loading games...</span>
         </div>
         <div id="umpireCalendar" class="calendar-view"></div>
       </div>
-      <aside class="requests-section">
+      <div id="umpireListSection" class="schedule-section" hidden>
         <div class="section-head">
           <h2>Visible Games</h2>
           <span>Sorted by date and time</span>
         </div>
         <div id="umpireGameList" class="umpire-game-list"></div>
-      </aside>
+      </div>
     </section>
   </main>
+
+  <dialog id="umpireDayDialog">
+    <div class="dialog-head">
+      <div>
+        <h2 id="umpireDayDialogTitle">Games</h2>
+        <p id="umpireDayDialogSubtitle" class="dialog-subtitle"></p>
+      </div>
+      <button type="button" class="icon" id="closeUmpireDayDialog" aria-label="Close">x</button>
+    </div>
+    <div id="umpireDayDialogList" class="umpire-day-dialog-list"></div>
+  </dialog>
 
   <script src="nav.js"></script>
   <script src="umpire-availability.js"></script>

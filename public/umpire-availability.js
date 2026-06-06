@@ -7,7 +7,8 @@
     category: 'All programs',
     month: 'All months',
     status: 'All games',
-    query: ''
+    query: '',
+    view: 'calendar'
   };
 
   async function init() {
@@ -28,6 +29,9 @@
       state.query = event.target.value.toLowerCase();
       render();
     });
+    $('umpireCalendarViewBtn').addEventListener('click', () => setView('calendar'));
+    $('umpireListViewBtn').addEventListener('click', () => setView('list'));
+    $('closeUmpireDayDialog').addEventListener('click', () => $('umpireDayDialog').close());
 
     const session = await currentPortalSession();
     if (session.authenticated) {
@@ -103,6 +107,15 @@
     $('umpireShell').hidden = false;
   }
 
+  function setView(view) {
+    state.view = view;
+    $('umpireCalendarViewBtn').classList.toggle('active', view === 'calendar');
+    $('umpireCalendarViewBtn').setAttribute('aria-pressed', view === 'calendar' ? 'true' : 'false');
+    $('umpireListViewBtn').classList.toggle('active', view === 'list');
+    $('umpireListViewBtn').setAttribute('aria-pressed', view === 'list' ? 'true' : 'false');
+    render();
+  }
+
   function rebuildFilters() {
     const categoryOptions = ['All programs', ...state.categories];
     const months = ['All months', ...orderedMonthLabels(state.games)];
@@ -136,8 +149,13 @@
     $('umpireVisibleCount').textContent = games.length;
     $('umpireOpenCount').textContent = games.filter((game) => !game.filled).length;
     $('umpireMyCount').textContent = state.games.filter((game) => userClaimed(game, username)).length;
-    renderCalendar(games);
-    renderList(games);
+    $('umpireCalendarSection').hidden = state.view !== 'calendar';
+    $('umpireListSection').hidden = state.view !== 'list';
+    if (state.view === 'calendar') {
+      renderCalendar(games);
+    } else {
+      renderList(games);
+    }
   }
 
   function renderCalendar(games) {
@@ -168,7 +186,7 @@
       const date = `${year}-${String(monthIndex + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
       const dayGames = byDate.get(date) || [];
       cells.push(`
-        <button class="calendar-day ${dayGames.length ? 'has-events' : 'empty'}" type="button" data-jump-date="${date}">
+        <button class="calendar-day ${dayGames.length ? 'has-events' : 'empty'}" type="button" data-open-umpire-day="${date}"${dayGames.length ? '' : ' disabled'}>
           <span class="calendar-date">${day}</span>
           <span class="calendar-count">${dayGames.length ? `${dayGames.length} game${dayGames.length === 1 ? '' : 's'}` : 'No games'}</span>
           <span class="calendar-preview">
@@ -179,12 +197,11 @@
       `);
     }
     setTimeout(() => {
-      document.querySelectorAll('[data-jump-date]').forEach((button) => {
-        if (button.dataset.boundJump) return;
-        button.dataset.boundJump = 'true';
+      document.querySelectorAll('[data-open-umpire-day]').forEach((button) => {
+        if (button.dataset.boundUmpireDay) return;
+        button.dataset.boundUmpireDay = 'true';
         button.addEventListener('click', () => {
-          const target = document.getElementById(`umpire-date-${button.dataset.jumpDate}`);
-          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          openDayDialog(button.dataset.openUmpireDay);
         });
       });
     }, 0);
@@ -217,6 +234,20 @@
     $('umpireGameList').querySelectorAll('[data-claim-game]').forEach((button) => {
       button.addEventListener('click', () => toggleClaim(button.dataset.claimGame, button.dataset.claimAction));
     });
+  }
+
+  function openDayDialog(date) {
+    const games = visibleGames().filter((game) => game.date === date);
+    const username = String(state.user && state.user.username || '').toLowerCase();
+    $('umpireDayDialogTitle').textContent = formatDate(date);
+    $('umpireDayDialogSubtitle').textContent = `${games.length} game${games.length === 1 ? '' : 's'} available in the current filters`;
+    $('umpireDayDialogList').innerHTML = games.length
+      ? games.map((game) => renderGameCard(game, username)).join('')
+      : '<p class="muted">No games match these filters.</p>';
+    $('umpireDayDialogList').querySelectorAll('[data-claim-game]').forEach((button) => {
+      button.addEventListener('click', () => toggleClaim(button.dataset.claimGame, button.dataset.claimAction));
+    });
+    if (!$('umpireDayDialog').open) $('umpireDayDialog').showModal();
   }
 
   function renderGameCard(game, username) {
@@ -256,6 +287,10 @@
       });
       state.games = state.games.map((game) => game.id === gameId ? payload.game : game);
       render();
+      if ($('umpireDayDialog').open) {
+        const openGame = state.games.find((game) => game.id === gameId);
+        if (openGame) openDayDialog(openGame.date);
+      }
     } catch (error) {
       window.alert(error.message || 'Availability could not be saved.');
     }

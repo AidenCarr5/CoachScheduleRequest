@@ -881,17 +881,21 @@ button {
   background: #4f5d63;
 }
 
-.umpire-layout {
+.umpire-view-section {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(360px, .85fr);
   gap: 18px;
-  align-items: start;
 }
 
 .umpire-game-list {
   display: grid;
   gap: 12px;
   padding: 14px;
+}
+
+.umpire-day-dialog-list {
+  display: grid;
+  gap: 12px;
+  padding: 0 18px 18px;
 }
 
 .umpire-date-head {
