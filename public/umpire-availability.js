@@ -105,7 +105,7 @@
 
   function rebuildFilters() {
     const categoryOptions = ['All programs', ...state.categories];
-    const months = ['All months', ...unique(state.games.map((game) => monthLabel(game.date)).filter(Boolean))];
+    const months = ['All months', ...orderedMonthLabels(state.games)];
     $('umpireCategorySelect').innerHTML = categoryOptions.map((value) => `<option>${escapeHtml(value)}</option>`).join('');
     $('umpireMonthSelect').innerHTML = months.map((value) => `<option>${escapeHtml(value)}</option>`).join('');
     if (!categoryOptions.includes(state.category)) state.category = 'All programs';
@@ -142,7 +142,7 @@
 
   function renderCalendar(games) {
     const calendar = $('umpireCalendar');
-    const months = unique(games.map((game) => monthLabel(game.date)).filter(Boolean));
+    const months = orderedMonthLabels(games);
     if (!months.length) {
       calendar.innerHTML = '<p class="muted">No games match these filters.</p>';
       return;
@@ -271,6 +271,30 @@
 
   function unique(values) {
     return [...new Set(values)];
+  }
+
+  function orderedMonthLabels(games) {
+    const byLabel = new Map();
+    (games || []).forEach((game) => {
+      const label = monthLabel(game.date);
+      const key = monthKey(game.date);
+      if (label && key) byLabel.set(label, key);
+    });
+    const currentKey = monthKey(new Date().toISOString().slice(0, 10));
+    return [...byLabel.entries()]
+      .sort((a, b) => {
+        const aPast = a[1] < currentKey;
+        const bPast = b[1] < currentKey;
+        if (aPast !== bPast) return aPast ? 1 : -1;
+        return a[1].localeCompare(b[1]);
+      })
+      .map(([label]) => label);
+  }
+
+  function monthKey(dateString) {
+    const date = new Date(`${dateString}T12:00:00`);
+    if (Number.isNaN(date.getTime())) return '';
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
   }
 
   function monthLabel(dateString) {
