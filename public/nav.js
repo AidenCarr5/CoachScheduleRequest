@@ -44,6 +44,9 @@
     if (user.role === 'status_editor') {
       return initials ? `${initials} - ${username || 'ecarr'}` : (username || 'ecarr');
     }
+    if (user.role === 'umpire') {
+      return initials ? `${initials} - umpire` : `${username || 'umpire'}`;
+    }
     return initials && username ? `${initials} - ${username}` : (username || '');
   }
 
@@ -114,6 +117,36 @@
     return switchLink;
   }
 
+  function ensureUmpireAvailabilityLink() {
+    const topbarInner = document.querySelector('.topbar-inner');
+    if (!topbarInner) return null;
+    let umpireLink = document.getElementById('umpireAvailabilityLink');
+    if (umpireLink) return umpireLink;
+
+    umpireLink = document.createElement('a');
+    umpireLink.id = 'umpireAvailabilityLink';
+    umpireLink.className = 'topbar-link';
+    umpireLink.dataset.navKey = 'umpires';
+    umpireLink.href = '/umpire-availability.html';
+    umpireLink.hidden = true;
+    umpireLink.textContent = 'Umpire Availability';
+
+    const fieldStatusLink = document.getElementById('fieldStatusLink');
+    if (fieldStatusLink && fieldStatusLink.parentElement === topbarInner) {
+      topbarInner.insertBefore(umpireLink, fieldStatusLink);
+      return umpireLink;
+    }
+
+    const adminLink = document.getElementById('adminLink');
+    if (adminLink && adminLink.parentElement === topbarInner) {
+      topbarInner.insertBefore(umpireLink, adminLink.nextSibling);
+      return umpireLink;
+    }
+
+    topbarInner.appendChild(umpireLink);
+    return umpireLink;
+  }
+
   async function switchAdminSite(event) {
     event.preventDefault();
     const link = event.currentTarget;
@@ -154,6 +187,7 @@
     const homeLink = document.getElementById('homeNavLink');
     const profileLink = ensureProfileLink();
     const siteSwitchLink = ensureAdminSiteSwitchLink();
+    const umpireLink = ensureUmpireAvailabilityLink();
     const adminLink = document.getElementById('adminLink');
     const fieldStatusLink = document.getElementById('fieldStatusLink');
     const sessionLabel = document.getElementById('sessionLabel');
@@ -162,6 +196,10 @@
 
     const role = session && session.authenticated && session.user ? session.user.role : '';
     homeLink.href = '/';
+    ['home', 'availability', 'status', 'contact'].forEach((key) => {
+      const link = document.querySelector(`.topbar-link[data-nav-key="${key}"]`);
+      if (link) link.hidden = role === 'umpire';
+    });
 
     if (profileLink) {
       const canAccessProfile = Boolean(publicConfig.profilePath) && role === 'coach';
@@ -178,6 +216,12 @@
       const canAccessFieldStatus = Boolean(publicConfig.fieldStatusPath) && (role === 'admin' || role === 'admin_viewer' || role === 'status_editor');
       fieldStatusLink.href = publicConfig.fieldStatusPath || '/diamond-status-admin.html';
       fieldStatusLink.hidden = !canAccessFieldStatus;
+    }
+
+    if (umpireLink) {
+      const canAccessUmpires = Boolean(publicConfig.umpirePath) && (role === 'admin' || role === 'admin_viewer' || role === 'umpire');
+      umpireLink.href = publicConfig.umpirePath || '/umpire-availability.html';
+      umpireLink.hidden = !canAccessUmpires;
     }
 
     if (siteSwitchLink) {
@@ -256,7 +300,7 @@
   async function refreshTopNav() {
     await acceptIncomingSwitchLogin();
     let session = { authenticated: false };
-    let publicConfig = { adminPath: '/admin.html', fieldStatusPath: '', profilePath: '' };
+    let publicConfig = { adminPath: '/admin.html', fieldStatusPath: '', profilePath: '', umpirePath: '' };
     const cached = readCachedState();
     if (cached) {
       session = cached.session || session;

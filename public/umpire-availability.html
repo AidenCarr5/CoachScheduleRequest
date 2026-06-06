@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Umpire Availability</title>
+  <link rel="icon" type="image/png" href="/titans-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-nav="umpires">
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <a id="homeNavLink" class="topbar-link" data-nav-key="home" href="/">Coach Schedule</a>
+      <a class="topbar-link" data-nav-key="availability" href="/availability.html">Diamond Availability</a>
+      <a class="topbar-link" data-nav-key="status" href="/diamond-status.html">Diamond Status</a>
+      <a class="topbar-link" data-nav-key="contact" href="/contact.html">Contact</a>
+      <a id="adminLink" class="topbar-link" data-nav-key="admin" href="/admin.html" hidden>Admin approval</a>
+      <a id="fieldStatusLink" class="topbar-link" data-nav-key="field-status" href="/diamond-status-admin.html" hidden>Field Status Control</a>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <div>
+        <p class="eyebrow" data-brand-static>Turtle Club Baseball &amp; Softball</p>
+        <h1>Umpire Availability</h1>
+      </div>
+      <div class="source">
+        <span id="sessionLabel" hidden></span>
+        <button id="logoutBtn" class="link-button" type="button" hidden>Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <section id="umpireLoginShell" class="wrap login-shell">
+    <form id="umpireLoginForm" class="login-card">
+      <div class="login-intro">
+        <p class="eyebrow">Umpire access</p>
+        <h2>Sign in to view open games</h2>
+      </div>
+      <div class="form-grid compact">
+        <div class="field">
+          <label for="umpireUsername">Username</label>
+          <input id="umpireUsername" type="text" autocomplete="username" required>
+        </div>
+        <div class="field">
+          <label for="umpirePassword">Password</label>
+          <input id="umpirePassword" type="password" autocomplete="current-password" required>
+        </div>
+      </div>
+      <p id="umpireLoginMessage" class="login-message"></p>
+      <div class="login-actions">
+        <button class="primary" type="submit">Log in</button>
+      </div>
+    </form>
+  </section>
+
+  <main id="umpireShell" class="wrap app-shell" hidden>
+    <section class="coach-panel" aria-label="Umpire availability controls">
+      <div class="field">
+        <label for="umpireCategorySelect">Program</label>
+        <select id="umpireCategorySelect"></select>
+      </div>
+      <div class="field">
+        <label for="umpireMonthSelect">Month</label>
+        <select id="umpireMonthSelect"></select>
+      </div>
+      <div class="field">
+        <label for="umpireStatusSelect">Status</label>
+        <select id="umpireStatusSelect">
+          <option>All games</option>
+          <option>Open games</option>
+          <option>Filled games</option>
+          <option>My selections</option>
+        </select>
+      </div>
+      <div class="field grow">
+        <label for="umpireSearchInput">Find team, opponent, or diamond</label>
+        <input id="umpireSearchInput" type="search" placeholder="Start typing">
+      </div>
+    </section>
+
+    <section class="status-strip" aria-label="Umpire game summary">
+      <div>
+        <strong id="umpireVisibleCount">0</strong>
+        <span>visible games</span>
+      </div>
+      <div>
+        <strong id="umpireOpenCount">0</strong>
+        <span>open games</span>
+      </div>
+      <div>
+        <strong id="umpireMyCount">0</strong>
+        <span>my selections</span>
+      </div>
+    </section>
+
+    <section class="umpire-layout">
+      <div class="schedule-section">
+        <div class="section-head">
+          <h2>Game Calendar</h2>
+          <span id="umpireDataVersion">Loading games...</span>
+        </div>
+        <div id="umpireCalendar" class="calendar-view"></div>
+      </div>
+      <aside class="requests-section">
+        <div class="section-head">
+          <h2>Visible Games</h2>
+          <span>Sorted by date and time</span>
+        </div>
+        <div id="umpireGameList" class="umpire-game-list"></div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="nav.js"></script>
+  <script src="umpire-availability.js"></script>
+</body>
+</html>

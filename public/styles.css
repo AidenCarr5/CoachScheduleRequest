@@ -872,6 +872,144 @@ button {
   background: #edf2ea;
 }
 
+.calendar-pill.athletics {
+  color: #063b1b;
+  background: #f2cf3c;
+}
+
+.calendar-pill.house-league {
+  background: #4f5d63;
+}
+
+.umpire-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(360px, .85fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.umpire-game-list {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+}
+
+.umpire-date-head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 10px 2px 8px;
+  color: var(--green);
+  background: var(--paper);
+  border-bottom: 2px solid var(--green);
+  font: 600 20px Oswald, Arial, sans-serif;
+}
+
+.umpire-game-card {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--green);
+}
+
+.umpire-game-card.athletics {
+  border-left-color: #f2cf3c;
+}
+
+.umpire-game-card.house-league {
+  border-left-color: #5d6b70;
+}
+
+.umpire-game-card.filled {
+  background: #f7fbfa;
+}
+
+.umpire-game-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: start;
+}
+
+.umpire-game-main strong {
+  display: block;
+  color: var(--green);
+  font: 600 18px Oswald, Arial, sans-serif;
+}
+
+.umpire-game-main p {
+  margin: 5px 0 0;
+  color: var(--ink);
+}
+
+.umpire-category {
+  display: inline-block;
+  margin-bottom: 7px;
+  padding: 3px 8px;
+  color: #fff;
+  background: var(--green);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.umpire-game-card.athletics .umpire-category {
+  color: #063b1b;
+  background: #f2cf3c;
+}
+
+.umpire-game-card.house-league .umpire-category {
+  background: #5d6b70;
+}
+
+.umpire-game-status {
+  display: grid;
+  gap: 5px;
+  justify-items: end;
+  min-width: 118px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.umpire-status-badge {
+  display: inline-flex;
+  justify-content: center;
+  min-width: 78px;
+  padding: 5px 9px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.umpire-status-badge.open {
+  background: var(--bad);
+}
+
+.umpire-status-badge.filled {
+  background: var(--green);
+}
+
+.umpire-claim-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.umpire-claim-row button {
+  flex: 0 0 auto;
+}
+
 .availability-section {
   margin-top: 18px;
 }
@@ -1743,6 +1881,7 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
 
   .status-strip,
   .layout,
+  .umpire-layout,
   .profile-shell,
   .contact-grid,
   .diamond-status-grid,
@@ -1818,10 +1957,27 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
   }
 
   .coach-account-card,
+  .umpire-game-main,
+  .umpire-claim-row,
   .profile-summary-row,
   .diamond-status-head,
   .status-editor-head {
     flex-direction: column;
+  }
+
+  .umpire-game-main,
+  .umpire-claim-row {
+    display: grid;
+    gap: 12px;
+  }
+
+  .umpire-game-status {
+    justify-items: start;
+    text-align: left;
+  }
+
+  .umpire-claim-row button {
+    width: 100%;
   }
 
   .profile-summary-row span {
@@ -1901,6 +2057,7 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
   .schedule-list,
   .request-list,
   .admin-request-list,
+  .umpire-game-list,
   .coach-account-list,
   .calendar-view,
   .diamond-status-list,
