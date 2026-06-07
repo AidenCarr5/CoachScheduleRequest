@@ -1111,7 +1111,9 @@
       data.schedule = data.schedule.map((item) => item.id === eventId ? { ...item, ...updatedEvent, opponent: updatedOpponent } : item);
       render();
       opponentDialog.close();
-      const emailNote = payload.emailSent
+      const emailNote = payload.syncPending
+        ? 'Opponent updated on our scheduler. Turtle Club is syncing in the background.'
+        : payload.emailSent
         ? 'Notification email sent.'
         : payload.emailError
           ? `Opponent updated. Email issue: ${payload.emailError}`
