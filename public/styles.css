@@ -159,6 +159,23 @@ h2 { font-size: 24px; }
   line-height: 1.5;
 }
 
+.umpire-loading-card {
+  align-items: center;
+}
+
+.umpire-loading-state {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 96px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.umpire-loading-state p {
+  margin: 0;
+}
+
 .login-intro {
   display: grid;
   align-content: start;

@@ -125,11 +125,13 @@
   }
 
   function showLogin() {
+    $('umpireLoadingShell').hidden = true;
     $('umpireLoginShell').hidden = false;
     $('umpireShell').hidden = true;
   }
 
   function showPortal() {
+    $('umpireLoadingShell').hidden = true;
     $('umpireLoginShell').hidden = true;
     $('umpireShell').hidden = false;
     $('umpireAdminRefreshField').hidden = !(state.user && state.user.role === 'admin');
