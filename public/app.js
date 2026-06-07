@@ -1106,7 +1106,9 @@
       if (!response.ok) {
         throw new Error(payload.details || payload.error || 'Opponent could not be updated.');
       }
-      data.schedule = data.schedule.map((item) => item.id === eventId ? { ...item, opponent } : item);
+      const updatedEvent = payload.event || {};
+      const updatedOpponent = updatedEvent.opponent || opponent;
+      data.schedule = data.schedule.map((item) => item.id === eventId ? { ...item, ...updatedEvent, opponent: updatedOpponent } : item);
       render();
       opponentDialog.close();
       const emailNote = payload.emailSent
