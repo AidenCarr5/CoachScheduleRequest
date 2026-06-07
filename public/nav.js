@@ -241,7 +241,7 @@
     }
 
     if (umpireLink) {
-      const canAccessUmpires = Boolean(publicConfig.umpirePath) && (role === 'admin' || role === 'admin_viewer' || role === 'umpire');
+      const canAccessUmpires = Boolean(publicConfig.umpirePath) && (role === 'admin' || role === 'admin_viewer');
       umpireLink.href = publicConfig.umpirePath || '/umpire-availability.html';
       umpireLink.hidden = !canAccessUmpires;
     }
