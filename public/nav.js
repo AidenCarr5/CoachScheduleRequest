@@ -1,5 +1,6 @@
 (function () {
   let logoutBound = false;
+  let schedulingSwitchBound = false;
   const navCacheKey = 'titans-topbar-state';
 
   function readCachedState() {
@@ -66,6 +67,22 @@
     if (!logoutButton) return;
     logoutBound = true;
     logoutButton.addEventListener('click', logout);
+  }
+
+  function bindSchedulingSwitchLink(link) {
+    if (schedulingSwitchBound || !link) return;
+    schedulingSwitchBound = true;
+    link.addEventListener('click', async (event) => {
+      if (link.dataset.clearUmpireSession !== 'true') return;
+      event.preventDefault();
+      try {
+        await fetch('/api/coach/logout', { method: 'POST' });
+      } catch (_) {
+        // Navigate back to scheduling even if the logout request is interrupted.
+      }
+      clearCachedState();
+      window.location.href = '/';
+    });
   }
 
   function ensureProfileLink() {
@@ -195,7 +212,12 @@
     if (!homeLink) return;
 
     const role = session && session.authenticated && session.user ? session.user.role : '';
+    const currentKey = document.body && document.body.dataset ? document.body.dataset.nav || '' : '';
+    const onUmpirePortal = currentKey === 'umpires';
     homeLink.href = '/';
+    homeLink.textContent = onUmpirePortal ? 'Switch to Scheduling' : 'Coach Schedule';
+    homeLink.dataset.clearUmpireSession = onUmpirePortal && role === 'umpire' ? 'true' : 'false';
+    bindSchedulingSwitchLink(homeLink);
     ['home', 'availability', 'status', 'contact'].forEach((key) => {
       const link = document.querySelector(`.topbar-link[data-nav-key="${key}"]`);
       if (link) link.hidden = role === 'umpire';
@@ -253,7 +275,18 @@
       link.removeAttribute('aria-current');
     });
 
-    const currentKey = document.body && document.body.dataset ? document.body.dataset.nav || '' : '';
+    if (onUmpirePortal) {
+      document.querySelectorAll('.topbar-link').forEach((link) => {
+        const key = link.dataset ? link.dataset.navKey : '';
+        link.hidden = !(key === 'home' || key === 'umpires');
+      });
+      homeLink.hidden = false;
+      if (umpireLink) {
+        umpireLink.href = publicConfig.umpirePath || '/umpire-availability.html';
+        umpireLink.hidden = false;
+      }
+    }
+
     if (currentKey) {
       const currentLink = document.querySelector(`.topbar-link[data-nav-key="${currentKey}"]`);
       if (currentLink && !currentLink.hidden) {
