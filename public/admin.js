@@ -160,7 +160,7 @@
     const allocationText = allocationPending
       ? `<p class="allocation-approval-note"><strong>Additional approval required.</strong> ${escapeHtml(allocation.reason || '')}</p>`
       : allocation.status === 'approved'
-        ? `<p class="allocation-approval-note approved"><strong>Additional approval accepted.</strong> ${escapeHtml(allocation.reason || '')}</p>`
+        ? `<p class="allocation-approval-note approved"><strong>Additional approval accepted.</strong> ${escapeHtml(allocation.reason || '')}${allocation.approvedNote ? `<br><strong>Note:</strong> ${escapeHtml(allocation.approvedNote)}` : ''}</p>`
         : '';
     return `
       <article class="admin-request-card ${cardClass}">
