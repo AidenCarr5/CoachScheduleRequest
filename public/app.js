@@ -41,6 +41,32 @@
     }
   };
 
+  const MASTER_SCHEDULE_UNAVAILABLE_RULES = {
+    weekly: [
+      { day: 'Monday', start: '6:00 PM', end: '8:00 PM', diamonds: ['Vollmer #2', 'Vollmer #5', 'Vollmer #6', 'Vollmer #7', 'Vollmer #8'] },
+      { day: 'Monday', start: '6:00 PM', end: '8:00 PM', diamonds: ['River Canard #1', 'River Canard #3', 'River Canard #4'] },
+      { day: 'Tuesday', start: '6:00 PM', end: '8:00 PM', diamonds: ['River Canard #1', 'River Canard #2'] },
+      { day: 'Wednesday', start: '6:00 PM', end: '8:00 PM', diamonds: ['River Canard #1', 'River Canard #3', 'River Canard #4'] },
+      { day: 'Thursday', start: '6:00 PM', end: '8:00 PM', diamonds: ['Vollmer #1', 'River Canard #1', 'River Canard #3', 'River Canard #4'] },
+      { day: 'Friday', start: '6:00 PM', end: '8:00 PM', diamonds: ['Vollmer #1', 'River Canard #1', 'River Canard #2', 'River Canard #3', 'River Canard #4'] },
+      { day: 'Saturday', start: '9:00 AM', end: '8:00 PM', diamonds: ['Vollmer #8'] },
+      { day: 'Sunday', start: '9:00 AM', end: '2:00 PM', diamonds: ['Vollmer #4', 'Vollmer #5', 'Vollmer #6', 'Vollmer #7', 'Vollmer #8'] }
+    ],
+    postHouseLeague: [
+      { day: 'Monday', start: '6:00 PM', end: '8:00 PM', diamonds: ['Vollmer #2', 'Vollmer #5', 'Vollmer #6', 'Vollmer #7', 'Vollmer #8', 'River Canard #1'] },
+      { day: 'Tuesday', start: '6:00 PM', end: '8:00 PM', diamonds: ['River Canard #1', 'River Canard #2'] },
+      { day: 'Wednesday', start: '6:00 PM', end: '8:00 PM', diamonds: ['River Canard #1'] },
+      { day: 'Thursday', start: '6:00 PM', end: '8:00 PM', diamonds: ['Vollmer #1', 'Vollmer #2', 'Vollmer #5', 'Vollmer #6', 'Vollmer #7', 'Vollmer #8', 'River Canard #1'] },
+      { day: 'Friday', start: '6:00 PM', end: '8:00 PM', diamonds: ['Vollmer #1'] },
+      { day: 'Saturday', start: '9:00 AM', end: '3:00 PM', diamonds: ['Vollmer #1'] },
+      { day: 'Saturday', start: '9:00 AM', end: '8:00 PM', diamonds: ['Vollmer #2', 'Vollmer #3', 'Vollmer #5', 'Vollmer #6', 'Vollmer #7', 'Vollmer #8', 'River Canard #1', 'River Canard #2', 'River Canard #3', 'River Canard #4'] },
+      { day: 'Saturday', start: '9:00 AM', end: '1:00 PM', diamonds: ['Vollmer #4'] },
+      { day: 'Saturday', start: '5:00 PM', end: '8:00 PM', diamonds: ['Vollmer #4'] },
+      { day: 'Sunday', start: '9:00 AM', end: '8:00 PM', diamonds: ['Vollmer #2', 'Vollmer #3', 'Vollmer #5', 'Vollmer #6', 'Vollmer #7', 'Vollmer #8', 'River Canard #1', 'River Canard #2', 'River Canard #3', 'River Canard #4'] },
+      { day: 'Sunday', start: '2:00 PM', end: '8:00 PM', diamonds: ['Vollmer #1', 'Vollmer #4'] }
+    ]
+  };
+
   async function init() {
     $('coachLoginForm').addEventListener('submit', login);
     beginPreload();
@@ -1524,6 +1550,29 @@
     box.textContent = result.message;
   }
 
+  function masterUnavailablePhase(date) {
+    const seasonYear = Number(data && data.seasonYear) || Number(String(date || '').slice(0, 4)) || new Date().getFullYear();
+    if (date < `${seasonYear}-04-01` || date > `${seasonYear}-12-31`) return '';
+    return date <= `${seasonYear}-06-29` ? 'weekly' : 'postHouseLeague';
+  }
+
+  function masterUnavailableConflict(date, normalizedDiamond, start, end) {
+    const phase = masterUnavailablePhase(date);
+    if (!phase) return null;
+    const dayName = new Date(`${date}T12:00:00`).toLocaleDateString('en-US', { weekday: 'long' });
+    const rules = MASTER_SCHEDULE_UNAVAILABLE_RULES[phase] || [];
+    for (const rule of rules) {
+      if (rule.day !== dayName) continue;
+      if (!rule.diamonds.some((diamond) => normalizeAvailabilityDiamond(diamond) === normalizedDiamond)) continue;
+      const unavailableStart = minutesFromDisplay(rule.start);
+      const unavailableEnd = minutesFromDisplay(rule.end);
+      if (start < unavailableEnd && end > unavailableStart) {
+        return rule;
+      }
+    }
+    return null;
+  }
+
   function checkAvailability() {
     const date = $('gameDate').value;
     const diamond = selectedVenueValue();
@@ -1565,6 +1614,11 @@
 
     if (isAwayGame) {
       return { ok: true, message: `Available: no Turtle Club away-game conflict overlaps at ${diamond}.` };
+    }
+
+    const unavailable = masterUnavailableConflict(date, normalizedDiamond, start, end);
+    if (unavailable) {
+      return { ok: false, message: `Not available - no reservation: ${diamond} is unavailable ${unavailable.start}-${unavailable.end}.` };
     }
 
     const openSlot = data.availability.find((slot) => {
