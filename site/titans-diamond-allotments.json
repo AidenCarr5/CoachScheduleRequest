@@ -1,0 +1,1232 @@
+{
+  "sourceWorkbook": "2026 Master TC Diamond Schedule - JUNE01.xlsx",
+  "notes": "Generated from the weekly/post-house-league diamond allotment grids. Weekday matches ignore time; weekend matches use the start/end windows below.",
+  "phases": [
+    {
+      "name": "weekly",
+      "sheet": "Weekly Diamond Allotment",
+      "from": "2026-04-01",
+      "through": "2026-06-29",
+      "slots": [
+        {
+          "day": "Monday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "9U (Shaw)",
+          "sourceLabel": "Titans 9U (Shaw)"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "15U (Nickelson)",
+          "sourceLabel": "Titans 15U (Nickelson)"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "13U T1 (Baker)",
+          "sourceLabel": "Titans 13U (S. Baker)"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Vollmer #4",
+          "diamondKey": "vollmer4",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "10U T2 (Martin)",
+          "sourceLabel": "Titans 10U T2 (Martin)"
+        },
+        {
+          "day": "Monday",
+          "diamond": "River Canard #2",
+          "diamondKey": "rivercanard2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "8U (Ellwood)",
+          "sourceLabel": "Titans 8U (Ellwood)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "10U (Picco)",
+          "sourceLabel": "Titans 10U (Picco)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Turtle Club - Diamond #6",
+          "diamondKey": "turtleclubdiamond6",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "8U (Ellwood)",
+          "sourceLabel": "Titans 8U (Ellwood)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Turtle Club - Diamond #7",
+          "diamondKey": "turtleclubdiamond7",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "14U T1 (vanWezel)",
+          "sourceLabel": "Titans 14U T1 (vanWezel)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "18U (Diotte)",
+          "sourceLabel": "Titans 18U (Diotte)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "12U T1 (Hotts)",
+          "sourceLabel": "Titans 12U T1 (Hotts)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Vollmer #1",
+          "diamondKey": "vollmer1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "14U T2 (Soltis)",
+          "sourceLabel": "Titans 14U T2 (Soltis)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Vollmer #2",
+          "diamondKey": "vollmer2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "16U (Layson)",
+          "sourceLabel": "Titans 16U (Layson)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Vollmer #4",
+          "diamondKey": "vollmer4",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "11U (Sivell)",
+          "sourceLabel": "Titans 11U (Sivell)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Vollmer #5",
+          "diamondKey": "vollmer5",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "11U T2 (Dufour)",
+          "sourceLabel": "Titans 11U T2 (G. Dufour)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Vollmer #7",
+          "diamondKey": "vollmer7",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "12U T2 (Palubiski)",
+          "sourceLabel": "Titans 12U T2 (Palubiski)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "River Canard #3",
+          "diamondKey": "rivercanard3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "8U/9U (Wachna)",
+          "sourceLabel": "Titans 9UM (Wachna)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "9U (Shaw)",
+          "sourceLabel": "Titans 9U (Shaw)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Turtle Club - Diamond #6",
+          "diamondKey": "turtleclubdiamond6",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "8U/9U (Wachna)",
+          "sourceLabel": "Titans 9UM (Wachna)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "14U T1 (vanWezel)",
+          "sourceLabel": "Titans 14U T1 (vanWezel)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "12U T2 (Palubiski)",
+          "sourceLabel": "Titans 12U (Palubiski)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Vollmer #1",
+          "diamondKey": "vollmer1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "18U (Diotte)",
+          "sourceLabel": "Titans 18U (Diotte)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Vollmer #2",
+          "diamondKey": "vollmer2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "15U (Nickelson)",
+          "sourceLabel": "Titans 15U (Nickelson)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Vollmer #4",
+          "diamondKey": "vollmer4",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "13U T1 (Baker)",
+          "sourceLabel": "Titans 13U (Baker)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Vollmer #5",
+          "diamondKey": "vollmer5",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "10U T2 (Martin)",
+          "sourceLabel": "Titans 10U T2 (Martin)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Vollmer #7",
+          "diamondKey": "vollmer7",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "12U T1 (Hotts)",
+          "sourceLabel": "Titans 12U T1 (Hotts)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Vollmer #8",
+          "diamondKey": "vollmer8",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "11U T2 (Dufour)",
+          "sourceLabel": "Titans 11U T2 (Dufour)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Turtle Club - Diamond #7",
+          "diamondKey": "turtleclubdiamond7",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "14U T2 (Soltis)",
+          "sourceLabel": "Titans 14U T2 (Soltis)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "16U (Layson)",
+          "sourceLabel": "Titans 16U (Layson)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "11U (Sivell)",
+          "sourceLabel": "Titans 11U (Sivell)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Vollmer #4",
+          "diamondKey": "vollmer4",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "10U (Picco)",
+          "sourceLabel": "Titans 10U (Picco)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Vollmer #5",
+          "diamondKey": "vollmer5",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "13U T1 (Baker)",
+          "sourceLabel": "Titans 13U (Baker)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Turtle Club - Diamond #1",
+          "diamondKey": "turtleclubdiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "10U T2 (Martin)",
+          "sourceLabel": "Titans 10U T2 (Martin)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "8U (Ellwood)",
+          "sourceLabel": "Titans 8U (Ellwood)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Turtle Club - Diamond #7",
+          "diamondKey": "turtleclubdiamond7",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "12U T2 (Palubiski)",
+          "sourceLabel": "Titans 12U T2 (Palubiski)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "15U (Nickelson)",
+          "sourceLabel": "Titans 15U (Nickelson)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "13U T1 (Baker)",
+          "sourceLabel": "Titans 13U (S. Baker)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Vollmer #8",
+          "diamondKey": "vollmer8",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "9U (Shaw)",
+          "sourceLabel": "Titans 9U (Shaw)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "09:00",
+          "end": "11:00",
+          "timeLabel": "9:00 AM-11:00 AM",
+          "team": "14U T1 (vanWezel)",
+          "sourceLabel": "Titans 14U T1 (vanWezel)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "09:00",
+          "end": "11:00",
+          "timeLabel": "9:00 AM-11:00 AM",
+          "team": "11U (Sivell)",
+          "sourceLabel": "Titans 11U (Sivell)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #7",
+          "diamondKey": "turtleclubdiamond7",
+          "start": "12:00",
+          "end": "14:00",
+          "timeLabel": "12:00 PM-2:00 PM",
+          "team": "14U T2 (Soltis)",
+          "sourceLabel": "Titans 14U T2 (Soltis)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "12:00",
+          "end": "14:00",
+          "timeLabel": "12:00 PM-2:00 PM",
+          "team": "18U (Diotte)",
+          "sourceLabel": "Titans 18U (Diotte)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "12:00",
+          "end": "14:00",
+          "timeLabel": "12:00 PM-2:00 PM",
+          "team": "12U T1 (Hotts)",
+          "sourceLabel": "Titans 12U T1 (Hotts)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "15:00",
+          "end": "19:00",
+          "timeLabel": "3:00 PM-7:00 PM",
+          "team": "16U (Layson)",
+          "sourceLabel": "Titans 16U (Layson)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "15:00",
+          "end": "17:00",
+          "timeLabel": "3:00 PM-5:00 PM",
+          "team": "13U T1 (Baker)",
+          "sourceLabel": "Titans 13U (S. Baker)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "10U (Picco)",
+          "sourceLabel": "Titans 10U (Picco)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "11U T2 (Dufour)",
+          "sourceLabel": "Titans 11U T2 (G. Dufour)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "8U (Ellwood)",
+          "sourceLabel": "Titans 8U (Ellwood)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #6",
+          "diamondKey": "turtleclubdiamond6",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "8U/9U (Wachna)",
+          "sourceLabel": "Titans 9UM (Wachna)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #7",
+          "diamondKey": "turtleclubdiamond7",
+          "start": "09:00",
+          "end": "11:00",
+          "timeLabel": "9:00 AM-11:00 AM",
+          "team": "14U T1 (vanWezel)",
+          "sourceLabel": "Titans 14U T1 (vanWezel)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "09:00",
+          "end": "11:00",
+          "timeLabel": "9:00 AM-11:00 AM",
+          "team": "15U (Nickleson)",
+          "sourceLabel": "Titans 15U (Nickleson)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "09:00",
+          "end": "11:00",
+          "timeLabel": "9:00 AM-11:00 AM",
+          "team": "11U (Sivell)",
+          "sourceLabel": "Titans 11U (Sivell)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #7",
+          "diamondKey": "turtleclubdiamond7",
+          "start": "12:00",
+          "end": "14:00",
+          "timeLabel": "12:00 PM-2:00 PM",
+          "team": "14U T2 (Soltis)",
+          "sourceLabel": "Titans 14U T2 (Soltis)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "12:00",
+          "end": "14:00",
+          "timeLabel": "12:00 PM-2:00 PM",
+          "team": "18U (Diotte)",
+          "sourceLabel": "Titans 18U (Diotte)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "12:00",
+          "end": "14:00",
+          "timeLabel": "12:00 PM-2:00 PM",
+          "team": "12U T2 (Palubiski)",
+          "sourceLabel": "Titans 12U (Palubiski)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #2",
+          "diamondKey": "turtleclubdiamond2",
+          "start": "13:00",
+          "end": "15:00",
+          "timeLabel": "1:00 PM-3:00 PM",
+          "team": "11U T2 (Dufour)",
+          "sourceLabel": "Titans 11U T2 (G. Dufour)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "15:00",
+          "end": "17:00",
+          "timeLabel": "3:00 PM-5:00 PM",
+          "team": "12U T1 (Hotts)",
+          "sourceLabel": "Titans 12U T1 (Hotts)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #1",
+          "diamondKey": "turtleclubdiamond1",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "10U (Picco)",
+          "sourceLabel": "Titans 10U (Picco)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "10U T2 (Martin)",
+          "sourceLabel": "Titans 10U T2 (Martin)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "8U/9U (Wachna)",
+          "sourceLabel": "Titans 9UM (Wachna)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #6",
+          "diamondKey": "turtleclubdiamond6",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "9U (Shaw)",
+          "sourceLabel": "Titans 9U (Shaw)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "16U (Layson)",
+          "sourceLabel": "Titans 16U (Layson)"
+        }
+      ]
+    },
+    {
+      "name": "postHouseLeague",
+      "sheet": "Post HL Diamond Allotment",
+      "from": "2026-06-30",
+      "through": "2026-12-31",
+      "slots": [
+        {
+          "day": "Monday",
+          "diamond": "Turtle Club - Diamond #1",
+          "diamondKey": "turtleclubdiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "9U (Picco)",
+          "sourceLabel": "Titans 9U (Picco)"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Turtle Club - Diamond #2",
+          "diamondKey": "turtleclubdiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "8U (Shaw)",
+          "sourceLabel": "Titans 8U (Shaw)"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "10U T2 (DiPonio)",
+          "sourceLabel": "Titans 10U T2 (DiPonio)"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Turtle Club - Diamond #7",
+          "diamondKey": "turtleclubdiamond7",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "16U (Pearson)",
+          "sourceLabel": "Titans 16U (Pearson)"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "14U (Nickleson)",
+          "sourceLabel": "Titans 14U (Nickleson)"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "12U T2 (Baker)",
+          "sourceLabel": "Titans 12U T2 (S. Baker)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Turtle Club - Diamond #1",
+          "diamondKey": "turtleclubdiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "8U/9U (Martin)",
+          "sourceLabel": "Titans 9UM (Martin)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "10U (Sivell)",
+          "sourceLabel": "Titans 10U (Sivell)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Turtle Club - Diamond #6",
+          "diamondKey": "turtleclubdiamond6",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "8U (Shaw)",
+          "sourceLabel": "Titans 8U (Shaw)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Turtle Club - Diamond #7",
+          "diamondKey": "turtleclubdiamond7",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "13U T2 (Soltis)",
+          "sourceLabel": "Titans 13U T2 (Soltis)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "18U (Diotte)",
+          "sourceLabel": "Titans 17/18U (Diotte)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "13U (VanWezel)",
+          "sourceLabel": "Titans 13U (VanWezel)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Vollmer #1",
+          "diamondKey": "vollmer1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "14U T2 (Myers)",
+          "sourceLabel": "Titans 14U T2 (Myers)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Vollmer #2",
+          "diamondKey": "vollmer2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "15U (Tramontozzi)",
+          "sourceLabel": "Titans 15U (Tramontozzi)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Vollmer #4",
+          "diamondKey": "vollmer4",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "12U (Dufour)",
+          "sourceLabel": "Titans 12U (G. Dufour)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Vollmer #5",
+          "diamondKey": "vollmer5",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "11U (Hotts)",
+          "sourceLabel": "Titans 11U (Hotts)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Turtle Club - Diamond #1",
+          "diamondKey": "turtleclubdiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "11U (Hotts)",
+          "sourceLabel": "Titans 11U (Hotts)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "9U (Picco)",
+          "sourceLabel": "Titans 9U (Picco)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Turtle Club - Diamond #6",
+          "diamondKey": "turtleclubdiamond6",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "8U/9U (Martin)",
+          "sourceLabel": "Titans 9UM (Martin)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Turtle Club - Diamond #7",
+          "diamondKey": "turtleclubdiamond7",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "14U (Nickleson)",
+          "sourceLabel": "Titans 14U (Nickleson)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "16U (Pearson)",
+          "sourceLabel": "Titans 16U (Pearson)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "13U T2 (Soltis)",
+          "sourceLabel": "Titans 13U T2 (Soltis)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Vollmer #1",
+          "diamondKey": "vollmer1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "18U (Diotte)",
+          "sourceLabel": "Titans 17/18U (Diotte)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Vollmer #4",
+          "diamondKey": "vollmer4",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "12U T2 (Baker)",
+          "sourceLabel": "Titans 12U T2 (S. Baker)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Vollmer #5",
+          "diamondKey": "vollmer5",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "10U T2 (DiPonio)",
+          "sourceLabel": "Titans 10U T2 (DiPonio)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Vollmer #7",
+          "diamondKey": "vollmer7",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "12U (Dufour)",
+          "sourceLabel": "Titans 12U (G. Dufour)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Turtle Club - Diamond #1",
+          "diamondKey": "turtleclubdiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "10U (Sivell)",
+          "sourceLabel": "Titans 10U (Sivell)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "15U (Tramontozzi)",
+          "sourceLabel": "Titans 15U (Tramontozzi)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "13U (VanWezel)",
+          "sourceLabel": "Titans 13U (VanWezel)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Turtle Club - Diamond #1",
+          "diamondKey": "turtleclubdiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "10U T2 (DiPonio)",
+          "sourceLabel": "Titans 10U T2 (DiPonio)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "8U (Picco)",
+          "sourceLabel": "Titans 8U (Picco)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Turtle Club - Diamond #6",
+          "diamondKey": "turtleclubdiamond6",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "8U (Shaw)",
+          "sourceLabel": "Titans 8U (Shaw)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Turtle Club - Diamond #7",
+          "diamondKey": "turtleclubdiamond7",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "12U T2 (Baker)",
+          "sourceLabel": "Titans 12U T2 (S. Baker)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "14U T2 (Myers)",
+          "sourceLabel": "Titans 14U T2 (Myers) 9-12"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "12U (Dufour)",
+          "sourceLabel": "Titans 12U (G. Dufour)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Vollmer #2",
+          "diamondKey": "vollmer2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "16U (Pearson)",
+          "sourceLabel": "Titans 16U (Pearson)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "09:00",
+          "end": "11:00",
+          "timeLabel": "9:00 AM-11:00 AM",
+          "team": "13U (VanWezel)",
+          "sourceLabel": "Titans 13U (VanWezel)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #7",
+          "diamondKey": "turtleclubdiamond7",
+          "start": "12:00",
+          "end": "14:00",
+          "timeLabel": "12:00 PM-2:00 PM",
+          "team": "14U (Nickleson)",
+          "sourceLabel": "Titans 14U (Nickleson)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "12:00",
+          "end": "14:00",
+          "timeLabel": "12:00 PM-2:00 PM",
+          "team": "18U (Diotte)",
+          "sourceLabel": "Titans 17/18U (Diotte)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "12:00",
+          "end": "14:00",
+          "timeLabel": "12:00 PM-2:00 PM",
+          "team": "13U T2 (Soltis)",
+          "sourceLabel": "Titans 13U T2 (Soltis)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "15:00",
+          "end": "19:00",
+          "timeLabel": "3:00 PM-7:00 PM",
+          "team": "15U (Tramontozzi)",
+          "sourceLabel": "Titans 15U (Tramontozzi)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "15:00",
+          "end": "17:00",
+          "timeLabel": "3:00 PM-5:00 PM",
+          "team": "12U T2 (Baker)",
+          "sourceLabel": "Titans 12U T2 (S. Baker)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "10U (Sivell)",
+          "sourceLabel": "Titans 10U (Sivell)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "11U (Hotts)",
+          "sourceLabel": "Titans 11U (Hotts)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "8U/9U (Martin)",
+          "sourceLabel": "Titans 9UM (Martin)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #6",
+          "diamondKey": "turtleclubdiamond6",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "9U (Picco)",
+          "sourceLabel": "Titans 9U (Picco)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #7",
+          "diamondKey": "turtleclubdiamond7",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "14U T2 (Myers)",
+          "sourceLabel": "Titans 14U T2 (Myers)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #7",
+          "diamondKey": "turtleclubdiamond7",
+          "start": "09:00",
+          "end": "11:00",
+          "timeLabel": "9:00 AM-11:00 AM",
+          "team": "14U (Nickelson)",
+          "sourceLabel": "Titans 14U (Nickelson)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "09:00",
+          "end": "11:00",
+          "timeLabel": "9:00 AM-11:00 AM",
+          "team": "16U (Pearson)",
+          "sourceLabel": "Titans 16U (Pearson)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "09:00",
+          "end": "11:00",
+          "timeLabel": "9:00 AM-11:00 AM",
+          "team": "13U (VanWezel)",
+          "sourceLabel": "Titans 13U (VanWezel)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #7",
+          "diamondKey": "turtleclubdiamond7",
+          "start": "12:00",
+          "end": "14:00",
+          "timeLabel": "12:00 PM-2:00 PM",
+          "team": "14U T2 (Myers)",
+          "sourceLabel": "Titans 14U T2 (Myers)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "12:00",
+          "end": "14:00",
+          "timeLabel": "12:00 PM-2:00 PM",
+          "team": "18U (Diotte)",
+          "sourceLabel": "Titans 17/18U (Diotte)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "12:00",
+          "end": "14:00",
+          "timeLabel": "12:00 PM-2:00 PM",
+          "team": "12U (Dufour)",
+          "sourceLabel": "Titans 12U (G. Dufour)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "15:00",
+          "end": "19:00",
+          "timeLabel": "3:00 PM-7:00 PM",
+          "team": "15U (Tramontozzi)",
+          "sourceLabel": "Titans 15U (Tramontozzi)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "15:00",
+          "end": "17:00",
+          "timeLabel": "3:00 PM-5:00 PM",
+          "team": "13U T2 (Soltis)",
+          "sourceLabel": "Titans 13U T2 (Soltis)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #1",
+          "diamondKey": "turtleclubdiamond1",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "10U (Sivell)",
+          "sourceLabel": "Titans 10U (Sivell)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "10U T2 (DiPonio)",
+          "sourceLabel": "Titans 10U T2 (DiPonio)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "8U/9U (Martin)",
+          "sourceLabel": "Titans 9UM (Martin)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #6",
+          "diamondKey": "turtleclubdiamond6",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "8U (Shaw)",
+          "sourceLabel": "Titans 8U (Shaw)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "11U (Hotts)",
+          "sourceLabel": "Titans 11U (Hotts)"
+        }
+      ]
+    }
+  ]
+}

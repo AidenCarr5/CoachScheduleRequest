@@ -1721,6 +1721,24 @@ dialog {
   background: #fff3f1;
 }
 
+.admin-request-card.allocation-pending {
+  border-left-color: #d6aa2c;
+  background: #fff8dc;
+}
+
+.allocation-approval-note {
+  border: 1px solid #ead27c;
+  background: #fff3b8;
+  color: #5b4700 !important;
+  padding: 10px 12px;
+}
+
+.allocation-approval-note.approved {
+  border-color: #b9d9bc;
+  background: #eef8f0;
+  color: var(--good) !important;
+}
+
 .admin-request-head,
 .admin-request-actions {
   display: flex;

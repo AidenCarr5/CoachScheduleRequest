@@ -147,26 +147,37 @@
   }
 
   function renderRequest(request) {
-    const forceDisabled = request.status !== 'pending' ? ' disabled data-force-disabled="true"' : '';
+    const allocation = request.allocationApproval || {};
+    const allocationPending = request.status === 'pending' && allocation.status === 'pending';
+    const approveDisabled = request.status !== 'pending' || allocationPending ? ' disabled data-force-disabled="true"' : '';
+    const rejectDisabled = request.status !== 'pending' ? ' disabled data-force-disabled="true"' : '';
     const showClear = request.status === 'approved' || request.status === 'rejected';
     const readOnly = isReadOnlyAdminViewer();
     const noteAttributes = readOnly ? ' readonly aria-readonly="true"' : '';
     const actionDisabled = readOnly ? ' disabled' : '';
+    const cardClass = allocationPending ? 'allocation-pending' : escapeHtml(request.status || 'pending');
+    const statusLabel = allocationPending ? 'requires additional approval' : (request.status || 'pending');
+    const allocationText = allocationPending
+      ? `<p class="allocation-approval-note"><strong>Additional approval required.</strong> ${escapeHtml(allocation.reason || '')}</p>`
+      : allocation.status === 'approved'
+        ? `<p class="allocation-approval-note approved"><strong>Additional approval accepted.</strong> ${escapeHtml(allocation.reason || '')}</p>`
+        : '';
     return `
-      <article class="admin-request-card ${escapeHtml(request.status || 'pending')}">
+      <article class="admin-request-card ${cardClass}">
         <div class="admin-request-head">
           <strong>${escapeHtml(request.action)} - ${escapeHtml(request.team)}</strong>
-          <span>${escapeHtml(request.status || 'pending')}</span>
+          <span>${escapeHtml(statusLabel)}</span>
         </div>
         <p>${escapeHtml(request.date)} ${escapeHtml(request.start || '')} ${escapeHtml(request.opponent || '')}</p>
         <p>${escapeHtml(request.diamond || '')}</p>
         <p>${escapeHtml(request.reason || '')}</p>
         <p>${escapeHtml(request.availabilityStatus || '')}</p>
+        ${allocationText}
         <label class="admin-note-label" for="admin-note-${escapeHtml(request.id)}">Admin note</label>
         <textarea id="admin-note-${escapeHtml(request.id)}" class="admin-note-input" data-admin-note="${escapeHtml(request.id)}" rows="3" placeholder="Why was this approved or rejected?"${noteAttributes}>${escapeHtml(request.adminNote || '')}</textarea>
         <div class="admin-request-actions">
-          <button class="primary" type="button" data-approve="${request.id}"${forceDisabled}${actionDisabled}>Approve</button>
-          <button class="cancel-btn" type="button" data-reject="${request.id}"${forceDisabled}${actionDisabled}>Reject</button>
+          <button class="primary" type="button" data-approve="${request.id}"${approveDisabled}${actionDisabled}>Approve</button>
+          <button class="cancel-btn" type="button" data-reject="${request.id}"${rejectDisabled}${actionDisabled}>Reject</button>
           ${showClear ? `<button class="secondary" type="button" data-clear="${request.id}"${actionDisabled}>Clear</button>` : ''}
         </div>
       </article>
