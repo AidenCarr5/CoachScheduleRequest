@@ -1,6 +1,6 @@
 {
   "sourceWorkbook": "2026 Master TC Diamond Schedule - JUNE01.xlsx",
-  "notes": "Generated from the weekly/post-house-league diamond allotment grids. Weekday matches ignore time; weekend matches use the start/end windows below.",
+  "notes": "Generated from the weekly/post-house-league diamond allotment grids. Weekday matches ignore time; weekend matches use the start/end windows below. Slots include Titans, Athletics, House League, Select, and other named allocations.",
   "phases": [
     {
       "name": "weekly",
@@ -10,13 +10,102 @@
       "slots": [
         {
           "day": "Monday",
+          "diamond": "Turtle Club - Diamond #1",
+          "diamondKey": "turtleclubdiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "HL Pee Wee/Bantam",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Pee Wee/Bantam"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Turtle Club - Diamond #2",
+          "diamondKey": "turtleclubdiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U13 Gold (Hunt)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U13 Gold (Hunt)"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "HL INT. Softball",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL INT. Softball"
+        },
+        {
+          "day": "Monday",
           "diamond": "Turtle Club - Diamond #4",
           "diamondKey": "turtleclubdiamond4",
           "start": "18:00",
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "9U (Shaw)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 9U (Shaw)"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U11 Green (Natyshak)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U11 Green (Natyshak)"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Turtle Club - Diamond #6",
+          "diamondKey": "turtleclubdiamond6",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "HL INT. Softball",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL INT. Softball"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Turtle Club - Diamond #7",
+          "diamondKey": "turtleclubdiamond7",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "HL Pee Wee/Bantam",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Pee Wee/Bantam"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Batting Cage 1 (BC1)",
+          "diamondKey": "battingcage1bc1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Titans and HL Pee Wee/Bantam",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Titans and HL Pee Wee/Bantam"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Batting Cage 2 (BC2)",
+          "diamondKey": "battingcage2bc2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics"
         },
         {
           "day": "Monday",
@@ -26,6 +115,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "15U (Nickelson)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 15U (Nickelson)"
         },
         {
@@ -36,7 +126,30 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "13U T1 (Baker)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 13U (S. Baker)"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Vollmer #1",
+          "diamondKey": "vollmer1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Pee Wee/ Bantam",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Pee Wee/ Bantam"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Vollmer #3",
+          "diamondKey": "vollmer3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics Intermediate (Stadler)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics Intermediate (Stadler)"
         },
         {
           "day": "Monday",
@@ -46,6 +159,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "10U T2 (Martin)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 10U T2 (Martin)"
         },
         {
@@ -56,7 +170,41 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "8U (Ellwood)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 8U (Ellwood)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Turtle Club - Diamond #1",
+          "diamondKey": "turtleclubdiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "HL Mosquito",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Mosquito"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Turtle Club - Diamond #2",
+          "diamondKey": "turtleclubdiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics Intermediate (Stadler)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics Intermediate (Stadler)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "HL Mosquito",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Mosquito"
         },
         {
           "day": "Tuesday",
@@ -66,7 +214,19 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "10U (Picco)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 10U (Picco)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U11 Green (Lussier)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U11 Green (Lussier)"
         },
         {
           "day": "Tuesday",
@@ -76,6 +236,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "8U (Ellwood)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 8U (Ellwood)"
         },
         {
@@ -86,7 +247,30 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "14U T1 (vanWezel)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 14U T1 (vanWezel)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Batting Cage 1 (BC1)",
+          "diamondKey": "battingcage1bc1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "HL Mosquito and Titans",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Mosquito and Titans"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Batting Cage 2 (BC2)",
+          "diamondKey": "battingcage2bc2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics"
         },
         {
           "day": "Tuesday",
@@ -96,6 +280,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "18U (Diotte)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 18U (Diotte)"
         },
         {
@@ -106,6 +291,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "12U T1 (Hotts)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 12U T1 (Hotts)"
         },
         {
@@ -116,6 +302,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "14U T2 (Soltis)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 14U T2 (Soltis)"
         },
         {
@@ -126,7 +313,19 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "16U (Layson)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 16U (Layson)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Vollmer #3",
+          "diamondKey": "vollmer3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U17 Gold (Signorelli)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U17 Gold (Signorelli)"
         },
         {
           "day": "Tuesday",
@@ -136,6 +335,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "11U (Sivell)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 11U (Sivell)"
         },
         {
@@ -146,7 +346,19 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "11U T2 (Dufour)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 11U T2 (G. Dufour)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Vollmer #6",
+          "diamondKey": "vollmer6",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U13 Green (Grondin)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U13 Green (Grondin)"
         },
         {
           "day": "Tuesday",
@@ -156,7 +368,19 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "12U T2 (Palubiski)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 12U T2 (Palubiski)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Vollmer #8",
+          "diamondKey": "vollmer8",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U15 Green (Baltzer)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U15 Green (Baltzer)"
         },
         {
           "day": "Tuesday",
@@ -166,7 +390,41 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "8U/9U (Wachna)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 9UM (Wachna)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "River Canard #4",
+          "diamondKey": "rivercanard4",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "HL SR Softball",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL SR Softball"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Turtle Club - Diamond #1",
+          "diamondKey": "turtleclubdiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "HL Pee Wee/Bantam",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Pee Wee/Bantam"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Turtle Club - Diamond #2",
+          "diamondKey": "turtleclubdiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U13 Gold (Hunt)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U13 Gold (Hunt)"
         },
         {
           "day": "Wednesday",
@@ -176,7 +434,30 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "9U (Shaw)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 9U (Shaw)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U15 Green (Baltzer)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U15 Green (Baltzer)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U11 Green (Natyshak)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U11 Green (Natyshak)"
         },
         {
           "day": "Wednesday",
@@ -186,7 +467,41 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "8U/9U (Wachna)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 9UM (Wachna)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Turtle Club - Diamond #7",
+          "diamondKey": "turtleclubdiamond7",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "HL Pee Wee/Bantam",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Pee Wee/Bantam"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Batting Cage 1 (BC1)",
+          "diamondKey": "battingcage1bc1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Titans and HL Pee Wee/Bantam",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Titans and HL Pee Wee/Bantam"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Batting Cage 2 (BC2)",
+          "diamondKey": "battingcage2bc2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics"
         },
         {
           "day": "Wednesday",
@@ -196,6 +511,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "14U T1 (vanWezel)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 14U T1 (vanWezel)"
         },
         {
@@ -206,6 +522,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "12U T2 (Palubiski)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 12U (Palubiski)"
         },
         {
@@ -216,6 +533,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "18U (Diotte)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 18U (Diotte)"
         },
         {
@@ -226,7 +544,19 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "15U (Nickelson)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 15U (Nickelson)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Vollmer #3",
+          "diamondKey": "vollmer3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Pee Wee/ Bantam",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Pee Wee/ Bantam"
         },
         {
           "day": "Wednesday",
@@ -236,6 +566,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "13U T1 (Baker)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 13U (Baker)"
         },
         {
@@ -246,7 +577,19 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "10U T2 (Martin)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 10U T2 (Martin)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Vollmer #6",
+          "diamondKey": "vollmer6",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "13U Select Softball (Paquette)",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "13U Select Softball (Paquette)"
         },
         {
           "day": "Wednesday",
@@ -256,6 +599,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "12U T1 (Hotts)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 12U T1 (Hotts)"
         },
         {
@@ -266,7 +610,74 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "11U T2 (Dufour)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 11U T2 (Dufour)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Turtle Club - Diamond #1",
+          "diamondKey": "turtleclubdiamond1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "HL Mosquito",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Mosquito"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Turtle Club - Diamond #2",
+          "diamondKey": "turtleclubdiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U17 Gold (Signorelli)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U17 Gold (Signorelli)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "HL Mosquito",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Mosquito"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U13 Green (Grondin)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U13 Green (Grondin)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U11 Green (Lussier)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U11 Green (Lussier)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Turtle Club - Diamond #6",
+          "diamondKey": "turtleclubdiamond6",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "9U Select Softball (Goz)",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "9U Select Softball (Goz)"
         },
         {
           "day": "Thursday",
@@ -276,7 +687,30 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "14U T2 (Soltis)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 14U T2 (Soltis)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Batting Cage 1 (BC1)",
+          "diamondKey": "battingcage1bc1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "HL Mosquito and Titans",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Mosquito and Titans"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Batting Cage 2 (BC2)",
+          "diamondKey": "battingcage2bc2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics"
         },
         {
           "day": "Thursday",
@@ -286,6 +720,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "16U (Layson)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 16U (Layson)"
         },
         {
@@ -296,7 +731,30 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "11U (Sivell)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 11U (Sivell)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Vollmer #2",
+          "diamondKey": "vollmer2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "U15 Select Baseball (Johns)",
+          "ownerCategory": "select",
+          "sourceLabel": "U15 Select Baseball (Johns)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Vollmer #3",
+          "diamondKey": "vollmer3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "11U Select Softball (Meyers)",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "11U Select Softball (Meyers)"
         },
         {
           "day": "Thursday",
@@ -306,6 +764,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "10U (Picco)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 10U (Picco)"
         },
         {
@@ -316,7 +775,41 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "13U T1 (Baker)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 13U (Baker)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Vollmer #6",
+          "diamondKey": "vollmer6",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U11 Reserve",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U11 Reserve"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Vollmer #7",
+          "diamondKey": "vollmer7",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Girls T-Ball Select (Dufour)",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Girls T-Ball Select (Dufour)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Vollmer #8",
+          "diamondKey": "vollmer8",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Jr. T-Ball Select (TBD)",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Jr. T-Ball Select (TBD)"
         },
         {
           "day": "Friday",
@@ -326,7 +819,41 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "10U T2 (Martin)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 10U T2 (Martin)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Turtle Club - Diamond #2",
+          "diamondKey": "turtleclubdiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "HL INT. Softball",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL INT. Softball"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U13 Green (Grondin)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U13 Green (Grondin)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U17 Gold (Signorelli)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U17 Gold (Signorelli)"
         },
         {
           "day": "Friday",
@@ -336,7 +863,19 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "8U (Ellwood)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 8U (Ellwood)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Turtle Club - Diamond #6",
+          "diamondKey": "turtleclubdiamond6",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "HL INT. Softball",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL INT. Softball"
         },
         {
           "day": "Friday",
@@ -346,7 +885,30 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "12U T2 (Palubiski)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 12U T2 (Palubiski)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Batting Cage 1 (BC1)",
+          "diamondKey": "battingcage1bc1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Titans",
+          "ownerCategory": "other",
+          "sourceLabel": "Titans"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Batting Cage 2 (BC2)",
+          "diamondKey": "battingcage2bc2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics and HL Softball",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics and HL Softball"
         },
         {
           "day": "Friday",
@@ -356,6 +918,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "15U (Nickelson)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 15U (Nickelson)"
         },
         {
@@ -366,7 +929,74 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "13U T1 (Baker)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 13U (S. Baker)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Vollmer #2",
+          "diamondKey": "vollmer2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Midget HL",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Midget HL"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Vollmer #3",
+          "diamondKey": "vollmer3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U13 Gold (Hunt)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U13 Gold (Hunt)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Vollmer #4",
+          "diamondKey": "vollmer4",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U11 Gold (Natyshak)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U11 Gold (Natyshak)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Vollmer #5",
+          "diamondKey": "vollmer5",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U15 Green (Baltzer)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U15 Green (Baltzer)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Vollmer #6",
+          "diamondKey": "vollmer6",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U11 Green (Lussier)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U11 Green (Lussier)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Vollmer #7",
+          "diamondKey": "vollmer7",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "15U Select Softball (Brewer)",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "15U Select Softball (Brewer)"
         },
         {
           "day": "Friday",
@@ -376,7 +1006,107 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "9U (Shaw)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 9U (Shaw)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #1",
+          "diamondKey": "turtleclubdiamond1",
+          "start": "09:00",
+          "end": "10:00",
+          "timeLabel": "9:00 AM-10:00 AM",
+          "team": "HL Rookie",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Rookie"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #2",
+          "diamondKey": "turtleclubdiamond2",
+          "start": "09:00",
+          "end": "10:00",
+          "timeLabel": "9:00 AM-10:00 AM",
+          "team": "HL JR Softball",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL JR Softball"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "09:00",
+          "end": "09:00",
+          "timeLabel": "9:00 AM",
+          "team": "Jr. Little Turtles (8:45am Start)",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Jr. Little Turtles (8:45am Start)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "09:00",
+          "end": "09:00",
+          "timeLabel": "9:00 AM",
+          "team": "Jr. Little Turtles (8:45am Start)",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Jr. Little Turtles (8:45am Start)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "09:00",
+          "end": "09:00",
+          "timeLabel": "9:00 AM",
+          "team": "Jr. Little Turtles (8:45am Start)",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Jr. Little Turtles (8:45am Start)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #6",
+          "diamondKey": "turtleclubdiamond6",
+          "start": "09:00",
+          "end": "10:00",
+          "timeLabel": "9:00 AM-10:00 AM",
+          "team": "HL JR Softball",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL JR Softball"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #7",
+          "diamondKey": "turtleclubdiamond7",
+          "start": "09:00",
+          "end": "11:00",
+          "timeLabel": "9:00 AM-11:00 AM",
+          "team": "Midget HL",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Midget HL"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Batting Cage 1 (BC1)",
+          "diamondKey": "battingcage1bc1",
+          "start": "09:00",
+          "end": "10:00",
+          "timeLabel": "9:00 AM-10:00 AM",
+          "team": "HL SB",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL SB"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Batting Cage 2 (BC2)",
+          "diamondKey": "battingcage2bc2",
+          "start": "09:00",
+          "end": "14:00",
+          "timeLabel": "9:00 AM-2:00 PM",
+          "team": "HL Rookie",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Rookie"
         },
         {
           "day": "Saturday",
@@ -386,6 +1116,7 @@
           "end": "11:00",
           "timeLabel": "9:00 AM-11:00 AM",
           "team": "14U T1 (vanWezel)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 14U T1 (vanWezel)"
         },
         {
@@ -396,7 +1127,118 @@
           "end": "11:00",
           "timeLabel": "9:00 AM-11:00 AM",
           "team": "11U (Sivell)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 11U (Sivell)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "10:00",
+          "end": "10:00",
+          "timeLabel": "10:00 AM",
+          "team": "Sr. Little Turtles (10am Start)",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Sr. Little Turtles (10am Start)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "10:00",
+          "end": "10:00",
+          "timeLabel": "10:00 AM",
+          "team": "Sr. Little Turtles (10am Start)",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Sr. Little Turtles (10am Start)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "10:00",
+          "end": "10:00",
+          "timeLabel": "10:00 AM",
+          "team": "Sr. Little Turtles (10am Start)",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Sr. Little Turtles (10am Start)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #1",
+          "diamondKey": "turtleclubdiamond1",
+          "start": "11:00",
+          "end": "12:00",
+          "timeLabel": "11:00 AM-12:00 PM",
+          "team": "HL Rookie",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Rookie"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #2",
+          "diamondKey": "turtleclubdiamond2",
+          "start": "11:00",
+          "end": "12:00",
+          "timeLabel": "11:00 AM-12:00 PM",
+          "team": "HL SR Softball Interlock",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL SR Softball Interlock"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "11:00",
+          "end": "12:00",
+          "timeLabel": "11:00 AM-12:00 PM",
+          "team": "HL Jr. T-Ball 11:15am Start",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Jr. T-Ball 11:15am Start"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "11:00",
+          "end": "12:00",
+          "timeLabel": "11:00 AM-12:00 PM",
+          "team": "HL Jr. T-Ball 11:15am Start",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Jr. T-Ball 11:15am Start"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "11:00",
+          "end": "12:00",
+          "timeLabel": "11:00 AM-12:00 PM",
+          "team": "HL Jr. T-Ball 11:15am Start",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Jr. T-Ball 11:15am Start"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #6",
+          "diamondKey": "turtleclubdiamond6",
+          "start": "11:00",
+          "end": "12:00",
+          "timeLabel": "11:00 AM-12:00 PM",
+          "team": "HL JR Softball",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL JR Softball"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Batting Cage 1 (BC1)",
+          "diamondKey": "battingcage1bc1",
+          "start": "11:00",
+          "end": "12:00",
+          "timeLabel": "11:00 AM-12:00 PM",
+          "team": "HL SB",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL SB"
         },
         {
           "day": "Saturday",
@@ -406,6 +1248,7 @@
           "end": "14:00",
           "timeLabel": "12:00 PM-2:00 PM",
           "team": "14U T2 (Soltis)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 14U T2 (Soltis)"
         },
         {
@@ -416,6 +1259,7 @@
           "end": "14:00",
           "timeLabel": "12:00 PM-2:00 PM",
           "team": "18U (Diotte)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 18U (Diotte)"
         },
         {
@@ -426,7 +1270,74 @@
           "end": "14:00",
           "timeLabel": "12:00 PM-2:00 PM",
           "team": "12U T1 (Hotts)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 12U T1 (Hotts)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #1",
+          "diamondKey": "turtleclubdiamond1",
+          "start": "13:00",
+          "end": "14:00",
+          "timeLabel": "1:00 PM-2:00 PM",
+          "team": "HL Rookie",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Rookie"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "13:00",
+          "end": "14:00",
+          "timeLabel": "1:00 PM-2:00 PM",
+          "team": "HL Sr. T-Ball",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Sr. T-Ball"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "13:00",
+          "end": "14:00",
+          "timeLabel": "1:00 PM-2:00 PM",
+          "team": "HL Sr. T-Ball",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Sr. T-Ball"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "13:00",
+          "end": "14:00",
+          "timeLabel": "1:00 PM-2:00 PM",
+          "team": "HL Sr. T-Ball",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Sr. T-Ball"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Batting Cage 1 (BC1)",
+          "diamondKey": "battingcage1bc1",
+          "start": "13:00",
+          "end": "14:00",
+          "timeLabel": "1:00 PM-2:00 PM",
+          "team": "HL SB",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL SB"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Vollmer #3",
+          "diamondKey": "vollmer3",
+          "start": "13:00",
+          "end": "15:00",
+          "timeLabel": "1:00 PM-3:00 PM",
+          "team": "Windsor Selects 13U 1pm and 3:30pm",
+          "ownerCategory": "select",
+          "sourceLabel": "Windsor Selects 13U 1pm and 3:30pm"
         },
         {
           "day": "Saturday",
@@ -436,6 +1347,7 @@
           "end": "19:00",
           "timeLabel": "3:00 PM-7:00 PM",
           "team": "16U (Layson)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 16U (Layson)"
         },
         {
@@ -446,7 +1358,41 @@
           "end": "17:00",
           "timeLabel": "3:00 PM-5:00 PM",
           "team": "13U T1 (Baker)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 13U (S. Baker)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Vollmer #1",
+          "diamondKey": "vollmer1",
+          "start": "15:00",
+          "end": "18:00",
+          "timeLabel": "3:00 PM-6:00 PM",
+          "team": "Windsor Selects 14U 3pm and 5:30pm",
+          "ownerCategory": "select",
+          "sourceLabel": "Windsor Selects 14U 3pm and 5:30pm"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #1",
+          "diamondKey": "turtleclubdiamond1",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "U9 Select Baseball (Carr)",
+          "ownerCategory": "select",
+          "sourceLabel": "U9 Select Baseball (Carr)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #2",
+          "diamondKey": "turtleclubdiamond2",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "U11 Select Baseball (TBD)",
+          "ownerCategory": "select",
+          "sourceLabel": "U11 Select Baseball (TBD)"
         },
         {
           "day": "Saturday",
@@ -456,6 +1402,7 @@
           "end": "18:00",
           "timeLabel": "4:30 PM-6:00 PM",
           "team": "10U (Picco)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 10U (Picco)"
         },
         {
@@ -466,6 +1413,7 @@
           "end": "18:00",
           "timeLabel": "4:30 PM-6:00 PM",
           "team": "11U T2 (Dufour)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 11U T2 (G. Dufour)"
         },
         {
@@ -476,6 +1424,7 @@
           "end": "18:00",
           "timeLabel": "4:30 PM-6:00 PM",
           "team": "8U (Ellwood)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 8U (Ellwood)"
         },
         {
@@ -486,7 +1435,74 @@
           "end": "18:00",
           "timeLabel": "4:30 PM-6:00 PM",
           "team": "8U/9U (Wachna)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 9UM (Wachna)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #1",
+          "diamondKey": "turtleclubdiamond1",
+          "start": "09:00",
+          "end": "10:00",
+          "timeLabel": "9:00 AM-10:00 AM",
+          "team": "HL Rookie",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Rookie"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #2",
+          "diamondKey": "turtleclubdiamond2",
+          "start": "09:00",
+          "end": "10:00",
+          "timeLabel": "9:00 AM-10:00 AM",
+          "team": "HL JR Softball",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL JR Softball"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "09:00",
+          "end": "09:00",
+          "timeLabel": "9:00 AM",
+          "team": "Jr. Little Turtles (8:45am Start)",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Jr. Little Turtles (8:45am Start)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "09:00",
+          "end": "09:00",
+          "timeLabel": "9:00 AM",
+          "team": "Jr. Little Turtles (8:45am Start)",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Jr. Little Turtles (8:45am Start)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "09:00",
+          "end": "09:00",
+          "timeLabel": "9:00 AM",
+          "team": "Jr. Little Turtles (8:45am Start)",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Jr. Little Turtles (8:45am Start)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #6",
+          "diamondKey": "turtleclubdiamond6",
+          "start": "09:00",
+          "end": "10:00",
+          "timeLabel": "9:00 AM-10:00 AM",
+          "team": "HL JR Softball",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL JR Softball"
         },
         {
           "day": "Sunday",
@@ -496,7 +1512,30 @@
           "end": "11:00",
           "timeLabel": "9:00 AM-11:00 AM",
           "team": "14U T1 (vanWezel)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 14U T1 (vanWezel)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Batting Cage 1 (BC1)",
+          "diamondKey": "battingcage1bc1",
+          "start": "09:00",
+          "end": "10:00",
+          "timeLabel": "9:00 AM-10:00 AM",
+          "team": "HL SB",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL SB"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Batting Cage 2 (BC2)",
+          "diamondKey": "battingcage2bc2",
+          "start": "09:00",
+          "end": "14:00",
+          "timeLabel": "9:00 AM-2:00 PM",
+          "team": "HL Rookie",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Rookie"
         },
         {
           "day": "Sunday",
@@ -506,6 +1545,7 @@
           "end": "11:00",
           "timeLabel": "9:00 AM-11:00 AM",
           "team": "15U (Nickleson)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 15U (Nickleson)"
         },
         {
@@ -516,7 +1556,140 @@
           "end": "11:00",
           "timeLabel": "9:00 AM-11:00 AM",
           "team": "11U (Sivell)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 11U (Sivell)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "10:00",
+          "end": "10:00",
+          "timeLabel": "10:00 AM",
+          "team": "Sr. Little Turtles (10am Start)",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Sr. Little Turtles (10am Start)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "10:00",
+          "end": "10:00",
+          "timeLabel": "10:00 AM",
+          "team": "Sr. Little Turtles (10am Start)",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Sr. Little Turtles (10am Start)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "10:00",
+          "end": "10:00",
+          "timeLabel": "10:00 AM",
+          "team": "Sr. Little Turtles (10am Start)",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Sr. Little Turtles (10am Start)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Vollmer #1",
+          "diamondKey": "vollmer1",
+          "start": "10:00",
+          "end": "12:00",
+          "timeLabel": "10:00 AM-12:00 PM",
+          "team": "Windsor Selects 14U 10am and 12:30pm",
+          "ownerCategory": "select",
+          "sourceLabel": "Windsor Selects 14U 10am and 12:30pm"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #1",
+          "diamondKey": "turtleclubdiamond1",
+          "start": "11:00",
+          "end": "12:00",
+          "timeLabel": "11:00 AM-12:00 PM",
+          "team": "HL Rookie",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Rookie"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #2",
+          "diamondKey": "turtleclubdiamond2",
+          "start": "11:00",
+          "end": "12:00",
+          "timeLabel": "11:00 AM-12:00 PM",
+          "team": "HL SR Softball",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL SR Softball"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "11:00",
+          "end": "12:00",
+          "timeLabel": "11:00 AM-12:00 PM",
+          "team": "HL Jr. T-Ball 11:15am Start",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Jr. T-Ball 11:15am Start"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "11:00",
+          "end": "12:00",
+          "timeLabel": "11:00 AM-12:00 PM",
+          "team": "HL Jr. T-Ball 11:15am Start",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Jr. T-Ball 11:15am Start"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "11:00",
+          "end": "12:00",
+          "timeLabel": "11:00 AM-12:00 PM",
+          "team": "HL Jr. T-Ball 11:15am Start",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Jr. T-Ball 11:15am Start"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #6",
+          "diamondKey": "turtleclubdiamond6",
+          "start": "11:00",
+          "end": "12:00",
+          "timeLabel": "11:00 AM-12:00 PM",
+          "team": "HL JR Softball",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL JR Softball"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Batting Cage 1 (BC1)",
+          "diamondKey": "battingcage1bc1",
+          "start": "11:00",
+          "end": "12:00",
+          "timeLabel": "11:00 AM-12:00 PM",
+          "team": "HL SB",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL SB"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Vollmer #3",
+          "diamondKey": "vollmer3",
+          "start": "11:00",
+          "end": "13:00",
+          "timeLabel": "11:00 AM-1:00 PM",
+          "team": "Windsor Selects 11am and 1:30pm",
+          "ownerCategory": "select",
+          "sourceLabel": "Windsor Selects 11am and 1:30pm"
         },
         {
           "day": "Sunday",
@@ -526,6 +1699,7 @@
           "end": "14:00",
           "timeLabel": "12:00 PM-2:00 PM",
           "team": "14U T2 (Soltis)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 14U T2 (Soltis)"
         },
         {
@@ -536,6 +1710,7 @@
           "end": "14:00",
           "timeLabel": "12:00 PM-2:00 PM",
           "team": "18U (Diotte)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 18U (Diotte)"
         },
         {
@@ -546,7 +1721,19 @@
           "end": "14:00",
           "timeLabel": "12:00 PM-2:00 PM",
           "team": "12U T2 (Palubiski)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 12U (Palubiski)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #1",
+          "diamondKey": "turtleclubdiamond1",
+          "start": "13:00",
+          "end": "14:00",
+          "timeLabel": "1:00 PM-2:00 PM",
+          "team": "HL Rookie",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Rookie"
         },
         {
           "day": "Sunday",
@@ -556,7 +1743,52 @@
           "end": "15:00",
           "timeLabel": "1:00 PM-3:00 PM",
           "team": "11U T2 (Dufour)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 11U T2 (G. Dufour)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "13:00",
+          "end": "14:00",
+          "timeLabel": "1:00 PM-2:00 PM",
+          "team": "HL Sr. T-Ball",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Sr. T-Ball"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "13:00",
+          "end": "14:00",
+          "timeLabel": "1:00 PM-2:00 PM",
+          "team": "HL Sr. T-Ball",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Sr. T-Ball"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "13:00",
+          "end": "14:00",
+          "timeLabel": "1:00 PM-2:00 PM",
+          "team": "HL Sr. T-Ball",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL Sr. T-Ball"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Batting Cage 1 (BC1)",
+          "diamondKey": "battingcage1bc1",
+          "start": "13:00",
+          "end": "14:00",
+          "timeLabel": "1:00 PM-2:00 PM",
+          "team": "HL SB",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "HL SB"
         },
         {
           "day": "Sunday",
@@ -566,6 +1798,7 @@
           "end": "17:00",
           "timeLabel": "3:00 PM-5:00 PM",
           "team": "12U T1 (Hotts)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 12U T1 (Hotts)"
         },
         {
@@ -576,7 +1809,19 @@
           "end": "18:00",
           "timeLabel": "4:30 PM-6:00 PM",
           "team": "10U (Picco)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 10U (Picco)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #2",
+          "diamondKey": "turtleclubdiamond2",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "U13 Select Baseball (Gignac)",
+          "ownerCategory": "select",
+          "sourceLabel": "U13 Select Baseball (Gignac)"
         },
         {
           "day": "Sunday",
@@ -586,7 +1831,19 @@
           "end": "18:00",
           "timeLabel": "4:30 PM-6:00 PM",
           "team": "10U T2 (Martin)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 10U T2 (Martin)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "Sr. T-Ball Select (McIntyre)",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Sr. T-Ball Select (McIntyre)"
         },
         {
           "day": "Sunday",
@@ -596,6 +1853,7 @@
           "end": "18:00",
           "timeLabel": "4:30 PM-6:00 PM",
           "team": "8U/9U (Wachna)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 9UM (Wachna)"
         },
         {
@@ -606,7 +1864,19 @@
           "end": "18:00",
           "timeLabel": "4:30 PM-6:00 PM",
           "team": "9U (Shaw)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 9U (Shaw)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #7",
+          "diamondKey": "turtleclubdiamond7",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "U18 Select Baseball (Guthrie)",
+          "ownerCategory": "select",
+          "sourceLabel": "U18 Select Baseball (Guthrie)"
         },
         {
           "day": "Sunday",
@@ -616,6 +1886,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "16U (Layson)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 16U (Layson)"
         }
       ]
@@ -634,6 +1905,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "9U (Picco)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 9U (Picco)"
         },
         {
@@ -644,6 +1916,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "8U (Shaw)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 8U (Shaw)"
         },
         {
@@ -654,7 +1927,41 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "10U T2 (DiPonio)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 10U T2 (DiPonio)"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U17 Gold (Dawson)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U17 Gold (Dawson)"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U11 Green (Natyshak)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U11 Green (Natyshak)"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Turtle Club - Diamond #6",
+          "diamondKey": "turtleclubdiamond6",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U13 Green (Hunt)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U13 Green (Hunt)"
         },
         {
           "day": "Monday",
@@ -664,7 +1971,30 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "16U (Pearson)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 16U (Pearson)"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Batting Cage 1 (BC1)",
+          "diamondKey": "battingcage1bc1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Titans",
+          "ownerCategory": "other",
+          "sourceLabel": "Titans"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Batting Cage 2 (BC2)",
+          "diamondKey": "battingcage2bc2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics"
         },
         {
           "day": "Monday",
@@ -674,6 +2004,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "14U (Nickleson)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 14U (Nickleson)"
         },
         {
@@ -684,7 +2015,19 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "12U T2 (Baker)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 12U T2 (S. Baker)"
+        },
+        {
+          "day": "Monday",
+          "diamond": "Front Road",
+          "diamondKey": "frontroad",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "N/A",
+          "ownerCategory": "other",
+          "sourceLabel": "N/A"
         },
         {
           "day": "Tuesday",
@@ -694,7 +2037,30 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "8U/9U (Martin)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 9UM (Martin)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Turtle Club - Diamond #2",
+          "diamondKey": "turtleclubdiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U17 Green (Signorelli)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U17 Green (Signorelli)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U17 Gold (Dawson)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U17 Gold (Dawson)"
         },
         {
           "day": "Tuesday",
@@ -704,7 +2070,19 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "10U (Sivell)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 10U (Sivell)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U11 Gold (Grondin)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U11 Gold (Grondin)"
         },
         {
           "day": "Tuesday",
@@ -714,6 +2092,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "8U (Shaw)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 8U (Shaw)"
         },
         {
@@ -724,7 +2103,30 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "13U T2 (Soltis)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 13U T2 (Soltis)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Batting Cage 1 (BC1)",
+          "diamondKey": "battingcage1bc1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Titans",
+          "ownerCategory": "other",
+          "sourceLabel": "Titans"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Batting Cage 2 (BC2)",
+          "diamondKey": "battingcage2bc2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics"
         },
         {
           "day": "Tuesday",
@@ -734,6 +2136,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "18U (Diotte)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 17/18U (Diotte)"
         },
         {
@@ -744,6 +2147,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "13U (VanWezel)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 13U (VanWezel)"
         },
         {
@@ -754,6 +2158,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "14U T2 (Myers)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 14U T2 (Myers)"
         },
         {
@@ -764,7 +2169,19 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "15U (Tramontozzi)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 15U (Tramontozzi)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Vollmer #3",
+          "diamondKey": "vollmer3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U13 Gold (Baltzer)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U13 Gold (Baltzer)"
         },
         {
           "day": "Tuesday",
@@ -774,6 +2191,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "12U (Dufour)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 12U (G. Dufour)"
         },
         {
@@ -784,7 +2202,41 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "11U (Hotts)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 11U (Hotts)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Vollmer #6",
+          "diamondKey": "vollmer6",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U15 Green (Telfer)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U15 Green (Telfer)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Vollmer #7",
+          "diamondKey": "vollmer7",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics Intermediate (Stadler)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics Intermediate (Stadler)"
+        },
+        {
+          "day": "Tuesday",
+          "diamond": "Front Road",
+          "diamondKey": "frontroad",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "N/A",
+          "ownerCategory": "other",
+          "sourceLabel": "N/A"
         },
         {
           "day": "Wednesday",
@@ -794,7 +2246,19 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "11U (Hotts)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 11U (Hotts)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Turtle Club - Diamond #2",
+          "diamondKey": "turtleclubdiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U13 Green (Hunt)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U13 Green (Hunt)"
         },
         {
           "day": "Wednesday",
@@ -804,7 +2268,30 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "9U (Picco)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 9U (Picco)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U15 Green (Telfer/Wilson)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U15 Green (Telfer/Wilson)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U11 Green (Natyshak)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U11 Green (Natyshak)"
         },
         {
           "day": "Wednesday",
@@ -814,6 +2301,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "8U/9U (Martin)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 9UM (Martin)"
         },
         {
@@ -824,7 +2312,30 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "14U (Nickleson)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 14U (Nickleson)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Batting Cage 1 (BC1)",
+          "diamondKey": "battingcage1bc1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Titans",
+          "ownerCategory": "other",
+          "sourceLabel": "Titans"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Batting Cage 2 (BC2)",
+          "diamondKey": "battingcage2bc2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics"
         },
         {
           "day": "Wednesday",
@@ -834,6 +2345,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "16U (Pearson)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 16U (Pearson)"
         },
         {
@@ -844,6 +2356,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "13U T2 (Soltis)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 13U T2 (Soltis)"
         },
         {
@@ -854,7 +2367,19 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "18U (Diotte)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 17/18U (Diotte)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Vollmer #3",
+          "diamondKey": "vollmer3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics Intermediate (Stadler)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics Intermediate (Stadler)"
         },
         {
           "day": "Wednesday",
@@ -864,6 +2389,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "12U T2 (Baker)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 12U T2 (S. Baker)"
         },
         {
@@ -874,7 +2400,19 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "10U T2 (DiPonio)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 10U T2 (DiPonio)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Vollmer #6",
+          "diamondKey": "vollmer6",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U13 Gold (Baltzer)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U13 Gold (Baltzer)"
         },
         {
           "day": "Wednesday",
@@ -884,7 +2422,41 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "12U (Dufour)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 12U (G. Dufour)"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "River Canard #2",
+          "diamondKey": "rivercanard2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "U13 Select Softball",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "U13 Select Softball"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "River Canard #3",
+          "diamondKey": "rivercanard3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "U11 Select Softball",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "U11 Select Softball"
+        },
+        {
+          "day": "Wednesday",
+          "diamond": "Front Road",
+          "diamondKey": "frontroad",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "N/A",
+          "ownerCategory": "other",
+          "sourceLabel": "N/A"
         },
         {
           "day": "Thursday",
@@ -894,7 +2466,96 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "10U (Sivell)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 10U (Sivell)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Turtle Club - Diamond #2",
+          "diamondKey": "turtleclubdiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U17 Gold (Dawson)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U17 Gold (Dawson)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U17 Green (Signorelli)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U17 Green (Signorelli)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Select T-Ball Girls",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Select T-Ball Girls"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Turtle Club - Diamond #5",
+          "diamondKey": "turtleclubdiamond5",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U11 Gold (Grondin)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U11 Gold (Grondin)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Turtle Club - Diamond #6",
+          "diamondKey": "turtleclubdiamond6",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U11 (Natyshak)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U11 (Natyshak)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Turtle Club - Diamond #7",
+          "diamondKey": "turtleclubdiamond7",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Windsor Selects",
+          "ownerCategory": "select",
+          "sourceLabel": "Windsor Selects"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Batting Cage 1 (BC1)",
+          "diamondKey": "battingcage1bc1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Titans",
+          "ownerCategory": "other",
+          "sourceLabel": "Titans"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Batting Cage 2 (BC2)",
+          "diamondKey": "battingcage2bc2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics"
         },
         {
           "day": "Thursday",
@@ -904,6 +2565,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "15U (Tramontozzi)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 15U (Tramontozzi)"
         },
         {
@@ -914,7 +2576,41 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "13U (VanWezel)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 13U (VanWezel)"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "River Canard #2",
+          "diamondKey": "rivercanard2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Select T-Ball Gold",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Select T-Ball Gold"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "River Canard #3",
+          "diamondKey": "rivercanard3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Select T-Ball Green",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Select T-Ball Green"
+        },
+        {
+          "day": "Thursday",
+          "diamond": "Front Road",
+          "diamondKey": "frontroad",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "N/A",
+          "ownerCategory": "other",
+          "sourceLabel": "N/A"
         },
         {
           "day": "Friday",
@@ -924,7 +2620,41 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "10U T2 (DiPonio)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 10U T2 (DiPonio)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Turtle Club - Diamond #2",
+          "diamondKey": "turtleclubdiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U13 Green (Hunt)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U13 Green (Hunt)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Turtle Club - Diamond #3",
+          "diamondKey": "turtleclubdiamond3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U13 Gold (Baltzer)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U13 Gold (Baltzer)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U11 (Grondin)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U11 (Grondin)"
         },
         {
           "day": "Friday",
@@ -934,6 +2664,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "8U (Picco)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 8U (Picco)"
         },
         {
@@ -944,6 +2675,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "8U (Shaw)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 8U (Shaw)"
         },
         {
@@ -954,7 +2686,30 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "12U T2 (Baker)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 12U T2 (S. Baker)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Batting Cage 1 (BC1)",
+          "diamondKey": "battingcage1bc1",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Titans",
+          "ownerCategory": "other",
+          "sourceLabel": "Titans"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Batting Cage 2 (BC2)",
+          "diamondKey": "battingcage2bc2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics"
         },
         {
           "day": "Friday",
@@ -964,6 +2719,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "14U T2 (Myers)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 14U T2 (Myers) 9-12"
         },
         {
@@ -974,6 +2730,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "12U (Dufour)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 12U (G. Dufour)"
         },
         {
@@ -984,7 +2741,74 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "16U (Pearson)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 16U (Pearson)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Vollmer #3",
+          "diamondKey": "vollmer3",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U17 Green (Signorelli)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U17 Green (Signorelli)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Vollmer #5",
+          "diamondKey": "vollmer5",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Athletics U15 Green (Telfer/Wilson)",
+          "ownerCategory": "athletics",
+          "sourceLabel": "Athletics U15 Green (Telfer/Wilson)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Vollmer #6",
+          "diamondKey": "vollmer6",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Select Mosquito (65ft, 44ft)",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Select Mosquito (65ft, 44ft)"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Vollmer #7",
+          "diamondKey": "vollmer7",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Select PeeWee",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Select PeeWee"
+        },
+        {
+          "day": "Friday",
+          "diamond": "Front Road",
+          "diamondKey": "frontroad",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "N/A",
+          "ownerCategory": "other",
+          "sourceLabel": "N/A"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Villanova - Diamond #1",
+          "diamondKey": "villanovadiamond1",
+          "start": "09:00",
+          "end": "11:00",
+          "timeLabel": "9:00 AM-11:00 AM",
+          "team": "Titans",
+          "ownerCategory": "other",
+          "sourceLabel": "Titans"
         },
         {
           "day": "Saturday",
@@ -994,6 +2818,7 @@
           "end": "11:00",
           "timeLabel": "9:00 AM-11:00 AM",
           "team": "13U (VanWezel)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 13U (VanWezel)"
         },
         {
@@ -1004,6 +2829,7 @@
           "end": "14:00",
           "timeLabel": "12:00 PM-2:00 PM",
           "team": "14U (Nickleson)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 14U (Nickleson)"
         },
         {
@@ -1014,6 +2840,7 @@
           "end": "14:00",
           "timeLabel": "12:00 PM-2:00 PM",
           "team": "18U (Diotte)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 17/18U (Diotte)"
         },
         {
@@ -1024,7 +2851,19 @@
           "end": "14:00",
           "timeLabel": "12:00 PM-2:00 PM",
           "team": "13U T2 (Soltis)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 13U T2 (Soltis)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Vollmer #4",
+          "diamondKey": "vollmer4",
+          "start": "13:00",
+          "end": "16:30",
+          "timeLabel": "1:00 PM-4:30 PM",
+          "team": "Windsor Selects 1:00 & 3:30",
+          "ownerCategory": "select",
+          "sourceLabel": "Windsor Selects 1:00 & 3:30"
         },
         {
           "day": "Saturday",
@@ -1034,6 +2873,7 @@
           "end": "19:00",
           "timeLabel": "3:00 PM-7:00 PM",
           "team": "15U (Tramontozzi)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 15U (Tramontozzi)"
         },
         {
@@ -1044,7 +2884,41 @@
           "end": "17:00",
           "timeLabel": "3:00 PM-5:00 PM",
           "team": "12U T2 (Baker)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 12U T2 (S. Baker)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Vollmer #1",
+          "diamondKey": "vollmer1",
+          "start": "15:00",
+          "end": "18:00",
+          "timeLabel": "3:00 PM-6:00 PM",
+          "team": "Windsor Selects 3:30 & 5:30",
+          "ownerCategory": "select",
+          "sourceLabel": "Windsor Selects 3:30 & 5:30"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #1",
+          "diamondKey": "turtleclubdiamond1",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "Select Rookie",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Select Rookie"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Turtle Club - Diamond #2",
+          "diamondKey": "turtleclubdiamond2",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "Select",
+          "ownerCategory": "select",
+          "sourceLabel": "Select"
         },
         {
           "day": "Saturday",
@@ -1054,6 +2928,7 @@
           "end": "18:00",
           "timeLabel": "4:30 PM-6:00 PM",
           "team": "10U (Sivell)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 10U (Sivell)"
         },
         {
@@ -1064,6 +2939,7 @@
           "end": "18:00",
           "timeLabel": "4:30 PM-6:00 PM",
           "team": "11U (Hotts)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 11U (Hotts)"
         },
         {
@@ -1074,6 +2950,7 @@
           "end": "18:00",
           "timeLabel": "4:30 PM-6:00 PM",
           "team": "8U/9U (Martin)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 9UM (Martin)"
         },
         {
@@ -1084,6 +2961,7 @@
           "end": "18:00",
           "timeLabel": "4:30 PM-6:00 PM",
           "team": "9U (Picco)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 9U (Picco)"
         },
         {
@@ -1094,7 +2972,19 @@
           "end": "18:00",
           "timeLabel": "4:30 PM-6:00 PM",
           "team": "14U T2 (Myers)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 14U T2 (Myers)"
+        },
+        {
+          "day": "Saturday",
+          "diamond": "Villanova - Diamond #2",
+          "diamondKey": "villanovadiamond2",
+          "start": "18:00",
+          "end": "19:00",
+          "timeLabel": "6:00 PM-7:00 PM",
+          "team": "Titans",
+          "ownerCategory": "other",
+          "sourceLabel": "Titans"
         },
         {
           "day": "Sunday",
@@ -1104,6 +2994,7 @@
           "end": "11:00",
           "timeLabel": "9:00 AM-11:00 AM",
           "team": "14U (Nickelson)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 14U (Nickelson)"
         },
         {
@@ -1114,6 +3005,7 @@
           "end": "11:00",
           "timeLabel": "9:00 AM-11:00 AM",
           "team": "16U (Pearson)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 16U (Pearson)"
         },
         {
@@ -1124,7 +3016,30 @@
           "end": "11:00",
           "timeLabel": "9:00 AM-11:00 AM",
           "team": "13U (VanWezel)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 13U (VanWezel)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Vollmer #1",
+          "diamondKey": "vollmer1",
+          "start": "10:00",
+          "end": "13:00",
+          "timeLabel": "10:00 AM-1:00 PM",
+          "team": "Windsor Selects 10:00 & 12:30",
+          "ownerCategory": "select",
+          "sourceLabel": "Windsor Selects 10:00 & 12:30"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Vollmer #4",
+          "diamondKey": "vollmer4",
+          "start": "10:00",
+          "end": "13:00",
+          "timeLabel": "10:00 AM-1:00 PM",
+          "team": "Windsor Selects 10:00 & 12:30",
+          "ownerCategory": "select",
+          "sourceLabel": "Windsor Selects 10:00 & 12:30"
         },
         {
           "day": "Sunday",
@@ -1134,6 +3049,7 @@
           "end": "14:00",
           "timeLabel": "12:00 PM-2:00 PM",
           "team": "14U T2 (Myers)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 14U T2 (Myers)"
         },
         {
@@ -1144,6 +3060,7 @@
           "end": "14:00",
           "timeLabel": "12:00 PM-2:00 PM",
           "team": "18U (Diotte)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 17/18U (Diotte)"
         },
         {
@@ -1154,6 +3071,7 @@
           "end": "14:00",
           "timeLabel": "12:00 PM-2:00 PM",
           "team": "12U (Dufour)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 12U (G. Dufour)"
         },
         {
@@ -1164,6 +3082,7 @@
           "end": "19:00",
           "timeLabel": "3:00 PM-7:00 PM",
           "team": "15U (Tramontozzi)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 15U (Tramontozzi)"
         },
         {
@@ -1174,6 +3093,7 @@
           "end": "17:00",
           "timeLabel": "3:00 PM-5:00 PM",
           "team": "13U T2 (Soltis)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 13U T2 (Soltis)"
         },
         {
@@ -1184,7 +3104,19 @@
           "end": "18:00",
           "timeLabel": "4:30 PM-6:00 PM",
           "team": "10U (Sivell)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 10U (Sivell)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #2",
+          "diamondKey": "turtleclubdiamond2",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "Select",
+          "ownerCategory": "select",
+          "sourceLabel": "Select"
         },
         {
           "day": "Sunday",
@@ -1194,7 +3126,19 @@
           "end": "18:00",
           "timeLabel": "4:30 PM-6:00 PM",
           "team": "10U T2 (DiPonio)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 10U T2 (DiPonio)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #4",
+          "diamondKey": "turtleclubdiamond4",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "Titans",
+          "ownerCategory": "other",
+          "sourceLabel": "Titans"
         },
         {
           "day": "Sunday",
@@ -1204,6 +3148,7 @@
           "end": "18:00",
           "timeLabel": "4:30 PM-6:00 PM",
           "team": "8U/9U (Martin)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 9UM (Martin)"
         },
         {
@@ -1214,7 +3159,19 @@
           "end": "18:00",
           "timeLabel": "4:30 PM-6:00 PM",
           "team": "8U (Shaw)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 8U (Shaw)"
+        },
+        {
+          "day": "Sunday",
+          "diamond": "Turtle Club - Diamond #7",
+          "diamondKey": "turtleclubdiamond7",
+          "start": "16:30",
+          "end": "18:00",
+          "timeLabel": "4:30 PM-6:00 PM",
+          "team": "Select Bantam",
+          "ownerCategory": "houseLeague",
+          "sourceLabel": "Select Bantam"
         },
         {
           "day": "Sunday",
@@ -1224,6 +3181,7 @@
           "end": "19:00",
           "timeLabel": "6:00 PM-7:00 PM",
           "team": "11U (Hotts)",
+          "ownerCategory": "titans",
           "sourceLabel": "Titans 11U (Hotts)"
         }
       ]
