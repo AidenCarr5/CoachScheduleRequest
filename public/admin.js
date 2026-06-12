@@ -103,6 +103,9 @@
     list.querySelectorAll('[data-approve]').forEach((button) => {
       button.addEventListener('click', () => reviewRequest(button.dataset.approve, 'approve'));
     });
+    list.querySelectorAll('[data-manual-approve]').forEach((button) => {
+      button.addEventListener('click', () => reviewRequest(button.dataset.manualApprove, 'manual-approve'));
+    });
     list.querySelectorAll('[data-reject]').forEach((button) => {
       button.addEventListener('click', () => reviewRequest(button.dataset.reject, 'reject'));
     });
@@ -150,6 +153,7 @@
     const allocation = request.allocationApproval || {};
     const allocationPending = request.status === 'pending' && allocation.status === 'pending';
     const approveDisabled = request.status !== 'pending' || allocationPending ? ' disabled data-force-disabled="true"' : '';
+    const manualApproveDisabled = request.status !== 'pending' || allocationPending ? ' disabled data-force-disabled="true"' : '';
     const rejectDisabled = request.status !== 'pending' ? ' disabled data-force-disabled="true"' : '';
     const showClear = request.status === 'approved' || request.status === 'rejected';
     const readOnly = isReadOnlyAdminViewer();
@@ -177,6 +181,7 @@
         <textarea id="admin-note-${escapeHtml(request.id)}" class="admin-note-input" data-admin-note="${escapeHtml(request.id)}" rows="3" placeholder="Why was this approved or rejected?"${noteAttributes}>${escapeHtml(request.adminNote || '')}</textarea>
         <div class="admin-request-actions">
           <button class="primary" type="button" data-approve="${request.id}"${approveDisabled}${actionDisabled}>Approve</button>
+          <button class="secondary" type="button" data-manual-approve="${request.id}"${manualApproveDisabled}${actionDisabled}>Manual approve</button>
           <button class="cancel-btn" type="button" data-reject="${request.id}"${rejectDisabled}${actionDisabled}>Reject</button>
           ${showClear ? `<button class="secondary" type="button" data-clear="${request.id}"${actionDisabled}>Clear</button>` : ''}
         </div>
@@ -245,12 +250,18 @@
 
   async function reviewRequest(requestId, action) {
     if (adminBusy || isReadOnlyAdminViewer()) return;
+    const isManualApprove = action === 'manual-approve';
+    const isApprove = action === 'approve' || isManualApprove;
     const noteField = document.getElementById(`admin-note-${requestId}`);
     const adminNote = noteField ? noteField.value.trim() : '';
-    $('adminMessage').textContent = action === 'approve'
+    $('adminMessage').textContent = isManualApprove
+      ? 'Manually approving request and sending coach email...'
+      : action === 'approve'
       ? 'Applying approved change to Turtle Club...'
       : 'Saving request review...';
-    setAdminBusy(true, action === 'approve' ? 'Applying approval...' : 'Saving rejection...', action === 'approve'
+    setAdminBusy(true, isManualApprove ? 'Manual approval...' : action === 'approve' ? 'Applying approval...' : 'Saving rejection...', isManualApprove
+      ? 'Please wait while the request is marked approved and the coach email is sent.'
+      : action === 'approve'
       ? 'Please wait while Turtle Club is updated and the scheduler syncs back.'
       : 'Please wait while the request review is saved.');
     try {
@@ -260,7 +271,9 @@
         body: JSON.stringify({ adminNote })
       });
       if (!response.ok) {
-        let message = action === 'approve'
+        let message = isManualApprove
+          ? 'The request could not be manually approved.'
+          : action === 'approve'
           ? 'The request could not be applied on Turtle Club.'
           : 'The request review could not be saved.';
         try {
@@ -278,8 +291,10 @@
       }
       const payload = await response.json();
       await loadRequests();
-      if (action === 'approve') {
-        const approvedTarget = payload.appliedToTurtleClub === false ? 'recorded in the scheduler' : 'applied to Turtle Club and synced back into the scheduler';
+      if (isApprove) {
+        const approvedTarget = isManualApprove
+          ? 'manually recorded in the scheduler'
+          : payload.appliedToTurtleClub === false ? 'recorded in the scheduler' : 'applied to Turtle Club and synced back into the scheduler';
         let message = payload.verified
           ? `Approved request was ${approvedTarget}. ${payload.verificationDetails || ''}`.trim()
           : `Approved request was applied, but the follow-up verification did not confirm the change yet. ${payload.verificationDetails || ''}`.trim();
@@ -466,7 +481,7 @@
       $('loadingOverlayTitle').textContent = title;
       $('loadingOverlayTextLabel').textContent = detail;
     }
-    document.querySelectorAll('[data-approve], [data-reject], [data-clear], #refreshScheduleBtn, #sendDiamondStatusEmailBtn, #rescanTeamsBtn, #saveCoachPasswordsBtn, #logoutBtn, #adminExportBtn').forEach((element) => {
+    document.querySelectorAll('[data-approve], [data-manual-approve], [data-reject], [data-clear], #refreshScheduleBtn, #sendDiamondStatusEmailBtn, #rescanTeamsBtn, #saveCoachPasswordsBtn, #logoutBtn, #adminExportBtn').forEach((element) => {
       if (element.id === 'adminExportBtn' || element.id === 'logoutBtn') {
         element.disabled = isBusy;
         return;
@@ -497,7 +512,7 @@
       const button = $(id);
       if (button) button.disabled = readOnly;
     });
-    document.querySelectorAll('[data-approve], [data-reject], [data-clear]').forEach((element) => {
+    document.querySelectorAll('[data-approve], [data-manual-approve], [data-reject], [data-clear]').forEach((element) => {
       const shouldStayDisabled = element.hasAttribute('data-force-disabled');
       element.disabled = readOnly || adminBusy || shouldStayDisabled;
     });
