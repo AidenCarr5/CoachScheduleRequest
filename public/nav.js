@@ -163,6 +163,35 @@
     return umpireLink;
   }
 
+  function ensureUmpireAssignmentsDayLink() {
+    const topbarInner = document.querySelector('.topbar-inner');
+    if (!topbarInner) return null;
+    let assignmentsLink = document.getElementById('umpireAssignmentsDayLink');
+    if (assignmentsLink) return assignmentsLink;
+
+    assignmentsLink = document.createElement('a');
+    assignmentsLink.id = 'umpireAssignmentsDayLink';
+    assignmentsLink.className = 'topbar-link';
+    assignmentsLink.dataset.navKey = 'umpire-assignments';
+    assignmentsLink.href = '/umpire-availability.html#assignments';
+    assignmentsLink.hidden = true;
+    assignmentsLink.textContent = 'Assignments by Day';
+
+    const umpireLink = ensureUmpireAvailabilityLink();
+    if (umpireLink && umpireLink.parentElement === topbarInner && umpireLink.nextSibling) {
+      topbarInner.insertBefore(assignmentsLink, umpireLink.nextSibling);
+      return assignmentsLink;
+    }
+
+    if (umpireLink && umpireLink.parentElement === topbarInner) {
+      topbarInner.appendChild(assignmentsLink);
+      return assignmentsLink;
+    }
+
+    topbarInner.appendChild(assignmentsLink);
+    return assignmentsLink;
+  }
+
   async function switchAdminSite(event) {
     event.preventDefault();
     const link = event.currentTarget;
@@ -204,6 +233,7 @@
     const profileLink = ensureProfileLink();
     const siteSwitchLink = ensureAdminSiteSwitchLink();
     const umpireLink = ensureUmpireAvailabilityLink();
+    const umpireAssignmentsLink = ensureUmpireAssignmentsDayLink();
     const adminLink = document.getElementById('adminLink');
     const fieldStatusLink = document.getElementById('fieldStatusLink');
     const sessionLabel = document.getElementById('sessionLabel');
@@ -242,7 +272,14 @@
     if (umpireLink) {
       const canAccessUmpires = Boolean(publicConfig.umpirePath);
       umpireLink.href = publicConfig.umpirePath || '/umpire-availability.html';
+      umpireLink.textContent = onUmpirePortal ? 'Umpire Calendar' : 'Umpire Assignments';
       umpireLink.hidden = !canAccessUmpires;
+    }
+
+    if (umpireAssignmentsLink) {
+      const canSeeUmpireAssignments = onUmpirePortal && (role === 'admin' || role === 'admin_viewer');
+      umpireAssignmentsLink.href = `${publicConfig.umpirePath || '/umpire-availability.html'}#assignments`;
+      umpireAssignmentsLink.hidden = !canSeeUmpireAssignments;
     }
 
     if (siteSwitchLink) {
@@ -277,12 +314,16 @@
     if (onUmpirePortal) {
       document.querySelectorAll('.topbar-link').forEach((link) => {
         const key = link.dataset ? link.dataset.navKey : '';
-        link.hidden = !(key === 'home' || key === 'umpires');
+        link.hidden = !(key === 'home' || key === 'umpires' || (key === 'umpire-assignments' && (role === 'admin' || role === 'admin_viewer')));
       });
       homeLink.hidden = false;
       if (umpireLink) {
         umpireLink.href = publicConfig.umpirePath || '/umpire-availability.html';
+        umpireLink.textContent = 'Umpire Calendar';
         umpireLink.hidden = false;
+      }
+      if (umpireAssignmentsLink) {
+        umpireAssignmentsLink.href = `${publicConfig.umpirePath || '/umpire-availability.html'}#assignments`;
       }
     }
 
@@ -292,6 +333,15 @@
         currentLink.classList.add('current');
         currentLink.setAttribute('aria-current', 'page');
       }
+    }
+
+    if (onUmpirePortal && String(window.location.hash || '').toLowerCase() === '#assignments' && umpireAssignmentsLink && !umpireAssignmentsLink.hidden) {
+      if (umpireLink) {
+        umpireLink.classList.remove('current');
+        umpireLink.removeAttribute('aria-current');
+      }
+      umpireAssignmentsLink.classList.add('current');
+      umpireAssignmentsLink.setAttribute('aria-current', 'page');
     }
 
     document.body.classList.add('nav-ready');

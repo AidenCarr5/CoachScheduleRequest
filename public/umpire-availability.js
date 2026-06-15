@@ -45,11 +45,13 @@
     $('closeUmpireDayDialog').addEventListener('click', () => $('umpireDayDialog').close());
     $('refreshUmpireDataBtn').addEventListener('click', refreshUmpireData);
     $('saveUmpireAccountsBtn').addEventListener('click', saveUmpireAccounts);
+    window.addEventListener('hashchange', applyPortalHash);
 
     const session = await currentPortalSession();
     if (session.authenticated) {
       state.user = session.user;
       await loadGames();
+      applyPortalHash(false);
       showPortal();
     } else {
       showLogin();
@@ -174,6 +176,18 @@
     render();
     if (state.portalView === 'accounts' && canSeeAccounts && !state.accounts.length) {
       loadUmpireAccounts();
+    }
+  }
+
+  function applyPortalHash(renderAfterChange = true) {
+    const hash = String(window.location.hash || '').toLowerCase();
+    if (hash === '#assignments' && isAdminViewing()) {
+      state.portalView = 'assignments';
+    } else if (hash === '#calendar') {
+      state.portalView = 'calendar';
+    }
+    if (renderAfterChange && $('umpireShell') && !$('umpireShell').hidden) {
+      setPortalView(state.portalView);
     }
   }
 
@@ -353,6 +367,11 @@
       return;
     }
     $('umpireAssignmentsTable').innerHTML = `
+      <div class="umpire-assignment-legend" aria-label="Official status legend">
+        <span><i class="legend-swatch confirmed"></i>Confirmed on our end</span>
+        <span><i class="legend-swatch pending"></i>Pending on Turtle Club</span>
+        <span><i class="legend-swatch available"></i>Available on this site</span>
+      </div>
       <table class="umpire-assignments-table">
         <thead>
           <tr>
@@ -375,8 +394,14 @@
 
   function renderAssignmentRows(game, index) {
     const available = game.claims || [];
-    const assigned = game.assignedOfficials || [];
+    const confirmed = game.assignedOfficials || [];
+    const pending = game.pendingOfficials || [];
     const gameNumber = game.gameNumber || `G${String(index + 1).padStart(2, '0')}`;
+    const officialChips = [
+      ...confirmed.map((official) => renderOfficialChip('confirmed', 'Confirmed', official)),
+      ...pending.map((official) => renderOfficialChip('pending', 'Pending', official)),
+      ...available.map((claim) => renderAvailableChip(claim))
+    ];
     return `
       <tr class="umpire-assignment-game-row ${categoryClass(game.category)}">
         <td>${escapeHtml(gameNumber)}</td>
@@ -391,19 +416,28 @@
       <tr class="umpire-assignment-official-row">
         <td colspan="8">
           <div class="umpire-assignment-officials">
-            ${available.length ? available.map((claim) => `
-              <span class="assignment-official available" title="${escapeHtml(claim.submittedAt ? `Submitted ${formatDateTime(claim.submittedAt)}` : 'Available')}">
-                ${escapeHtml(claim.name || claim.username)}
-              </span>
-            `).join('') : '<span class="assignment-empty">No officials available yet.</span>'}
-            ${assigned.length ? assigned.map((official) => `
-              <span class="assignment-official assigned">
-                ${escapeHtml(official.name)}${official.position ? ` (${escapeHtml(official.position)})` : ''}
-              </span>
-            `).join('') : ''}
+            ${officialChips.length ? officialChips.join('') : '<span class="assignment-empty">No officials confirmed, pending, or available yet.</span>'}
           </div>
         </td>
       </tr>
+    `;
+  }
+
+  function renderOfficialChip(statusClass, statusLabel, official) {
+    return `
+      <span class="assignment-official ${statusClass}">
+        <small>${escapeHtml(statusLabel)}</small>
+        ${escapeHtml(official.name)}${official.position ? ` (${escapeHtml(official.position)})` : ''}
+      </span>
+    `;
+  }
+
+  function renderAvailableChip(claim) {
+    return `
+      <span class="assignment-official available" title="${escapeHtml(claim.submittedAt ? `Submitted ${formatDateTime(claim.submittedAt)}` : 'Available on this site')}">
+        <small>Available</small>
+        ${escapeHtml(claim.name || claim.username)}
+      </span>
     `;
   }
 

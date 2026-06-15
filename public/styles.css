@@ -1110,6 +1110,43 @@ button {
   min-width: 980px;
 }
 
+.umpire-assignment-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  align-items: center;
+  padding: 10px 12px;
+  border: 2px solid #f4ab28;
+  border-bottom: 0;
+  background: #f7f7f1;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.umpire-assignment-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.legend-swatch {
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(0, 0, 0, .18);
+}
+
+.legend-swatch.confirmed {
+  background: var(--green);
+}
+
+.legend-swatch.pending {
+  background: #d96f32;
+}
+
+.legend-swatch.available {
+  background: #f3d95c;
+}
+
 .umpire-assignments-table {
   width: 100%;
   border-collapse: collapse;
@@ -1155,14 +1192,29 @@ button {
   display: grid;
   place-items: center;
   min-height: 32px;
-  padding: 5px 9px;
+  padding: 6px 9px;
   color: #fff;
   font-weight: 800;
   text-align: center;
   text-shadow: 0 1px 0 rgba(0, 0, 0, .18);
 }
 
-.assignment-official.available {
+.assignment-official small {
+  display: block;
+  margin-bottom: 1px;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  opacity: .9;
+}
+
+.assignment-official.confirmed,
+.assignment-official.assigned {
+  background: var(--green);
+}
+
+.assignment-official.pending {
   background-color: #d96f32;
   background-image: repeating-linear-gradient(
     45deg,
@@ -1173,8 +1225,17 @@ button {
   );
 }
 
-.assignment-official.assigned {
-  background: var(--green);
+.assignment-official.available {
+  color: #173f1d;
+  background-color: #f3d95c;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, .22) 0,
+    rgba(255, 255, 255, .22) 12px,
+    transparent 12px,
+    transparent 24px
+  );
+  text-shadow: none;
 }
 
 .assignment-empty {
