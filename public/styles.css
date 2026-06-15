@@ -1199,9 +1199,16 @@ button {
 }
 
 .umpire-assignment-officials.move-target {
-  outline: 3px solid rgba(243, 217, 92, .95);
+  outline: 3px solid #1f7a31;
   outline-offset: -3px;
-  background: #fffbe3;
+  background: #e6f8db;
+  box-shadow: inset 0 0 0 999px rgba(193, 242, 118, .18), 0 0 18px rgba(31, 122, 49, .45);
+  cursor: pointer;
+}
+
+.umpire-assignment-game-row.move-target-game td {
+  background: #dff6bf;
+  box-shadow: inset 0 0 0 2px rgba(31, 122, 49, .35), 0 0 14px rgba(31, 122, 49, .35);
   cursor: pointer;
 }
 
@@ -1334,11 +1341,15 @@ button {
   font-weight: 800;
 }
 
-.umpire-move-banner .assignment-chip-btn.danger {
-  margin-top: 0;
-  margin-left: auto;
-  color: #fff;
-  background: var(--red);
+.umpire-cancel-move-btn {
+  min-height: 40px !important;
+  margin-left: auto !important;
+  padding: 0 14px !important;
+  color: #fff !important;
+  background: var(--red) !important;
+  border: 2px solid #6f1d17 !important;
+  font: 900 12px Roboto, Arial, sans-serif !important;
+  text-shadow: none !important;
 }
 
 .assignment-empty {

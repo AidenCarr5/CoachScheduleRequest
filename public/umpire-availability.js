@@ -481,7 +481,7 @@
     return `
       <div class="umpire-move-banner">
         Click another ${escapeHtml(move.time)} game on ${escapeHtml(formatDate(move.date))}.
-        <button class="assignment-chip-btn danger" type="button" data-cancel-availability-move>Cancel move</button>
+        <button class="umpire-cancel-move-btn" type="button" data-cancel-availability-move>Cancel move</button>
       </div>
     `;
   }
@@ -500,7 +500,7 @@
     ];
     const isMoveTarget = canDropAvailabilityOnGameData(state.availabilityMoveSelection, game.id, game.date, game.time);
     return `
-      <tr class="umpire-assignment-game-row ${categoryClass(game.category)}">
+      <tr class="umpire-assignment-game-row ${categoryClass(game.category)}${isMoveTarget ? ' move-target-game' : ''}">
         <td>${escapeHtml(gameNumber)}</td>
         <td>${escapeHtml(shortDate(game.date))}</td>
         <td>${escapeHtml(game.time)}</td>
