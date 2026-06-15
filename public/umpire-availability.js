@@ -991,6 +991,7 @@
                     <div><dt>Username</dt><dd>${escapeHtml(account.username)}</dd></div>
                     <div><dt>Password</dt><dd>${escapeHtml(account.password)}</dd></div>
                     <div><dt>Email</dt><dd>${escapeHtml(account.email || 'Not listed')}</dd></div>
+                    <div><dt>Age</dt><dd>${escapeHtml(account.age || 'Not listed')}</dd></div>
                   </dl>
                   ${renderProgramCheckboxes(account)}
                   <div class="umpire-account-actions">
@@ -1024,7 +1025,7 @@
       const programs = new Set(Array.isArray(account.programs) ? account.programs : state.categories);
       if (state.accountProgram !== 'All programs' && !programs.has(state.accountProgram)) return false;
       if (query) {
-        const haystack = `${account.name || ''} ${account.username || ''} ${account.email || ''} ${account.qualification || ''}`.toLowerCase();
+        const haystack = `${account.name || ''} ${account.username || ''} ${account.email || ''} ${account.age || ''} ${account.qualification || ''}`.toLowerCase();
         if (!haystack.includes(query)) return false;
       }
       return true;
