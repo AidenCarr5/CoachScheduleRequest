@@ -285,7 +285,7 @@
   }
 
   function render() {
-    const games = visibleGames();
+    const games = sortGamesFromToday(visibleGames());
     renderMyGames();
     renderAssignmentsBoard();
     $('umpireCalendarSection').hidden = state.view !== 'calendar';
@@ -299,12 +299,8 @@
 
   function renderMyGames() {
     const username = String(state.user && state.user.username || '').toLowerCase();
-    const assignedGames = state.games
-      .filter((game) => userAssigned(game, username))
-      .sort((a, b) => `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`));
-    const availabilityGames = state.games
-      .filter((game) => userClaimed(game, username) && !userAssigned(game, username))
-      .sort((a, b) => `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`));
+    const assignedGames = sortGamesFromToday(state.games.filter((game) => userAssigned(game, username)));
+    const availabilityGames = sortGamesFromToday(state.games.filter((game) => userClaimed(game, username) && !userAssigned(game, username)));
     $('umpireMyGamesSummary').textContent = `${assignedGames.length} assigned, ${availabilityGames.length} availability request${availabilityGames.length === 1 ? '' : 's'}`;
     if (!assignedGames.length && !availabilityGames.length) {
       $('umpireMyGamesList').innerHTML = '<p class="muted">No assigned games or availability found for this login.</p>';
@@ -1162,7 +1158,7 @@
       const key = monthKey(game.date);
       if (label && key) byLabel.set(label, key);
     });
-    const currentKey = monthKey(new Date().toISOString().slice(0, 10));
+    const currentKey = monthKey(todayDateString());
     return [...byLabel.entries()]
       .sort((a, b) => {
         const aPast = a[1] < currentKey;
@@ -1171,6 +1167,27 @@
         return a[1].localeCompare(b[1]);
       })
       .map(([label]) => label);
+  }
+
+  function sortGamesFromToday(games) {
+    return [...(games || [])].sort(compareGamesFromToday);
+  }
+
+  function compareGamesFromToday(a, b) {
+    const today = todayDateString();
+    const aPast = String(a.date || '') < today;
+    const bPast = String(b.date || '') < today;
+    if (aPast !== bPast) return aPast ? 1 : -1;
+    return gameSortKey(a).localeCompare(gameSortKey(b));
+  }
+
+  function gameSortKey(game) {
+    return `${game.date || ''} ${String(minutesFromTime(game.time || '')).padStart(4, '0')} ${game.category || ''} ${game.team || ''} ${game.opponent || ''}`;
+  }
+
+  function todayDateString() {
+    const date = new Date();
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
   }
 
   function monthKey(dateString) {
