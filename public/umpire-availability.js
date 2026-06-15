@@ -11,7 +11,9 @@
     query: '',
     view: 'calendar',
     portalView: 'calendar',
-    assignmentsDate: ''
+    assignmentsDate: '',
+    accountQuery: '',
+    accountProgram: 'All programs'
   };
 
   async function init() {
@@ -45,6 +47,14 @@
     $('closeUmpireDayDialog').addEventListener('click', () => $('umpireDayDialog').close());
     $('refreshUmpireDataBtn').addEventListener('click', refreshUmpireData);
     $('saveUmpireAccountsBtn').addEventListener('click', saveUmpireAccounts);
+    $('umpireAccountSearch').addEventListener('input', (event) => {
+      state.accountQuery = event.target.value.toLowerCase();
+      renderUmpireAccounts();
+    });
+    $('umpireAccountProgramFilter').addEventListener('change', () => {
+      state.accountProgram = $('umpireAccountProgramFilter').value;
+      renderUmpireAccounts();
+    });
     window.addEventListener('hashchange', applyPortalHash);
 
     const session = await currentPortalSession();
@@ -457,12 +467,12 @@
   }
 
   function renderGameCard(game, username) {
-    const adminViewing = isAdminViewing();
+    const viewOnlyAdmin = Boolean(state.user && state.user.role === 'admin_viewer');
     const mine = userClaimed(game, username);
     const assignedToMe = userAssigned(game, username);
     const claimLabel = mine ? 'Remove my availability' : 'I will umpire this';
     const claimAction = mine ? 'cancel' : 'claim';
-    const hideClaimButton = adminViewing || assignedToMe || (game.filled && !mine);
+    const hideClaimButton = viewOnlyAdmin || assignedToMe || (game.filled && !mine);
     const assignedText = assignedToMe
       ? 'You are assigned to this game.'
       : assignedOfficialsText(game);
@@ -540,29 +550,69 @@
   }
 
   function renderUmpireAccounts() {
-    $('umpireAccountsSummary').textContent = `${state.accounts.length} official account${state.accounts.length === 1 ? '' : 's'}`;
+    rebuildAccountProgramFilter();
+    const accounts = filteredUmpireAccounts();
+    $('umpireAccountsSummary').textContent = `${accounts.length} of ${state.accounts.length} official account${state.accounts.length === 1 ? '' : 's'}`;
     if (!state.accounts.length) {
       $('umpireAccountsList').innerHTML = '<p class="muted">No official accounts found yet. Refresh umpire data first.</p>';
       return;
     }
+    if (!accounts.length) {
+      $('umpireAccountsList').innerHTML = '<p class="muted">No official accounts match these filters.</p>';
+      return;
+    }
+    const byLetter = new Map();
+    accounts.forEach((account) => {
+      const letter = String(account.name || account.username || '#').trim().slice(0, 1).toUpperCase() || '#';
+      if (!byLetter.has(letter)) byLetter.set(letter, []);
+      byLetter.get(letter).push(account);
+    });
     $('umpireAccountsList').innerHTML = `
-      <table class="umpire-accounts-table">
-        <thead>
-          <tr><th>Official</th><th>Username</th><th>Password</th><th>Qualification</th><th>Visible games</th></tr>
-        </thead>
-        <tbody>
-          ${state.accounts.map((account) => `
-            <tr>
-              <td>${escapeHtml(account.name)}</td>
-              <td>${escapeHtml(account.username)}</td>
-              <td>${escapeHtml(account.password)}</td>
-              <td>${escapeHtml(account.qualification || '')}</td>
-              <td>${renderProgramCheckboxes(account)}</td>
-            </tr>
-          `).join('')}
-        </tbody>
-      </table>
+      ${[...byLetter.entries()].map(([letter, group]) => `
+        <section class="umpire-account-group">
+          <h3>${escapeHtml(letter)}</h3>
+          <div class="umpire-account-grid">
+            ${group.map((account) => `
+              <article class="umpire-account-card">
+                <div class="umpire-account-head">
+                  <strong>${escapeHtml(account.name)}</strong>
+                  <span>${escapeHtml(account.qualification || 'Not Set')}</span>
+                </div>
+                <dl class="umpire-account-meta">
+                  <div><dt>Username</dt><dd>${escapeHtml(account.username)}</dd></div>
+                  <div><dt>Password</dt><dd>${escapeHtml(account.password)}</dd></div>
+                </dl>
+                ${renderProgramCheckboxes(account)}
+              </article>
+            `).join('')}
+          </div>
+        </section>
+      `).join('')}
     `;
+  }
+
+  function rebuildAccountProgramFilter() {
+    const select = $('umpireAccountProgramFilter');
+    const options = ['All programs', ...state.categories];
+    const current = options.includes(state.accountProgram) ? state.accountProgram : 'All programs';
+    if (select.options.length !== options.length || [...select.options].some((option, index) => option.value !== options[index])) {
+      select.innerHTML = options.map((value) => `<option>${escapeHtml(value)}</option>`).join('');
+    }
+    state.accountProgram = current;
+    select.value = current;
+  }
+
+  function filteredUmpireAccounts() {
+    const query = state.accountQuery;
+    return state.accounts.filter((account) => {
+      const programs = new Set(Array.isArray(account.programs) ? account.programs : state.categories);
+      if (state.accountProgram !== 'All programs' && !programs.has(state.accountProgram)) return false;
+      if (query) {
+        const haystack = `${account.name || ''} ${account.username || ''} ${account.qualification || ''}`.toLowerCase();
+        if (!haystack.includes(query)) return false;
+      }
+      return true;
+    });
   }
 
   async function saveUmpireAccounts() {
@@ -570,8 +620,7 @@
     const message = $('umpireAccountsSaveMessage');
     const accounts = state.accounts.map((account) => ({
       username: account.username,
-      programs: [...document.querySelectorAll(`[data-account-program][data-username="${cssEscape(account.username)}"]:checked`)]
-        .map((input) => input.dataset.accountProgram)
+      programs: visibleProgramsForAccount(account)
     }));
     button.disabled = true;
     message.hidden = false;
@@ -591,6 +640,12 @@
     } finally {
       button.disabled = false;
     }
+  }
+
+  function visibleProgramsForAccount(account) {
+    const inputs = [...document.querySelectorAll(`[data-account-program][data-username="${cssEscape(account.username)}"]`)];
+    if (!inputs.length) return Array.isArray(account.programs) ? account.programs : state.categories;
+    return inputs.filter((input) => input.checked).map((input) => input.dataset.accountProgram);
   }
 
   function renderProgramCheckboxes(account) {
