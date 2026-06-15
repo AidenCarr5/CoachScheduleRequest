@@ -862,6 +862,7 @@
 
   function renderGameCard(game, username) {
     const viewOnlyAdmin = Boolean(state.user && state.user.role === 'admin_viewer');
+    const adminViewing = isAdminViewing();
     const mine = userClaimed(game, username);
     const assignedToMe = userAssigned(game, username);
     const claimLabel = mine ? 'Remove my availability' : 'Add my availability';
@@ -869,7 +870,11 @@
     const hideClaimButton = viewOnlyAdmin || assignedToMe || (game.filled && !mine);
     const assignedText = assignedToMe
       ? 'You are assigned to this game.'
-      : assignedOfficialsText(game);
+      : (adminViewing ? assignedOfficialsText(game) : '');
+    const availabilityText = adminViewing
+      ? (game.claims.length ? `Availability submitted: ${game.claims.map((claim) => claim.name).join(', ')}` : '')
+      : (mine ? 'You marked yourself available for this game.' : '');
+    const fallbackText = adminViewing ? 'No availability submitted yet.' : `${game.confirmedUmpires}/${game.requiredUmpires} umpires confirmed.`;
     return `
       <article class="umpire-game-card ${categoryClass(game.category)} ${game.filled ? 'filled' : 'open'}">
         <div class="umpire-game-main">
@@ -888,8 +893,8 @@
         <div class="umpire-claim-row">
           <span>
             ${assignedText ? `<strong>${escapeHtml(assignedText)}</strong>` : ''}
-            ${assignedText && game.claims.length ? '<br>' : ''}
-            ${game.claims.length ? `Availability submitted: ${escapeHtml(game.claims.map((claim) => claim.name).join(', '))}` : (assignedText ? '' : 'No availability submitted yet.')}
+            ${assignedText && availabilityText ? '<br>' : ''}
+            ${availabilityText ? escapeHtml(availabilityText) : (assignedText ? '' : escapeHtml(fallbackText))}
           </span>
           ${hideClaimButton ? '' : `<button class="${mine ? 'secondary' : 'primary'}" type="button" data-claim-game="${escapeHtml(game.id)}" data-claim-action="${claimAction}">${claimLabel}</button>`}
         </div>
