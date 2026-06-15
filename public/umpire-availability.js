@@ -171,6 +171,8 @@
     $('umpireAssignmentsSection').hidden = state.portalView !== 'assignments' || !canSeeAssignments;
     $('umpireMyGamesSection').hidden = state.portalView !== 'my-games';
     $('umpireAccountsSection').hidden = state.portalView !== 'accounts' || !canSeeAccounts;
+    const portalNav = $('umpirePortalNav');
+    if (portalNav) portalNav.hidden = state.portalView === 'assignments';
     [
       ['umpirePortalCalendarBtn', 'calendar'],
       ['umpirePortalAssignmentsBtn', 'assignments'],
@@ -187,6 +189,7 @@
     if (state.portalView === 'accounts' && canSeeAccounts && !state.accounts.length) {
       loadUmpireAccounts();
     }
+    updateTopNavStateForPortalView();
   }
 
   function applyPortalHash(renderAfterChange = true) {
@@ -198,6 +201,22 @@
     }
     if (renderAfterChange && $('umpireShell') && !$('umpireShell').hidden) {
       setPortalView(state.portalView);
+    }
+  }
+
+  function updateTopNavStateForPortalView() {
+    const umpireLink = document.getElementById('umpireAvailabilityLink');
+    const assignmentsLink = document.getElementById('umpireAssignmentsDayLink');
+    if (!umpireLink && !assignmentsLink) return;
+    [umpireLink, assignmentsLink].forEach((link) => {
+      if (!link) return;
+      link.classList.remove('current');
+      link.removeAttribute('aria-current');
+    });
+    const activeLink = state.portalView === 'assignments' ? assignmentsLink : umpireLink;
+    if (activeLink && !activeLink.hidden) {
+      activeLink.classList.add('current');
+      activeLink.setAttribute('aria-current', 'page');
     }
   }
 
