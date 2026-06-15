@@ -425,6 +425,7 @@
       <div class="umpire-assignment-legend" aria-label="Official status legend">
         <span><i class="legend-swatch confirmed"></i>Confirmed on our end</span>
         <span><i class="legend-swatch pending"></i>Pending on Turtle Club</span>
+        <span><i class="legend-swatch rejected"></i>Rejected on Turtle Club</span>
         <span><i class="legend-swatch available"></i>Available on this site</span>
       </div>
       <table class="umpire-assignments-table">
@@ -451,10 +452,12 @@
     const available = game.claims || [];
     const confirmed = game.assignedOfficials || [];
     const pending = game.pendingOfficials || [];
+    const rejected = game.rejectedOfficials || [];
     const gameNumber = game.gameNumber || `G${String(index + 1).padStart(2, '0')}`;
     const officialChips = [
       ...confirmed.map((official) => renderOfficialChip('confirmed', 'Confirmed', official)),
       ...pending.map((official) => renderOfficialChip('pending', 'Pending', official)),
+      ...rejected.map((official) => renderOfficialChip('rejected', 'Rejected', official)),
       ...available.map((claim) => renderAvailableChip(claim))
     ];
     return `
@@ -471,7 +474,7 @@
       <tr class="umpire-assignment-official-row">
         <td colspan="8">
           <div class="umpire-assignment-officials">
-            ${officialChips.length ? officialChips.join('') : '<span class="assignment-empty">No officials confirmed, pending, or available yet.</span>'}
+            ${officialChips.length ? officialChips.join('') : '<span class="assignment-empty">No officials confirmed, pending, rejected, or available yet.</span>'}
           </div>
         </td>
       </tr>

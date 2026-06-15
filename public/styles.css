@@ -1143,6 +1143,10 @@ button {
   background: #d96f32;
 }
 
+.legend-swatch.rejected {
+  background: #9d2f26;
+}
+
 .legend-swatch.available {
   background: #f3d95c;
 }
@@ -1223,6 +1227,10 @@ button {
     transparent 12px,
     transparent 24px
   );
+}
+
+.assignment-official.rejected {
+  background: #9d2f26;
 }
 
 .assignment-official.available {

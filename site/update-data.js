@@ -849,18 +849,19 @@ function parseOfficialsAssignments(html) {
       officials: []
     };
 
-    const officialPattern = /<span class="gameOfficial\s+([^"]+)"[\s\S]*?<span[^>]*>([^<]+)<\/span>\s*\(([^)]+)\)/gi;
+    const officialPattern = /<span class="gameOfficial\s+([^"]+)"([^>]*)>[\s\S]*?<span[^>]*>([^<]+)<\/span>\s*\(([^)]+)\)/gi;
     let officialMatch = officialPattern.exec(assignmentHtml);
     while (officialMatch) {
       const classTokens = String(officialMatch[1] || '')
         .toLowerCase()
         .split(/\s+/)
         .filter(Boolean);
-      const name = strip(officialMatch[2]);
-      const rawPosition = strip(officialMatch[3]);
+      const statusSource = `${officialMatch[0] || ''} ${officialMatch[1] || ''} ${officialMatch[2] || ''}`.toLowerCase();
+      const name = strip(officialMatch[3]);
+      const rawPosition = strip(officialMatch[4]);
       const position = rawPosition.toLowerCase();
       const confirmed = classTokens.includes('confirmed');
-      const denied = classTokens.includes('denied') || classTokens.includes('rejected') || classTokens.includes('declined');
+      const denied = /\b(denied|rejected?|declined?|refused|not[-\s]?accepted?|unavailable)\b/i.test(statusSource);
       if (name) {
         assignmentInfo.officials.push({
           name,
