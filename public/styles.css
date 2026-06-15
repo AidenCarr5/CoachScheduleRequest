@@ -1346,8 +1346,8 @@ button {
   margin-left: auto !important;
   padding: 0 14px !important;
   color: #fff !important;
-  background: var(--red) !important;
-  border: 2px solid #6f1d17 !important;
+  background: var(--green) !important;
+  border: 2px solid #0c2f12 !important;
   font: 900 12px Roboto, Arial, sans-serif !important;
   text-shadow: none !important;
 }
