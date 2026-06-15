@@ -1198,6 +1198,13 @@ button {
   background: #eef8ee;
 }
 
+.umpire-assignment-officials.move-target {
+  outline: 3px solid rgba(243, 217, 92, .95);
+  outline-offset: -3px;
+  background: #fffbe3;
+  cursor: pointer;
+}
+
 .umpire-assignment-officials.drop-blocked {
   outline: 2px dashed rgba(157, 47, 38, .55);
   outline-offset: -3px;
@@ -1292,11 +1299,44 @@ button {
 
 .assignment-official.available[draggable="true"] {
   cursor: grab;
+  touch-action: none;
+  user-select: none;
 }
 
 .assignment-official.available.dragging {
   cursor: grabbing;
   opacity: .55;
+}
+
+.assignment-official.available.move-selected {
+  outline: 3px solid var(--green);
+  outline-offset: -3px;
+}
+
+.availability-drag-ghost {
+  position: fixed;
+  z-index: 10000;
+  width: min(260px, calc(100vw - 24px));
+  pointer-events: none;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .2);
+  transform: rotate(-1deg);
+}
+
+.umpire-move-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  color: #173f1d;
+  background: #fff7c8;
+  border: 2px solid #f3d95c;
+  font-weight: 800;
+}
+
+.umpire-move-banner .assignment-chip-btn.danger {
+  margin-top: 0;
+  margin-left: auto;
 }
 
 .assignment-empty {

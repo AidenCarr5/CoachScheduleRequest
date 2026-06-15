@@ -17,7 +17,9 @@
     accountSaveTimer: null,
     accountSaveInFlight: false,
     accountSaveQueued: false,
-    draggedAvailability: null
+    draggedAvailability: null,
+    availabilityPointerDrag: null,
+    availabilityMoveSelection: null
   };
 
   async function init() {
@@ -451,6 +453,7 @@
         <span><i class="legend-swatch rejected"></i>Rejected on Turtle Club</span>
         <span><i class="legend-swatch available"></i>Available on this site</span>
       </div>
+      ${renderAvailabilityMoveBanner()}
       <table class="umpire-assignments-table">
         <thead>
           <tr>
@@ -472,6 +475,17 @@
     bindAssignmentAdminButtons($('umpireAssignmentsTable'));
   }
 
+  function renderAvailabilityMoveBanner() {
+    const move = state.availabilityMoveSelection;
+    if (!move) return '';
+    return `
+      <div class="umpire-move-banner">
+        Moving <strong>${escapeHtml(move.name || move.username || 'umpire')}</strong>. Click another ${escapeHtml(move.time)} game on ${escapeHtml(formatDate(move.date))} to move their availability. This does not update Turtle Club.
+        <button class="assignment-chip-btn danger" type="button" data-cancel-availability-move>Cancel move</button>
+      </div>
+    `;
+  }
+
   function renderAssignmentRows(game, index) {
     const available = game.claims || [];
     const confirmed = game.assignedOfficials || [];
@@ -484,6 +498,7 @@
       ...rejected.map((official) => renderOfficialChip('rejected', 'Rejected', official)),
       ...available.map((claim) => renderAvailableChip(claim, game))
     ];
+    const isMoveTarget = canDropAvailabilityOnGameData(state.availabilityMoveSelection, game.id, game.date, game.time);
     return `
       <tr class="umpire-assignment-game-row ${categoryClass(game.category)}">
         <td>${escapeHtml(gameNumber)}</td>
@@ -497,7 +512,7 @@
       </tr>
       <tr class="umpire-assignment-official-row">
         <td colspan="8">
-          <div class="umpire-assignment-officials" data-drop-availability-game="${escapeHtml(game.id)}" data-drop-availability-date="${escapeHtml(game.date)}" data-drop-availability-time="${escapeHtml(game.time)}" data-drop-availability-filled="${game.filled ? 'true' : 'false'}">
+          <div class="umpire-assignment-officials${isMoveTarget ? ' move-target' : ''}" data-drop-availability-game="${escapeHtml(game.id)}" data-drop-availability-date="${escapeHtml(game.date)}" data-drop-availability-time="${escapeHtml(game.time)}" data-drop-availability-filled="${game.filled ? 'true' : 'false'}">
             ${officialChips.length ? officialChips.join('') : '<span class="assignment-empty">No officials confirmed, pending, rejected, or available yet.</span>'}
           </div>
         </td>
@@ -525,19 +540,24 @@
   }
 
   function renderAvailableChip(claim, game) {
+    const selected = state.availabilityMoveSelection && state.availabilityMoveSelection.claimId === claim.id;
+    const moveButton = canAdminMutateUmpires()
+      ? `<button class="assignment-chip-btn" type="button" data-move-availability-select="${escapeHtml(claim.id)}" data-move-source-game="${escapeHtml(game.id)}">Move</button>`
+      : '';
     const assignButtons = canAdminMutateUmpires() && !game.filled
       ? `
-        <span class="assignment-chip-actions">
-          <button class="assignment-chip-btn" type="button" data-assign-umpire="${escapeHtml(claim.username)}" data-assign-game="${escapeHtml(game.id)}" data-assign-position="Home Plate">Assign HP</button>
-          <button class="assignment-chip-btn" type="button" data-assign-umpire="${escapeHtml(claim.username)}" data-assign-game="${escapeHtml(game.id)}" data-assign-position="Bases">Assign Bases</button>
-        </span>
+        <button class="assignment-chip-btn" type="button" data-assign-umpire="${escapeHtml(claim.username)}" data-assign-game="${escapeHtml(game.id)}" data-assign-position="Home Plate">Assign HP</button>
+        <button class="assignment-chip-btn" type="button" data-assign-umpire="${escapeHtml(claim.username)}" data-assign-game="${escapeHtml(game.id)}" data-assign-position="Bases">Assign Bases</button>
       `
       : '';
+    const actions = canAdminMutateUmpires()
+      ? `<span class="assignment-chip-actions">${moveButton}${assignButtons}</span>`
+      : '';
     return `
-      <span class="assignment-official available" draggable="${canAdminMutateUmpires() ? 'true' : 'false'}" data-drag-availability="true" data-claim-id="${escapeHtml(claim.id)}" data-claim-source-game="${escapeHtml(game.id)}" data-claim-username="${escapeHtml(claim.username)}" data-claim-name="${escapeHtml(claim.name || claim.username)}" data-claim-date="${escapeHtml(game.date)}" data-claim-time="${escapeHtml(game.time)}" title="${escapeHtml(claim.submittedAt ? `Submitted ${formatDateTime(claim.submittedAt)}` : 'Available on this site')}">
+      <span class="assignment-official available${selected ? ' move-selected' : ''}" draggable="${canAdminMutateUmpires() ? 'true' : 'false'}" data-drag-availability="true" data-claim-id="${escapeHtml(claim.id)}" data-claim-source-game="${escapeHtml(game.id)}" data-claim-username="${escapeHtml(claim.username)}" data-claim-name="${escapeHtml(claim.name || claim.username)}" data-claim-date="${escapeHtml(game.date)}" data-claim-time="${escapeHtml(game.time)}" title="${escapeHtml(claim.submittedAt ? `Submitted ${formatDateTime(claim.submittedAt)}` : 'Available on this site')}">
         <small>Available</small>
         ${escapeHtml(claim.name || claim.username)}
-        ${assignButtons}
+        ${actions}
       </span>
     `;
   }
@@ -554,20 +574,41 @@
     root.querySelectorAll('[data-remove-assignment]').forEach((button) => {
       button.addEventListener('click', () => removeUmpireAssignment(button));
     });
+    root.querySelectorAll('[data-move-availability-select]').forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.stopPropagation();
+        selectAvailabilityToMove(button);
+      });
+    });
+    root.querySelectorAll('[data-cancel-availability-move]').forEach((button) => {
+      button.addEventListener('click', () => {
+        state.availabilityMoveSelection = null;
+        renderAssignmentsBoard();
+      });
+    });
     bindAvailabilityDragAndDrop(root);
+  }
+
+  function selectAvailabilityToMove(button) {
+    const sourceGame = state.games.find((game) => game.id === button.dataset.moveSourceGame);
+    const claim = sourceGame && (sourceGame.claims || []).find((item) => item.id === button.dataset.moveAvailabilitySelect);
+    if (!sourceGame || !claim) return;
+    state.availabilityMoveSelection = {
+      claimId: claim.id,
+      sourceGameId: sourceGame.id,
+      username: claim.username,
+      name: claim.name || claim.username,
+      date: sourceGame.date,
+      time: sourceGame.time
+    };
+    renderAssignmentsBoard();
   }
 
   function bindAvailabilityDragAndDrop(root) {
     root.querySelectorAll('[data-drag-availability]').forEach((chip) => {
+      chip.addEventListener('pointerdown', (event) => beginAvailabilityPointerDrag(event, chip, root));
       chip.addEventListener('dragstart', (event) => {
-        state.draggedAvailability = {
-          claimId: chip.dataset.claimId,
-          sourceGameId: chip.dataset.claimSourceGame,
-          username: chip.dataset.claimUsername,
-          name: chip.dataset.claimName,
-          date: chip.dataset.claimDate,
-          time: chip.dataset.claimTime
-        };
+        state.draggedAvailability = availabilityDragDataFromChip(chip);
         event.dataTransfer.effectAllowed = 'move';
         event.dataTransfer.setData('text/plain', JSON.stringify(state.draggedAvailability));
         chip.classList.add('dragging');
@@ -580,6 +621,11 @@
       });
     });
     root.querySelectorAll('[data-drop-availability-game]').forEach((target) => {
+      target.addEventListener('click', (event) => {
+        if (!state.availabilityMoveSelection || event.target.closest('button')) return;
+        if (!canDropAvailabilityOnGame(state.availabilityMoveSelection, target)) return;
+        moveAvailabilityToGame(state.availabilityMoveSelection, target.dataset.dropAvailabilityGame);
+      });
       target.addEventListener('dragover', (event) => {
         const drag = state.draggedAvailability;
         if (!drag) return;
@@ -606,14 +652,127 @@
     });
   }
 
+  function availabilityDragDataFromChip(chip) {
+    return {
+      claimId: chip.dataset.claimId,
+      sourceGameId: chip.dataset.claimSourceGame,
+      username: chip.dataset.claimUsername,
+      name: chip.dataset.claimName,
+      date: chip.dataset.claimDate,
+      time: chip.dataset.claimTime
+    };
+  }
+
+  function beginAvailabilityPointerDrag(event, chip, root) {
+    if (!canAdminMutateUmpires() || event.button !== 0 || event.target.closest('button')) return;
+    const drag = availabilityDragDataFromChip(chip);
+    state.availabilityPointerDrag = {
+      drag,
+      chip,
+      root,
+      startX: event.clientX,
+      startY: event.clientY,
+      active: false,
+      ghost: null,
+      target: null
+    };
+    chip.setPointerCapture(event.pointerId);
+    chip.addEventListener('pointermove', updateAvailabilityPointerDrag);
+    chip.addEventListener('pointerup', endAvailabilityPointerDrag);
+    chip.addEventListener('pointercancel', cancelAvailabilityPointerDrag);
+  }
+
+  function updateAvailabilityPointerDrag(event) {
+    const pointer = state.availabilityPointerDrag;
+    if (!pointer) return;
+    const moved = Math.hypot(event.clientX - pointer.startX, event.clientY - pointer.startY);
+    if (!pointer.active && moved < 6) return;
+    event.preventDefault();
+    if (!pointer.active) {
+      pointer.active = true;
+      state.draggedAvailability = pointer.drag;
+      pointer.chip.classList.add('dragging');
+      pointer.ghost = pointer.chip.cloneNode(true);
+      pointer.ghost.classList.add('availability-drag-ghost');
+      pointer.ghost.querySelectorAll('button').forEach((button) => button.remove());
+      document.body.appendChild(pointer.ghost);
+    }
+    moveAvailabilityGhost(pointer.ghost, event.clientX, event.clientY);
+    const target = availabilityDropTargetAt(event.clientX, event.clientY);
+    if (target !== pointer.target) {
+      if (pointer.target) pointer.target.classList.remove('drag-over', 'drop-blocked');
+      pointer.target = target;
+    }
+    if (!target) return;
+    if (canDropAvailabilityOnGame(pointer.drag, target)) {
+      target.classList.add('drag-over');
+      target.classList.remove('drop-blocked');
+    } else {
+      target.classList.add('drop-blocked');
+      target.classList.remove('drag-over');
+    }
+  }
+
+  function endAvailabilityPointerDrag(event) {
+    const pointer = state.availabilityPointerDrag;
+    if (!pointer) return;
+    cleanupAvailabilityPointerDrag();
+    if (!pointer.active) return;
+    event.preventDefault();
+    const target = availabilityDropTargetAt(event.clientX, event.clientY);
+    if (target && canDropAvailabilityOnGame(pointer.drag, target)) {
+      moveAvailabilityToGame(pointer.drag, target.dataset.dropAvailabilityGame);
+    }
+  }
+
+  function cancelAvailabilityPointerDrag() {
+    cleanupAvailabilityPointerDrag();
+  }
+
+  function cleanupAvailabilityPointerDrag() {
+    const pointer = state.availabilityPointerDrag;
+    if (!pointer) return;
+    pointer.chip.classList.remove('dragging');
+    pointer.chip.removeEventListener('pointermove', updateAvailabilityPointerDrag);
+    pointer.chip.removeEventListener('pointerup', endAvailabilityPointerDrag);
+    pointer.chip.removeEventListener('pointercancel', cancelAvailabilityPointerDrag);
+    if (pointer.ghost) pointer.ghost.remove();
+    clearAvailabilityDropState(pointer.root || document);
+    state.draggedAvailability = null;
+    state.availabilityPointerDrag = null;
+  }
+
+  function moveAvailabilityGhost(ghost, x, y) {
+    if (!ghost) return;
+    ghost.style.left = `${x + 12}px`;
+    ghost.style.top = `${y + 12}px`;
+  }
+
+  function availabilityDropTargetAt(x, y) {
+    const element = document.elementFromPoint(x, y);
+    return element && element.closest ? element.closest('[data-drop-availability-game]') : null;
+  }
+
+  function clearAvailabilityDropState(root) {
+    root.querySelectorAll('.drag-over').forEach((target) => target.classList.remove('drag-over'));
+    root.querySelectorAll('.drop-blocked').forEach((target) => target.classList.remove('drop-blocked'));
+  }
+
   function canDropAvailabilityOnGame(drag, target) {
+    return canDropAvailabilityOnGameData(
+      drag,
+      target && target.dataset.dropAvailabilityGame,
+      target && target.dataset.dropAvailabilityDate,
+      target && target.dataset.dropAvailabilityTime
+    );
+  }
+
+  function canDropAvailabilityOnGameData(drag, gameId, date, time) {
     return Boolean(drag
-      && target
-      && target.dataset.dropAvailabilityGame
-      && target.dataset.dropAvailabilityGame !== drag.sourceGameId
-      && target.dataset.dropAvailabilityFilled !== 'true'
-      && target.dataset.dropAvailabilityDate === drag.date
-      && minutesFromTime(target.dataset.dropAvailabilityTime) === minutesFromTime(drag.time));
+      && gameId
+      && gameId !== drag.sourceGameId
+      && date === drag.date
+      && minutesFromTime(time) === minutesFromTime(drag.time));
   }
 
   async function moveAvailabilityToGame(drag, targetGameId) {
@@ -628,6 +787,7 @@
         body: JSON.stringify({ targetGameId })
       });
       (payload.games || []).forEach(upsertGame);
+      state.availabilityMoveSelection = null;
       render();
     } catch (error) {
       alert(error.message || `${name} could not be moved to ${targetLabel}.`);
