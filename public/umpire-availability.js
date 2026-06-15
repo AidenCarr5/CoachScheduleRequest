@@ -208,10 +208,6 @@
 
   function render() {
     const games = visibleGames();
-    const username = String(state.user && state.user.username || '').toLowerCase();
-    $('umpireVisibleCount').textContent = games.length;
-    $('umpireOpenCount').textContent = games.filter((game) => !game.filled).length;
-    $('umpireMyCount').textContent = state.games.filter((game) => userAssigned(game, username) || userClaimed(game, username)).length;
     renderMyGames();
     $('umpireCalendarSection').hidden = state.view !== 'calendar';
     $('umpireListSection').hidden = state.view !== 'list';
