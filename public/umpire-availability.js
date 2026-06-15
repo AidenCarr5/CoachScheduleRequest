@@ -546,8 +546,8 @@
       : '';
     const assignButtons = canAdminMutateUmpires() && !game.filled
       ? `
-        <button class="assignment-chip-btn" type="button" data-assign-umpire="${escapeHtml(claim.username)}" data-assign-game="${escapeHtml(game.id)}" data-assign-position="Home Plate">Assign HP</button>
-        <button class="assignment-chip-btn" type="button" data-assign-umpire="${escapeHtml(claim.username)}" data-assign-game="${escapeHtml(game.id)}" data-assign-position="Bases">Assign Bases</button>
+        <button class="assignment-chip-btn" type="button" data-assign-umpire="${escapeHtml(claim.username)}" data-assign-game="${escapeHtml(game.id)}" data-assign-position="Home Plate">Assign + confirm HP</button>
+        <button class="assignment-chip-btn" type="button" data-assign-umpire="${escapeHtml(claim.username)}" data-assign-game="${escapeHtml(game.id)}" data-assign-position="Bases">Assign + confirm Bases</button>
       `
       : '';
     const actions = canAdminMutateUmpires()
@@ -797,7 +797,7 @@
   async function assignUmpireToGame(button) {
     const originalText = button.textContent;
     button.disabled = true;
-    button.textContent = 'Assigning...';
+    button.textContent = 'Confirming...';
     try {
       const payload = await fetchJson(`/api/umpire/games/${encodeURIComponent(button.dataset.assignGame)}/assign`, {
         method: 'POST',
