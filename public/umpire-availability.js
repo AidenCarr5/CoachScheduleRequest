@@ -480,7 +480,7 @@
     if (!move) return '';
     return `
       <div class="umpire-move-banner">
-        Moving <strong>${escapeHtml(move.name || move.username || 'umpire')}</strong>. Click another ${escapeHtml(move.time)} game on ${escapeHtml(formatDate(move.date))} to move their availability. This does not update Turtle Club.
+        Click another ${escapeHtml(move.time)} game on ${escapeHtml(formatDate(move.date))}.
         <button class="assignment-chip-btn danger" type="button" data-cancel-availability-move>Cancel move</button>
       </div>
     `;

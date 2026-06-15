@@ -1337,6 +1337,8 @@ button {
 .umpire-move-banner .assignment-chip-btn.danger {
   margin-top: 0;
   margin-left: auto;
+  color: #fff;
+  background: var(--red);
 }
 
 .assignment-empty {
