@@ -1186,6 +1186,7 @@ button {
 }
 
 .umpire-assignment-officials {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   align-items: stretch;
@@ -1204,6 +1205,35 @@ button {
   background: #e6f8db;
   animation: move-target-pulse 1.1s ease-in-out infinite;
   cursor: pointer;
+}
+
+.umpire-assignment-officials.move-target::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  width: 10px;
+  height: 24px;
+  background: var(--green);
+  border-radius: 999px;
+  box-shadow: 0 0 14px rgba(31, 122, 49, .5);
+  transform: translateX(-50%);
+  animation: move-target-arrow 1.1s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.umpire-assignment-officials.move-target::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 18px solid var(--green);
+  filter: drop-shadow(0 0 8px rgba(31, 122, 49, .45));
+  transform: translateX(-50%);
+  animation: move-target-arrow 1.1s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .umpire-assignment-officials.drop-blocked {
@@ -1355,6 +1385,16 @@ button {
   50% {
     background: #bff08d;
     box-shadow: inset 0 0 0 3px rgba(31, 122, 49, .55), 0 0 18px rgba(31, 122, 49, .6);
+  }
+}
+
+@keyframes move-target-arrow {
+  0%,
+  100% {
+    transform: translate(-50%, -2px);
+  }
+  50% {
+    transform: translate(-50%, 4px);
   }
 }
 
