@@ -1202,13 +1202,7 @@ button {
   outline: 3px solid #1f7a31;
   outline-offset: -3px;
   background: #e6f8db;
-  box-shadow: inset 0 0 0 999px rgba(193, 242, 118, .18), 0 0 18px rgba(31, 122, 49, .45);
-  cursor: pointer;
-}
-
-.umpire-assignment-game-row.move-target-game td {
-  background: #dff6bf;
-  box-shadow: inset 0 0 0 2px rgba(31, 122, 49, .35), 0 0 14px rgba(31, 122, 49, .35);
+  animation: move-target-pulse 1.1s ease-in-out infinite;
   cursor: pointer;
 }
 
@@ -1350,6 +1344,18 @@ button {
   border: 2px solid #0c2f12 !important;
   font: 900 12px Roboto, Arial, sans-serif !important;
   text-shadow: none !important;
+}
+
+@keyframes move-target-pulse {
+  0%,
+  100% {
+    background: #e6f8db;
+    box-shadow: inset 0 0 0 1px rgba(31, 122, 49, .25), 0 0 8px rgba(31, 122, 49, .25);
+  }
+  50% {
+    background: #bff08d;
+    box-shadow: inset 0 0 0 3px rgba(31, 122, 49, .55), 0 0 18px rgba(31, 122, 49, .6);
+  }
 }
 
 .assignment-empty {

@@ -500,7 +500,7 @@
     ];
     const isMoveTarget = canDropAvailabilityOnGameData(state.availabilityMoveSelection, game.id, game.date, game.time);
     return `
-      <tr class="umpire-assignment-game-row ${categoryClass(game.category)}${isMoveTarget ? ' move-target-game' : ''}">
+      <tr class="umpire-assignment-game-row ${categoryClass(game.category)}">
         <td>${escapeHtml(gameNumber)}</td>
         <td>${escapeHtml(shortDate(game.date))}</td>
         <td>${escapeHtml(game.time)}</td>
