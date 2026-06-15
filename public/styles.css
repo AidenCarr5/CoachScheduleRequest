@@ -1213,6 +1213,39 @@ button {
   opacity: .9;
 }
 
+.assignment-official .assignment-sync-warning {
+  margin-top: 3px;
+  color: #ffe9a7;
+  opacity: 1;
+}
+
+.assignment-chip-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 7px;
+}
+
+.assignment-chip-btn {
+  padding: 5px 8px;
+  border: 1px solid rgba(0, 0, 0, .18);
+  color: #fff;
+  background: var(--green);
+  font: 800 11px Roboto, Arial, sans-serif;
+  cursor: pointer;
+}
+
+.assignment-chip-btn.danger {
+  margin-top: 7px;
+  background: var(--red);
+}
+
+.assignment-chip-btn:disabled {
+  cursor: wait;
+  opacity: .7;
+}
+
 .assignment-official.confirmed,
 .assignment-official.assigned {
   background: var(--green);

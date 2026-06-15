@@ -446,6 +446,7 @@
         </tbody>
       </table>
     `;
+    bindAssignmentAdminButtons($('umpireAssignmentsTable'));
   }
 
   function renderAssignmentRows(game, index) {
@@ -458,7 +459,7 @@
       ...confirmed.map((official) => renderOfficialChip('confirmed', 'Confirmed', official)),
       ...pending.map((official) => renderOfficialChip('pending', 'Pending', official)),
       ...rejected.map((official) => renderOfficialChip('rejected', 'Rejected', official)),
-      ...available.map((claim) => renderAvailableChip(claim))
+      ...available.map((claim) => renderAvailableChip(claim, game))
     ];
     return `
       <tr class="umpire-assignment-game-row ${categoryClass(game.category)}">
@@ -486,21 +487,105 @@
   }
 
   function renderOfficialChip(statusClass, statusLabel, official) {
+    const syncLabel = official.turtleClubSync === 'failed' ? '<small class="assignment-sync-warning">TC sync failed</small>' : '';
+    const removeButton = canAdminMutateUmpires() && official.source === 'local-admin' && official.id
+      ? `<button class="assignment-chip-btn danger" type="button" data-remove-assignment="${escapeHtml(official.id)}" data-remove-game="${escapeHtml(official.gameId)}">Remove</button>`
+      : '';
     return `
       <span class="assignment-official ${statusClass}">
         <small>${escapeHtml(statusLabel)}</small>
         ${escapeHtml(official.name)}${official.position ? ` (${escapeHtml(official.position)})` : ''}
+        ${syncLabel}
+        ${removeButton}
       </span>
     `;
   }
 
-  function renderAvailableChip(claim) {
+  function renderAvailableChip(claim, game) {
+    const assignButtons = canAdminMutateUmpires() && !game.filled
+      ? `
+        <span class="assignment-chip-actions">
+          <button class="assignment-chip-btn" type="button" data-assign-umpire="${escapeHtml(claim.username)}" data-assign-game="${escapeHtml(game.id)}" data-assign-position="Home Plate">Assign HP</button>
+          <button class="assignment-chip-btn" type="button" data-assign-umpire="${escapeHtml(claim.username)}" data-assign-game="${escapeHtml(game.id)}" data-assign-position="Bases">Assign Bases</button>
+        </span>
+      `
+      : '';
     return `
       <span class="assignment-official available" title="${escapeHtml(claim.submittedAt ? `Submitted ${formatDateTime(claim.submittedAt)}` : 'Available on this site')}">
         <small>Available</small>
         ${escapeHtml(claim.name || claim.username)}
+        ${assignButtons}
       </span>
     `;
+  }
+
+  function canAdminMutateUmpires() {
+    return Boolean(state.user && state.user.role === 'admin');
+  }
+
+  function bindAssignmentAdminButtons(root) {
+    if (!root || !canAdminMutateUmpires()) return;
+    root.querySelectorAll('[data-assign-umpire]').forEach((button) => {
+      button.addEventListener('click', () => assignUmpireToGame(button));
+    });
+    root.querySelectorAll('[data-remove-assignment]').forEach((button) => {
+      button.addEventListener('click', () => removeUmpireAssignment(button));
+    });
+  }
+
+  async function assignUmpireToGame(button) {
+    const originalText = button.textContent;
+    button.disabled = true;
+    button.textContent = 'Assigning...';
+    try {
+      const payload = await fetchJson(`/api/umpire/games/${encodeURIComponent(button.dataset.assignGame)}/assign`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: button.dataset.assignUmpire,
+          position: button.dataset.assignPosition
+        })
+      });
+      upsertGame(payload.game);
+      render();
+      if (payload.turtleClubSync === 'failed') {
+        alert(`Assigned locally, but Turtle Club did not update: ${payload.turtleClubError || 'Unknown error'}`);
+      }
+    } catch (error) {
+      alert(error.message || 'Could not assign this umpire.');
+    } finally {
+      button.disabled = false;
+      button.textContent = originalText;
+    }
+  }
+
+  async function removeUmpireAssignment(button) {
+    if (!confirm('Remove this umpire assignment?')) return;
+    const originalText = button.textContent;
+    button.disabled = true;
+    button.textContent = 'Removing...';
+    try {
+      const payload = await fetchJson(`/api/umpire/games/${encodeURIComponent(button.dataset.removeGame)}/assignments/${encodeURIComponent(button.dataset.removeAssignment)}`, {
+        method: 'DELETE'
+      });
+      upsertGame(payload.game);
+      render();
+      if (payload.turtleClubSync === 'failed') {
+        alert(`Removed locally, but Turtle Club did not update: ${payload.turtleClubError || 'Unknown error'}`);
+      }
+    } catch (error) {
+      alert(error.message || 'Could not remove this assignment.');
+    } finally {
+      button.disabled = false;
+      button.textContent = originalText;
+    }
+  }
+
+  function upsertGame(game) {
+    if (!game || !game.id) return;
+    const index = state.games.findIndex((item) => item.id === game.id);
+    if (index >= 0) state.games.splice(index, 1, game);
+    else state.games.push(game);
   }
 
   function ensureAssignmentsDate() {
