@@ -542,8 +542,8 @@
       : '';
     const assignButtons = canAdminMutateUmpires()
       ? `
-        <button class="assignment-chip-btn" type="button" data-assign-umpire="${escapeHtml(claim.username)}" data-assign-game="${escapeHtml(game.id)}" data-assign-position="Home Plate">Assign + confirm HP</button>
-        <button class="assignment-chip-btn" type="button" data-assign-umpire="${escapeHtml(claim.username)}" data-assign-game="${escapeHtml(game.id)}" data-assign-position="Bases">Assign + confirm Bases</button>
+        <button class="assignment-chip-btn" type="button" data-assign-umpire="${escapeHtml(claim.username)}" data-assign-game="${escapeHtml(game.id)}" data-assign-position="Home Plate">Assign HP</button>
+        <button class="assignment-chip-btn" type="button" data-assign-umpire="${escapeHtml(claim.username)}" data-assign-game="${escapeHtml(game.id)}" data-assign-position="Bases">Assign Bases</button>
       `
       : '';
     const actions = canAdminMutateUmpires()
