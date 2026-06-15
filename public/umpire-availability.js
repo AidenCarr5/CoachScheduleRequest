@@ -16,7 +16,8 @@
     accountProgram: 'All programs',
     accountSaveTimer: null,
     accountSaveInFlight: false,
-    accountSaveQueued: false
+    accountSaveQueued: false,
+    draggedAvailability: null
   };
 
   async function init() {
@@ -496,7 +497,7 @@
       </tr>
       <tr class="umpire-assignment-official-row">
         <td colspan="8">
-          <div class="umpire-assignment-officials">
+          <div class="umpire-assignment-officials" data-drop-availability-game="${escapeHtml(game.id)}" data-drop-availability-date="${escapeHtml(game.date)}" data-drop-availability-time="${escapeHtml(game.time)}" data-drop-availability-filled="${game.filled ? 'true' : 'false'}">
             ${officialChips.length ? officialChips.join('') : '<span class="assignment-empty">No officials confirmed, pending, rejected, or available yet.</span>'}
           </div>
         </td>
@@ -533,7 +534,7 @@
       `
       : '';
     return `
-      <span class="assignment-official available" title="${escapeHtml(claim.submittedAt ? `Submitted ${formatDateTime(claim.submittedAt)}` : 'Available on this site')}">
+      <span class="assignment-official available" draggable="${canAdminMutateUmpires() ? 'true' : 'false'}" data-drag-availability="true" data-claim-id="${escapeHtml(claim.id)}" data-claim-source-game="${escapeHtml(game.id)}" data-claim-username="${escapeHtml(claim.username)}" data-claim-name="${escapeHtml(claim.name || claim.username)}" data-claim-date="${escapeHtml(game.date)}" data-claim-time="${escapeHtml(game.time)}" title="${escapeHtml(claim.submittedAt ? `Submitted ${formatDateTime(claim.submittedAt)}` : 'Available on this site')}">
         <small>Available</small>
         ${escapeHtml(claim.name || claim.username)}
         ${assignButtons}
@@ -553,6 +554,84 @@
     root.querySelectorAll('[data-remove-assignment]').forEach((button) => {
       button.addEventListener('click', () => removeUmpireAssignment(button));
     });
+    bindAvailabilityDragAndDrop(root);
+  }
+
+  function bindAvailabilityDragAndDrop(root) {
+    root.querySelectorAll('[data-drag-availability]').forEach((chip) => {
+      chip.addEventListener('dragstart', (event) => {
+        state.draggedAvailability = {
+          claimId: chip.dataset.claimId,
+          sourceGameId: chip.dataset.claimSourceGame,
+          username: chip.dataset.claimUsername,
+          name: chip.dataset.claimName,
+          date: chip.dataset.claimDate,
+          time: chip.dataset.claimTime
+        };
+        event.dataTransfer.effectAllowed = 'move';
+        event.dataTransfer.setData('text/plain', JSON.stringify(state.draggedAvailability));
+        chip.classList.add('dragging');
+      });
+      chip.addEventListener('dragend', () => {
+        chip.classList.remove('dragging');
+        state.draggedAvailability = null;
+        root.querySelectorAll('.drag-over').forEach((target) => target.classList.remove('drag-over'));
+        root.querySelectorAll('.drop-blocked').forEach((target) => target.classList.remove('drop-blocked'));
+      });
+    });
+    root.querySelectorAll('[data-drop-availability-game]').forEach((target) => {
+      target.addEventListener('dragover', (event) => {
+        const drag = state.draggedAvailability;
+        if (!drag) return;
+        if (canDropAvailabilityOnGame(drag, target)) {
+          event.preventDefault();
+          event.dataTransfer.dropEffect = 'move';
+          target.classList.add('drag-over');
+          target.classList.remove('drop-blocked');
+        } else {
+          target.classList.add('drop-blocked');
+          target.classList.remove('drag-over');
+        }
+      });
+      target.addEventListener('dragleave', () => {
+        target.classList.remove('drag-over', 'drop-blocked');
+      });
+      target.addEventListener('drop', (event) => {
+        const drag = state.draggedAvailability;
+        target.classList.remove('drag-over', 'drop-blocked');
+        if (!drag || !canDropAvailabilityOnGame(drag, target)) return;
+        event.preventDefault();
+        moveAvailabilityToGame(drag, target.dataset.dropAvailabilityGame);
+      });
+    });
+  }
+
+  function canDropAvailabilityOnGame(drag, target) {
+    return Boolean(drag
+      && target
+      && target.dataset.dropAvailabilityGame
+      && target.dataset.dropAvailabilityGame !== drag.sourceGameId
+      && target.dataset.dropAvailabilityFilled !== 'true'
+      && target.dataset.dropAvailabilityDate === drag.date
+      && minutesFromTime(target.dataset.dropAvailabilityTime) === minutesFromTime(drag.time));
+  }
+
+  async function moveAvailabilityToGame(drag, targetGameId) {
+    if (!drag.claimId || !drag.sourceGameId || !targetGameId) return;
+    const name = drag.name || drag.username || 'This umpire';
+    const targetGame = state.games.find((game) => game.id === targetGameId);
+    const targetLabel = targetGame ? `${targetGame.time} ${targetGame.team} vs ${cleanOpponent(targetGame.opponent)}` : 'the selected game';
+    try {
+      const payload = await fetchJson(`/api/umpire/games/${encodeURIComponent(drag.sourceGameId)}/claims/${encodeURIComponent(drag.claimId)}/move`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ targetGameId })
+      });
+      (payload.games || []).forEach(upsertGame);
+      render();
+    } catch (error) {
+      alert(error.message || `${name} could not be moved to ${targetLabel}.`);
+    }
   }
 
   async function assignUmpireToGame(button) {

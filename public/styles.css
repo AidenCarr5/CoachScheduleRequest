@@ -1192,6 +1192,17 @@ button {
   min-height: 32px;
 }
 
+.umpire-assignment-officials.drag-over {
+  outline: 3px solid var(--green);
+  outline-offset: -3px;
+  background: #eef8ee;
+}
+
+.umpire-assignment-officials.drop-blocked {
+  outline: 2px dashed rgba(157, 47, 38, .55);
+  outline-offset: -3px;
+}
+
 .assignment-official {
   display: grid;
   place-items: center;
@@ -1277,6 +1288,15 @@ button {
     transparent 24px
   );
   text-shadow: none;
+}
+
+.assignment-official.available[draggable="true"] {
+  cursor: grab;
+}
+
+.assignment-official.available.dragging {
+  cursor: grabbing;
+  opacity: .55;
 }
 
 .assignment-empty {
