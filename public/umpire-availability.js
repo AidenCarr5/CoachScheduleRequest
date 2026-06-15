@@ -992,7 +992,7 @@
                   </dl>
                   ${renderProgramCheckboxes(account)}
                   <div class="umpire-account-actions">
-                    <button class="assignment-chip-btn danger" type="button" data-delete-umpire-account="${escapeHtml(account.username)}">Delete umpire</button>
+                    <button class="assignment-chip-btn" type="button" data-delete-umpire-account="${escapeHtml(account.username)}">Delete umpire</button>
                   </div>
                 </div>
               </details>
