@@ -144,7 +144,7 @@
     $('umpireLoginShell').hidden = true;
     $('umpireShell').hidden = false;
     $('umpireAdminRefreshField').hidden = !(state.user && state.user.role === 'admin');
-    $('umpirePortalAssignmentsBtn').hidden = !isAdminViewing();
+    $('umpirePortalAssignmentsBtn').hidden = true;
     $('umpirePortalAccountsBtn').hidden = !(state.user && state.user.role === 'admin');
     if ((state.portalView === 'accounts' && !(state.user && state.user.role === 'admin')) || (state.portalView === 'assignments' && !isAdminViewing())) {
       state.portalView = 'calendar';
