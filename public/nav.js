@@ -146,17 +146,16 @@
     umpireLink.dataset.navKey = 'umpires';
     umpireLink.href = '/umpire-availability.html';
     umpireLink.hidden = true;
-    umpireLink.textContent = 'Umpire';
+    umpireLink.textContent = 'Umpire Assignments';
 
-    const fieldStatusLink = document.getElementById('fieldStatusLink');
-    if (fieldStatusLink && fieldStatusLink.parentElement === topbarInner) {
-      topbarInner.insertBefore(umpireLink, fieldStatusLink);
+    const homeLink = document.getElementById('homeNavLink');
+    if (homeLink && homeLink.parentElement === topbarInner && homeLink.nextSibling) {
+      topbarInner.insertBefore(umpireLink, homeLink.nextSibling);
       return umpireLink;
     }
 
-    const adminLink = document.getElementById('adminLink');
-    if (adminLink && adminLink.parentElement === topbarInner) {
-      topbarInner.insertBefore(umpireLink, adminLink.nextSibling);
+    if (homeLink && homeLink.parentElement === topbarInner) {
+      topbarInner.appendChild(umpireLink);
       return umpireLink;
     }
 
@@ -241,7 +240,7 @@
     }
 
     if (umpireLink) {
-      const canAccessUmpires = Boolean(publicConfig.umpirePath) && (role === 'admin' || role === 'admin_viewer');
+      const canAccessUmpires = Boolean(publicConfig.umpirePath);
       umpireLink.href = publicConfig.umpirePath || '/umpire-availability.html';
       umpireLink.hidden = !canAccessUmpires;
     }
