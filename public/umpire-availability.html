@@ -74,6 +74,7 @@
   <main id="umpireShell" class="wrap app-shell" hidden>
     <nav class="umpire-portal-nav" aria-label="Umpire portal menu">
       <button id="umpirePortalCalendarBtn" class="umpire-portal-tab active" type="button" aria-pressed="true">Availability Calendar</button>
+      <button id="umpirePortalAssignmentsBtn" class="umpire-portal-tab" type="button" aria-pressed="false" hidden>Assignments by Day</button>
       <button id="umpirePortalMyGamesBtn" class="umpire-portal-tab" type="button" aria-pressed="false">My Games</button>
       <button id="umpirePortalAccountsBtn" class="umpire-portal-tab" type="button" aria-pressed="false" hidden>Official Logins</button>
     </nav>
@@ -140,6 +141,19 @@
         <span id="umpireMyGamesSummary">Assigned games</span>
       </div>
       <div id="umpireMyGamesList" class="umpire-game-list"></div>
+    </section>
+
+    <section id="umpireAssignmentsSection" class="schedule-section" hidden>
+      <div class="umpire-day-board">
+        <div class="umpire-day-board-nav" aria-label="Assignment day navigation">
+          <button id="umpireAssignmentsBackWeekBtn" type="button">&lt;&lt;</button>
+          <button id="umpireAssignmentsBackDayBtn" type="button">&lt;</button>
+          <strong id="umpireAssignmentsDateTitle">Assignments</strong>
+          <button id="umpireAssignmentsNextDayBtn" type="button">&gt;</button>
+          <button id="umpireAssignmentsNextWeekBtn" type="button">&gt;&gt;</button>
+        </div>
+        <div id="umpireAssignmentsTable" class="umpire-assignments-table-wrap"></div>
+      </div>
     </section>
 
     <section id="umpireAccountsSection" class="schedule-section" hidden>

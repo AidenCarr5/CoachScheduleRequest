@@ -911,7 +911,7 @@ button {
 
 .umpire-portal-nav {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 10px;
   margin-bottom: 14px;
   padding: 10px;
@@ -1071,87 +1071,98 @@ button {
   background: var(--green);
 }
 
-.umpire-admin-availability {
-  display: grid;
-  gap: 8px;
-  padding: 10px;
-  background: #fffdf1;
-  border: 1px solid #efc23d;
+.umpire-day-board {
+  padding: 0;
+  overflow-x: auto;
+  background: #fff;
 }
 
-.umpire-admin-availability-head,
-.umpire-admin-official-row {
+.umpire-day-board-nav {
   display: grid;
-  grid-template-columns: 118px 1fr;
-  gap: 10px;
-  align-items: stretch;
+  grid-template-columns: 52px 52px 1fr 52px 52px;
+  align-items: center;
+  background: #8d8d8d;
+  border: 2px solid #f4ab28;
+  border-bottom: 0;
 }
 
-.umpire-admin-availability-head {
+.umpire-day-board-nav button {
+  min-height: 38px;
+  border: 0;
+  border-right: 1px solid #f4ab28;
+  background: transparent;
+  color: #fff;
+  font-weight: 900;
+}
+
+.umpire-day-board-nav button:last-child {
+  border-right: 0;
+  border-left: 1px solid #f4ab28;
+}
+
+.umpire-day-board-nav strong {
+  color: #fff;
+  font: 700 22px Oswald, Arial, sans-serif;
+  text-align: center;
+}
+
+.umpire-assignments-table-wrap {
+  min-width: 980px;
+}
+
+.umpire-assignments-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 2px solid #f4ab28;
+}
+
+.umpire-assignments-table th {
+  padding: 8px 6px;
+  color: #fff;
+  background: #9a9a9a;
+  border-right: 1px solid #f4ab28;
+  font: 700 20px Oswald, Arial, sans-serif;
+  text-align: center;
+}
+
+.umpire-assignments-table td {
+  padding: 7px 8px;
+  border-right: 1px solid #f4ab28;
+  text-align: center;
+}
+
+.umpire-assignment-game-row td {
   color: var(--green);
-  font-size: 13px;
-  font-weight: 900;
-  text-transform: uppercase;
+  background: #f4f6a4;
+  font: 700 20px Oswald, Arial, sans-serif;
 }
 
-.umpire-admin-availability-head strong {
-  justify-self: end;
-  color: var(--muted);
-  font: 800 13px Roboto, Arial, sans-serif;
-  text-transform: none;
+.umpire-assignment-official-row td {
+  padding: 0;
+  background: #fff;
+  border-bottom: 3px solid #f4ab28;
 }
 
-.umpire-admin-row-label {
+.umpire-assignment-officials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  align-items: stretch;
+  min-height: 32px;
+}
+
+.assignment-official {
   display: grid;
   place-items: center;
-  min-height: 34px;
-  padding: 7px 9px;
+  min-height: 32px;
+  padding: 5px 9px;
   color: #fff;
-  background: #888;
-  font-size: 12px;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.umpire-admin-official-row.assigned .umpire-admin-row-label {
-  background: var(--green);
-}
-
-.umpire-admin-official-row.available .umpire-admin-row-label {
-  background: #a13a2d;
-}
-
-.umpire-admin-official-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 8px;
-}
-
-.umpire-admin-official {
-  display: grid;
-  place-items: center;
-  min-height: 34px;
-  padding: 7px 10px;
-  color: #fff;
-  font-weight: 900;
+  font-weight: 800;
   text-align: center;
   text-shadow: 0 1px 0 rgba(0, 0, 0, .18);
 }
 
-.umpire-admin-official small {
-  display: block;
-  margin-top: 2px;
-  font-size: 11px;
-  font-weight: 800;
-  opacity: .92;
-  text-shadow: none;
-}
-
-.umpire-admin-official.assigned {
-  background: var(--green);
-}
-
-.umpire-admin-official.available {
+.assignment-official.available {
   background-color: #d96f32;
   background-image: repeating-linear-gradient(
     45deg,
@@ -1162,15 +1173,23 @@ button {
   );
 }
 
-.umpire-admin-empty {
+.assignment-official.assigned {
+  background: var(--green);
+}
+
+.assignment-empty {
   display: grid;
   place-items: center;
-  min-height: 34px;
-  padding: 7px 10px;
+  min-height: 32px;
   color: var(--bad);
-  background: #fff7dc;
-  border: 1px dashed #efc23d;
-  font-weight: 900;
+  font-weight: 800;
+}
+
+.umpire-assignments-empty {
+  margin: 0;
+  padding: 20px;
+  color: var(--muted);
+  font-weight: 800;
 }
 
 .umpire-claim-row {
@@ -2224,13 +2243,12 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
     text-align: left;
   }
 
-  .umpire-admin-availability-head,
-  .umpire-admin-official-row {
-    grid-template-columns: 1fr;
+  .umpire-day-board-nav {
+    grid-template-columns: 44px 44px minmax(220px, 1fr) 44px 44px;
   }
 
-  .umpire-admin-availability-head strong {
-    justify-self: start;
+  .umpire-day-board-nav strong {
+    font-size: 18px;
   }
 
   .umpire-claim-row button {

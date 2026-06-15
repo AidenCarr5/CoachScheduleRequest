@@ -10,7 +10,8 @@
     status: 'All games',
     query: '',
     view: 'calendar',
-    portalView: 'calendar'
+    portalView: 'calendar',
+    assignmentsDate: ''
   };
 
   async function init() {
@@ -34,8 +35,13 @@
     $('umpireCalendarViewBtn').addEventListener('click', () => setView('calendar'));
     $('umpireListViewBtn').addEventListener('click', () => setView('list'));
     $('umpirePortalCalendarBtn').addEventListener('click', () => setPortalView('calendar'));
+    $('umpirePortalAssignmentsBtn').addEventListener('click', () => setPortalView('assignments'));
     $('umpirePortalMyGamesBtn').addEventListener('click', () => setPortalView('my-games'));
     $('umpirePortalAccountsBtn').addEventListener('click', () => setPortalView('accounts'));
+    $('umpireAssignmentsBackWeekBtn').addEventListener('click', () => shiftAssignmentsDate(-7));
+    $('umpireAssignmentsBackDayBtn').addEventListener('click', () => shiftAssignmentsDate(-1));
+    $('umpireAssignmentsNextDayBtn').addEventListener('click', () => shiftAssignmentsDate(1));
+    $('umpireAssignmentsNextWeekBtn').addEventListener('click', () => shiftAssignmentsDate(7));
     $('closeUmpireDayDialog').addEventListener('click', () => $('umpireDayDialog').close());
     $('refreshUmpireDataBtn').addEventListener('click', refreshUmpireData);
     $('saveUmpireAccountsBtn').addEventListener('click', saveUmpireAccounts);
@@ -136,8 +142,9 @@
     $('umpireLoginShell').hidden = true;
     $('umpireShell').hidden = false;
     $('umpireAdminRefreshField').hidden = !(state.user && state.user.role === 'admin');
+    $('umpirePortalAssignmentsBtn').hidden = !isAdminViewing();
     $('umpirePortalAccountsBtn').hidden = !(state.user && state.user.role === 'admin');
-    if (state.portalView === 'accounts' && !(state.user && state.user.role === 'admin')) {
+    if ((state.portalView === 'accounts' && !(state.user && state.user.role === 'admin')) || (state.portalView === 'assignments' && !isAdminViewing())) {
       state.portalView = 'calendar';
     }
     if (state.user && state.user.role === 'admin') loadUmpireAccounts();
@@ -146,12 +153,15 @@
 
   function setPortalView(view) {
     const canSeeAccounts = state.user && state.user.role === 'admin';
-    state.portalView = view === 'accounts' && !canSeeAccounts ? 'calendar' : view;
+    const canSeeAssignments = isAdminViewing();
+    state.portalView = (view === 'accounts' && !canSeeAccounts) || (view === 'assignments' && !canSeeAssignments) ? 'calendar' : view;
     $('umpireCalendarPage').hidden = state.portalView !== 'calendar';
+    $('umpireAssignmentsSection').hidden = state.portalView !== 'assignments' || !canSeeAssignments;
     $('umpireMyGamesSection').hidden = state.portalView !== 'my-games';
     $('umpireAccountsSection').hidden = state.portalView !== 'accounts' || !canSeeAccounts;
     [
       ['umpirePortalCalendarBtn', 'calendar'],
+      ['umpirePortalAssignmentsBtn', 'assignments'],
       ['umpirePortalMyGamesBtn', 'my-games'],
       ['umpirePortalAccountsBtn', 'accounts']
     ].forEach(([id, key]) => {
@@ -209,6 +219,7 @@
   function render() {
     const games = visibleGames();
     renderMyGames();
+    renderAssignmentsBoard();
     $('umpireCalendarSection').hidden = state.view !== 'calendar';
     $('umpireListSection').hidden = state.view !== 'list';
     if (state.view === 'calendar') {
@@ -330,6 +341,87 @@
     if (!$('umpireDayDialog').open) $('umpireDayDialog').showModal();
   }
 
+  function renderAssignmentsBoard() {
+    if (!isAdminViewing() || !$('umpireAssignmentsTable')) return;
+    ensureAssignmentsDate();
+    const dayGames = state.games
+      .filter((game) => game.date === state.assignmentsDate)
+      .sort((a, b) => `${minutesFromTime(a.time)} ${a.category} ${a.team}`.localeCompare(`${minutesFromTime(b.time)} ${b.category} ${b.team}`));
+    $('umpireAssignmentsDateTitle').textContent = formatDate(state.assignmentsDate);
+    if (!dayGames.length) {
+      $('umpireAssignmentsTable').innerHTML = '<p class="umpire-assignments-empty">No local umpire games found for this day.</p>';
+      return;
+    }
+    $('umpireAssignmentsTable').innerHTML = `
+      <table class="umpire-assignments-table">
+        <thead>
+          <tr>
+            <th>Game #</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Category</th>
+            <th>Team</th>
+            <th>Opponent</th>
+            <th>Venue</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${dayGames.map((game, index) => renderAssignmentRows(game, index)).join('')}
+        </tbody>
+      </table>
+    `;
+  }
+
+  function renderAssignmentRows(game, index) {
+    const available = game.claims || [];
+    const assigned = game.assignedOfficials || [];
+    const gameNumber = game.gameNumber || `G${String(index + 1).padStart(2, '0')}`;
+    return `
+      <tr class="umpire-assignment-game-row ${categoryClass(game.category)}">
+        <td>${escapeHtml(gameNumber)}</td>
+        <td>${escapeHtml(shortDate(game.date))}</td>
+        <td>${escapeHtml(game.time)}</td>
+        <td>${escapeHtml(game.category)}</td>
+        <td>${escapeHtml(game.team)}</td>
+        <td>${escapeHtml(cleanOpponent(game.opponent))}</td>
+        <td>${escapeHtml(game.diamond)}</td>
+        <td>${escapeHtml(gameDescription(game))}</td>
+      </tr>
+      <tr class="umpire-assignment-official-row">
+        <td colspan="8">
+          <div class="umpire-assignment-officials">
+            ${available.length ? available.map((claim) => `
+              <span class="assignment-official available" title="${escapeHtml(claim.submittedAt ? `Submitted ${formatDateTime(claim.submittedAt)}` : 'Available')}">
+                ${escapeHtml(claim.name || claim.username)}
+              </span>
+            `).join('') : '<span class="assignment-empty">No officials available yet.</span>'}
+            ${assigned.length ? assigned.map((official) => `
+              <span class="assignment-official assigned">
+                ${escapeHtml(official.name)}${official.position ? ` (${escapeHtml(official.position)})` : ''}
+              </span>
+            `).join('') : ''}
+          </div>
+        </td>
+      </tr>
+    `;
+  }
+
+  function ensureAssignmentsDate() {
+    if (state.assignmentsDate) return;
+    const today = new Date().toISOString().slice(0, 10);
+    const dates = unique(state.games.map((game) => game.date).filter(Boolean)).sort();
+    state.assignmentsDate = dates.find((date) => date >= today) || dates[0] || today;
+  }
+
+  function shiftAssignmentsDate(days) {
+    ensureAssignmentsDate();
+    const date = new Date(`${state.assignmentsDate}T12:00:00`);
+    date.setDate(date.getDate() + days);
+    state.assignmentsDate = date.toISOString().slice(0, 10);
+    renderAssignmentsBoard();
+  }
+
   function renderGameCard(game, username) {
     const adminViewing = isAdminViewing();
     const mine = userClaimed(game, username);
@@ -355,7 +447,6 @@
             <span>${game.claimCount} available</span>
           </div>
         </div>
-        ${adminViewing ? renderAdminAvailability(game) : ''}
         <div class="umpire-claim-row">
           <span>
             ${assignedText ? `<strong>${escapeHtml(assignedText)}</strong>` : ''}
@@ -365,42 +456,6 @@
           ${hideClaimButton ? '' : `<button class="${mine ? 'secondary' : 'primary'}" type="button" data-claim-game="${escapeHtml(game.id)}" data-claim-action="${claimAction}">${claimLabel}</button>`}
         </div>
       </article>
-    `;
-  }
-
-  function renderAdminAvailability(game) {
-    const assigned = game.assignedOfficials || [];
-    const claims = game.claims || [];
-    return `
-      <div class="umpire-admin-availability" aria-label="Admin umpire availability">
-        <div class="umpire-admin-availability-head">
-          <span>Officials</span>
-          <strong>${claims.length} available</strong>
-        </div>
-        ${assigned.length ? `
-          <div class="umpire-admin-official-row assigned">
-            <span class="umpire-admin-row-label">Assigned</span>
-            <div class="umpire-admin-official-list">
-              ${assigned.map((official) => `
-                <span class="umpire-admin-official assigned">
-                  ${escapeHtml(official.name)}${official.position ? ` <small>${escapeHtml(official.position)}</small>` : ''}
-                </span>
-              `).join('')}
-            </div>
-          </div>
-        ` : ''}
-        <div class="umpire-admin-official-row available">
-          <span class="umpire-admin-row-label">Available</span>
-          <div class="umpire-admin-official-list">
-            ${claims.length ? claims.map((claim) => `
-              <span class="umpire-admin-official available" title="${escapeHtml(claim.submittedAt ? `Submitted ${formatDateTime(claim.submittedAt)}` : 'Available')}">
-                ${escapeHtml(claim.name || claim.username)}
-                ${claim.submittedAt ? `<small>${escapeHtml(formatDateTime(claim.submittedAt))}</small>` : ''}
-              </span>
-            `).join('') : '<span class="umpire-admin-empty">No officials available yet.</span>'}
-          </div>
-        </div>
-      </div>
     `;
   }
 
@@ -578,6 +633,33 @@
     const date = new Date(`${dateString}T12:00:00`);
     if (Number.isNaN(date.getTime())) return dateString;
     return date.toLocaleDateString(undefined, { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' });
+  }
+
+  function shortDate(dateString) {
+    const date = new Date(`${dateString}T12:00:00`);
+    if (Number.isNaN(date.getTime())) return dateString;
+    return date.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: '2-digit' });
+  }
+
+  function minutesFromTime(value) {
+    const match = String(value || '').match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+    if (!match) return 9999;
+    let hour = Number(match[1]);
+    const minute = Number(match[2]);
+    const period = match[3].toUpperCase();
+    if (period === 'PM' && hour !== 12) hour += 12;
+    if (period === 'AM' && hour === 12) hour = 0;
+    return hour * 60 + minute;
+  }
+
+  function cleanOpponent(value) {
+    return String(value || '').replace(/^(vs\.?|@)\s*/i, '').trim();
+  }
+
+  function gameDescription(game) {
+    if (game.description) return game.description;
+    if (game.endTime) return `${game.time}-${game.endTime}`;
+    return game.requiredUmpires > 1 ? '2 umpires' : '1 umpire';
   }
 
   function formatDateTime(value) {
