@@ -331,11 +331,12 @@
   }
 
   function renderGameCard(game, username) {
+    const adminViewing = isAdminViewing();
     const mine = userClaimed(game, username);
     const assignedToMe = userAssigned(game, username);
     const claimLabel = mine ? 'Remove my availability' : 'I will umpire this';
     const claimAction = mine ? 'cancel' : 'claim';
-    const hideClaimButton = assignedToMe || (game.filled && !mine);
+    const hideClaimButton = adminViewing || assignedToMe || (game.filled && !mine);
     const assignedText = assignedToMe
       ? 'You are assigned to this game.'
       : assignedOfficialsText(game);
@@ -354,6 +355,7 @@
             <span>${game.claimCount} available</span>
           </div>
         </div>
+        ${adminViewing ? renderAdminAvailability(game) : ''}
         <div class="umpire-claim-row">
           <span>
             ${assignedText ? `<strong>${escapeHtml(assignedText)}</strong>` : ''}
@@ -363,6 +365,42 @@
           ${hideClaimButton ? '' : `<button class="${mine ? 'secondary' : 'primary'}" type="button" data-claim-game="${escapeHtml(game.id)}" data-claim-action="${claimAction}">${claimLabel}</button>`}
         </div>
       </article>
+    `;
+  }
+
+  function renderAdminAvailability(game) {
+    const assigned = game.assignedOfficials || [];
+    const claims = game.claims || [];
+    return `
+      <div class="umpire-admin-availability" aria-label="Admin umpire availability">
+        <div class="umpire-admin-availability-head">
+          <span>Officials</span>
+          <strong>${claims.length} available</strong>
+        </div>
+        ${assigned.length ? `
+          <div class="umpire-admin-official-row assigned">
+            <span class="umpire-admin-row-label">Assigned</span>
+            <div class="umpire-admin-official-list">
+              ${assigned.map((official) => `
+                <span class="umpire-admin-official assigned">
+                  ${escapeHtml(official.name)}${official.position ? ` <small>${escapeHtml(official.position)}</small>` : ''}
+                </span>
+              `).join('')}
+            </div>
+          </div>
+        ` : ''}
+        <div class="umpire-admin-official-row available">
+          <span class="umpire-admin-row-label">Available</span>
+          <div class="umpire-admin-official-list">
+            ${claims.length ? claims.map((claim) => `
+              <span class="umpire-admin-official available" title="${escapeHtml(claim.submittedAt ? `Submitted ${formatDateTime(claim.submittedAt)}` : 'Available')}">
+                ${escapeHtml(claim.name || claim.username)}
+                ${claim.submittedAt ? `<small>${escapeHtml(formatDateTime(claim.submittedAt))}</small>` : ''}
+              </span>
+            `).join('') : '<span class="umpire-admin-empty">No officials available yet.</span>'}
+          </div>
+        </div>
+      </div>
     `;
   }
 
@@ -396,6 +434,10 @@
     const assigned = game.assignedOfficials || [];
     if (!assigned.length) return '';
     return `Assigned: ${assigned.map((official) => `${official.name}${official.position ? ` (${official.position})` : ''}`).join(', ')}`;
+  }
+
+  function isAdminViewing() {
+    return Boolean(state.user && (state.user.role === 'admin' || state.user.role === 'admin_viewer'));
   }
 
   async function loadUmpireAccounts() {

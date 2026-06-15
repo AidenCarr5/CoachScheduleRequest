@@ -1071,6 +1071,108 @@ button {
   background: var(--green);
 }
 
+.umpire-admin-availability {
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  background: #fffdf1;
+  border: 1px solid #efc23d;
+}
+
+.umpire-admin-availability-head,
+.umpire-admin-official-row {
+  display: grid;
+  grid-template-columns: 118px 1fr;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.umpire-admin-availability-head {
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.umpire-admin-availability-head strong {
+  justify-self: end;
+  color: var(--muted);
+  font: 800 13px Roboto, Arial, sans-serif;
+  text-transform: none;
+}
+
+.umpire-admin-row-label {
+  display: grid;
+  place-items: center;
+  min-height: 34px;
+  padding: 7px 9px;
+  color: #fff;
+  background: #888;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.umpire-admin-official-row.assigned .umpire-admin-row-label {
+  background: var(--green);
+}
+
+.umpire-admin-official-row.available .umpire-admin-row-label {
+  background: #a13a2d;
+}
+
+.umpire-admin-official-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 8px;
+}
+
+.umpire-admin-official {
+  display: grid;
+  place-items: center;
+  min-height: 34px;
+  padding: 7px 10px;
+  color: #fff;
+  font-weight: 900;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .18);
+}
+
+.umpire-admin-official small {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 800;
+  opacity: .92;
+  text-shadow: none;
+}
+
+.umpire-admin-official.assigned {
+  background: var(--green);
+}
+
+.umpire-admin-official.available {
+  background-color: #d96f32;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, .16) 0,
+    rgba(255, 255, 255, .16) 12px,
+    transparent 12px,
+    transparent 24px
+  );
+}
+
+.umpire-admin-empty {
+  display: grid;
+  place-items: center;
+  min-height: 34px;
+  padding: 7px 10px;
+  color: var(--bad);
+  background: #fff7dc;
+  border: 1px dashed #efc23d;
+  font-weight: 900;
+}
+
 .umpire-claim-row {
   display: flex;
   justify-content: space-between;
@@ -2120,6 +2222,15 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
   .umpire-game-status {
     justify-items: start;
     text-align: left;
+  }
+
+  .umpire-admin-availability-head,
+  .umpire-admin-official-row {
+    grid-template-columns: 1fr;
+  }
+
+  .umpire-admin-availability-head strong {
+    justify-self: start;
   }
 
   .umpire-claim-row button {
