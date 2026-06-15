@@ -754,17 +754,36 @@ async function fetchOfficialsDailyHtml(session, date) {
 
 function parseOfficialsRosterPage(html, positionId) {
   return extractTableRows(html)
-    .map((row) => extractTableCellText(row))
-    .filter((cells) => cells.length >= 2 && cells[0] && cells[1] && !/^username$/i.test(cells[0]))
-    .map((cells) => ({
-      username: cells[0],
-      name: cells[1],
-      qualification: cells[2] || '',
-      experience: cells[3] || '',
-      age: cells[4] || '',
-      city: cells[5] || '',
-      positionId: String(positionId || '')
+    .map((row) => ({
+      row,
+      cells: extractTableCellText(row)
     }))
+    .filter(({ cells }) => cells.length >= 2 && cells[0] && cells[1] && !/^username$/i.test(cells[0]))
+    .map(({ row, cells }) => {
+      const detailCells = cells.slice(2);
+      const mailtoMatch = String(row || '').match(/mailto:([^"'>?\s]+)/i);
+      const mailtoEmail = (() => {
+        if (!mailtoMatch) return '';
+        try {
+          return decodeURIComponent(mailtoMatch[1]).trim();
+        } catch (_) {
+          return String(mailtoMatch[1] || '').trim();
+        }
+      })();
+      const email = detailCells.find((cell) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(cell || '').trim()))
+        || mailtoEmail;
+      const nonEmailDetails = detailCells.filter((cell) => String(cell || '').trim() !== String(email || '').trim());
+      return {
+        username: cells[0],
+        name: cells[1],
+        email,
+        qualification: nonEmailDetails[0] || '',
+        experience: nonEmailDetails[1] || '',
+        age: nonEmailDetails[2] || '',
+        city: nonEmailDetails[3] || '',
+        positionId: String(positionId || '')
+      };
+    })
     .filter((official) => official.username && official.name);
 }
 
