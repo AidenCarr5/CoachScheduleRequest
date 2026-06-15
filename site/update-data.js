@@ -39,6 +39,23 @@ function strip(value) {
     .trim();
 }
 
+function decodeCloudflareEmail(hex) {
+  const cleanHex = String(hex || '').trim();
+  if (!/^[a-f0-9]+$/i.test(cleanHex) || cleanHex.length < 4) return '';
+  const key = parseInt(cleanHex.slice(0, 2), 16);
+  let email = '';
+  for (let index = 2; index < cleanHex.length; index += 2) {
+    const charCode = parseInt(cleanHex.slice(index, index + 2), 16) ^ key;
+    email += String.fromCharCode(charCode);
+  }
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : '';
+}
+
+function cloudflareEmailFromHtml(html) {
+  const match = String(html || '').match(/data-cfemail="([a-f0-9]+)"/i);
+  return match ? decodeCloudflareEmail(match[1]) : '';
+}
+
 function monthName(month) {
   return monthNames[month - 1];
 }
@@ -771,6 +788,7 @@ function parseOfficialsRosterPage(html, positionId) {
         }
       })();
       const email = detailCells.find((cell) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(cell || '').trim()))
+        || cloudflareEmailFromHtml(row)
         || mailtoEmail;
       const nonEmailDetails = detailCells.filter((cell) => String(cell || '').trim() !== String(email || '').trim());
       return {
