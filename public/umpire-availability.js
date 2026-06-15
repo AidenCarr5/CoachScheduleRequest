@@ -465,7 +465,7 @@
         <td>${escapeHtml(game.category)}</td>
         <td>${escapeHtml(game.team)}</td>
         <td>${escapeHtml(cleanOpponent(game.opponent))}</td>
-        <td>${escapeHtml(game.diamond)}</td>
+        <td>${escapeHtml(cleanAssignmentVenue(game.diamond))}</td>
         <td>${escapeHtml(gameDescription(game))}</td>
       </tr>
       <tr class="umpire-assignment-official-row">
@@ -476,6 +476,10 @@
         </td>
       </tr>
     `;
+  }
+
+  function cleanAssignmentVenue(value) {
+    return String(value || '').replace(/\s*\[G\d{2}-\d+\]\s*/g, '').trim();
   }
 
   function renderOfficialChip(statusClass, statusLabel, official) {
