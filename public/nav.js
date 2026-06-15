@@ -314,7 +314,10 @@
     if (onUmpirePortal) {
       document.querySelectorAll('.topbar-link').forEach((link) => {
         const key = link.dataset ? link.dataset.navKey : '';
-        link.hidden = !(key === 'home' || key === 'umpires' || (key === 'umpire-assignments' && (role === 'admin' || role === 'admin_viewer')));
+        link.hidden = !(key === 'home'
+          || key === 'umpires'
+          || (key === 'umpire-assignments' && (role === 'admin' || role === 'admin_viewer'))
+          || (key === 'site-switch' && (role === 'admin' || role === 'admin_viewer')));
       });
       homeLink.hidden = false;
       if (umpireLink) {

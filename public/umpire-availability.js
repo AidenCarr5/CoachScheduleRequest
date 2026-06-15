@@ -57,6 +57,7 @@
     });
     window.addEventListener('hashchange', applyPortalHash);
 
+    await acceptIncomingSwitchLogin();
     const session = await currentPortalSession();
     if (session.authenticated) {
       state.user = session.user;
@@ -65,6 +66,25 @@
       showPortal();
     } else {
       showLogin();
+    }
+  }
+
+  async function acceptIncomingSwitchLogin() {
+    const params = new URLSearchParams(window.location.search);
+    const switchToken = params.get('switchToken');
+    if (!switchToken) return;
+    params.delete('switchToken');
+    const cleanQuery = params.toString();
+    const cleanUrl = `${window.location.pathname}${cleanQuery ? `?${cleanQuery}` : ''}${window.location.hash || ''}`;
+    window.history.replaceState({}, '', cleanUrl);
+    try {
+      await fetch('/api/admin/switch-login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ switchToken })
+      });
+    } catch (_) {
+      // The session check below will show the login form if the handoff fails.
     }
   }
 
