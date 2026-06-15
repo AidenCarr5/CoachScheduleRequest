@@ -13,7 +13,10 @@
     portalView: 'calendar',
     assignmentsDate: '',
     accountQuery: '',
-    accountProgram: 'All programs'
+    accountProgram: 'All programs',
+    accountSaveTimer: null,
+    accountSaveInFlight: false,
+    accountSaveQueued: false
   };
 
   async function init() {
@@ -46,7 +49,6 @@
     $('umpireAssignmentsNextWeekBtn').addEventListener('click', () => shiftAssignmentsDate(7));
     $('closeUmpireDayDialog').addEventListener('click', () => $('umpireDayDialog').close());
     $('refreshUmpireDataBtn').addEventListener('click', refreshUmpireData);
-    $('saveUmpireAccountsBtn').addEventListener('click', saveUmpireAccounts);
     $('umpireAccountSearch').addEventListener('input', (event) => {
       state.accountQuery = event.target.value.toLowerCase();
       renderUmpireAccounts();
@@ -709,14 +711,13 @@
       state.accounts = payload.accounts || [];
       renderUmpireAccounts();
     } catch (error) {
-      $('umpireAccountsSummary').textContent = error.message || 'Could not load official logins.';
+      showUmpireAccountMessage(error.message || 'Could not load official logins.');
     }
   }
 
   function renderUmpireAccounts() {
     rebuildAccountProgramFilter();
     const accounts = filteredUmpireAccounts();
-    $('umpireAccountsSummary').textContent = `${accounts.length} of ${state.accounts.length} official account${state.accounts.length === 1 ? '' : 's'}`;
     if (!state.accounts.length) {
       $('umpireAccountsList').innerHTML = '<p class="muted">No official accounts found yet. Refresh umpire data first.</p>';
       return;
@@ -761,6 +762,7 @@
         </section>
       `).join('')}
     `;
+    bindUmpireProgramAutosave();
     bindDeleteUmpireAccountButtons();
   }
 
@@ -788,16 +790,18 @@
     });
   }
 
-  async function saveUmpireAccounts() {
-    const button = $('saveUmpireAccountsBtn');
-    const message = $('umpireAccountsSaveMessage');
+  async function saveUmpireAccounts(options = {}) {
+    if (state.accountSaveInFlight) {
+      state.accountSaveQueued = true;
+      return;
+    }
+    state.accountSaveInFlight = true;
+    const renderAfterSave = options.renderAfterSave !== false;
     const accounts = state.accounts.map((account) => ({
       username: account.username,
       programs: visibleProgramsForAccount(account)
     }));
-    button.disabled = true;
-    message.hidden = false;
-    message.textContent = 'Saving umpire game designations...';
+    showUmpireAccountMessage('Saving umpire game designations...');
     try {
       const payload = await fetchJson('/api/umpire/accounts', {
         method: 'POST',
@@ -805,14 +809,36 @@
         body: JSON.stringify({ accounts })
       });
       state.accounts = payload.accounts || [];
-      renderUmpireAccounts();
-      message.textContent = 'Umpire game designations saved.';
+      if (renderAfterSave) renderUmpireAccounts();
+      showUmpireAccountMessage('Umpire game designations saved.');
       await loadGames();
     } catch (error) {
-      message.textContent = error.message || 'Umpire game designations could not be saved.';
+      showUmpireAccountMessage(error.message || 'Umpire game designations could not be saved.');
     } finally {
-      button.disabled = false;
+      state.accountSaveInFlight = false;
+      if (state.accountSaveQueued) {
+        state.accountSaveQueued = false;
+        scheduleUmpireAccountsAutosave();
+      }
     }
+  }
+
+  function showUmpireAccountMessage(text) {
+    const message = $('umpireAccountsSaveMessage');
+    message.hidden = false;
+    message.textContent = text;
+  }
+
+  function bindUmpireProgramAutosave() {
+    document.querySelectorAll('[data-account-program]').forEach((input) => {
+      input.addEventListener('change', scheduleUmpireAccountsAutosave);
+    });
+  }
+
+  function scheduleUmpireAccountsAutosave() {
+    window.clearTimeout(state.accountSaveTimer);
+    showUmpireAccountMessage('Saving umpire game designations...');
+    state.accountSaveTimer = window.setTimeout(() => saveUmpireAccounts({ renderAfterSave: false }), 350);
   }
 
   function bindDeleteUmpireAccountButtons() {
