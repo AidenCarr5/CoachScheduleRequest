@@ -38,6 +38,7 @@
     $('umpirePortalAccountsBtn').addEventListener('click', () => setPortalView('accounts'));
     $('closeUmpireDayDialog').addEventListener('click', () => $('umpireDayDialog').close());
     $('refreshUmpireDataBtn').addEventListener('click', refreshUmpireData);
+    $('saveUmpireAccountsBtn').addEventListener('click', saveUmpireAccounts);
 
     const session = await currentPortalSession();
     if (session.authenticated) {
@@ -188,7 +189,9 @@
 
   function visibleGames() {
     const username = String(state.user && state.user.username || '').toLowerCase();
+    const allowedPrograms = allowedProgramsForUser();
     return state.games.filter((game) => {
+      if (allowedPrograms && !allowedPrograms.has(game.category)) return false;
       if (state.category !== 'All programs' && game.category !== state.category) return false;
       if (state.month !== 'All months' && monthLabel(game.date) !== state.month) return false;
       if (state.status === 'Open games' && game.filled) return false;
@@ -208,7 +211,7 @@
     const username = String(state.user && state.user.username || '').toLowerCase();
     $('umpireVisibleCount').textContent = games.length;
     $('umpireOpenCount').textContent = games.filter((game) => !game.filled).length;
-    $('umpireMyCount').textContent = state.games.filter((game) => userAssigned(game, username)).length;
+    $('umpireMyCount').textContent = state.games.filter((game) => userAssigned(game, username) || userClaimed(game, username)).length;
     renderMyGames();
     $('umpireCalendarSection').hidden = state.view !== 'calendar';
     $('umpireListSection').hidden = state.view !== 'list';
@@ -222,11 +225,13 @@
   function renderMyGames() {
     const username = String(state.user && state.user.username || '').toLowerCase();
     const games = state.games
-      .filter((game) => userAssigned(game, username))
+      .filter((game) => userAssigned(game, username) || userClaimed(game, username))
       .sort((a, b) => `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`));
-    $('umpireMyGamesSummary').textContent = `${games.length} assigned game${games.length === 1 ? '' : 's'}`;
+    const assignedCount = games.filter((game) => userAssigned(game, username)).length;
+    const availableCount = games.filter((game) => userClaimed(game, username) && !userAssigned(game, username)).length;
+    $('umpireMyGamesSummary').textContent = `${assignedCount} assigned, ${availableCount} volunteered`;
     if (!games.length) {
-      $('umpireMyGamesList').innerHTML = '<p class="muted">No assigned games found for this login.</p>';
+      $('umpireMyGamesList').innerHTML = '<p class="muted">No assigned games or availability found for this login.</p>';
       return;
     }
     let lastDate = '';
@@ -416,7 +421,7 @@
     $('umpireAccountsList').innerHTML = `
       <table class="umpire-accounts-table">
         <thead>
-          <tr><th>Official</th><th>Username</th><th>Password</th><th>Qualification</th></tr>
+          <tr><th>Official</th><th>Username</th><th>Password</th><th>Qualification</th><th>Visible games</th></tr>
         </thead>
         <tbody>
           ${state.accounts.map((account) => `
@@ -425,10 +430,56 @@
               <td>${escapeHtml(account.username)}</td>
               <td>${escapeHtml(account.password)}</td>
               <td>${escapeHtml(account.qualification || '')}</td>
+              <td>${renderProgramCheckboxes(account)}</td>
             </tr>
           `).join('')}
         </tbody>
       </table>
+    `;
+  }
+
+  async function saveUmpireAccounts() {
+    const button = $('saveUmpireAccountsBtn');
+    const message = $('umpireAccountsSaveMessage');
+    const accounts = state.accounts.map((account) => ({
+      username: account.username,
+      programs: [...document.querySelectorAll(`[data-account-program][data-username="${cssEscape(account.username)}"]:checked`)]
+        .map((input) => input.dataset.accountProgram)
+    }));
+    button.disabled = true;
+    message.hidden = false;
+    message.textContent = 'Saving umpire game designations...';
+    try {
+      const payload = await fetchJson('/api/umpire/accounts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ accounts })
+      });
+      state.accounts = payload.accounts || [];
+      renderUmpireAccounts();
+      message.textContent = 'Umpire game designations saved.';
+      await loadGames();
+    } catch (error) {
+      message.textContent = error.message || 'Umpire game designations could not be saved.';
+    } finally {
+      button.disabled = false;
+    }
+  }
+
+  function renderProgramCheckboxes(account) {
+    const programs = new Set(Array.isArray(account.programs) ? account.programs : state.categories);
+    return `
+      <div class="umpire-program-grid">
+        ${state.categories.map((program) => {
+          const inputId = `umpire-program-${slug(account.username)}-${slug(program)}`;
+          return `
+            <label for="${inputId}" class="checkbox-pill">
+              <input id="${inputId}" type="checkbox" data-account-program="${escapeHtml(program)}" data-username="${escapeHtml(account.username)}"${programs.has(program) ? ' checked' : ''}>
+              <span>${escapeHtml(program)}</span>
+            </label>
+          `;
+        }).join('')}
+      </div>
     `;
   }
 
@@ -438,6 +489,21 @@
 
   function unique(values) {
     return [...new Set(values)];
+  }
+
+  function allowedProgramsForUser() {
+    if (!state.user || state.user.role !== 'umpire') return null;
+    const programs = Array.isArray(state.user.programs) ? state.user.programs : [];
+    return programs.length ? new Set(programs) : new Set(state.categories);
+  }
+
+  function cssEscape(value) {
+    if (window.CSS && typeof window.CSS.escape === 'function') return window.CSS.escape(String(value || ''));
+    return String(value || '').replace(/"/g, '\\"');
+  }
+
+  function slug(value) {
+    return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'item';
   }
 
   function orderedMonthLabels(games) {
