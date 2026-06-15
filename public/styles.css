@@ -1268,6 +1268,46 @@ button {
   flex: 0 0 auto;
 }
 
+.umpire-personal-section {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.umpire-personal-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 12px;
+  color: #fff;
+  background: var(--green);
+}
+
+.umpire-personal-head h3 {
+  margin: 0;
+  font: 700 20px Oswald, Arial, sans-serif;
+}
+
+.umpire-personal-head span {
+  display: grid;
+  place-items: center;
+  min-width: 32px;
+  min-height: 28px;
+  color: var(--green);
+  background: #fff;
+  font-weight: 900;
+}
+
+.availability-note {
+  margin: 0 0 -6px;
+  padding: 8px 10px;
+  color: #6b4a00;
+  background: #fff5c7;
+  border-left: 4px solid #f3d95c;
+  font-weight: 800;
+}
+
 .umpire-accounts-list {
   padding: 14px;
 }
@@ -1300,31 +1340,75 @@ button {
 }
 
 .umpire-account-card {
-  display: grid;
-  gap: 12px;
-  padding: 14px;
   background: #fff;
   border: 1px solid var(--line);
   border-left: 4px solid var(--gold);
 }
 
-.umpire-account-head {
+.umpire-account-card[open] {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+}
+
+.umpire-account-summary {
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  align-items: flex-start;
+  align-items: center;
+  padding: 14px;
+  cursor: pointer;
+  list-style: none;
 }
 
-.umpire-account-head strong {
+.umpire-account-summary::-webkit-details-marker {
+  display: none;
+}
+
+.umpire-account-summary::after {
+  content: '+';
+  display: grid;
+  place-items: center;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  color: #fff;
+  background: var(--green);
+  font-weight: 900;
+}
+
+.umpire-account-card[open] .umpire-account-summary::after {
+  content: '-';
+}
+
+.umpire-account-summary span {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.umpire-account-summary strong {
   color: var(--green);
   font: 700 18px Oswald, Arial, sans-serif;
 }
 
-.umpire-account-head span {
+.umpire-account-summary small {
   color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.umpire-account-summary em {
+  color: var(--muted);
+  font-style: normal;
   font-size: 12px;
   font-weight: 900;
   text-transform: uppercase;
+}
+
+.umpire-account-body {
+  display: grid;
+  gap: 12px;
+  padding: 0 14px 14px;
 }
 
 .umpire-account-meta {
@@ -2386,6 +2470,14 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
   .umpire-account-meta,
   .umpire-program-grid {
     grid-template-columns: 1fr;
+  }
+
+  .umpire-account-summary {
+    align-items: flex-start;
+  }
+
+  .umpire-account-summary em {
+    display: none;
   }
 
   .coach-account-password {

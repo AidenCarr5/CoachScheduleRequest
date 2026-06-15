@@ -255,22 +255,52 @@
 
   function renderMyGames() {
     const username = String(state.user && state.user.username || '').toLowerCase();
-    const games = state.games
-      .filter((game) => userAssigned(game, username) || userClaimed(game, username))
+    const assignedGames = state.games
+      .filter((game) => userAssigned(game, username))
       .sort((a, b) => `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`));
-    const assignedCount = games.filter((game) => userAssigned(game, username)).length;
-    const availableCount = games.filter((game) => userClaimed(game, username) && !userAssigned(game, username)).length;
-    $('umpireMyGamesSummary').textContent = `${assignedCount} assigned, ${availableCount} volunteered`;
-    if (!games.length) {
+    const availabilityGames = state.games
+      .filter((game) => userClaimed(game, username) && !userAssigned(game, username))
+      .sort((a, b) => `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`));
+    $('umpireMyGamesSummary').textContent = `${assignedGames.length} assigned, ${availabilityGames.length} availability request${availabilityGames.length === 1 ? '' : 's'}`;
+    if (!assignedGames.length && !availabilityGames.length) {
       $('umpireMyGamesList').innerHTML = '<p class="muted">No assigned games or availability found for this login.</p>';
       return;
     }
+    $('umpireMyGamesList').innerHTML = `
+      ${renderPersonalGameSection('Confirmed Assignments', assignedGames, username, 'These are games the admin has assigned to you.')}
+      ${renderPersonalGameSection('My Availability Requests', availabilityGames, username, 'These are games you said you can do. They are not assigned to you until an admin confirms them.', true)}
+    `;
+    bindClaimButtons($('umpireMyGamesList'));
+  }
+
+  function renderPersonalGameSection(title, games, username, emptyText, availabilityContext = false) {
+    if (!games.length) {
+      return `
+        <section class="umpire-personal-section">
+          <div class="umpire-personal-head">
+            <h3>${escapeHtml(title)}</h3>
+            <span>0</span>
+          </div>
+          <p class="muted">${escapeHtml(emptyText)}</p>
+        </section>
+      `;
+    }
     let lastDate = '';
-    $('umpireMyGamesList').innerHTML = games.map((game) => {
+    const rows = games.map((game) => {
       const dateHead = game.date !== lastDate ? `<h3 class="umpire-date-head">${formatDate(game.date)}</h3>` : '';
       lastDate = game.date;
-      return `${dateHead}${renderGameCard(game, username)}`;
+      return `${dateHead}${availabilityContext ? '<p class="availability-note">Availability only - admin confirmation is still required.</p>' : ''}${renderGameCard(game, username)}`;
     }).join('');
+    return `
+      <section class="umpire-personal-section">
+        <div class="umpire-personal-head">
+          <h3>${escapeHtml(title)}</h3>
+          <span>${games.length}</span>
+        </div>
+        ${availabilityContext ? '<p class="muted">These games are not assigned yet. They show that you are available for the admin to review.</p>' : ''}
+        ${rows}
+      </section>
+    `;
   }
 
   function renderCalendar(games) {
@@ -346,9 +376,7 @@
       lastDate = game.date;
       return `${dateHead}${renderGameCard(game, username)}`;
     }).join('');
-    $('umpireGameList').querySelectorAll('[data-claim-game]').forEach((button) => {
-      button.addEventListener('click', () => toggleClaim(button.dataset.claimGame, button.dataset.claimAction));
-    });
+    bindClaimButtons($('umpireGameList'));
   }
 
   function openDayDialog(date) {
@@ -359,9 +387,7 @@
     $('umpireDayDialogList').innerHTML = games.length
       ? games.map((game) => renderGameCard(game, username)).join('')
       : '<p class="muted">No games match these filters.</p>';
-    $('umpireDayDialogList').querySelectorAll('[data-claim-game]').forEach((button) => {
-      button.addEventListener('click', () => toggleClaim(button.dataset.claimGame, button.dataset.claimAction));
-    });
+    bindClaimButtons($('umpireDayDialogList'));
     if (!$('umpireDayDialog').open) $('umpireDayDialog').showModal();
   }
 
@@ -470,7 +496,7 @@
     const viewOnlyAdmin = Boolean(state.user && state.user.role === 'admin_viewer');
     const mine = userClaimed(game, username);
     const assignedToMe = userAssigned(game, username);
-    const claimLabel = mine ? 'Remove my availability' : 'I will umpire this';
+    const claimLabel = mine ? 'Remove my availability' : 'Add my availability';
     const claimAction = mine ? 'cancel' : 'claim';
     const hideClaimButton = viewOnlyAdmin || assignedToMe || (game.filled && !mine);
     const assignedText = assignedToMe
@@ -495,12 +521,19 @@
           <span>
             ${assignedText ? `<strong>${escapeHtml(assignedText)}</strong>` : ''}
             ${assignedText && game.claims.length ? '<br>' : ''}
-            ${game.claims.length ? `Available: ${escapeHtml(game.claims.map((claim) => claim.name).join(', '))}` : (assignedText ? '' : 'No umpire availability submitted yet.')}
+            ${game.claims.length ? `Availability submitted: ${escapeHtml(game.claims.map((claim) => claim.name).join(', '))}` : (assignedText ? '' : 'No availability submitted yet.')}
           </span>
           ${hideClaimButton ? '' : `<button class="${mine ? 'secondary' : 'primary'}" type="button" data-claim-game="${escapeHtml(game.id)}" data-claim-action="${claimAction}">${claimLabel}</button>`}
         </div>
       </article>
     `;
+  }
+
+  function bindClaimButtons(root) {
+    if (!root) return;
+    root.querySelectorAll('[data-claim-game]').forEach((button) => {
+      button.addEventListener('click', () => toggleClaim(button.dataset.claimGame, button.dataset.claimAction));
+    });
   }
 
   async function toggleClaim(gameId, action) {
@@ -573,17 +606,22 @@
           <h3>${escapeHtml(letter)}</h3>
           <div class="umpire-account-grid">
             ${group.map((account) => `
-              <article class="umpire-account-card">
-                <div class="umpire-account-head">
-                  <strong>${escapeHtml(account.name)}</strong>
-                  <span>${escapeHtml(account.qualification || 'Not Set')}</span>
+              <details class="umpire-account-card">
+                <summary class="umpire-account-summary">
+                  <span>
+                    <strong>${escapeHtml(account.name)}</strong>
+                    <small>${escapeHtml(account.username)}</small>
+                  </span>
+                  <em>${escapeHtml(account.qualification || 'Not Set')}</em>
+                </summary>
+                <div class="umpire-account-body">
+                  <dl class="umpire-account-meta">
+                    <div><dt>Username</dt><dd>${escapeHtml(account.username)}</dd></div>
+                    <div><dt>Password</dt><dd>${escapeHtml(account.password)}</dd></div>
+                  </dl>
+                  ${renderProgramCheckboxes(account)}
                 </div>
-                <dl class="umpire-account-meta">
-                  <div><dt>Username</dt><dd>${escapeHtml(account.username)}</dd></div>
-                  <div><dt>Password</dt><dd>${escapeHtml(account.password)}</dd></div>
-                </dl>
-                ${renderProgramCheckboxes(account)}
-              </article>
+              </details>
             `).join('')}
           </div>
         </section>
