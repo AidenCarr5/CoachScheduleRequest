@@ -751,6 +751,9 @@
                     <div><dt>Password</dt><dd>${escapeHtml(account.password)}</dd></div>
                   </dl>
                   ${renderProgramCheckboxes(account)}
+                  <div class="umpire-account-actions">
+                    <button class="assignment-chip-btn danger" type="button" data-delete-umpire-account="${escapeHtml(account.username)}">Delete umpire</button>
+                  </div>
                 </div>
               </details>
             `).join('')}
@@ -758,6 +761,7 @@
         </section>
       `).join('')}
     `;
+    bindDeleteUmpireAccountButtons();
   }
 
   function rebuildAccountProgramFilter() {
@@ -807,6 +811,35 @@
     } catch (error) {
       message.textContent = error.message || 'Umpire game designations could not be saved.';
     } finally {
+      button.disabled = false;
+    }
+  }
+
+  function bindDeleteUmpireAccountButtons() {
+    document.querySelectorAll('[data-delete-umpire-account]').forEach((button) => {
+      button.addEventListener('click', () => deleteUmpireAccount(button));
+    });
+  }
+
+  async function deleteUmpireAccount(button) {
+    const username = button.dataset.deleteUmpireAccount || '';
+    const account = state.accounts.find((item) => String(item.username || '').toLowerCase() === username.toLowerCase());
+    const label = account ? `${account.name} (${account.username})` : username;
+    if (!window.confirm(`Delete umpire account ${label}? This removes their login and availability requests from this portal. It does not change Turtle Club historical assignments.`)) {
+      return;
+    }
+    const message = $('umpireAccountsSaveMessage');
+    button.disabled = true;
+    message.hidden = false;
+    message.textContent = `Deleting ${label}...`;
+    try {
+      const payload = await fetchJson(`/api/umpire/accounts/${encodeURIComponent(username)}`, { method: 'DELETE' });
+      state.accounts = payload.accounts || [];
+      renderUmpireAccounts();
+      message.textContent = `Deleted ${label}.`;
+      await loadGames();
+    } catch (error) {
+      message.textContent = error.message || 'Umpire account could not be deleted.';
       button.disabled = false;
     }
   }

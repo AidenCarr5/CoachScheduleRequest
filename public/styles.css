@@ -1477,6 +1477,11 @@ button {
   overflow-wrap: anywhere;
 }
 
+.umpire-account-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .umpire-program-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(145px, 1fr));
