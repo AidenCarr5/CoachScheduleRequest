@@ -860,11 +860,13 @@ function parseOfficialsAssignments(html) {
       const rawPosition = strip(officialMatch[3]);
       const position = rawPosition.toLowerCase();
       const confirmed = classTokens.includes('confirmed');
+      const denied = classTokens.includes('denied') || classTokens.includes('rejected') || classTokens.includes('declined');
       if (name) {
         assignmentInfo.officials.push({
           name,
           position: rawPosition,
-          confirmed
+          confirmed,
+          status: denied ? 'denied' : (confirmed ? 'confirmed' : 'pending')
         });
       }
       if (confirmed) {
