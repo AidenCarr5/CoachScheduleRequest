@@ -638,7 +638,7 @@
     if (!months.length) return '';
     const monthCount = months.length;
     return `
-      <details class="calendar-archive" ${monthCount === 1 ? 'open' : ''}>
+      <details class="calendar-archive">
         <summary>Archived Calendar (${monthCount} month${monthCount === 1 ? '' : 's'})</summary>
         <div class="calendar-archive-list">
           ${months.map((month) => renderMonth(month, games.filter((game) => monthLabel(game.date) === month))).join('')}
