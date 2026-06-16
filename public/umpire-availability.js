@@ -392,9 +392,7 @@
           <h3>${escapeHtml(month)} payouts</h3>
           <strong>${escapeHtml(money(monthTotal))}</strong>
         </div>
-        <div class="umpire-finance-officials">
-          ${active.length ? active.map(renderAdminFinanceOfficial).join('') : '<p class="muted">No umpires have confirmed paid games for this month yet.</p>'}
-        </div>
+        ${active.length ? renderAdminFinanceExcel(active) : '<p class="muted finance-empty-state">No umpires have confirmed paid games for this month yet.</p>'}
       </section>
       <details class="umpire-finance-inactive">
         <summary>Inactive umpires (${inactive.length})</summary>
@@ -476,6 +474,12 @@
           <strong>${escapeHtml(money(total))}</strong>
         </div>
         <div class="umpire-finance-table">
+          <div class="umpire-finance-row header">
+            <span>Date</span>
+            <span>Game</span>
+            <span>Position</span>
+            <strong>Pay</strong>
+          </div>
           ${rows.map(({ game, official, pay, payAmount }) => `
             <div class="umpire-finance-row">
               <span>${escapeHtml(shortDate(game.date))}</span>
@@ -489,27 +493,51 @@
     `;
   }
 
-  function renderAdminFinanceOfficial(summary) {
+  function renderAdminFinanceExcel(summaries) {
     return `
-      <article class="umpire-finance-official">
-        <div class="umpire-finance-official-head">
-          <div>
-            <strong>${escapeHtml(summary.name)}</strong>
-            <span>${summary.games} game${summary.games === 1 ? '' : 's'}</span>
-          </div>
-          <b>${escapeHtml(money(summary.total))}</b>
+      <div class="umpire-finance-excel" role="table" aria-label="Umpire finance totals">
+        <div class="umpire-finance-excel-row header" role="row">
+          <span role="columnheader">#</span>
+          <span role="columnheader">Official</span>
+          <span role="columnheader">Games</span>
+          <span role="columnheader">Average</span>
+          <span role="columnheader">Total</span>
         </div>
-        <div class="umpire-finance-table compact">
+        ${summaries.map((summary, index) => renderAdminFinanceExcelOfficial(summary, index + 1)).join('')}
+      </div>
+    `;
+  }
+
+  function renderAdminFinanceExcelOfficial(summary, rank) {
+    const average = summary.games ? summary.total / summary.games : 0;
+    return `
+      <details class="umpire-finance-excel-group">
+        <summary class="umpire-finance-excel-row total" role="row">
+          <span role="cell">${rank}</span>
+          <strong role="cell">${escapeHtml(summary.name)}</strong>
+          <span role="cell">${summary.games}</span>
+          <span role="cell">${escapeHtml(money(average))}</span>
+          <b role="cell">${escapeHtml(money(summary.total))}</b>
+        </summary>
+        <div class="umpire-finance-detail-table" role="table" aria-label="${escapeHtml(summary.name)} games">
+          <div class="umpire-finance-detail-row header" role="row">
+            <span role="columnheader">Date</span>
+            <span role="columnheader">Time</span>
+            <span role="columnheader">Game</span>
+            <span role="columnheader">Position</span>
+            <strong role="columnheader">Pay</strong>
+          </div>
           ${summary.rows.map(({ game, official, pay, payAmount }) => `
-            <div class="umpire-finance-row">
-              <span>${escapeHtml(shortDate(game.date))}</span>
-              <span>${escapeHtml(game.time)} ${escapeHtml(game.team)} ${escapeHtml(cleanOpponent(game.opponent))}</span>
-              <span>${escapeHtml(official.position || '')}</span>
-              <strong>${escapeHtml(pay || (payAmount ? money(payAmount) : 'Not listed'))}</strong>
+            <div class="umpire-finance-detail-row" role="row">
+              <span role="cell">${escapeHtml(shortDate(game.date))}</span>
+              <span role="cell">${escapeHtml(game.time || '')}</span>
+              <span role="cell">${escapeHtml(game.team)} ${escapeHtml(cleanOpponent(game.opponent))}</span>
+              <span role="cell">${escapeHtml(official.position || '')}</span>
+              <strong role="cell">${escapeHtml(pay || (payAmount ? money(payAmount) : 'Not listed'))}</strong>
             </div>
           `).join('')}
         </div>
-      </article>
+      </details>
     `;
   }
 

@@ -1518,6 +1518,132 @@ button {
   padding: 14px;
 }
 
+.finance-empty-state {
+  padding: 14px;
+}
+
+.umpire-finance-excel {
+  display: grid;
+  padding: 14px;
+}
+
+.umpire-finance-excel-row {
+  display: grid;
+  grid-template-columns: 52px minmax(220px, 1fr) 90px 120px 130px;
+  align-items: center;
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-bottom: 0;
+  background: #fff;
+}
+
+.umpire-finance-excel-row > span,
+.umpire-finance-excel-row > strong,
+.umpire-finance-excel-row > b {
+  min-width: 0;
+  height: 100%;
+  padding: 10px 12px;
+  border-left: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
+
+.umpire-finance-excel-row > :first-child {
+  border-left: 0;
+}
+
+.umpire-finance-excel-row.header {
+  min-height: 36px;
+  color: #fff;
+  background: #8e928b;
+  border-color: var(--gold);
+  font-weight: 900;
+}
+
+.umpire-finance-excel-row.total {
+  cursor: pointer;
+  list-style: none;
+}
+
+.umpire-finance-excel-row.total::-webkit-details-marker {
+  display: none;
+}
+
+.umpire-finance-excel-row.total::after {
+  content: '+';
+  display: grid;
+  place-items: center;
+  position: absolute;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  color: #fff;
+  background: var(--green);
+  font-weight: 900;
+}
+
+.umpire-finance-excel-group {
+  position: relative;
+  border-bottom: 1px solid var(--line);
+}
+
+.umpire-finance-excel-group[open] .umpire-finance-excel-row.total::after {
+  content: '-';
+}
+
+.umpire-finance-excel-row.total strong {
+  color: var(--green);
+  font: 700 18px Oswald, Arial, sans-serif;
+}
+
+.umpire-finance-excel-row.total b {
+  padding-right: 42px;
+  color: var(--green);
+  font-size: 18px;
+  text-align: right;
+}
+
+.umpire-finance-detail-table {
+  display: grid;
+  margin: 0 0 10px 52px;
+  border: 1px solid var(--line);
+  border-top: 0;
+  background: #fbfcfa;
+}
+
+.umpire-finance-detail-row {
+  display: grid;
+  grid-template-columns: 100px 100px minmax(260px, 1fr) 130px 110px;
+  align-items: center;
+  min-height: 36px;
+  border-top: 1px solid var(--line);
+}
+
+.umpire-finance-detail-row > span,
+.umpire-finance-detail-row > strong {
+  min-width: 0;
+  height: 100%;
+  padding: 8px 10px;
+  border-left: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
+
+.umpire-finance-detail-row > :first-child {
+  border-left: 0;
+}
+
+.umpire-finance-detail-row.header,
+.umpire-finance-row.header {
+  color: #fff;
+  background: #8e928b;
+  border-top: 0;
+  font-weight: 900;
+}
+
+.umpire-finance-detail-row strong {
+  color: var(--green);
+  text-align: right;
+}
+
 .umpire-finance-official {
   overflow: hidden;
   border: 1px solid var(--line);
@@ -2656,11 +2782,48 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
   .umpire-layout,
   .umpire-portal-nav,
   .umpire-finance-row,
+  .umpire-finance-excel-row,
+  .umpire-finance-detail-row,
   .umpire-account-controls,
   .profile-shell,
   .contact-grid,
   .diamond-status-grid,
   .status-editor-list { grid-template-columns: 1fr; }
+
+  .umpire-finance-excel-row.header {
+    display: none;
+  }
+
+  .umpire-finance-excel-row.total::after {
+    top: 10px;
+  }
+
+  .umpire-finance-excel-row.total b {
+    padding-right: 42px;
+    text-align: left;
+  }
+
+  .umpire-finance-detail-table {
+    margin-left: 0;
+  }
+
+  .umpire-finance-detail-row.header {
+    display: none;
+  }
+
+  .umpire-finance-excel-row > span,
+  .umpire-finance-excel-row > strong,
+  .umpire-finance-excel-row > b,
+  .umpire-finance-detail-row > span,
+  .umpire-finance-detail-row > strong {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .umpire-finance-excel-row > :first-child,
+  .umpire-finance-detail-row > :first-child {
+    border-top: 0;
+  }
 
   .umpire-finance-row strong {
     text-align: left;
