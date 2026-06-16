@@ -45,6 +45,7 @@
     $('umpirePortalCalendarBtn').addEventListener('click', () => setPortalView('calendar'));
     $('umpirePortalAssignmentsBtn').addEventListener('click', () => setPortalView('assignments'));
     $('umpirePortalMyGamesBtn').addEventListener('click', () => setPortalView('my-games'));
+    $('umpirePortalFinancesBtn').addEventListener('click', () => setPortalView('finances'));
     $('umpirePortalAccountsBtn').addEventListener('click', () => setPortalView('accounts'));
     $('umpireAssignmentsBackWeekBtn').addEventListener('click', () => shiftAssignmentsDate(-7));
     $('umpireAssignmentsBackDayBtn').addEventListener('click', () => shiftAssignmentsDate(-1));
@@ -195,6 +196,7 @@
     $('umpireCalendarPage').hidden = state.portalView !== 'calendar';
     $('umpireAssignmentsSection').hidden = state.portalView !== 'assignments' || !canSeeAssignments;
     $('umpireMyGamesSection').hidden = state.portalView !== 'my-games';
+    $('umpireFinancesSection').hidden = state.portalView !== 'finances';
     $('umpireAccountsSection').hidden = state.portalView !== 'accounts' || !canSeeAccounts;
     const portalNav = $('umpirePortalNav');
     if (portalNav) portalNav.hidden = state.portalView === 'assignments';
@@ -202,6 +204,7 @@
       ['umpirePortalCalendarBtn', 'calendar'],
       ['umpirePortalAssignmentsBtn', 'assignments'],
       ['umpirePortalMyGamesBtn', 'my-games'],
+      ['umpirePortalFinancesBtn', 'finances'],
       ['umpirePortalAccountsBtn', 'accounts']
     ].forEach(([id, key]) => {
       const button = $(id);
@@ -287,6 +290,7 @@
   function render() {
     const games = sortGamesFromToday(visibleGames());
     renderMyGames();
+    renderFinances();
     renderAssignmentsBoard();
     $('umpireCalendarSection').hidden = state.view !== 'calendar';
     $('umpireListSection').hidden = state.view !== 'list';
@@ -339,6 +343,59 @@
         </div>
         ${availabilityContext ? '<p class="muted">These games are not assigned yet. They show that you are available for the admin to review.</p>' : ''}
         ${rows}
+      </section>
+    `;
+  }
+
+  function renderFinances() {
+    if (!$('umpireFinancesList')) return;
+    const username = String(state.user && state.user.username || '').toLowerCase();
+    const financeRows = sortGamesFromToday(state.games)
+      .flatMap((game) => (game.assignedOfficials || [])
+        .filter((official) => officialMatchesUser(official, username))
+        .map((official) => ({
+          game,
+          official,
+          payAmount: Number(official.payAmount || 0),
+          pay: official.pay || (Number(official.payAmount || 0) ? money(official.payAmount) : '')
+        })));
+    const total = financeRows.reduce((sum, row) => sum + row.payAmount, 0);
+    $('umpireFinancesSummary').textContent = `${financeRows.length} confirmed game${financeRows.length === 1 ? '' : 's'} - ${money(total)} total`;
+    if (!financeRows.length) {
+      $('umpireFinancesList').innerHTML = '<p class="muted">No confirmed umpire payments found for this login yet.</p>';
+      return;
+    }
+    const byMonth = new Map();
+    financeRows.forEach((row) => {
+      const month = monthLabel(row.game.date) || 'Unknown month';
+      if (!byMonth.has(month)) byMonth.set(month, []);
+      byMonth.get(month).push(row);
+    });
+    const months = orderedMonthLabels(financeRows.map((row) => row.game)).filter((month) => byMonth.has(month));
+    byMonth.forEach((_, month) => {
+      if (!months.includes(month)) months.push(month);
+    });
+    $('umpireFinancesList').innerHTML = months.map((month) => renderFinanceMonth(month, byMonth.get(month) || [])).join('');
+  }
+
+  function renderFinanceMonth(month, rows) {
+    const total = rows.reduce((sum, row) => sum + row.payAmount, 0);
+    return `
+      <section class="umpire-finance-month">
+        <div class="umpire-finance-head">
+          <h3>${escapeHtml(month)}</h3>
+          <strong>${escapeHtml(money(total))}</strong>
+        </div>
+        <div class="umpire-finance-table">
+          ${rows.map(({ game, official, pay, payAmount }) => `
+            <div class="umpire-finance-row">
+              <span>${escapeHtml(shortDate(game.date))}</span>
+              <span>${escapeHtml(game.time)} ${escapeHtml(game.team)} ${escapeHtml(cleanOpponent(game.opponent))}</span>
+              <span>${escapeHtml(official.position || '')}</span>
+              <strong>${escapeHtml(pay || (payAmount ? money(payAmount) : 'Not listed'))}</strong>
+            </div>
+          `).join('')}
+        </div>
       </section>
     `;
   }
@@ -932,7 +989,14 @@
   }
 
   function userAssigned(game, username) {
-    return Boolean(username && (game.assignedOfficials || []).some((official) => String(official.username || '').toLowerCase() === username));
+    return Boolean(username && (game.assignedOfficials || []).some((official) => officialMatchesUser(official, username)));
+  }
+
+  function officialMatchesUser(official, username) {
+    const normalizedUsername = String(username || '').toLowerCase();
+    if (!normalizedUsername || !official) return false;
+    if (String(official.username || '').toLowerCase() === normalizedUsername) return true;
+    return normalizeName(official.name) === normalizeName(state.user && state.user.name);
   }
 
   function assignedOfficialsText(game) {
@@ -1234,6 +1298,14 @@
 
   function cleanOpponent(value) {
     return String(value || '').replace(/^(vs\.?|@)\s*/i, '').trim();
+  }
+
+  function normalizeName(value) {
+    return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  }
+
+  function money(value) {
+    return Number(value || 0).toLocaleString(undefined, { style: 'currency', currency: 'USD' });
   }
 
   function gameDescription(game) {

@@ -56,6 +56,11 @@ function cloudflareEmailFromHtml(html) {
   return match ? decodeCloudflareEmail(match[1]) : '';
 }
 
+function moneyAmount(value) {
+  const match = String(value || '').match(/\$?\s*([\d,]+(?:\.\d{1,2})?)/);
+  return match ? Number(match[1].replace(/,/g, '')) : 0;
+}
+
 function monthName(month) {
   return monthNames[month - 1];
 }
@@ -886,23 +891,34 @@ function parseOfficialsAssignments(html) {
       officials: []
     };
 
-    const officialPattern = /<span class="gameOfficial\s+([^"]+)"([^>]*)>[\s\S]*?<span[^>]*>([^<]+)<\/span>\s*\(([^)]+)\)/gi;
-    let officialMatch = officialPattern.exec(assignmentHtml);
-    while (officialMatch) {
+    const officialBlocks = String(assignmentHtml || '')
+      .split(/<span class="gameOfficial\s+/i)
+      .slice(1)
+      .map((chunk) => `<span class="gameOfficial ${chunk}`);
+    officialBlocks.forEach((officialBlock) => {
+      const officialMatch = officialBlock.match(/^<span class="gameOfficial\s+([^"]+)"([^>]*)>/i);
+      if (!officialMatch) return;
       const classTokens = String(officialMatch[1] || '')
         .toLowerCase()
         .split(/\s+/)
         .filter(Boolean);
-      const statusSource = `${officialMatch[0] || ''} ${officialMatch[1] || ''} ${officialMatch[2] || ''}`.toLowerCase();
-      const name = strip(officialMatch[3]);
-      const rawPosition = strip(officialMatch[4]);
+      const statusSource = `${officialBlock || ''} ${officialMatch[1] || ''} ${officialMatch[2] || ''}`.toLowerCase();
+      const namePositionMatch = officialBlock.match(/<span[^>]*>([^<]+)<\/span>\s*\(([^)]+)\)/i);
+      const payMatch = officialBlock.match(/title="Pay:\s*([^"]+)"/i) || officialBlock.match(/>\s*(\$\s*[\d,]+(?:\.\d{1,2})?)\s*<\/span>/i);
+      const usernameMatch = officialBlock.match(/ShowEditAssignmentForm\(\s*\d+\s*,\s*'([^']+)'/i);
+      const name = strip(namePositionMatch && namePositionMatch[1]);
+      const rawPosition = strip(namePositionMatch && namePositionMatch[2]);
       const position = rawPosition.toLowerCase();
       const confirmed = classTokens.includes('confirmed');
       const denied = /\b(denied|rejected?|declined?|refused|not[-\s]?accepted?|unavailable)\b/i.test(statusSource);
       if (name) {
+        const pay = strip(payMatch && payMatch[1]);
         assignmentInfo.officials.push({
+          username: usernameMatch ? usernameMatch[1] : '',
           name,
           position: rawPosition,
+          pay,
+          payAmount: moneyAmount(pay),
           confirmed,
           status: denied ? 'denied' : (confirmed ? 'confirmed' : 'pending')
         });
@@ -917,8 +933,7 @@ function parseOfficialsAssignments(html) {
           assignmentInfo.umpire2Name = name;
         }
       }
-      officialMatch = officialPattern.exec(assignmentHtml);
-    }
+    });
 
     assignmentsByGameId.set(gameId, assignmentInfo);
     match = rowPattern.exec(html);
