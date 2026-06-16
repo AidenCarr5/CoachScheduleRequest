@@ -1015,6 +1015,25 @@ button {
   color: var(--ink);
 }
 
+.umpire-game-pay {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.umpire-game-pay span {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  padding: 2px 7px;
+  color: var(--green);
+  background: #eef2e9;
+  border: 1px solid var(--line);
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
 .umpire-category {
   display: inline-block;
   margin-bottom: 7px;

@@ -1165,6 +1165,7 @@
     const fillButton = fillAction
       ? `<button class="secondary umpire-fill-toggle" type="button" data-fill-game="${escapeHtml(game.id)}" data-fill-value="${fillAction.filled ? 'true' : 'false'}">${escapeHtml(fillAction.label)}</button>`
       : '';
+    const paySummary = umpirePaySummary(game);
     return `
       <article class="umpire-game-card ${categoryClass(game.category)} ${game.filled ? 'filled' : 'open'}">
         <div class="umpire-game-main">
@@ -1172,7 +1173,8 @@
             <span class="umpire-category">${escapeHtml(game.category)}</span>
             <strong>${escapeHtml(game.time)}${game.endTime ? `-${escapeHtml(game.endTime)}` : ''} ${escapeHtml(game.type)}</strong>
             <p>${escapeHtml(game.team)} ${escapeHtml(game.opponent)}</p>
-            <p>${escapeHtml(game.diamond)}</p>
+            <p>${escapeHtml(cleanAssignmentVenue(game.diamond))}</p>
+            ${paySummary ? `<p class="umpire-game-pay">${paySummary}</p>` : ''}
           </div>
           <div class="umpire-game-status">
             <span class="umpire-status-badge ${game.filled ? 'filled' : 'open'}">${game.filled ? 'Filled' : 'Open'}</span>
@@ -1191,6 +1193,19 @@
         </div>
       </article>
     `;
+  }
+
+  function umpirePaySummary(game) {
+    const officials = [
+      ...(game.assignedOfficials || []),
+      ...(game.pendingOfficials || [])
+    ];
+    const homePlate = officials.find((official) => /home plate|plate/i.test(official.position || '') && Number(official.payAmount || 0));
+    const bases = officials.find((official) => /bases/i.test(official.position || '') && Number(official.payAmount || 0));
+    const parts = [];
+    if (homePlate) parts.push(`<span>HP ${escapeHtml(homePlate.pay || money(homePlate.payAmount))}</span>`);
+    if (bases) parts.push(`<span>Bases ${escapeHtml(bases.pay || money(bases.payAmount))}</span>`);
+    return parts.join('');
   }
 
   function bindClaimButtons(root) {
