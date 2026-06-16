@@ -764,6 +764,24 @@ button {
   padding: 14px;
 }
 
+.calendar-archive {
+  display: grid;
+  gap: 14px;
+  padding-top: 8px;
+  border-top: 2px solid var(--line);
+}
+
+.calendar-archive summary {
+  cursor: pointer;
+  color: var(--green);
+  font: 700 18px Oswald, Arial, sans-serif;
+}
+
+.calendar-archive-list {
+  display: grid;
+  gap: 18px;
+}
+
 .calendar-shell,
 .calendar-detail {
   display: grid;

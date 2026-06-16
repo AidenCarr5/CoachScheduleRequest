@@ -606,12 +606,45 @@
 
   function renderCalendar(games) {
     const calendar = $('umpireCalendar');
-    const months = orderedMonthLabels(games);
-    if (!months.length) {
+    const monthGroups = calendarMonthGroups(games);
+    if (!monthGroups.active.length && !monthGroups.archived.length) {
       calendar.innerHTML = '<p class="muted">No games match these filters.</p>';
       return;
     }
-    calendar.innerHTML = months.map((month) => renderMonth(month, games.filter((game) => monthLabel(game.date) === month))).join('');
+    calendar.innerHTML = `
+      ${monthGroups.active.map((month) => renderMonth(month, games.filter((game) => monthLabel(game.date) === month))).join('')}
+      ${renderArchivedCalendar(monthGroups.archived, games)}
+    `;
+  }
+
+  function calendarMonthGroups(games) {
+    const currentKey = monthKey(todayDateString());
+    const monthKeys = new Map();
+    orderedMonthLabels(games).forEach((label) => {
+      const firstGame = (games || []).find((game) => monthLabel(game.date) === label);
+      const key = firstGame ? monthKey(firstGame.date) : '';
+      if (key) monthKeys.set(label, key);
+    });
+    const active = [];
+    const archived = [];
+    monthKeys.forEach((key, label) => {
+      if (key < currentKey) archived.push(label);
+      else active.push(label);
+    });
+    return { active, archived };
+  }
+
+  function renderArchivedCalendar(months, games) {
+    if (!months.length) return '';
+    const monthCount = months.length;
+    return `
+      <details class="calendar-archive" ${monthCount === 1 ? 'open' : ''}>
+        <summary>Archived Calendar (${monthCount} month${monthCount === 1 ? '' : 's'})</summary>
+        <div class="calendar-archive-list">
+          ${months.map((month) => renderMonth(month, games.filter((game) => monthLabel(game.date) === month))).join('')}
+        </div>
+      </details>
+    `;
   }
 
   function renderMonth(month, games) {
