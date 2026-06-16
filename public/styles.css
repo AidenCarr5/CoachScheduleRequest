@@ -1512,6 +1512,48 @@ button {
   display: grid;
 }
 
+.umpire-finance-officials {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+}
+
+.umpire-finance-official {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.umpire-finance-official-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  background: #f3f7ef;
+  border-bottom: 1px solid var(--line);
+}
+
+.umpire-finance-official-head strong {
+  display: block;
+  color: var(--green);
+  font: 700 18px Oswald, Arial, sans-serif;
+}
+
+.umpire-finance-official-head span {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.umpire-finance-official-head b {
+  color: var(--green);
+  font-size: 18px;
+}
+
+.umpire-finance-table.compact .umpire-finance-row {
+  padding: 8px 10px;
+}
+
 .umpire-finance-row {
   display: grid;
   grid-template-columns: minmax(92px, .7fr) minmax(240px, 2fr) minmax(110px, .8fr) minmax(90px, .6fr);
@@ -1524,6 +1566,36 @@ button {
 .umpire-finance-row strong {
   color: var(--green);
   text-align: right;
+}
+
+.umpire-finance-inactive {
+  margin: 0 14px 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.umpire-finance-inactive summary {
+  padding: 11px 12px;
+  color: var(--green);
+  background: #eef2e9;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.umpire-finance-inactive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px;
+  padding: 12px;
+}
+
+.umpire-finance-inactive-grid span {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  background: #f8faf6;
+  border: 1px solid var(--line);
 }
 
 .availability-note {

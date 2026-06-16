@@ -217,6 +217,9 @@
     if (state.portalView === 'accounts' && canSeeAccounts && !state.accounts.length) {
       loadUmpireAccounts();
     }
+    if (state.portalView === 'finances' && state.user && state.user.role === 'admin' && !state.accounts.length) {
+      loadUmpireAccounts();
+    }
     updateTopNavStateForPortalView();
   }
 
@@ -349,33 +352,119 @@
 
   function renderFinances() {
     if (!$('umpireFinancesList')) return;
+    if (state.user && state.user.role === 'admin') {
+      renderAdminFinances();
+      return;
+    }
     const username = String(state.user && state.user.username || '').toLowerCase();
-    const financeRows = sortGamesFromToday(state.games)
+    const financeRows = currentMonthFinanceRows()
+      .filter((row) => officialMatchesUser(row.official, username));
+    const month = currentFinanceMonthLabel();
+    const total = financeRows.reduce((sum, row) => sum + row.payAmount, 0);
+    $('umpireFinancesSummary').textContent = `${month} - ${financeRows.length} confirmed game${financeRows.length === 1 ? '' : 's'} - ${money(total)} total`;
+    if (!financeRows.length) {
+      $('umpireFinancesList').innerHTML = `<p class="muted">No confirmed umpire payments found for ${escapeHtml(month)} yet.</p>`;
+      return;
+    }
+    $('umpireFinancesList').innerHTML = renderFinanceMonth(month, financeRows);
+  }
+
+  function renderAdminFinances() {
+    const month = currentFinanceMonthLabel();
+    const rows = currentMonthFinanceRows();
+    if (!state.accounts.length) {
+      $('umpireFinancesSummary').textContent = `${month} - loading official totals`;
+      $('umpireFinancesList').innerHTML = '<p class="muted">Loading official accounts for the finance summary...</p>';
+      return;
+    }
+    const summaries = buildAdminFinanceSummaries(rows);
+    const active = summaries
+      .filter((summary) => summary.total > 0)
+      .sort((a, b) => b.total - a.total || a.name.localeCompare(b.name));
+    const inactive = summaries
+      .filter((summary) => summary.total <= 0)
+      .sort((a, b) => a.name.localeCompare(b.name));
+    const monthTotal = active.reduce((sum, summary) => sum + summary.total, 0);
+    $('umpireFinancesSummary').textContent = `${month} - ${active.length} paid official${active.length === 1 ? '' : 's'} - ${money(monthTotal)} total`;
+    $('umpireFinancesList').innerHTML = `
+      <section class="umpire-finance-month">
+        <div class="umpire-finance-head">
+          <h3>${escapeHtml(month)} payouts</h3>
+          <strong>${escapeHtml(money(monthTotal))}</strong>
+        </div>
+        <div class="umpire-finance-officials">
+          ${active.length ? active.map(renderAdminFinanceOfficial).join('') : '<p class="muted">No umpires have confirmed paid games for this month yet.</p>'}
+        </div>
+      </section>
+      <details class="umpire-finance-inactive">
+        <summary>Inactive umpires (${inactive.length})</summary>
+        <div class="umpire-finance-inactive-grid">
+          ${inactive.map((summary) => `<span>${escapeHtml(summary.name)} <strong>${escapeHtml(money(0))}</strong></span>`).join('')}
+        </div>
+      </details>
+    `;
+  }
+
+  function currentMonthFinanceRows() {
+    const currentKey = monthKey(todayDateString());
+    return sortGamesChronologically(state.games)
+      .filter((game) => monthKey(game.date) === currentKey)
       .flatMap((game) => (game.assignedOfficials || [])
-        .filter((official) => officialMatchesUser(official, username))
         .map((official) => ({
           game,
           official,
           payAmount: Number(official.payAmount || 0),
           pay: official.pay || (Number(official.payAmount || 0) ? money(official.payAmount) : '')
         })));
-    const total = financeRows.reduce((sum, row) => sum + row.payAmount, 0);
-    $('umpireFinancesSummary').textContent = `${financeRows.length} confirmed game${financeRows.length === 1 ? '' : 's'} - ${money(total)} total`;
-    if (!financeRows.length) {
-      $('umpireFinancesList').innerHTML = '<p class="muted">No confirmed umpire payments found for this login yet.</p>';
-      return;
+  }
+
+  function buildAdminFinanceSummaries(rows) {
+    const summaries = new Map();
+    state.accounts.forEach((account) => {
+      const key = accountFinanceKey(account);
+      summaries.set(key, {
+        key,
+        username: account.username || '',
+        name: account.name || account.username || 'Official',
+        total: 0,
+        games: 0,
+        rows: []
+      });
+    });
+    rows.forEach((row) => {
+      const summary = summaryForOfficial(row.official, summaries);
+      summary.total += row.payAmount;
+      summary.games += 1;
+      summary.rows.push(row);
+    });
+    return [...summaries.values()];
+  }
+
+  function summaryForOfficial(official, summaries) {
+    const username = String(official && official.username || '').toLowerCase();
+    if (username) {
+      const byUsername = [...summaries.values()].find((summary) => String(summary.username || '').toLowerCase() === username);
+      if (byUsername) return byUsername;
     }
-    const byMonth = new Map();
-    financeRows.forEach((row) => {
-      const month = monthLabel(row.game.date) || 'Unknown month';
-      if (!byMonth.has(month)) byMonth.set(month, []);
-      byMonth.get(month).push(row);
-    });
-    const months = orderedMonthLabels(financeRows.map((row) => row.game)).filter((month) => byMonth.has(month));
-    byMonth.forEach((_, month) => {
-      if (!months.includes(month)) months.push(month);
-    });
-    $('umpireFinancesList').innerHTML = months.map((month) => renderFinanceMonth(month, byMonth.get(month) || [])).join('');
+    const nameKey = normalizeName(official && official.name);
+    const byName = [...summaries.values()].find((summary) => normalizeName(summary.name) === nameKey);
+    if (byName) return byName;
+    const key = `unmatched-${nameKey || username || summaries.size}`;
+    if (!summaries.has(key)) {
+      summaries.set(key, {
+        key,
+        username: official && official.username || '',
+        name: official && official.name || official && official.username || 'Unknown official',
+        total: 0,
+        games: 0,
+        rows: []
+      });
+    }
+    return summaries.get(key);
+  }
+
+  function accountFinanceKey(account) {
+    return String(account.username || normalizeName(account.name) || 'unknown-official').toLowerCase();
   }
 
   function renderFinanceMonth(month, rows) {
@@ -397,6 +486,30 @@
           `).join('')}
         </div>
       </section>
+    `;
+  }
+
+  function renderAdminFinanceOfficial(summary) {
+    return `
+      <article class="umpire-finance-official">
+        <div class="umpire-finance-official-head">
+          <div>
+            <strong>${escapeHtml(summary.name)}</strong>
+            <span>${summary.games} game${summary.games === 1 ? '' : 's'}</span>
+          </div>
+          <b>${escapeHtml(money(summary.total))}</b>
+        </div>
+        <div class="umpire-finance-table compact">
+          ${summary.rows.map(({ game, official, pay, payAmount }) => `
+            <div class="umpire-finance-row">
+              <span>${escapeHtml(shortDate(game.date))}</span>
+              <span>${escapeHtml(game.time)} ${escapeHtml(game.team)} ${escapeHtml(cleanOpponent(game.opponent))}</span>
+              <span>${escapeHtml(official.position || '')}</span>
+              <strong>${escapeHtml(pay || (payAmount ? money(payAmount) : 'Not listed'))}</strong>
+            </div>
+          `).join('')}
+        </div>
+      </article>
     `;
   }
 
@@ -1097,6 +1210,7 @@
       const payload = await fetchJson('/api/umpire/accounts');
       state.accounts = payload.accounts || [];
       renderUmpireAccounts();
+      renderFinances();
     } catch (error) {
       showUmpireAccountMessage(error.message || 'Could not load official logins.');
     }
@@ -1327,6 +1441,10 @@
     return [...(games || [])].sort(compareGamesFromToday);
   }
 
+  function sortGamesChronologically(games) {
+    return [...(games || [])].sort((a, b) => gameSortKey(a).localeCompare(gameSortKey(b)));
+  }
+
   function compareGamesFromToday(a, b) {
     const today = todayDateString();
     const aPast = String(a.date || '') < today;
@@ -1354,6 +1472,10 @@
     const date = new Date(`${dateString}T12:00:00`);
     if (Number.isNaN(date.getTime())) return '';
     return date.toLocaleDateString(undefined, { month: 'short', year: 'numeric' });
+  }
+
+  function currentFinanceMonthLabel() {
+    return monthLabel(todayDateString());
   }
 
   function formatDate(dateString) {
