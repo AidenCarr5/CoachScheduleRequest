@@ -19,7 +19,9 @@
     accountSaveQueued: false,
     draggedAvailability: null,
     availabilityPointerDrag: null,
-    availabilityMoveSelection: null
+    availabilityMoveSelection: null,
+    rateIndex: null,
+    rateIndexGameCount: 0
   };
 
   async function init() {
@@ -142,6 +144,7 @@
   async function loadGames() {
     const payload = await fetchJson('/api/umpire/games');
     state.games = payload.games || [];
+    state.rateIndex = null;
     state.categories = payload.categories || state.categories;
     rebuildFilters();
     $('umpireDataVersion').textContent = payload.dataVersion ? `Synced ${formatDateTime(payload.dataVersion)}` : '';
@@ -157,6 +160,7 @@
     try {
       const payload = await fetchJson('/api/umpire/refresh-data', { method: 'POST' });
       state.games = payload.games || [];
+      state.rateIndex = null;
       rebuildFilters();
       $('umpireDataVersion').textContent = payload.version ? `Synced ${formatDateTime(payload.version)}` : '';
       message.textContent = 'Umpire data refreshed.';
@@ -1129,6 +1133,7 @@
     const index = state.games.findIndex((item) => item.id === game.id);
     if (index >= 0) state.games.splice(index, 1, game);
     else state.games.push(game);
+    state.rateIndex = null;
   }
 
   function ensureAssignmentsDate() {
@@ -1144,6 +1149,111 @@
     date.setDate(date.getDate() + days);
     state.assignmentsDate = date.toISOString().slice(0, 10);
     renderAssignmentsBoard();
+  }
+
+  function gameOfficialsForRates(game) {
+    return [
+      ...(game.assignedOfficials || []),
+      ...(game.pendingOfficials || []),
+      ...(game.rejectedOfficials || [])
+    ];
+  }
+
+  function officialPositionKey(position) {
+    const normalized = String(position || '').toLowerCase();
+    if (normalized.includes('home') || normalized.includes('plate')) return 'homePlate';
+    if (normalized.includes('bases')) return 'bases';
+    return '';
+  }
+
+  function gamePositionPay(game, positionKey) {
+    const match = gameOfficialsForRates(game)
+      .find((official) => officialPositionKey(official.position) === positionKey && Number(official.payAmount || 0));
+    return match ? Number(match.payAmount || 0) : 0;
+  }
+
+  function gameRateKeys(game) {
+    const age = gameAgeKey(game);
+    const division = gameDivisionKey(game);
+    const category = categoryClass(game.category);
+    const required = game.requiredUmpires || '';
+    return [
+      `${category}|${age}|${division}|${required}`,
+      `${category}|${age}|${required}`,
+      `${category}|${division}|${required}`,
+      `${category}|${age}`,
+      `${category}|${required}`,
+      category
+    ].filter((key, index, keys) => key && keys.indexOf(key) === index);
+  }
+
+  function gameAgeKey(game) {
+    const text = `${game.category || ''} ${game.team || ''} ${game.opponent || ''} ${game.type || ''}`;
+    const ages = [...text.matchAll(/\bU?(\d{1,2})U?\b/gi)]
+      .map((match) => Number(match[1]))
+      .filter((age) => Number.isFinite(age) && age > 0)
+      .sort((a, b) => a - b);
+    if (ages.length) return [...new Set(ages)].join('/');
+    if (/t-?ball/i.test(text)) return 'tball';
+    if (/rookie/i.test(text)) return 'rookie';
+    if (/mosquito/i.test(text)) return 'mosquito';
+    if (/peewee/i.test(text)) return 'peewee';
+    if (/bantam/i.test(text)) return 'bantam';
+    if (/midget/i.test(text)) return 'midget';
+    if (/junior|\bjr\b/i.test(text)) return 'junior';
+    if (/senior|\bsr\b|intermediate|\bint\b/i.test(text)) return 'senior';
+    return 'all';
+  }
+
+  function gameDivisionKey(game) {
+    const text = `${game.category || ''} ${game.team || ''} ${game.opponent || ''} ${game.type || ''}`;
+    if (/softball/i.test(text)) return 'softball';
+    if (/baseball/i.test(text)) return 'baseball';
+    return 'all';
+  }
+
+  function commonPayAmount(values) {
+    const counts = new Map();
+    (values || []).forEach((value) => {
+      const amount = Number(value || 0);
+      if (!amount) return;
+      counts.set(amount, (counts.get(amount) || 0) + 1);
+    });
+    return [...counts.entries()]
+      .sort((a, b) => b[1] - a[1] || b[0] - a[0])
+      .map(([amount]) => amount)[0] || 0;
+  }
+
+  function buildUmpireRateIndex() {
+    if (state.rateIndex && state.rateIndexGameCount === state.games.length) return state.rateIndex;
+    const index = new Map();
+    (state.games || []).forEach((game) => {
+      const officials = gameOfficialsForRates(game);
+      if (!officials.length) return;
+      gameRateKeys(game).forEach((key) => {
+        if (!index.has(key)) index.set(key, { homePlate: [], bases: [] });
+        const entry = index.get(key);
+        officials.forEach((official) => {
+          const positionKey = officialPositionKey(official.position);
+          const amount = Number(official.payAmount || 0);
+          if (positionKey && amount) entry[positionKey].push(amount);
+        });
+      });
+    });
+    state.rateIndex = index;
+    state.rateIndexGameCount = state.games.length;
+    return index;
+  }
+
+  function inferredGamePositionPay(game, positionKey) {
+    const explicit = gamePositionPay(game, positionKey);
+    if (explicit) return explicit;
+    const index = buildUmpireRateIndex();
+    for (const key of gameRateKeys(game)) {
+      const amount = commonPayAmount(index.get(key) && index.get(key)[positionKey]);
+      if (amount) return amount;
+    }
+    return 0;
   }
 
   function renderGameCard(game, username) {
@@ -1196,15 +1306,11 @@
   }
 
   function umpirePaySummary(game) {
-    const officials = [
-      ...(game.assignedOfficials || []),
-      ...(game.pendingOfficials || [])
-    ];
-    const homePlate = officials.find((official) => /home plate|plate/i.test(official.position || '') && Number(official.payAmount || 0));
-    const bases = officials.find((official) => /bases/i.test(official.position || '') && Number(official.payAmount || 0));
+    const homePlatePay = inferredGamePositionPay(game, 'homePlate');
+    const basesPay = inferredGamePositionPay(game, 'bases');
     const parts = [];
-    if (homePlate) parts.push(`<span>HP ${escapeHtml(homePlate.pay || money(homePlate.payAmount))}</span>`);
-    if (bases) parts.push(`<span>Bases ${escapeHtml(bases.pay || money(bases.payAmount))}</span>`);
+    if (homePlatePay) parts.push(`<span>HP ${escapeHtml(money(homePlatePay))}</span>`);
+    if (basesPay) parts.push(`<span>Bases ${escapeHtml(money(basesPay))}</span>`);
     return parts.join('');
   }
 
@@ -1272,6 +1378,7 @@
         body: JSON.stringify({ action })
       });
       state.games = state.games.map((game) => game.id === gameId ? payload.game : game);
+      state.rateIndex = null;
       render();
       if ($('umpireDayDialog').open) {
         const openGame = state.games.find((game) => game.id === gameId);
