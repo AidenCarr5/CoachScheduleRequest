@@ -357,21 +357,25 @@
       return;
     }
     const username = String(state.user && state.user.username || '').toLowerCase();
-    const financeRows = currentMonthFinanceRows()
+    const allRows = allFinanceRows()
       .filter((row) => officialMatchesUser(row.official, username));
+    const currentKey = monthKey(todayDateString());
+    const financeRows = allRows.filter((row) => monthKey(row.game.date) === currentKey);
+    const archivedGroups = archivedFinanceMonthGroups(allRows, currentKey);
     const month = currentFinanceMonthLabel();
     const total = financeRows.reduce((sum, row) => sum + row.payAmount, 0);
     $('umpireFinancesSummary').textContent = `${month} - ${financeRows.length} confirmed game${financeRows.length === 1 ? '' : 's'} - ${money(total)} total`;
-    if (!financeRows.length) {
-      $('umpireFinancesList').innerHTML = `<p class="muted">No confirmed umpire payments found for ${escapeHtml(month)} yet.</p>`;
-      return;
-    }
-    $('umpireFinancesList').innerHTML = renderFinanceMonth(month, financeRows);
+    $('umpireFinancesList').innerHTML = `
+      ${financeRows.length ? renderFinanceMonth(month, financeRows) : `<p class="muted finance-empty-state">No confirmed umpire payments found for ${escapeHtml(month)} yet.</p>`}
+      ${renderArchivedFinanceMonths(archivedGroups)}
+    `;
   }
 
   function renderAdminFinances() {
     const month = currentFinanceMonthLabel();
-    const rows = currentMonthFinanceRows();
+    const currentKey = monthKey(todayDateString());
+    const allRows = allFinanceRows();
+    const rows = allRows.filter((row) => monthKey(row.game.date) === currentKey);
     if (!state.accounts.length) {
       $('umpireFinancesSummary').textContent = `${month} - loading official totals`;
       $('umpireFinancesList').innerHTML = '<p class="muted">Loading official accounts for the finance summary...</p>';
@@ -384,6 +388,7 @@
     const inactive = summaries
       .filter((summary) => summary.total <= 0)
       .sort((a, b) => a.name.localeCompare(b.name));
+    const archivedGroups = archivedFinanceMonthGroups(allRows, currentKey);
     const monthTotal = active.reduce((sum, summary) => sum + summary.total, 0);
     $('umpireFinancesSummary').textContent = `${month} - ${active.length} paid official${active.length === 1 ? '' : 's'} - ${money(monthTotal)} total`;
     $('umpireFinancesList').innerHTML = `
@@ -400,13 +405,12 @@
           ${inactive.map((summary) => `<span>${escapeHtml(summary.name)} <strong>${escapeHtml(money(0))}</strong></span>`).join('')}
         </div>
       </details>
+      ${renderAdminFinanceArchive(archivedGroups)}
     `;
   }
 
-  function currentMonthFinanceRows() {
-    const currentKey = monthKey(todayDateString());
+  function allFinanceRows() {
     return sortGamesChronologically(state.games)
-      .filter((game) => monthKey(game.date) === currentKey)
       .flatMap((game) => (game.assignedOfficials || [])
         .map((official) => ({
           game,
@@ -414,6 +418,28 @@
           payAmount: Number(official.payAmount || 0),
           pay: official.pay || (Number(official.payAmount || 0) ? money(official.payAmount) : '')
         })));
+  }
+
+  function currentMonthFinanceRows() {
+    const currentKey = monthKey(todayDateString());
+    return allFinanceRows().filter((row) => monthKey(row.game.date) === currentKey);
+  }
+
+  function archivedFinanceMonthGroups(rows, currentKey) {
+    const byMonth = new Map();
+    (rows || []).forEach((row) => {
+      const key = monthKey(row.game && row.game.date);
+      if (!key || key >= currentKey) return;
+      if (!byMonth.has(key)) byMonth.set(key, []);
+      byMonth.get(key).push(row);
+    });
+    return [...byMonth.entries()]
+      .sort(([left], [right]) => right.localeCompare(left))
+      .map(([key, monthRows]) => ({
+        key,
+        label: monthLabel(`${key}-01`),
+        rows: monthRows
+      }));
   }
 
   function buildAdminFinanceSummaries(rows) {
@@ -531,6 +557,44 @@
               <strong role="cell">${escapeHtml(pay || (payAmount ? money(payAmount) : 'Not listed'))}</strong>
             </div>
           `).join('')}
+        </div>
+      </details>
+    `;
+  }
+
+  function renderArchivedFinanceMonths(groups) {
+    if (!groups.length) return '';
+    return `
+      <details class="umpire-finance-archive">
+        <summary>Archived Payments (${groups.length})</summary>
+        <div class="umpire-finance-archive-list">
+          ${groups.map((group) => renderFinanceMonth(group.label, group.rows)).join('')}
+        </div>
+      </details>
+    `;
+  }
+
+  function renderAdminFinanceArchive(groups) {
+    if (!groups.length) return '';
+    return `
+      <details class="umpire-finance-archive">
+        <summary>Archived Payments (${groups.length})</summary>
+        <div class="umpire-finance-archive-list">
+          ${groups.map((group) => {
+            const active = buildAdminFinanceSummaries(group.rows)
+              .filter((summary) => summary.total > 0)
+              .sort((a, b) => b.total - a.total || a.name.localeCompare(b.name));
+            const total = active.reduce((sum, summary) => sum + summary.total, 0);
+            return `
+              <section class="umpire-finance-month">
+                <div class="umpire-finance-head">
+                  <h3>${escapeHtml(group.label)} payouts</h3>
+                  <strong>${escapeHtml(money(total))}</strong>
+                </div>
+                ${active.length ? renderAdminFinanceExcel(active) : '<p class="muted finance-empty-state">No paid games found for this archived month.</p>'}
+              </section>
+            `;
+          }).join('')}
         </div>
       </details>
     `;

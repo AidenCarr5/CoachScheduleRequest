@@ -1703,6 +1703,32 @@ button {
   border: 1px solid var(--line);
 }
 
+.umpire-finance-archive {
+  margin: 0 14px 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.umpire-finance-archive summary {
+  padding: 11px 12px;
+  color: #fff;
+  background: #8e928b;
+  border-bottom: 2px solid var(--gold);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.umpire-finance-archive-list {
+  display: grid;
+  gap: 14px;
+  padding: 14px;
+  background: #f8faf6;
+}
+
+.umpire-finance-archive-list .umpire-finance-month {
+  margin: 0;
+}
+
 .umpire-finance-inactive summary {
   padding: 11px 12px;
   color: var(--green);
