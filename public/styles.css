@@ -1315,6 +1315,16 @@ button {
   background: #9d2f26;
 }
 
+.assignment-official.external-filled {
+  background: var(--green);
+}
+
+.assignment-official.fill-control {
+  color: #173f1d;
+  background: #e9efe4;
+  text-shadow: none;
+}
+
 .assignment-official.available {
   color: #173f1d;
   background-color: #f3d95c;
@@ -1426,6 +1436,10 @@ button {
 
 .umpire-claim-row button {
   flex: 0 0 auto;
+}
+
+.umpire-fill-toggle {
+  background: #e9efe4;
 }
 
 .umpire-personal-section {

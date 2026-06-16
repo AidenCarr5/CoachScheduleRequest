@@ -546,10 +546,12 @@
     const rejected = game.rejectedOfficials || [];
     const gameNumber = game.gameNumber || `G${String(index + 1).padStart(2, '0')}`;
     const officialChips = [
+      ...(game.filledExternally ? [renderExternalFilledChip(game)] : []),
       ...confirmed.map((official) => renderOfficialChip('confirmed', 'Confirmed', official)),
       ...pending.map((official) => renderOfficialChip('pending', 'Pending', official)),
       ...rejected.map((official) => renderOfficialChip('rejected', 'Rejected', official)),
-      ...available.map((claim) => renderAvailableChip(claim, game))
+      ...available.map((claim) => renderAvailableChip(claim, game)),
+      ...(canAdminMutateUmpires() ? [renderFilledToggleChip(game)].filter(Boolean) : [])
     ];
     const isMoveTarget = canDropAvailabilityOnGameData(state.availabilityMoveSelection, game.id, game.date, game.time);
     return `
@@ -592,6 +594,30 @@
     `;
   }
 
+  function renderExternalFilledChip(game) {
+    const label = game.filledSource === 'manual-filled' ? 'Marked filled by admin' : 'Filled externally';
+    return `
+      <span class="assignment-official external-filled">
+        <small>Filled</small>
+        ${escapeHtml(label)}
+      </span>
+    `;
+  }
+
+  function renderFilledToggleChip(game) {
+    const action = filledToggleAction(game);
+    if (!action) return '';
+    return `
+      <span class="assignment-official fill-control">
+        <small>Admin</small>
+        ${escapeHtml(action.helper)}
+        <span class="assignment-chip-actions">
+          <button class="assignment-chip-btn" type="button" data-fill-game="${escapeHtml(game.id)}" data-fill-value="${action.filled ? 'true' : 'false'}">${escapeHtml(action.label)}</button>
+        </span>
+      </span>
+    `;
+  }
+
   function renderAvailableChip(claim, game) {
     const selected = state.availabilityMoveSelection && state.availabilityMoveSelection.claimId === claim.id;
     const moveButton = canAdminMutateUmpires()
@@ -626,6 +652,9 @@
     });
     root.querySelectorAll('[data-remove-assignment]').forEach((button) => {
       button.addEventListener('click', () => removeUmpireAssignment(button));
+    });
+    root.querySelectorAll('[data-fill-game]').forEach((button) => {
+      button.addEventListener('click', () => toggleGameFilled(button));
     });
     root.querySelectorAll('[data-move-availability-select]').forEach((button) => {
       button.addEventListener('click', (event) => {
@@ -932,6 +961,10 @@
       ? (game.claims.length ? `Availability submitted: ${game.claims.map((claim) => claim.name).join(', ')}` : '')
       : (mine ? 'You marked yourself available for this game.' : '');
     const fallbackText = adminViewing ? 'No availability submitted yet.' : `${game.confirmedUmpires}/${game.requiredUmpires} umpires confirmed.`;
+    const fillAction = canAdminMutateUmpires() ? filledToggleAction(game) : null;
+    const fillButton = fillAction
+      ? `<button class="secondary umpire-fill-toggle" type="button" data-fill-game="${escapeHtml(game.id)}" data-fill-value="${fillAction.filled ? 'true' : 'false'}">${escapeHtml(fillAction.label)}</button>`
+      : '';
     return `
       <article class="umpire-game-card ${categoryClass(game.category)} ${game.filled ? 'filled' : 'open'}">
         <div class="umpire-game-main">
@@ -954,6 +987,7 @@
             ${availabilityText ? escapeHtml(availabilityText) : (assignedText ? '' : escapeHtml(fallbackText))}
           </span>
           ${hideClaimButton ? '' : `<button class="${mine ? 'secondary' : 'primary'}" type="button" data-claim-game="${escapeHtml(game.id)}" data-claim-action="${claimAction}">${claimLabel}</button>`}
+          ${fillButton}
         </div>
       </article>
     `;
@@ -964,6 +998,55 @@
     root.querySelectorAll('[data-claim-game]').forEach((button) => {
       button.addEventListener('click', () => toggleClaim(button.dataset.claimGame, button.dataset.claimAction));
     });
+    root.querySelectorAll('[data-fill-game]').forEach((button) => {
+      button.addEventListener('click', () => toggleGameFilled(button));
+    });
+  }
+
+  function filledToggleAction(game) {
+    const assigned = game.assignedOfficials || [];
+    const override = game.fillOverride || null;
+    if (game.filled && (game.filledExternally || override)) {
+      return {
+        filled: false,
+        label: 'Reopen',
+        helper: game.filledSource === 'manual-filled' ? 'Marked filled by admin' : 'External assignment'
+      };
+    }
+    if (!game.filled && !assigned.length) {
+      return {
+        filled: true,
+        label: 'Mark filled',
+        helper: 'No names needed'
+      };
+    }
+    return null;
+  }
+
+  async function toggleGameFilled(button) {
+    const gameId = button.dataset.fillGame;
+    const filled = button.dataset.fillValue === 'true';
+    const originalText = button.textContent;
+    button.disabled = true;
+    button.textContent = 'Saving...';
+    try {
+      const payload = await fetchJson(`/api/umpire/games/${encodeURIComponent(gameId)}/filled`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ filled })
+      });
+      upsertGame(payload.game);
+      render();
+      if ($('umpireDayDialog').open) {
+        const openGame = state.games.find((game) => game.id === gameId);
+        if (openGame) openDayDialog(openGame.date);
+      }
+    } catch (error) {
+      alert(error.message || 'Could not update the filled status.');
+    } finally {
+      button.disabled = false;
+      button.textContent = originalText;
+    }
   }
 
   async function toggleClaim(gameId, action) {
