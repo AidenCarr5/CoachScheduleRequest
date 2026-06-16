@@ -1529,7 +1529,7 @@ button {
 
 .umpire-finance-excel-row {
   display: grid;
-  grid-template-columns: 52px minmax(220px, 1fr) 90px 120px 130px;
+  grid-template-columns: minmax(260px, 1fr) 100px minmax(140px, 180px);
   align-items: center;
   min-height: 42px;
   border: 1px solid var(--line);
@@ -1600,11 +1600,12 @@ button {
   color: var(--green);
   font-size: 18px;
   text-align: right;
+  white-space: nowrap;
 }
 
 .umpire-finance-detail-table {
   display: grid;
-  margin: 0 0 10px 52px;
+  margin: 0 0 10px;
   border: 1px solid var(--line);
   border-top: 0;
   background: #fbfcfa;
@@ -1642,6 +1643,7 @@ button {
 .umpire-finance-detail-row strong {
   color: var(--green);
   text-align: right;
+  white-space: nowrap;
 }
 
 .umpire-finance-official {
@@ -1692,6 +1694,7 @@ button {
 .umpire-finance-row strong {
   color: var(--green);
   text-align: right;
+  white-space: nowrap;
 }
 
 .umpire-finance-inactive {

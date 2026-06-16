@@ -497,26 +497,21 @@
     return `
       <div class="umpire-finance-excel" role="table" aria-label="Umpire finance totals">
         <div class="umpire-finance-excel-row header" role="row">
-          <span role="columnheader">#</span>
           <span role="columnheader">Official</span>
           <span role="columnheader">Games</span>
-          <span role="columnheader">Average</span>
           <span role="columnheader">Total</span>
         </div>
-        ${summaries.map((summary, index) => renderAdminFinanceExcelOfficial(summary, index + 1)).join('')}
+        ${summaries.map((summary) => renderAdminFinanceExcelOfficial(summary)).join('')}
       </div>
     `;
   }
 
-  function renderAdminFinanceExcelOfficial(summary, rank) {
-    const average = summary.games ? summary.total / summary.games : 0;
+  function renderAdminFinanceExcelOfficial(summary) {
     return `
       <details class="umpire-finance-excel-group">
         <summary class="umpire-finance-excel-row total" role="row">
-          <span role="cell">${rank}</span>
           <strong role="cell">${escapeHtml(summary.name)}</strong>
           <span role="cell">${summary.games}</span>
-          <span role="cell">${escapeHtml(money(average))}</span>
           <b role="cell">${escapeHtml(money(summary.total))}</b>
         </summary>
         <div class="umpire-finance-detail-table" role="table" aria-label="${escapeHtml(summary.name)} games">
