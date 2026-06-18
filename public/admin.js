@@ -166,6 +166,9 @@
       : allocation.status === 'approved'
         ? `<p class="allocation-approval-note approved"><strong>Additional approval accepted.</strong> ${escapeHtml(allocation.reason || '')}${allocation.approvedNote ? `<br><strong>Note:</strong> ${escapeHtml(allocation.approvedNote)}` : ''}</p>`
         : '';
+    const syncText = request.status === 'approved' && request.turtleClubSyncStatus
+      ? `<p class="turtle-sync-note ${escapeHtml(request.turtleClubSyncStatus)}"><strong>Turtle Club sync:</strong> ${escapeHtml(request.turtleClubSyncStatus)}${request.turtleClubSyncDetails ? ` - ${escapeHtml(request.turtleClubSyncDetails)}` : ''}</p>`
+      : '';
     return `
       <article class="admin-request-card ${cardClass}">
         <div class="admin-request-head">
@@ -177,6 +180,7 @@
         <p>${escapeHtml(request.reason || '')}</p>
         <p>${escapeHtml(request.availabilityStatus || '')}</p>
         ${allocationText}
+        ${syncText}
         <label class="admin-note-label" for="admin-note-${escapeHtml(request.id)}">Admin note</label>
         <textarea id="admin-note-${escapeHtml(request.id)}" class="admin-note-input" data-admin-note="${escapeHtml(request.id)}" rows="3" placeholder="Why was this approved or rejected?"${noteAttributes}>${escapeHtml(request.adminNote || '')}</textarea>
         <div class="admin-request-actions">
@@ -292,6 +296,14 @@
       const payload = await response.json();
       await loadRequests();
       if (isApprove) {
+        if (payload.backgroundSync) {
+          let message = payload.verificationDetails || 'Approved locally. Turtle Club sync is running in the background.';
+          if (!payload.emailSent && payload.emailError) {
+            message = `${message} Coach email failed: ${payload.emailError}`;
+          }
+          $('adminMessage').textContent = message;
+          return;
+        }
         const approvedTarget = isManualApprove
           ? 'manually recorded in the scheduler'
           : payload.appliedToTurtleClub === false ? 'recorded in the scheduler' : 'applied to Turtle Club and synced back into the scheduler';

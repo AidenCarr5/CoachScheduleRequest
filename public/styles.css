@@ -2590,6 +2590,32 @@ dialog {
   color: var(--good) !important;
 }
 
+.turtle-sync-note {
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  background: #f6f7f2;
+}
+
+.turtle-sync-note.pending,
+.turtle-sync-note.running {
+  border-color: #d6aa2c;
+  background: #fff8d8;
+  color: #5b4700 !important;
+}
+
+.turtle-sync-note.synced,
+.turtle-sync-note.not-required {
+  border-color: #b9d9bc;
+  background: #eef8f0;
+  color: var(--good) !important;
+}
+
+.turtle-sync-note.failed {
+  border-color: var(--bad);
+  background: #fff3f1;
+  color: var(--bad) !important;
+}
+
 .admin-request-head,
 .admin-request-actions {
   display: flex;
