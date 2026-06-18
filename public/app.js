@@ -526,17 +526,15 @@
     const requestDate = String(request.date || '');
     if (eventDate !== requestDate) return false;
 
-    const eventDiamond = normalizeScheduleComparison(event.diamond);
-    const requestDiamond = normalizeScheduleComparison(request.diamond);
+    const eventDiamond = normalizeScheduleComparison(normalizeAvailabilityDiamond(event.diamond));
+    const requestDiamond = normalizeScheduleComparison(normalizeAvailabilityDiamond(request.diamond));
     if (eventDiamond !== requestDiamond) return false;
-
-    const eventStart = normalizeScheduleComparison(event.time);
-    const requestStart = normalizeScheduleComparison(request.start);
-    if (eventStart !== requestStart) return false;
 
     const eventKind = normalizeScheduleComparison(event.eventKind || event.type);
     const requestKind = normalizeScheduleComparison(request.newType || request.originalType || 'Event');
     if (eventKind !== requestKind) return false;
+
+    if (!approvedRequestTimeMatches(event, request, eventKind)) return false;
 
     const eventEnd = normalizeScheduleComparison(event.endTime || '');
     const requestEnd = normalizeScheduleComparison(request.end || '');
@@ -546,6 +544,25 @@
     const eventOpponent = normalizeScheduleComparison(event.opponent);
     const requestOpponent = normalizeScheduleComparison(request.opponent);
     return eventOpponent === requestOpponent;
+  }
+
+  function approvedRequestTimeMatches(event, request, eventKind) {
+    const eventStart = minutesFromDisplay(event.time);
+    const requestStart = minutesFromDisplay(request.start);
+    if (!eventStart || !requestStart) {
+      return normalizeScheduleComparison(event.time) === normalizeScheduleComparison(request.start);
+    }
+    if (eventStart === requestStart) return true;
+    if (!eventKind.includes('game')) return false;
+
+    const eventEnd = event.endTime
+      ? minutesFromDisplay(event.endTime)
+      : eventStart + (event.durationMinutes || 120);
+    const requestEnd = request.end
+      ? minutesFromDisplay(request.end)
+      : requestStart + 120;
+    if (!eventEnd || !requestEnd || eventEnd <= eventStart || requestEnd <= requestStart) return false;
+    return eventStart < requestEnd && eventEnd > requestStart;
   }
 
   function normalizeScheduleComparison(value) {
