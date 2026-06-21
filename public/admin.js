@@ -253,7 +253,7 @@
 
   async function discoverSeasonCoaches() {
     if (!canRevealPasswords()) return;
-    const year = $('seasonYearInput').value.trim() || String(new Date().getFullYear());
+    const year = $('seasonYearInput').value.trim() || String(new Date().getFullYear() + 1);
     $('seasonPlannerMessage').textContent = `Searching Turtle Club for ${year} published ${teamLabel} coaches...`;
     const response = await fetch('/api/admin/season-planner/discover-coaches', {
       method: 'POST',
@@ -269,7 +269,10 @@
     const merged = mergeCoachLines(existing, payload.coaches || []);
     $('seasonCoachInput').value = merged.map((coach) => `${coach.team || ''}, ${coach.email || ''}, ${coach.program || teamLabel}`).join('\n');
     const warning = payload.warning ? ` ${payload.warning}` : '';
-    $('seasonPlannerMessage').textContent = `Found ${payload.teams && payload.teams.length || 0} published ${teamLabel} team${payload.teams && payload.teams.length === 1 ? '' : 's'} for ${payload.year || year}.${warning}`;
+    const sourceYear = payload.discoveredSeasonYear && payload.discoveredSeasonYear !== Number(payload.year || year)
+      ? ` using ${payload.discoveredSeasonYear} published data`
+      : '';
+    $('seasonPlannerMessage').textContent = `Found ${payload.teams && payload.teams.length || 0} published ${teamLabel} team${payload.teams && payload.teams.length === 1 ? '' : 's'} for ${payload.year || year}${sourceYear}.${warning}`;
   }
 
   async function saveSeasonCoaches() {
