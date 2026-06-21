@@ -19,6 +19,7 @@
     $('saveCoachPasswordsBtn').addEventListener('click', saveCoachPasswords);
     $('newSeasonBtn').addEventListener('click', toggleSeasonPlanner);
     $('seasonCreateForm').addEventListener('submit', createSeasonWorkspace);
+    $('discoverSeasonCoachesBtn').addEventListener('click', discoverSeasonCoaches);
     $('saveSeasonCoachesBtn').addEventListener('click', saveSeasonCoaches);
     $('sendSeasonLinksBtn').addEventListener('click', sendSeasonLinks);
     $('saveAdminPrivilegesBtn').addEventListener('click', saveAdminPrivileges);
@@ -225,6 +226,50 @@
         };
       })
       .filter((coach) => coach.team || coach.email);
+  }
+
+  function coachLineKey(coach) {
+    return String(coach && coach.team || '').trim().toLowerCase();
+  }
+
+  function mergeCoachLines(existing, discovered) {
+    const byTeam = new Map();
+    existing.forEach((coach) => {
+      const key = coachLineKey(coach);
+      if (key) byTeam.set(key, { ...coach });
+    });
+    discovered.forEach((coach) => {
+      const key = coachLineKey(coach);
+      if (!key) return;
+      const current = byTeam.get(key) || {};
+      byTeam.set(key, {
+        team: coach.team || current.team || '',
+        email: current.email || coach.email || '',
+        program: current.program || coach.program || teamLabel
+      });
+    });
+    return [...byTeam.values()].sort((a, b) => String(a.team || '').localeCompare(String(b.team || ''), undefined, { numeric: true }));
+  }
+
+  async function discoverSeasonCoaches() {
+    if (!canRevealPasswords()) return;
+    const year = $('seasonYearInput').value.trim() || String(new Date().getFullYear());
+    $('seasonPlannerMessage').textContent = `Searching Turtle Club for ${year} published ${teamLabel} coaches...`;
+    const response = await fetch('/api/admin/season-planner/discover-coaches', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ year })
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      $('seasonPlannerMessage').textContent = payload.error || 'Published coaches could not be searched.';
+      return;
+    }
+    const existing = parseCoachLines($('seasonCoachInput').value);
+    const merged = mergeCoachLines(existing, payload.coaches || []);
+    $('seasonCoachInput').value = merged.map((coach) => `${coach.team || ''}, ${coach.email || ''}, ${coach.program || teamLabel}`).join('\n');
+    const warning = payload.warning ? ` ${payload.warning}` : '';
+    $('seasonPlannerMessage').textContent = `Found ${payload.teams && payload.teams.length || 0} published ${teamLabel} team${payload.teams && payload.teams.length === 1 ? '' : 's'} for ${payload.year || year}.${warning}`;
   }
 
   async function saveSeasonCoaches() {
