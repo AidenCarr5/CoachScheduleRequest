@@ -442,6 +442,12 @@ button {
   text-decoration: none;
 }
 
+.masthead-action {
+  border-color: rgba(255, 255, 255, .35);
+  background: #0f3d16;
+  color: #fff;
+}
+
 .status-strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2631,10 +2637,32 @@ dialog {
   align-items: start;
 }
 
+.season-workspace {
+  display: grid;
+  gap: 16px;
+}
+
 .season-card {
   border: 1px solid #cfd8c7;
   background: #fbfcf8;
   padding: 16px;
+  min-width: 0;
+}
+
+.season-create-form {
+  display: grid;
+  grid-template-columns: minmax(180px, .45fr) minmax(220px, .75fr) auto;
+  gap: 16px;
+  align-items: end;
+}
+
+.season-create-form button {
+  min-width: 150px;
+}
+
+.season-coach-entry {
+  display: grid;
+  gap: 12px;
 }
 
 .season-card h3 {
@@ -2647,6 +2675,13 @@ dialog {
   width: 100%;
   min-height: 160px;
   resize: vertical;
+}
+
+.season-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
 }
 
 .season-tabs {
@@ -3336,7 +3371,17 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
   }
 
   .season-grid,
+  .season-create-form,
   .season-coach-row {
     grid-template-columns: 1fr;
+  }
+
+  .season-actions {
+    flex-direction: column;
+  }
+
+  .season-actions button,
+  .season-create-form button {
+    width: 100%;
   }
 }

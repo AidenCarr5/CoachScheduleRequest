@@ -29,7 +29,7 @@
         <h1>New Season Setup</h1>
       </div>
       <div class="source">
-        <a class="secondary toolbar-link" href="/admin.html">Back to Admin</a>
+        <a class="primary toolbar-link masthead-action" href="/admin.html">Back to Admin</a>
         <span id="sessionLabel" hidden></span>
         <button id="logoutBtn" class="link-button" type="button" hidden>Log out</button>
       </div>
@@ -52,23 +52,25 @@
         </div>
       </div>
       <p id="seasonPlannerMessage" class="admin-message admin-message-neutral"></p>
-      <div class="season-grid">
-        <form id="seasonCreateForm" class="admin-form season-card">
+      <div class="season-workspace">
+        <form id="seasonCreateForm" class="admin-form season-card season-create-form">
           <div class="field">
-            <label for="seasonYearInput">Season year</label>
-            <input id="seasonYearInput" type="number" min="2026" step="1" placeholder="2027">
+            <label for="seasonYearInput">Season</label>
+            <input id="seasonYearInput" type="text" placeholder="2027 or 2024-2025">
           </div>
-          <div class="field grow">
+          <div class="field">
             <label for="seasonLabelInput">Label</label>
             <input id="seasonLabelInput" type="text" placeholder="2027 Season">
           </div>
           <button class="primary" type="submit">Create season</button>
         </form>
-        <section class="season-card">
-          <h3>Season Coaches</h3>
-          <p class="muted">One coach per line: Team, Email, Program. Search uses the latest published team list for future seasons, or the exact season year when an older year is entered.</p>
+        <section class="season-card season-coach-entry">
+          <div>
+            <h3>Season Coaches</h3>
+            <p class="muted">One coach per line: Team, Email, Program. Search accepts a season like 2027 or a range like 2024-2025.</p>
+          </div>
           <textarea id="seasonCoachInput" rows="8" placeholder="10U T1 (Picco), coach@example.com, Titans"></textarea>
-          <div class="admin-request-actions">
+          <div class="season-actions">
             <button id="discoverSeasonCoachesBtn" class="secondary" type="button">Search published coaches</button>
             <button id="saveSeasonCoachesBtn" class="primary" type="button">Save season coaches</button>
             <button id="sendSeasonLinksBtn" class="secondary" type="button">Send upload links</button>

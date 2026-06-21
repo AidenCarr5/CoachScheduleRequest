@@ -74,13 +74,13 @@
 
   async function createSeasonWorkspace(event) {
     event.preventDefault();
-    const year = $('seasonYearInput').value.trim() || String(new Date().getFullYear() + 1);
-    const label = $('seasonLabelInput').value.trim() || `${year} Season`;
+    const season = seasonInputValue();
+    const label = $('seasonLabelInput').value.trim() || `${season} Season`;
     $('seasonPlannerMessage').textContent = 'Creating season workspace...';
     const response = await fetch('/api/admin/season-planner/create', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ year, label })
+      body: JSON.stringify({ season, year: season, label })
     });
     if (!response.ok) {
       $('seasonPlannerMessage').textContent = 'Season workspace could not be created.';
@@ -132,12 +132,12 @@
   }
 
   async function discoverSeasonCoaches() {
-    const year = $('seasonYearInput').value.trim() || String(new Date().getFullYear() + 1);
-    $('seasonPlannerMessage').textContent = `Searching Turtle Club for ${year} published ${teamLabel} coaches...`;
+    const season = seasonInputValue();
+    $('seasonPlannerMessage').textContent = `Searching Turtle Club for ${season} published ${teamLabel} coaches...`;
     const response = await fetch('/api/admin/season-planner/discover-coaches', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ year })
+      body: JSON.stringify({ season, year: season })
     });
     const payload = await response.json().catch(() => ({}));
     if (!response.ok) {
@@ -148,10 +148,14 @@
     const merged = mergeCoachLines(existing, payload.coaches || []);
     $('seasonCoachInput').value = merged.map((coach) => `${coach.team || ''}, ${coach.email || ''}, ${coach.program || teamLabel}`).join('\n');
     const warning = payload.warning ? ` ${payload.warning}` : '';
-    const sourceYear = payload.discoveredSeasonYear && payload.discoveredSeasonYear !== Number(payload.year || year)
+    const sourceYear = payload.discoveredSeasonYear && String(payload.discoveredSeasonYear) !== String(payload.season || payload.year || season)
       ? ` using ${payload.discoveredSeasonYear} published data`
       : '';
-    $('seasonPlannerMessage').textContent = `Found ${payload.teams && payload.teams.length || 0} published ${teamLabel} team${payload.teams && payload.teams.length === 1 ? '' : 's'} for ${payload.year || year}${sourceYear}.${warning}`;
+    $('seasonPlannerMessage').textContent = `Found ${payload.teams && payload.teams.length || 0} published ${teamLabel} team${payload.teams && payload.teams.length === 1 ? '' : 's'} for ${payload.season || payload.year || season}${sourceYear}.${warning}`;
+  }
+
+  function seasonInputValue() {
+    return $('seasonYearInput').value.trim() || String(new Date().getFullYear() + 1);
   }
 
   async function saveSeasonCoaches() {
