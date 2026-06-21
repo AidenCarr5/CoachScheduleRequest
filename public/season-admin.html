@@ -67,8 +67,24 @@
         <section class="season-card season-coach-entry">
           <div>
             <h3>Coaches</h3>
-            <p class="muted">Search Turtle Club or paste coaches below.</p>
+            <p class="muted">Find teams from Turtle Club, or add them manually.</p>
           </div>
+          <form id="manualCoachForm" class="season-inline-form">
+            <div class="field">
+              <label for="manualCoachTeamInput">Team</label>
+              <input id="manualCoachTeamInput" type="text" placeholder="10U T1 (Picco)">
+            </div>
+            <div class="field">
+              <label for="manualCoachEmailInput">Email</label>
+              <input id="manualCoachEmailInput" type="email" placeholder="coach@example.com">
+            </div>
+            <div class="field">
+              <label for="manualCoachProgramInput">Program</label>
+              <input id="manualCoachProgramInput" type="text" placeholder="Titans">
+            </div>
+            <button class="secondary" type="submit">Add team</button>
+          </form>
+          <label class="season-roster-label" for="seasonCoachInput">Season roster</label>
           <textarea id="seasonCoachInput" rows="8" placeholder="10U T1 (Picco), coach@example.com, Titans"></textarea>
           <div class="season-actions">
             <button id="discoverSeasonCoachesBtn" class="secondary" type="button">Find coaches</button>
@@ -84,6 +100,21 @@
           <h3>Admin Access</h3>
           <button id="saveAdminPrivilegesBtn" class="secondary" type="button">Save access</button>
         </div>
+        <form id="adminAccountForm" class="season-inline-form">
+          <div class="field">
+            <label for="adminUsernameInput">Username</label>
+            <input id="adminUsernameInput" type="text" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="adminPasswordInput">Password</label>
+            <input id="adminPasswordInput" type="text" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="adminInitialsInput">Initials</label>
+            <input id="adminInitialsInput" type="text" maxlength="4" placeholder="AC">
+          </div>
+          <button class="secondary" type="submit">Add admin</button>
+        </form>
         <div id="adminPrivilegesList" class="season-coach-table"></div>
       </section>
     </section>

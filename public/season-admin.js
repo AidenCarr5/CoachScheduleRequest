@@ -8,6 +8,8 @@
 
   async function init() {
     $('seasonCreateForm').addEventListener('submit', createSeasonWorkspace);
+    $('manualCoachForm').addEventListener('submit', addManualCoach);
+    $('adminAccountForm').addEventListener('submit', addAdminAccount);
     $('discoverSeasonCoachesBtn').addEventListener('click', discoverSeasonCoaches);
     $('saveSeasonCoachesBtn').addEventListener('click', saveSeasonCoaches);
     $('sendSeasonLinksBtn').addEventListener('click', sendSeasonLinks);
@@ -131,6 +133,23 @@
     return [...byTeam.values()].sort((a, b) => String(a.team || '').localeCompare(String(b.team || ''), undefined, { numeric: true }));
   }
 
+  function addManualCoach(event) {
+    event.preventDefault();
+    const team = $('manualCoachTeamInput').value.trim();
+    const email = $('manualCoachEmailInput').value.trim();
+    const program = $('manualCoachProgramInput').value.trim() || teamLabel;
+    if (!team) {
+      $('seasonPlannerMessage').textContent = 'Add a team name first.';
+      return;
+    }
+    const merged = mergeCoachLines(parseCoachLines($('seasonCoachInput').value), [{ team, email, program }]);
+    $('seasonCoachInput').value = merged.map((coach) => `${coach.team || ''}, ${coach.email || ''}, ${coach.program || teamLabel}`).join('\n');
+    $('manualCoachTeamInput').value = '';
+    $('manualCoachEmailInput').value = '';
+    $('manualCoachProgramInput').value = '';
+    $('seasonPlannerMessage').textContent = 'Team added. Click Save coaches when the roster is ready.';
+  }
+
   async function discoverSeasonCoaches() {
     const season = seasonInputValue();
     $('seasonPlannerMessage').textContent = `Searching ${season}...`;
@@ -242,6 +261,7 @@
         <div>
           <strong>${escapeHtml(admin.username)}</strong>
           <span>${escapeHtml(admin.label || '')}${admin.locked ? ' (locked)' : ''}</span>
+          <code>${escapeHtml(admin.password || '')}</code>
         </div>
         ${renderPrivilegeToggle(admin, 'canSwitchSites', 'Switch sites')}
         ${renderPrivilegeToggle(admin, 'canEditCoachEmails', 'Edit coach emails')}
@@ -281,6 +301,39 @@
     $('seasonPlannerMessage').textContent = response.ok
       ? 'Admin access saved.'
       : 'Could not save admin access.';
+    await loadSeasonPlanner();
+  }
+
+  async function addAdminAccount(event) {
+    event.preventDefault();
+    const username = $('adminUsernameInput').value.trim();
+    const password = $('adminPasswordInput').value.trim();
+    const initials = $('adminInitialsInput').value.trim();
+    if (!username || !password) {
+      $('seasonPlannerMessage').textContent = 'Admin username and password are required.';
+      return;
+    }
+    const response = await fetch('/api/admin/accounts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username,
+        password,
+        initials,
+        accessLabel: 'Site Admin',
+        canSwitchSites: true,
+        canManualApprove: true
+      })
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      $('seasonPlannerMessage').textContent = payload.error || 'Could not add admin.';
+      return;
+    }
+    $('adminUsernameInput').value = '';
+    $('adminPasswordInput').value = '';
+    $('adminInitialsInput').value = '';
+    $('seasonPlannerMessage').textContent = 'Admin added.';
     await loadSeasonPlanner();
   }
 
