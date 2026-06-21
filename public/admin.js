@@ -166,6 +166,9 @@
     const readOnly = isReadOnlyAdminViewer();
     const noteAttributes = readOnly ? ' readonly aria-readonly="true"' : '';
     const actionDisabled = readOnly ? ' disabled' : '';
+    const manualApproveButton = canManualApprove()
+      ? `<button class="secondary" type="button" data-manual-approve="${request.id}"${manualApproveDisabled}${actionDisabled}>Manual approve</button>`
+      : '';
     const cardClass = allocationPending ? 'allocation-pending' : escapeHtml(request.status || 'pending');
     const statusLabel = allocationPending ? 'requires additional approval' : (request.status || 'pending');
     const allocationText = allocationPending
@@ -193,7 +196,7 @@
         <textarea id="admin-note-${escapeHtml(request.id)}" class="admin-note-input" data-admin-note="${escapeHtml(request.id)}" rows="3" placeholder="Why was this approved or rejected?"${noteAttributes}>${escapeHtml(request.adminNote || '')}</textarea>
         <div class="admin-request-actions">
           <button class="primary" type="button" data-approve="${request.id}"${approveDisabled}${actionDisabled}>Approve</button>
-          <button class="secondary" type="button" data-manual-approve="${request.id}"${manualApproveDisabled}${actionDisabled}>Manual approve</button>
+          ${manualApproveButton}
           <button class="cancel-btn" type="button" data-reject="${request.id}"${rejectDisabled}${actionDisabled}>Reject</button>
           ${showClear ? `<button class="secondary" type="button" data-clear="${request.id}"${actionDisabled}>Clear</button>` : ''}
         </div>
@@ -530,6 +533,10 @@
 
   function canEditCoachLogins() {
     return canRevealPasswords() || canEditCoachEmails();
+  }
+
+  function canManualApprove() {
+    return Boolean(adminSession && adminSession.user && adminSession.user.canManualApprove);
   }
 
   function applyReadOnlyUi() {
