@@ -24,6 +24,7 @@
       "initials": "JH",
       "email": "vp_athletics@turtleclubbaseball.com",
       "canSwitchSites": false,
+      "canEditCoachEmails": true,
       "hideSyncFailures": true,
       "notifyOnCoachRequests": true,
       "accessLabel": "Can approve and reject Athletics coach schedule requests. Cannot switch to Titans."

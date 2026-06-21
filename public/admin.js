@@ -127,7 +127,9 @@
     $('coachAccountsMessage').textContent = currentAccounts.length
       ? (payload.canRevealPasswords
         ? `Generated from ${currentAccounts.length} ${teamLabel} team login${currentAccounts.length === 1 ? '' : 's'}.`
-        : `Generated from ${currentAccounts.length} ${teamLabel} team login${currentAccounts.length === 1 ? '' : 's'}. Passwords are masked for this account.`)
+        : payload.canEditCoachEmails
+          ? `Generated from ${currentAccounts.length} ${teamLabel} team login${currentAccounts.length === 1 ? '' : 's'}. Passwords are masked; emails can be updated.`
+          : `Generated from ${currentAccounts.length} ${teamLabel} team login${currentAccounts.length === 1 ? '' : 's'}. Passwords are masked for this account.`)
       : `No ${teamLabel} teams were found in the latest Turtle Club sync.`;
     $('coachAccountsList').innerHTML = currentAccounts.length
       ? currentAccounts.map(renderCoachAccount).join('')
@@ -200,8 +202,10 @@
   }
 
   function renderCoachAccount(account) {
-    const readOnly = areCoachLoginsLocked();
-    const inputAttributes = readOnly ? ' readonly aria-readonly="true"' : '';
+    const passwordLocked = !canRevealPasswords();
+    const emailLocked = !canEditCoachEmails();
+    const passwordAttributes = passwordLocked ? ' readonly aria-readonly="true"' : '';
+    const emailAttributes = emailLocked ? ' readonly aria-readonly="true"' : '';
     return `
       <article class="coach-account-card">
         <div>
@@ -217,7 +221,7 @@
               value="${escapeHtml(account.password)}"
               data-coach-password="${escapeHtml(account.username)}"
               autocomplete="off"
-              ${inputAttributes}
+              ${passwordAttributes}
             >
           </div>
           <div class="coach-account-email">
@@ -229,7 +233,7 @@
               data-coach-email="${escapeHtml(account.username)}"
               autocomplete="off"
               placeholder="coach@example.com"
-              ${inputAttributes}
+              ${emailAttributes}
             >
           </div>
         </div>
@@ -408,7 +412,7 @@
   }
 
   async function saveCoachPasswords() {
-    if (areCoachLoginsLocked()) return;
+    if (!canEditCoachLogins()) return;
     const fields = Array.from(document.querySelectorAll('[data-coach-password]'));
     const accounts = fields.map((field) => {
       const username = field.dataset.coachPassword;
@@ -419,7 +423,7 @@
         email: emailField ? emailField.value.trim() : ''
       };
     });
-    if (accounts.some((account) => !account.password)) {
+    if (canRevealPasswords() && accounts.some((account) => !account.password)) {
       $('coachAccountsMessage').textContent = 'Every coach login needs a password before saving.';
       return;
     }
@@ -505,7 +509,7 @@
         return;
       }
       if (element.id === 'rescanTeamsBtn' || element.id === 'saveCoachPasswordsBtn') {
-        element.disabled = isBusy || areCoachLoginsLocked();
+        element.disabled = isBusy || (element.id === 'rescanTeamsBtn' ? !canRevealPasswords() : !canEditCoachLogins());
         return;
       }
       element.disabled = isBusy || isReadOnlyAdminViewer();
@@ -520,13 +524,18 @@
     return Boolean(adminSession && adminSession.user && adminSession.user.canRevealPasswords);
   }
 
-  function areCoachLoginsLocked() {
-    return isReadOnlyAdminViewer() || !canRevealPasswords();
+  function canEditCoachEmails() {
+    return Boolean(adminSession && adminSession.user && adminSession.user.canEditCoachEmails);
+  }
+
+  function canEditCoachLogins() {
+    return canRevealPasswords() || canEditCoachEmails();
   }
 
   function applyReadOnlyUi() {
     const readOnly = isReadOnlyAdminViewer();
-    const coachLoginsLocked = areCoachLoginsLocked();
+    const coachPasswordsLocked = !canRevealPasswords();
+    const coachEmailsLocked = !canEditCoachEmails();
     const adminMessage = $('adminMessage');
     const coachAccountsMessage = $('coachAccountsMessage');
     if (readOnly) {
@@ -545,7 +554,7 @@
     });
     ['rescanTeamsBtn', 'saveCoachPasswordsBtn'].forEach((id) => {
       const button = $(id);
-      if (button) button.disabled = coachLoginsLocked;
+      if (button) button.disabled = id === 'rescanTeamsBtn' ? !canRevealPasswords() : !canEditCoachLogins();
     });
     document.querySelectorAll('[data-approve], [data-manual-approve], [data-reject], [data-clear]').forEach((element) => {
       const shouldStayDisabled = element.hasAttribute('data-force-disabled');
@@ -557,8 +566,9 @@
       else element.removeAttribute('aria-readonly');
     });
     document.querySelectorAll('[data-coach-password], [data-coach-email]').forEach((element) => {
-      if ('readOnly' in element) element.readOnly = coachLoginsLocked;
-      if (coachLoginsLocked) element.setAttribute('aria-readonly', 'true');
+      const locked = element.hasAttribute('data-coach-password') ? coachPasswordsLocked : coachEmailsLocked;
+      if ('readOnly' in element) element.readOnly = locked;
+      if (locked) element.setAttribute('aria-readonly', 'true');
       else element.removeAttribute('aria-readonly');
     });
   }
