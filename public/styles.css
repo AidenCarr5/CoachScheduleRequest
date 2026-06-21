@@ -2642,6 +2642,10 @@ dialog {
   gap: 16px;
 }
 
+#seasonPlannerMessage:empty {
+  display: none;
+}
+
 .season-card {
   border: 1px solid #cfd8c7;
   background: #fbfcf8;
@@ -2665,6 +2669,10 @@ dialog {
   gap: 12px;
 }
 
+.season-coach-entry .muted {
+  margin: 0;
+}
+
 .season-card h3 {
   margin: 0 0 8px;
   font-family: "Oswald", sans-serif;
@@ -2682,6 +2690,8 @@ dialog {
   flex-wrap: wrap;
   gap: 12px;
   justify-content: flex-end;
+  border-top: 1px solid #d8dfd2;
+  padding-top: 12px;
 }
 
 .season-tabs {
@@ -2712,6 +2722,12 @@ dialog {
   background: #f4f7ef;
   padding: 12px;
   margin-bottom: 12px;
+  align-items: center;
+}
+
+.season-summary span {
+  border-left: 1px solid #cfd8c7;
+  padding-left: 12px;
 }
 
 .season-coach-table,

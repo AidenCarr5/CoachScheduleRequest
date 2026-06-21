@@ -39,16 +39,16 @@
   <main class="wrap app-shell">
     <section id="seasonAccessPanel" class="admin-panel" hidden>
       <div class="section-head">
-        <h2>Primary Admin Required</h2>
+        <h2>Admin Only</h2>
       </div>
-      <p class="admin-message admin-message-neutral">Only the primary admin account can manage new season setup.</p>
+      <p class="admin-message admin-message-neutral">This page is only available to the primary admin.</p>
     </section>
 
     <section id="seasonPlannerPanel" class="admin-panel" hidden>
       <div class="section-head">
-        <h2>Season Workspace</h2>
+        <h2>Seasons</h2>
         <div class="admin-toolbar">
-          <span>Creates additive season data. Current coach logins and requests are not deleted.</span>
+          <span>Old seasons stay saved.</span>
         </div>
       </div>
       <p id="seasonPlannerMessage" class="admin-message admin-message-neutral"></p>
@@ -66,14 +66,14 @@
         </form>
         <section class="season-card season-coach-entry">
           <div>
-            <h3>Season Coaches</h3>
-            <p class="muted">One coach per line: Team, Email, Program. Search accepts a season like 2027 or a range like 2024-2025.</p>
+            <h3>Coaches</h3>
+            <p class="muted">Search Turtle Club or paste coaches below.</p>
           </div>
           <textarea id="seasonCoachInput" rows="8" placeholder="10U T1 (Picco), coach@example.com, Titans"></textarea>
           <div class="season-actions">
-            <button id="discoverSeasonCoachesBtn" class="secondary" type="button">Search published coaches</button>
-            <button id="saveSeasonCoachesBtn" class="primary" type="button">Save season coaches</button>
-            <button id="sendSeasonLinksBtn" class="secondary" type="button">Send upload links</button>
+            <button id="discoverSeasonCoachesBtn" class="secondary" type="button">Find coaches</button>
+            <button id="saveSeasonCoachesBtn" class="primary" type="button">Save coaches</button>
+            <button id="sendSeasonLinksBtn" class="secondary" type="button">Email links</button>
           </div>
         </section>
       </div>
@@ -81,8 +81,8 @@
       <div id="seasonConflictList" class="season-conflict-list"></div>
       <section class="season-card">
         <div class="section-head">
-          <h3>Admin Privileges</h3>
-          <button id="saveAdminPrivilegesBtn" class="secondary" type="button">Save privileges</button>
+          <h3>Admin Access</h3>
+          <button id="saveAdminPrivilegesBtn" class="secondary" type="button">Save access</button>
         </div>
         <div id="adminPrivilegesList" class="season-coach-table"></div>
       </section>
