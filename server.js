@@ -169,6 +169,11 @@ const server = http.createServer(async (req, res) => {
       res.end();
       return;
     }
+    if (url.pathname === '/season-admin.html' && !canAccessAdminPortalRequest(req) && !hasAdminSwitchToken) {
+      res.writeHead(302, { Location: '/' });
+      res.end();
+      return;
+    }
     if (url.pathname === '/diamond-status-admin.html' && !canAccessStatusEditorRequest(req) && !hasAdminSwitchToken) {
       res.writeHead(302, { Location: '/' });
       res.end();

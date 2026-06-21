@@ -2472,27 +2472,39 @@ dialog {
   padding: 16px;
 }
 
+.admin-management-grid {
+  display: grid;
+  grid-template-columns: minmax(520px, 1.35fr) minmax(320px, .85fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.admin-management-panel {
+  min-width: 0;
+}
+
 .coach-account-list {
   display: grid;
-  gap: 14px;
-  padding: 16px;
+  gap: 8px;
+  padding: 12px 14px 16px;
 }
 
 .coach-account-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  gap: 16px;
-  padding: 16px 18px;
-  background: var(--wash);
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) minmax(360px, auto);
+  gap: 12px;
+  align-items: center;
+  padding: 10px 12px;
+  background: #fbfcf8;
   border: 1px solid var(--line);
-  border-left: 5px solid var(--gold);
+  border-left: 4px solid var(--gold);
 }
 
 .coach-account-card p {
-  margin: 6px 0 0;
+  margin: 3px 0 0;
   color: var(--muted);
   font-weight: 700;
+  font-size: 14px;
 }
 
 .admin-login-card {
@@ -2503,21 +2515,17 @@ dialog {
 .coach-account-fields {
   display: grid;
   grid-template-columns: repeat(2, minmax(180px, 1fr));
-  gap: 12px;
+  gap: 8px;
 }
 
 .coach-account-password {
   display: grid;
-  gap: 4px;
-  justify-items: end;
-  text-align: right;
+  gap: 3px;
 }
 
 .coach-account-email {
   display: grid;
-  gap: 4px;
-  justify-items: end;
-  text-align: right;
+  gap: 3px;
 }
 
 .coach-account-password label {
@@ -2536,16 +2544,16 @@ dialog {
 
 .coach-account-password input {
   width: 180px;
-  padding: 10px 12px;
+  padding: 8px 10px;
   border: 1px solid var(--line);
   background: #fff;
   color: var(--green);
-  font: 600 18px Oswald, Arial, sans-serif;
+  font: 600 16px Oswald, Arial, sans-serif;
 }
 
 .coach-account-email input {
-  width: 240px;
-  padding: 10px 12px;
+  width: 230px;
+  padding: 8px 10px;
   border: 1px solid var(--line);
   background: #fff;
   font: inherit;
@@ -3108,6 +3116,11 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
   .dialog-actions button,
   .view-switch {
     width: 100%;
+  }
+
+  .admin-management-grid,
+  .coach-account-card {
+    grid-template-columns: 1fr;
   }
 
   .coach-account-card,

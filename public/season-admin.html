@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Season Setup</title>
+  <link rel="icon" type="image/png" href="/titans-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-nav="admin">
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <a id="homeNavLink" class="topbar-link" data-nav-key="home" href="/">Coach Schedule</a>
+      <a class="topbar-link" data-nav-key="availability" href="/availability.html">Diamond Availability</a>
+      <a class="topbar-link" data-nav-key="status" href="/diamond-status.html">Diamond Status</a>
+      <a class="topbar-link" data-nav-key="contact" href="/contact.html">Contact</a>
+      <a id="adminLink" class="topbar-link" data-nav-key="admin" href="/admin.html" hidden>Admin approval</a>
+      <a id="fieldStatusLink" class="topbar-link" data-nav-key="field-status" href="/diamond-status-admin.html" hidden>Field Status Control</a>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <div>
+        <p class="eyebrow">Admin</p>
+        <h1>New Season Setup</h1>
+      </div>
+      <div class="source">
+        <a class="secondary toolbar-link" href="/admin.html">Back to Admin</a>
+        <span id="sessionLabel" hidden></span>
+        <button id="logoutBtn" class="link-button" type="button" hidden>Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap app-shell">
+    <section id="seasonAccessPanel" class="admin-panel" hidden>
+      <div class="section-head">
+        <h2>Primary Admin Required</h2>
+      </div>
+      <p class="admin-message admin-message-neutral">Only the primary admin account can manage new season setup.</p>
+    </section>
+
+    <section id="seasonPlannerPanel" class="admin-panel" hidden>
+      <div class="section-head">
+        <h2>Season Workspace</h2>
+        <div class="admin-toolbar">
+          <span>Creates additive season data. Current coach logins and requests are not deleted.</span>
+        </div>
+      </div>
+      <p id="seasonPlannerMessage" class="admin-message admin-message-neutral"></p>
+      <div class="season-grid">
+        <form id="seasonCreateForm" class="admin-form season-card">
+          <div class="field">
+            <label for="seasonYearInput">Season year</label>
+            <input id="seasonYearInput" type="number" min="2026" step="1" placeholder="2027">
+          </div>
+          <div class="field grow">
+            <label for="seasonLabelInput">Label</label>
+            <input id="seasonLabelInput" type="text" placeholder="2027 Season">
+          </div>
+          <button class="primary" type="submit">Create season</button>
+        </form>
+        <section class="season-card">
+          <h3>Season Coaches</h3>
+          <p class="muted">One coach per line: Team, Email, Program. Search uses the latest published team list for future seasons, or the exact season year when an older year is entered.</p>
+          <textarea id="seasonCoachInput" rows="8" placeholder="10U T1 (Picco), coach@example.com, Titans"></textarea>
+          <div class="admin-request-actions">
+            <button id="discoverSeasonCoachesBtn" class="secondary" type="button">Search published coaches</button>
+            <button id="saveSeasonCoachesBtn" class="primary" type="button">Save season coaches</button>
+            <button id="sendSeasonLinksBtn" class="secondary" type="button">Send upload links</button>
+          </div>
+        </section>
+      </div>
+      <div id="seasonPlannerList" class="season-planner-list"></div>
+      <div id="seasonConflictList" class="season-conflict-list"></div>
+      <section class="season-card">
+        <div class="section-head">
+          <h3>Admin Privileges</h3>
+          <button id="saveAdminPrivilegesBtn" class="secondary" type="button">Save privileges</button>
+        </div>
+        <div id="adminPrivilegesList" class="season-coach-table"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="nav.js"></script>
+  <script src="season-admin.js"></script>
+</body>
+</html>
