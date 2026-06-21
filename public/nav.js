@@ -284,7 +284,8 @@
 
     if (siteSwitchLink) {
       const canSwitchAdminSite = Boolean(publicConfig.alternateAdminSite && publicConfig.alternateAdminSite.url)
-        && (role === 'admin' || role === 'admin_viewer');
+        && (role === 'admin' || role === 'admin_viewer')
+        && (!session.user || session.user.canSwitchSites !== false);
       siteSwitchLink.textContent = publicConfig.alternateAdminSite && publicConfig.alternateAdminSite.label
         ? `Switch to ${publicConfig.alternateAdminSite.label}`
         : 'Switch Admin Site';
@@ -317,7 +318,7 @@
         link.hidden = !(key === 'home'
           || key === 'umpires'
           || (key === 'umpire-assignments' && (role === 'admin' || role === 'admin_viewer'))
-          || (key === 'site-switch' && (role === 'admin' || role === 'admin_viewer')));
+          || (key === 'site-switch' && (role === 'admin' || role === 'admin_viewer') && (!session.user || session.user.canSwitchSites !== false)));
       });
       homeLink.hidden = false;
       if (umpireLink) {

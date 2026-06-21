@@ -73,16 +73,21 @@
 
   async function login(event) {
     event.preventDefault();
+    const usernameField = $('adminUsername');
     const password = $('adminPassword').value;
     const response = await fetch('/api/admin/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ password })
+      body: JSON.stringify({
+        username: usernameField ? usernameField.value.trim() : '',
+        password
+      })
     });
     if (!response.ok) {
       $('loginMessage').textContent = 'Password did not match.';
       return;
     }
+    if (usernameField) usernameField.value = '';
     $('adminPassword').value = '';
     $('loginMessage').textContent = '';
     await refreshSession();
@@ -122,7 +127,7 @@
     $('coachAccountsMessage').textContent = currentAccounts.length
       ? (payload.canRevealPasswords
         ? `Generated from ${currentAccounts.length} ${teamLabel} team login${currentAccounts.length === 1 ? '' : 's'}.`
-        : `Generated from ${currentAccounts.length} ${teamLabel} team login${currentAccounts.length === 1 ? '' : 's'}. Passwords are masked for view-only access.`)
+        : `Generated from ${currentAccounts.length} ${teamLabel} team login${currentAccounts.length === 1 ? '' : 's'}. Passwords are masked for this account.`)
       : `No ${teamLabel} teams were found in the latest Turtle Club sync.`;
     $('coachAccountsList').innerHTML = currentAccounts.length
       ? currentAccounts.map(renderCoachAccount).join('')
@@ -138,7 +143,7 @@
     $('adminLoginsMessage').textContent = currentAdminLogins.length
       ? (payload.canRevealPasswords
         ? 'These accounts can reach the protected admin tools shown in this portal.'
-        : 'These accounts can reach the protected admin tools shown in this portal. Passwords are masked for view-only access.')
+        : 'These accounts can reach the protected admin tools shown in this portal. Passwords are masked for this account.')
       : 'No admin logins are available right now.';
     $('adminLoginsList').innerHTML = currentAdminLogins.length
       ? currentAdminLogins.map(renderAdminLogin).join('')
@@ -166,7 +171,8 @@
       : allocation.status === 'approved'
         ? `<p class="allocation-approval-note approved"><strong>Additional approval accepted.</strong> ${escapeHtml(allocation.reason || '')}${allocation.approvedNote ? `<br><strong>Note:</strong> ${escapeHtml(allocation.approvedNote)}` : ''}</p>`
         : '';
-    const syncText = request.status === 'approved' && request.turtleClubSyncStatus
+    const hideFailedSync = adminSession && adminSession.user && adminSession.user.hideSyncFailures && request.turtleClubSyncStatus === 'failed';
+    const syncText = request.status === 'approved' && request.turtleClubSyncStatus && !hideFailedSync
       ? `<p class="turtle-sync-note ${escapeHtml(request.turtleClubSyncStatus)}"><strong>Turtle Club sync:</strong> ${escapeHtml(request.turtleClubSyncStatus)}${request.turtleClubSyncDetails ? ` - ${escapeHtml(request.turtleClubSyncDetails)}` : ''}</p>`
       : '';
     return `
@@ -194,7 +200,7 @@
   }
 
   function renderCoachAccount(account) {
-    const readOnly = isReadOnlyAdminViewer();
+    const readOnly = areCoachLoginsLocked();
     const inputAttributes = readOnly ? ' readonly aria-readonly="true"' : '';
     return `
       <article class="coach-account-card">
@@ -402,7 +408,7 @@
   }
 
   async function saveCoachPasswords() {
-    if (isReadOnlyAdminViewer()) return;
+    if (areCoachLoginsLocked()) return;
     const fields = Array.from(document.querySelectorAll('[data-coach-password]'));
     const accounts = fields.map((field) => {
       const username = field.dataset.coachPassword;
@@ -498,6 +504,10 @@
         element.disabled = isBusy;
         return;
       }
+      if (element.id === 'rescanTeamsBtn' || element.id === 'saveCoachPasswordsBtn') {
+        element.disabled = isBusy || areCoachLoginsLocked();
+        return;
+      }
       element.disabled = isBusy || isReadOnlyAdminViewer();
     });
   }
@@ -506,8 +516,17 @@
     return Boolean(adminSession && adminSession.user && adminSession.user.role === 'admin_viewer');
   }
 
+  function canRevealPasswords() {
+    return Boolean(adminSession && adminSession.user && adminSession.user.canRevealPasswords);
+  }
+
+  function areCoachLoginsLocked() {
+    return isReadOnlyAdminViewer() || !canRevealPasswords();
+  }
+
   function applyReadOnlyUi() {
     const readOnly = isReadOnlyAdminViewer();
+    const coachLoginsLocked = areCoachLoginsLocked();
     const adminMessage = $('adminMessage');
     const coachAccountsMessage = $('coachAccountsMessage');
     if (readOnly) {
@@ -520,17 +539,26 @@
           : `No ${teamLabel} teams were found in the latest Turtle Club sync. View-only access is active for this account.`;
       }
     }
-    ['refreshScheduleBtn', 'sendDiamondStatusEmailBtn', 'rescanTeamsBtn', 'saveCoachPasswordsBtn'].forEach((id) => {
+    ['refreshScheduleBtn', 'sendDiamondStatusEmailBtn'].forEach((id) => {
       const button = $(id);
       if (button) button.disabled = readOnly;
+    });
+    ['rescanTeamsBtn', 'saveCoachPasswordsBtn'].forEach((id) => {
+      const button = $(id);
+      if (button) button.disabled = coachLoginsLocked;
     });
     document.querySelectorAll('[data-approve], [data-manual-approve], [data-reject], [data-clear]').forEach((element) => {
       const shouldStayDisabled = element.hasAttribute('data-force-disabled');
       element.disabled = readOnly || adminBusy || shouldStayDisabled;
     });
-    document.querySelectorAll('[data-admin-note], [data-coach-password], [data-coach-email]').forEach((element) => {
+    document.querySelectorAll('[data-admin-note]').forEach((element) => {
       if ('readOnly' in element) element.readOnly = readOnly;
       if (readOnly) element.setAttribute('aria-readonly', 'true');
+      else element.removeAttribute('aria-readonly');
+    });
+    document.querySelectorAll('[data-coach-password], [data-coach-email]').forEach((element) => {
+      if ('readOnly' in element) element.readOnly = coachLoginsLocked;
+      if (coachLoginsLocked) element.setAttribute('aria-readonly', 'true');
       else element.removeAttribute('aria-readonly');
     });
   }

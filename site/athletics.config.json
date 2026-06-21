@@ -17,6 +17,18 @@
     "label": "Titans",
     "url": "https://lasalletitansbaseball.com/admin.html"
   },
+  "adminUsers": [
+    {
+      "username": "jhandcock",
+      "password": "5KFogDqb944d",
+      "initials": "JH",
+      "email": "vp_athletics@turtleclubbaseball.com",
+      "canSwitchSites": false,
+      "hideSyncFailures": true,
+      "notifyOnCoachRequests": true,
+      "accessLabel": "Can approve and reject Athletics coach schedule requests. Cannot switch to Titans."
+    }
+  ],
   "contacts": [
     {
       "name": "Aiden Carr / Ashton Carr",
