@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Season Schedule Upload</title>
+  <link rel="icon" type="image/png" href="/titans-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="season-upload-page">
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <div>
+        <p class="eyebrow">New Season Setup</p>
+        <h1>Upload Season Schedule</h1>
+      </div>
+      <div class="source">
+        <span id="seasonUploadTeam" class="source-note">Checking upload link...</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap app-shell">
+    <section class="admin-panel">
+      <div class="section-head">
+        <h2>Schedule File</h2>
+      </div>
+      <p class="muted">Upload an Excel or CSV file with columns for date, start, end, type, opponent/title, and diamond/venue. Nothing is sent to Turtle Club from this page.</p>
+      <form id="seasonUploadForm" class="admin-form">
+        <div class="field grow">
+          <label for="seasonUploadFile">File</label>
+          <input id="seasonUploadFile" type="file" accept=".xlsx,.xls,.csv,.ods">
+        </div>
+        <button class="primary" type="submit">Upload schedule</button>
+      </form>
+      <p id="seasonUploadMessage" class="admin-message"></p>
+      <div id="seasonUploadPreview" class="season-conflict-list"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+  <script src="season-upload.js"></script>
+</body>
+</html>

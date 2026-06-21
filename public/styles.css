@@ -2616,6 +2616,126 @@ dialog {
   color: var(--bad) !important;
 }
 
+.season-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(320px, 1.4fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.season-card {
+  border: 1px solid #cfd8c7;
+  background: #fbfcf8;
+  padding: 16px;
+}
+
+.season-card h3 {
+  margin: 0 0 8px;
+  font-family: "Oswald", sans-serif;
+  color: #0f3d16;
+}
+
+.season-card textarea {
+  width: 100%;
+  min-height: 160px;
+  resize: vertical;
+}
+
+.season-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 10px;
+}
+
+.season-tabs button {
+  border: 1px solid #cfd8c7;
+  background: #eef2e8;
+  color: #0f3d16;
+  font-weight: 700;
+  padding: 8px 12px;
+}
+
+.season-tabs button.current {
+  background: #0f3d16;
+  color: #fff;
+}
+
+.season-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  border: 1px solid #cfd8c7;
+  background: #f4f7ef;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.season-coach-table,
+.season-conflict-table {
+  display: grid;
+  gap: 8px;
+}
+
+.season-coach-row {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.5fr) minmax(130px, .8fr) minmax(120px, .8fr) minmax(160px, 1fr);
+  gap: 12px;
+  align-items: center;
+  border: 1px solid #cfd8c7;
+  background: #fff;
+  padding: 10px;
+}
+
+.season-coach-row label {
+  display: block;
+  font-size: .72rem;
+  font-weight: 700;
+  color: #65735f;
+  text-transform: uppercase;
+}
+
+.season-coach-row code {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  color: #0f3d16;
+}
+
+.season-conflict-list {
+  margin-top: 16px;
+}
+
+.season-conflict-row {
+  border-left: 4px solid #d6c14d;
+  background: #fff9d8;
+  padding: 10px 12px;
+  display: grid;
+  gap: 3px;
+}
+
+.season-conflict-row.live {
+  border-left-color: #9c352b;
+  background: #fae8e6;
+}
+
+.season-conflict-row.staged {
+  border-left-color: #c88b2d;
+  background: #fff2db;
+}
+
+.admin-privilege-row {
+  grid-template-columns: minmax(180px, 1.2fr) repeat(4, minmax(120px, .8fr));
+}
+
+.privilege-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #0f3d16;
+}
+
 .admin-request-head,
 .admin-request-actions {
   display: flex;
@@ -3200,5 +3320,10 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
 
   .calendar-day-events {
     gap: 10px;
+  }
+
+  .season-grid,
+  .season-coach-row {
+    grid-template-columns: 1fr;
   }
 }

@@ -63,11 +63,53 @@
           <button id="refreshScheduleBtn" class="primary" type="button">Refresh from Turtle Club</button>
           <button id="sendDiamondStatusEmailBtn" class="secondary" type="button">Send Diamond Status Email</button>
           <button id="rescanTeamsBtn" class="secondary" type="button">Rescan Titans Teams</button>
+          <button id="newSeasonBtn" class="secondary" type="button" hidden>New Season</button>
           <button id="adminExportBtn" class="secondary" type="button">Download Excel</button>
         </div>
       </div>
       <p id="adminMessage" class="admin-message"></p>
       <div id="adminRequestList" class="admin-request-list"></div>
+    </section>
+
+    <section id="seasonPlannerPanel" class="admin-panel" hidden>
+      <div class="section-head">
+        <h2>New Season Setup</h2>
+        <div class="admin-toolbar">
+          <span>Creates additive season data. Current coach logins and requests are not deleted.</span>
+        </div>
+      </div>
+      <p id="seasonPlannerMessage" class="admin-message admin-message-neutral"></p>
+      <div class="season-grid">
+        <form id="seasonCreateForm" class="admin-form season-card">
+          <div class="field">
+            <label for="seasonYearInput">Season year</label>
+            <input id="seasonYearInput" type="number" min="2026" step="1" placeholder="2027">
+          </div>
+          <div class="field grow">
+            <label for="seasonLabelInput">Label</label>
+            <input id="seasonLabelInput" type="text" placeholder="2027 Season">
+          </div>
+          <button class="primary" type="submit">Create season</button>
+        </form>
+        <section class="season-card">
+          <h3>Season Coaches</h3>
+          <p class="muted">One coach per line: Team, Email, Program. Example: 10U T1 (Picco), coach@example.com, Titans</p>
+          <textarea id="seasonCoachInput" rows="8" placeholder="10U T1 (Picco), coach@example.com, Titans"></textarea>
+          <div class="admin-request-actions">
+            <button id="saveSeasonCoachesBtn" class="primary" type="button">Save season coaches</button>
+            <button id="sendSeasonLinksBtn" class="secondary" type="button">Send upload links</button>
+          </div>
+        </section>
+      </div>
+      <div id="seasonPlannerList" class="season-planner-list"></div>
+      <div id="seasonConflictList" class="season-conflict-list"></div>
+      <section class="season-card">
+        <div class="section-head">
+          <h3>Admin Privileges</h3>
+          <button id="saveAdminPrivilegesBtn" class="secondary" type="button">Save privileges</button>
+        </div>
+        <div id="adminPrivilegesList" class="season-coach-table"></div>
+      </section>
     </section>
 
     <section id="coachAccountsPanel" class="admin-panel" hidden>
