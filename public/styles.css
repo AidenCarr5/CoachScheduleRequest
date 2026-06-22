@@ -2480,13 +2480,22 @@ dialog {
 
 .admin-management-grid {
   display: grid;
-  grid-template-columns: minmax(520px, 1.35fr) minmax(320px, .85fr);
+  grid-template-columns: minmax(560px, 1.25fr) minmax(420px, .9fr);
   gap: 16px;
   align-items: start;
 }
 
 .admin-management-panel {
   min-width: 0;
+}
+
+#adminLoginsPanel .section-head {
+  align-items: flex-start;
+}
+
+#adminLoginsPanel .admin-toolbar {
+  justify-content: flex-start;
+  text-align: left;
 }
 
 .coach-account-list {
@@ -2497,13 +2506,18 @@ dialog {
 
 .coach-account-card {
   display: grid;
-  grid-template-columns: minmax(160px, 1fr) minmax(360px, auto);
+  grid-template-columns: minmax(180px, 1fr) minmax(280px, 1.35fr);
   gap: 12px;
   align-items: center;
   padding: 10px 12px;
   background: #fbfcf8;
   border: 1px solid var(--line);
   border-left: 4px solid var(--gold);
+  min-width: 0;
+}
+
+.coach-account-card > div {
+  min-width: 0;
 }
 
 .coach-account-card p {
@@ -2514,14 +2528,20 @@ dialog {
 }
 
 .admin-login-card {
+  grid-template-columns: 1fr;
   border-left-color: var(--green);
   background: #f7fbfa;
 }
 
+.admin-login-card .coach-account-fields {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .coach-account-fields {
   display: grid;
-  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
+  min-width: 0;
 }
 
 .coach-account-password {
@@ -2549,7 +2569,8 @@ dialog {
 }
 
 .coach-account-password input {
-  width: 180px;
+  width: 100%;
+  min-width: 0;
   padding: 8px 10px;
   border: 1px solid var(--line);
   background: #fff;
@@ -2558,7 +2579,8 @@ dialog {
 }
 
 .coach-account-email input {
-  width: 230px;
+  width: 100%;
+  min-width: 0;
   padding: 8px 10px;
   border: 1px solid var(--line);
   background: #fff;
