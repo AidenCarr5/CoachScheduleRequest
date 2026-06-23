@@ -46,14 +46,15 @@
 
     <section id="seasonPlannerPanel" class="admin-panel" hidden>
       <div class="section-head">
-        <h2>Seasons</h2>
+        <h2>New Season Workflow</h2>
         <div class="admin-toolbar">
-          <span>Old seasons stay saved.</span>
+          <span>Titans and Athletics use the same process on their own domain.</span>
         </div>
       </div>
       <p id="seasonPlannerMessage" class="admin-message admin-message-neutral"></p>
       <div class="season-workspace">
         <form id="seasonCreateForm" class="admin-form season-card season-create-form">
+          <div class="season-step-label">1. Search or open a season</div>
           <div class="field">
             <label for="seasonYearInput">Season</label>
             <input id="seasonYearInput" type="text" placeholder="2027 or 2025-2026">
@@ -62,13 +63,13 @@
             <label for="seasonLabelInput">Label</label>
             <input id="seasonLabelInput" type="text" placeholder="2027 Season">
           </div>
-          <button class="primary" type="submit">Open season</button>
-          <button id="discoverSeasonCoachesBtn" class="secondary" type="button">Search season</button>
+          <button id="discoverSeasonCoachesBtn" class="primary" type="button">Search season</button>
+          <button class="secondary" type="submit">Open saved</button>
         </form>
         <section class="season-card season-coach-entry">
           <div>
-            <h3>Coaches</h3>
-            <p class="muted">Find teams from Turtle Club, or add them manually.</p>
+            <h3>2. Coaches and Emails</h3>
+            <p class="muted">Search fills the teams. Add each coach email, then send their secure schedule-upload link.</p>
           </div>
           <form id="manualCoachForm" class="season-inline-form">
             <div class="field">
@@ -85,11 +86,11 @@
             </div>
             <button class="secondary" type="submit">Add team</button>
           </form>
-          <label class="season-roster-label" for="seasonCoachInput">Season roster</label>
-          <textarea id="seasonCoachInput" rows="8" placeholder="10U T1 (Picco), coach@example.com, Titans"></textarea>
+          <label class="season-roster-label" for="seasonCoachInput">Bulk roster fallback</label>
+          <textarea id="seasonCoachInput" rows="5" placeholder="10U T1 (Picco), coach@example.com, Titans"></textarea>
           <div class="season-actions">
-            <button id="saveSeasonCoachesBtn" class="primary" type="button">Save coaches</button>
-            <button id="sendSeasonLinksBtn" class="secondary" type="button">Email links</button>
+            <button id="saveSeasonCoachesBtn" class="primary" type="button">Save coach emails</button>
+            <button id="sendSeasonLinksBtn" class="secondary" type="button">Email upload links</button>
           </div>
         </section>
       </div>

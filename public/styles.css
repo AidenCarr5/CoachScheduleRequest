@@ -2677,9 +2677,16 @@ dialog {
 
 .season-create-form {
   display: grid;
-  grid-template-columns: minmax(180px, .45fr) minmax(220px, .75fr) auto auto;
+  grid-template-columns: 1fr minmax(180px, .45fr) minmax(220px, .75fr) auto auto;
   gap: 16px;
   align-items: end;
+}
+
+.season-step-label {
+  align-self: center;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.25rem;
+  color: #0f3d16;
 }
 
 .season-create-form button {
@@ -2793,6 +2800,19 @@ dialog {
   padding: 10px;
 }
 
+.season-coach-edit-row {
+  grid-template-columns: minmax(220px, 1.3fr) minmax(230px, 1fr) minmax(150px, .65fr) minmax(160px, .8fr);
+}
+
+.season-coach-edit-row input {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid #cfd8c7;
+  background: #fff;
+  padding: 8px 10px;
+  font: inherit;
+}
+
 .season-coach-row label {
   display: block;
   font-size: .72rem;
@@ -2839,7 +2859,7 @@ dialog {
 }
 
 .admin-privilege-row {
-  grid-template-columns: minmax(180px, 1.2fr) repeat(4, minmax(120px, .8fr));
+  grid-template-columns: minmax(180px, 1.2fr) repeat(5, minmax(120px, .8fr));
 }
 
 .privilege-toggle {
@@ -2848,6 +2868,18 @@ dialog {
   gap: 8px;
   font-weight: 700;
   color: #0f3d16;
+}
+
+.season-approval-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.season-approval-card .muted {
+  margin: 0;
 }
 
 .admin-request-head,

@@ -14,6 +14,10 @@
     $('saveSeasonCoachesBtn').addEventListener('click', saveSeasonCoaches);
     $('sendSeasonLinksBtn').addEventListener('click', sendSeasonLinks);
     $('saveAdminPrivilegesBtn').addEventListener('click', saveAdminPrivileges);
+    document.addEventListener('click', (event) => {
+      const approveButton = event.target.closest('[data-approve-season]');
+      if (approveButton) approveSeason(approveButton.dataset.approveSeason);
+    });
     await loadPublicConfig();
     await refreshSession();
   }
@@ -142,7 +146,7 @@
     return [...byTeam.values()].sort((a, b) => String(a.team || '').localeCompare(String(b.team || ''), undefined, { numeric: true }));
   }
 
-  function addManualCoach(event) {
+  async function addManualCoach(event) {
     event.preventDefault();
     const team = $('manualCoachTeamInput').value.trim();
     const email = $('manualCoachEmailInput').value.trim();
@@ -151,12 +155,16 @@
       $('seasonPlannerMessage').textContent = 'Add a team name first.';
       return;
     }
-    const merged = mergeCoachLines(parseCoachLines($('seasonCoachInput').value), [{ team, email, program }]);
+    const merged = mergeCoachLines(collectSeasonCoaches(), [{ team, email, program }]);
     $('seasonCoachInput').value = merged.map((coach) => `${coach.team || ''}, ${coach.email || ''}, ${coach.program || teamLabel}`).join('\n');
     $('manualCoachTeamInput').value = '';
     $('manualCoachEmailInput').value = '';
     $('manualCoachProgramInput').value = '';
-    $('seasonPlannerMessage').textContent = 'Team added. Click Save coaches when the roster is ready.';
+    if (activeSeasonId) {
+      await saveSeasonCoachList(merged, true);
+    } else {
+      $('seasonPlannerMessage').textContent = 'Team added. Click Save coach emails when the roster is ready.';
+    }
   }
 
   async function discoverSeasonCoaches() {
@@ -174,14 +182,15 @@
       $('seasonPlannerMessage').textContent = payload.error || 'Could not find coaches.';
       return;
     }
-    const existing = parseCoachLines($('seasonCoachInput').value);
+    const existing = Array.isArray(opened.coaches) ? opened.coaches : [];
     const merged = mergeCoachLines(existing, payload.coaches || []);
     $('seasonCoachInput').value = merged.map((coach) => `${coach.team || ''}, ${coach.email || ''}, ${coach.program || teamLabel}`).join('\n');
     const warning = payload.warning ? ` ${payload.warning}` : '';
     const sourceYear = payload.discoveredSeasonYear && String(payload.discoveredSeasonYear) !== String(payload.season || payload.year || season)
       ? ` using ${payload.discoveredSeasonYear} published data`
       : '';
-    $('seasonPlannerMessage').textContent = `Found ${payload.teams && payload.teams.length || 0} ${teamLabel} team${payload.teams && payload.teams.length === 1 ? '' : 's'} for ${payload.season || payload.year || season}${sourceYear}.${warning}`;
+    await saveSeasonCoachList(merged, false);
+    $('seasonPlannerMessage').textContent = `Generated ${payload.teams && payload.teams.length || 0} ${teamLabel} team${payload.teams && payload.teams.length === 1 ? '' : 's'} for ${payload.season || payload.year || season}${sourceYear}.${warning}`;
   }
 
   function seasonInputValue() {
@@ -193,12 +202,31 @@
       const opened = await openSeasonWorkspace(false);
       if (!opened) return;
     }
-    const coaches = parseCoachLines($('seasonCoachInput').value);
+    const coaches = collectSeasonCoaches();
     if (!coaches.length) {
       $('seasonPlannerMessage').textContent = 'Add at least one coach.';
       return;
     }
     $('seasonPlannerMessage').textContent = 'Saving coaches...';
+    await saveSeasonCoachList(coaches, true);
+  }
+
+  function collectSeasonCoaches() {
+    const rows = [...document.querySelectorAll('[data-season-coach-row]')];
+    if (rows.length) {
+      return rows.map((row) => ({
+        id: row.dataset.coachId || '',
+        team: row.dataset.coachTeam || '',
+        username: row.dataset.coachUsername || '',
+        password: row.dataset.coachPassword || '',
+        email: row.querySelector('[data-season-coach-email]')?.value.trim() || '',
+        program: row.querySelector('[data-season-coach-program]')?.value.trim() || teamLabel
+      })).filter((coach) => coach.team || coach.email);
+    }
+    return parseCoachLines($('seasonCoachInput').value);
+  }
+
+  async function saveSeasonCoachList(coaches, showMessage) {
     const response = await fetch('/api/admin/season-planner/coaches', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -208,7 +236,7 @@
       $('seasonPlannerMessage').textContent = 'Could not save coaches.';
       return;
     }
-    $('seasonPlannerMessage').textContent = 'Coaches saved.';
+    if (showMessage) $('seasonPlannerMessage').textContent = 'Coach emails saved.';
     await loadSeasonPlanner();
   }
 
@@ -249,6 +277,7 @@
         <span>${activeCoaches.length} coach${activeCoaches.length === 1 ? '' : 'es'}</span>
         <span>${active.stagedEventCount || 0} event${active.stagedEventCount === 1 ? '' : 's'}</span>
         <span>${active.conflictCount || 0} conflict${active.conflictCount === 1 ? '' : 's'}</span>
+        <span>${escapeHtml(active.status || 'setup')}</span>
       </div>
       <div class="season-coach-table">
         ${activeCoaches.map(renderSeasonCoach).join('') || '<p class="muted">No coaches saved.</p>'}
@@ -377,38 +406,78 @@
     await loadSeasonPlanner();
   }
 
+  async function approveSeason(seasonId) {
+    if (!seasonId) return;
+    $('seasonPlannerMessage').textContent = 'Approving staged season...';
+    const response = await fetch('/api/admin/season-planner/approve', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ seasonId })
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      $('seasonPlannerMessage').textContent = payload.error || 'Could not approve season.';
+      return;
+    }
+    $('seasonPlannerMessage').textContent = 'Season approved. Staged schedules are ready for the next upload step.';
+    await loadSeasonPlanner();
+  }
+
   function renderSeasonCoach(coach) {
     const origin = window.location.origin;
     const link = `${origin}${coach.uploadLink || ''}`;
     return `
-      <article class="season-coach-row">
+      <article class="season-coach-row season-coach-edit-row"
+        data-season-coach-row
+        data-coach-id="${escapeHtml(coach.id || '')}"
+        data-coach-team="${escapeHtml(coach.team || '')}"
+        data-coach-username="${escapeHtml(coach.username || '')}"
+        data-coach-password="${escapeHtml(coach.password || '')}">
         <div>
-          <strong>${escapeHtml(coach.team || '')}</strong>
-          <span>${escapeHtml(coach.email || '')}</span>
+          <strong>${escapeHtml(coachNameFromTeam(coach.team) || coach.team || '')}</strong>
+          <span>${escapeHtml(coach.team || '')}</span>
         </div>
         <div>
-          <label>Username</label>
-          <code>${escapeHtml(coach.username || '')}</code>
+          <label>Email</label>
+          <input type="email" value="${escapeHtml(coach.email || '')}" data-season-coach-email placeholder="coach@example.com">
         </div>
         <div>
-          <label>Password</label>
-          <code>${escapeHtml(coach.password || '')}</code>
+          <label>Program</label>
+          <input type="text" value="${escapeHtml(coach.program || teamLabel)}" data-season-coach-program>
         </div>
         <div>
-          <label>Upload</label>
+          <label>Link</label>
           <a href="${escapeHtml(link)}" target="_blank" rel="noreferrer">${escapeHtml(coach.uploadStatus || 'not-sent')} (${coach.eventCount || 0})</a>
         </div>
       </article>
     `;
   }
 
+  function coachNameFromTeam(team) {
+    const match = String(team || '').match(/\(([^)]+)\)/);
+    return match ? match[1].trim() : '';
+  }
+
   function renderSeasonConflicts(season) {
+    const coachCount = season && season.coaches ? season.coaches.length : 0;
+    const uploadedCount = season && season.coaches ? season.coaches.filter((coach) => coach.uploadStatus === 'uploaded').length : 0;
+    const conflictCount = season && season.conflicts ? season.conflicts.length : 0;
+    const canApprove = season && coachCount > 0 && uploadedCount === coachCount && conflictCount === 0 && season.status !== 'approved';
+    const approvalPanel = season ? `
+      <section class="season-card season-approval-card">
+        <div>
+          <h3>4. One-Time Season Approval</h3>
+          <p class="muted">${uploadedCount} of ${coachCount} coach schedule${coachCount === 1 ? '' : 's'} uploaded. Conflicts must be cleared before approval.</p>
+        </div>
+        <button class="primary" type="button" data-approve-season="${escapeHtml(season.id || '')}"${canApprove ? '' : ' disabled'}>${season.status === 'approved' ? 'Season approved' : 'Approve season'}</button>
+      </section>
+    ` : '';
     if (!season || !season.conflicts || !season.conflicts.length) {
-      return '<section class="season-card"><h3>Conflicts</h3><p class="muted">No conflicts found.</p></section>';
+      return `<section class="season-card"><h3>3. Conflict Preview</h3><p class="muted">No conflicts found.</p></section>${approvalPanel}`;
     }
     return `
       <section class="season-card">
-        <h3>Conflicts</h3>
+        <h3>3. Conflict Preview</h3>
         <div class="season-conflict-table">
           ${season.conflicts.map((conflict) => `
             <article class="season-conflict-row ${escapeHtml(conflict.severity || '')}">
@@ -420,6 +489,7 @@
           `).join('')}
         </div>
       </section>
+      ${approvalPanel}
     `;
   }
 
