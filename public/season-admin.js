@@ -17,6 +17,8 @@
     document.addEventListener('click', (event) => {
       const approveButton = event.target.closest('[data-approve-season]');
       if (approveButton) approveSeason(approveButton.dataset.approveSeason);
+      const deleteButton = event.target.closest('[data-delete-season]');
+      if (deleteButton) deleteSeason(deleteButton.dataset.deleteSeason);
     });
     await loadPublicConfig();
     await refreshSession();
@@ -278,6 +280,7 @@
         <span>${active.stagedEventCount || 0} event${active.stagedEventCount === 1 ? '' : 's'}</span>
         <span>${active.conflictCount || 0} conflict${active.conflictCount === 1 ? '' : 's'}</span>
         <span>${escapeHtml(active.status || 'setup')}</span>
+        <button class="secondary danger-light" type="button" data-delete-season="${escapeHtml(active.id || '')}">Delete season</button>
       </div>
       <div class="season-coach-table">
         ${activeCoaches.map(renderSeasonCoach).join('') || '<p class="muted">No coaches saved.</p>'}
@@ -403,6 +406,24 @@
       return;
     }
     $('seasonPlannerMessage').textContent = 'Admin removed.';
+    await loadSeasonPlanner();
+  }
+
+  async function deleteSeason(seasonId) {
+    if (!seasonId) return;
+    const active = currentSeasons.find((season) => season.id === seasonId);
+    const label = active && (active.label || active.year) || 'this season';
+    if (!window.confirm(`Delete ${label}? This removes the saved new-season workspace, coach upload links, and staged uploads for this setup only.`)) return;
+    const response = await fetch(`/api/admin/season-planner/${encodeURIComponent(seasonId)}`, {
+      method: 'DELETE'
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      $('seasonPlannerMessage').textContent = payload.error || 'Could not delete season.';
+      return;
+    }
+    activeSeasonId = '';
+    $('seasonPlannerMessage').textContent = 'Season deleted.';
     await loadSeasonPlanner();
   }
 

@@ -2784,6 +2784,13 @@ dialog {
   padding-left: 12px;
 }
 
+.season-summary .danger-light {
+  margin-left: auto;
+  border-color: #9c352b;
+  color: #9c352b;
+  background: #fff6f4;
+}
+
 .season-coach-table,
 .season-conflict-table {
   display: grid;
