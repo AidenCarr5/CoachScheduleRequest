@@ -81,6 +81,10 @@
 
   async function openSeasonWorkspace(renderAfterOpen) {
     const season = seasonInputValue();
+    if (!season) {
+      $('seasonPlannerMessage').textContent = 'Enter a season first, for example 2025-2026.';
+      return null;
+    }
     const label = $('seasonLabelInput').value.trim() || `${season} Season`;
     $('seasonPlannerMessage').textContent = 'Opening season...';
     const response = await fetch('/api/admin/season-planner/create', {
@@ -181,7 +185,7 @@
   }
 
   function seasonInputValue() {
-    return $('seasonYearInput').value.trim() || String(new Date().getFullYear() + 1);
+    return $('seasonYearInput').value.trim();
   }
 
   async function saveSeasonCoaches() {
