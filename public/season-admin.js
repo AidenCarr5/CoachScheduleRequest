@@ -9,6 +9,7 @@
   async function init() {
     $('seasonCreateForm').addEventListener('submit', createSeasonWorkspace);
     $('manualCoachForm').addEventListener('submit', addManualCoach);
+    $('adminSeasonUploadForm').addEventListener('submit', uploadAdminSeasonSheet);
     $('adminAccountForm').addEventListener('submit', addAdminAccount);
     $('discoverSeasonCoachesBtn').addEventListener('click', discoverSeasonCoaches);
     $('saveSeasonCoachesBtn').addEventListener('click', saveSeasonCoaches);
@@ -259,6 +260,89 @@
     await loadSeasonPlanner();
   }
 
+  async function uploadAdminSeasonSheet(event) {
+    event.preventDefault();
+    if (!activeSeasonId) {
+      const opened = await openSeasonWorkspace(false);
+      if (!opened) return;
+    }
+    const file = $('adminSeasonUploadFile').files && $('adminSeasonUploadFile').files[0];
+    if (!file) {
+      $('seasonPlannerMessage').textContent = 'Choose the completed Excel template first.';
+      return;
+    }
+    if (!window.XLSX) {
+      $('seasonPlannerMessage').textContent = 'Spreadsheet reader did not load. Refresh the page and try again.';
+      return;
+    }
+    $('seasonPlannerMessage').textContent = 'Reading season workbook...';
+    try {
+      const rows = await readSeasonWorkbook(file);
+      if (!rows.length) {
+        $('seasonPlannerMessage').textContent = 'No season rows were found in that workbook.';
+        return;
+      }
+      const response = await fetch('/api/admin/season-planner/admin-upload', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ seasonId: activeSeasonId, rows })
+      });
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        $('seasonPlannerMessage').textContent = payload.error || 'Could not upload season workbook.';
+        return;
+      }
+      $('adminSeasonUploadFile').value = '';
+      $('seasonPlannerMessage').textContent = `Uploaded ${payload.eventCount || 0} event${payload.eventCount === 1 ? '' : 's'} for ${payload.coachCount || 0} team${payload.coachCount === 1 ? '' : 's'}.`;
+      await loadSeasonPlanner();
+    } catch (error) {
+      $('seasonPlannerMessage').textContent = error.message || 'Could not read season workbook.';
+    }
+  }
+
+  function readSeasonWorkbook(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const workbook = window.XLSX.read(reader.result, { type: 'array' });
+          const preferred = workbook.SheetNames.find((name) => /schedule/i.test(name)) || workbook.SheetNames[0];
+          const sheet = workbook.Sheets[preferred];
+          const rows = window.XLSX.utils.sheet_to_json(sheet, { defval: '' });
+          resolve(rows.map(normalizeSeasonWorkbookRow).filter((row) => row.team && (row.date || row.start || row.opponent || row.diamond)));
+        } catch (error) {
+          reject(error);
+        }
+      };
+      reader.onerror = () => reject(new Error('The file could not be read.'));
+      reader.readAsArrayBuffer(file);
+    });
+  }
+
+  function normalizeSeasonWorkbookRow(row) {
+    const find = (...keys) => {
+      const wanted = keys.map(normalizeHeader);
+      const match = Object.keys(row).find((key) => wanted.includes(normalizeHeader(key)));
+      return match ? row[match] : '';
+    };
+    return {
+      team: String(find('Team', 'Coach Team')).trim(),
+      coachEmail: String(find('Coach Email', 'Email')).trim(),
+      program: String(find('Program')).trim() || teamLabel,
+      date: find('Date', 'Game Date', 'Day'),
+      start: find('Start Time', 'Start', 'Time'),
+      end: find('End Time', 'End', 'Finish'),
+      eventType: find('Event Type', 'Type', 'Game Type'),
+      opponentTitle: find('Opponent/Title', 'Opponent', 'Title', 'Description'),
+      diamondVenue: find('Diamond/Venue', 'Diamond', 'Venue', 'Location'),
+      notes: find('Notes', 'Note')
+    };
+  }
+
+  function normalizeHeader(value) {
+    return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+  }
+
   function renderSeasonPlanner() {
     if (!currentSeasons.length) {
       $('seasonPlannerList').innerHTML = '<p class="muted">No seasons yet.</p>';
@@ -481,7 +565,7 @@
 
   function renderSeasonConflicts(season) {
     const coachCount = season && season.coaches ? season.coaches.length : 0;
-    const uploadedCount = season && season.coaches ? season.coaches.filter((coach) => coach.uploadStatus === 'uploaded').length : 0;
+    const uploadedCount = season && season.coaches ? season.coaches.filter((coach) => String(coach.uploadStatus || '').startsWith('uploaded')).length : 0;
     const conflictCount = season && season.conflicts ? season.conflicts.length : 0;
     const canApprove = season && coachCount > 0 && uploadedCount === coachCount && conflictCount === 0 && season.status !== 'approved';
     const approvalPanel = season ? `

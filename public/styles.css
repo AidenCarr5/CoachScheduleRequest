@@ -2716,6 +2716,10 @@ dialog {
   grid-template-columns: minmax(150px, .85fr) minmax(170px, .85fr) minmax(220px, 1.1fr) minmax(90px, .45fr) auto;
 }
 
+.admin-season-upload-form {
+  grid-template-columns: minmax(260px, 1fr) auto auto;
+}
+
 .season-inline-form button {
   min-width: 120px;
 }

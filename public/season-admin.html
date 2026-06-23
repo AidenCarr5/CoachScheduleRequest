@@ -93,6 +93,20 @@
             <button id="sendSeasonLinksBtn" class="secondary" type="button">Email upload links</button>
           </div>
         </section>
+        <section class="season-card season-coach-entry">
+          <div>
+            <h3>Admin Excel Upload</h3>
+            <p class="muted">Use this if you want to collect one workbook and upload the full season yourself.</p>
+          </div>
+          <form id="adminSeasonUploadForm" class="season-inline-form admin-season-upload-form">
+            <div class="field grow">
+              <label for="adminSeasonUploadFile">Completed template</label>
+              <input id="adminSeasonUploadFile" type="file" accept=".xlsx,.xls,.csv,.ods">
+            </div>
+            <a class="secondary toolbar-link" href="/season-schedule-template.xlsx" download>Download template</a>
+            <button class="primary" type="submit">Upload Excel</button>
+          </form>
+        </section>
       </div>
       <div id="seasonPlannerList" class="season-planner-list"></div>
       <div id="seasonConflictList" class="season-conflict-list"></div>
@@ -126,6 +140,7 @@
   </main>
 
   <script src="nav.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
   <script src="season-admin.js"></script>
 </body>
 </html>
