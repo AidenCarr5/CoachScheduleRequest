@@ -2870,7 +2870,28 @@ dialog {
 }
 
 .admin-privilege-row {
-  grid-template-columns: minmax(180px, 1.2fr) repeat(5, minmax(120px, .8fr));
+  grid-template-columns: minmax(220px, 1fr) minmax(220px, 1fr) minmax(260px, 1.2fr);
+  align-items: stretch;
+}
+
+.admin-privilege-identity,
+.admin-privilege-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.admin-privilege-group {
+  border-left: 3px solid #d6c14d;
+  background: #f8faf5;
+  padding: 10px 12px;
+}
+
+.admin-privilege-group-title {
+  color: #65735f;
+  font-size: .72rem;
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
 .privilege-toggle {

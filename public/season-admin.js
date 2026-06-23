@@ -388,18 +388,26 @@
     }
     list.innerHTML = currentAdminPrivileges.map((admin) => `
       <article class="season-coach-row admin-privilege-row">
-        <div>
+        <div class="admin-privilege-identity">
           <strong>${escapeHtml(admin.username)}</strong>
           <span>${escapeHtml(admin.label || '')}${admin.locked ? ' (locked)' : ''}</span>
           ${admin.email ? `<span>${escapeHtml(admin.email)}</span>` : ''}
           <code>${escapeHtml(admin.password || '')}</code>
           ${admin.removable ? `<button class="secondary season-remove-admin" type="button" data-remove-admin="${escapeHtml(admin.username)}">Remove</button>` : ''}
         </div>
-        ${renderPrivilegeToggle(admin, 'canSwitchSites', 'Switch sites')}
-        ${renderPrivilegeToggle(admin, 'canEditCoachEmails', 'Edit coach emails')}
-        ${renderPrivilegeToggle(admin, 'canManualApprove', 'Manual approve')}
-        ${renderPrivilegeToggle(admin, 'notifyOnCoachRequests', 'Request emails')}
-        ${renderPrivilegeToggle(admin, 'hideSyncFailures', 'Hide sync failures')}
+        <div class="admin-privilege-group">
+          <span class="admin-privilege-group-title">Site access</span>
+          ${renderPrivilegeToggle(admin, 'canAccessTitans', 'Titans')}
+          ${renderPrivilegeToggle(admin, 'canAccessAthletics', 'Athletics')}
+          ${renderPrivilegeToggle(admin, 'canSwitchSites', 'Can switch')}
+        </div>
+        <div class="admin-privilege-group">
+          <span class="admin-privilege-group-title">Admin tools</span>
+          ${renderPrivilegeToggle(admin, 'canEditCoachEmails', 'Edit coach emails')}
+          ${renderPrivilegeToggle(admin, 'canManualApprove', 'Manual approve')}
+          ${renderPrivilegeToggle(admin, 'notifyOnCoachRequests', 'Request emails')}
+          ${renderPrivilegeToggle(admin, 'hideSyncFailures', 'Hide sync failures')}
+        </div>
       </article>
     `).join('');
     list.querySelectorAll('[data-remove-admin]').forEach((button) => {
@@ -423,7 +431,7 @@
       .filter((admin) => !admin.locked)
       .map((admin) => {
         const next = { username: admin.username };
-        ['canSwitchSites', 'canEditCoachEmails', 'canManualApprove', 'notifyOnCoachRequests', 'hideSyncFailures'].forEach((key) => {
+        ['canAccessTitans', 'canAccessAthletics', 'canSwitchSites', 'canEditCoachEmails', 'canManualApprove', 'notifyOnCoachRequests', 'hideSyncFailures'].forEach((key) => {
           const input = document.querySelector(`[data-admin-privilege="${cssEscape(admin.username)}"][data-privilege-key="${key}"]`);
           next[key] = Boolean(input && input.checked);
         });
@@ -460,6 +468,8 @@
         initials,
         accessLabel: 'Site Admin',
         canSwitchSites: true,
+        canAccessTitans: true,
+        canAccessAthletics: true,
         canEditCoachEmails: true,
         notifyOnCoachRequests: true,
         canManualApprove: true
