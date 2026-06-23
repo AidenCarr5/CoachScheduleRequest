@@ -261,6 +261,12 @@
             <label>Password</label>
             <input type="text" value="${escapeHtml(login.password || '')}" readonly aria-readonly="true">
           </div>
+          ${login.email ? `
+            <div class="coach-account-password">
+              <label>Email</label>
+              <input type="text" value="${escapeHtml(login.email || '')}" readonly aria-readonly="true">
+            </div>
+          ` : ''}
         </div>
       </article>
     `;

@@ -2705,6 +2705,10 @@ dialog {
   padding: 12px;
 }
 
+.admin-account-form {
+  grid-template-columns: minmax(150px, .85fr) minmax(170px, .85fr) minmax(220px, 1.1fr) minmax(90px, .45fr) auto;
+}
+
 .season-inline-form button {
   min-width: 120px;
 }
@@ -3440,6 +3444,7 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
   .season-grid,
   .season-create-form,
   .season-inline-form,
+  .admin-account-form,
   .season-coach-row {
     grid-template-columns: 1fr;
   }

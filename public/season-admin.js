@@ -271,12 +271,14 @@
         <div>
           <strong>${escapeHtml(admin.username)}</strong>
           <span>${escapeHtml(admin.label || '')}${admin.locked ? ' (locked)' : ''}</span>
+          ${admin.email ? `<span>${escapeHtml(admin.email)}</span>` : ''}
           <code>${escapeHtml(admin.password || '')}</code>
           ${admin.removable ? `<button class="secondary season-remove-admin" type="button" data-remove-admin="${escapeHtml(admin.username)}">Remove</button>` : ''}
         </div>
         ${renderPrivilegeToggle(admin, 'canSwitchSites', 'Switch sites')}
         ${renderPrivilegeToggle(admin, 'canEditCoachEmails', 'Edit coach emails')}
         ${renderPrivilegeToggle(admin, 'canManualApprove', 'Manual approve')}
+        ${renderPrivilegeToggle(admin, 'notifyOnCoachRequests', 'Request emails')}
         ${renderPrivilegeToggle(admin, 'hideSyncFailures', 'Hide sync failures')}
       </article>
     `).join('');
@@ -301,7 +303,7 @@
       .filter((admin) => !admin.locked)
       .map((admin) => {
         const next = { username: admin.username };
-        ['canSwitchSites', 'canEditCoachEmails', 'canManualApprove', 'hideSyncFailures'].forEach((key) => {
+        ['canSwitchSites', 'canEditCoachEmails', 'canManualApprove', 'notifyOnCoachRequests', 'hideSyncFailures'].forEach((key) => {
           const input = document.querySelector(`[data-admin-privilege="${cssEscape(admin.username)}"][data-privilege-key="${key}"]`);
           next[key] = Boolean(input && input.checked);
         });
@@ -322,6 +324,7 @@
     event.preventDefault();
     const username = $('adminUsernameInput').value.trim();
     const password = $('adminPasswordInput').value.trim();
+    const email = $('adminEmailInput').value.trim();
     const initials = $('adminInitialsInput').value.trim();
     if (!username || !password) {
       $('seasonPlannerMessage').textContent = 'Admin username and password are required.';
@@ -333,9 +336,12 @@
       body: JSON.stringify({
         username,
         password,
+        email,
         initials,
         accessLabel: 'Site Admin',
         canSwitchSites: true,
+        canEditCoachEmails: true,
+        notifyOnCoachRequests: true,
         canManualApprove: true
       })
     });
@@ -346,6 +352,7 @@
     }
     $('adminUsernameInput').value = '';
     $('adminPasswordInput').value = '';
+    $('adminEmailInput').value = '';
     $('adminInitialsInput').value = '';
     $('seasonPlannerMessage').textContent = 'Admin added.';
     await loadSeasonPlanner();

@@ -56,14 +56,14 @@
         <form id="seasonCreateForm" class="admin-form season-card season-create-form">
           <div class="field">
             <label for="seasonYearInput">Season</label>
-            <input id="seasonYearInput" type="text" placeholder="2027 or 2024-2025">
+            <input id="seasonYearInput" type="text" placeholder="2027 or 2025-2026">
           </div>
           <div class="field">
             <label for="seasonLabelInput">Label</label>
             <input id="seasonLabelInput" type="text" placeholder="2027 Season">
           </div>
           <button class="primary" type="submit">Open season</button>
-          <button id="discoverSeasonCoachesBtn" class="secondary" type="button">Find coaches</button>
+          <button id="discoverSeasonCoachesBtn" class="secondary" type="button">Search season</button>
         </form>
         <section class="season-card season-coach-entry">
           <div>
@@ -100,7 +100,7 @@
           <h3>Admin Access</h3>
           <button id="saveAdminPrivilegesBtn" class="secondary" type="button">Save access</button>
         </div>
-        <form id="adminAccountForm" class="season-inline-form">
+        <form id="adminAccountForm" class="season-inline-form admin-account-form">
           <div class="field">
             <label for="adminUsernameInput">Username</label>
             <input id="adminUsernameInput" type="text" autocomplete="off">
@@ -108,6 +108,10 @@
           <div class="field">
             <label for="adminPasswordInput">Password</label>
             <input id="adminPasswordInput" type="text" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="adminEmailInput">Email</label>
+            <input id="adminEmailInput" type="email" autocomplete="off">
           </div>
           <div class="field">
             <label for="adminInitialsInput">Initials</label>
