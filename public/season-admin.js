@@ -76,9 +76,13 @@
 
   async function createSeasonWorkspace(event) {
     event.preventDefault();
+    await openSeasonWorkspace(true);
+  }
+
+  async function openSeasonWorkspace(renderAfterOpen) {
     const season = seasonInputValue();
     const label = $('seasonLabelInput').value.trim() || `${season} Season`;
-    $('seasonPlannerMessage').textContent = 'Creating season...';
+    $('seasonPlannerMessage').textContent = 'Opening season...';
     const response = await fetch('/api/admin/season-planner/create', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -90,8 +94,9 @@
     }
     const payload = await response.json();
     activeSeasonId = payload.season && payload.season.id || '';
-    $('seasonPlannerMessage').textContent = 'Season created.';
-    await loadSeasonPlanner();
+    $('seasonPlannerMessage').textContent = 'Season open.';
+    if (renderAfterOpen) await loadSeasonPlanner();
+    return payload.season || null;
   }
 
   function parseCoachLines(text) {
@@ -152,6 +157,8 @@
 
   async function discoverSeasonCoaches() {
     const season = seasonInputValue();
+    const opened = await openSeasonWorkspace(false);
+    if (!opened) return;
     $('seasonPlannerMessage').textContent = `Searching ${season}...`;
     const response = await fetch('/api/admin/season-planner/discover-coaches', {
       method: 'POST',
@@ -178,7 +185,10 @@
   }
 
   async function saveSeasonCoaches() {
-    if (!activeSeasonId) return;
+    if (!activeSeasonId) {
+      const opened = await openSeasonWorkspace(false);
+      if (!opened) return;
+    }
     const coaches = parseCoachLines($('seasonCoachInput').value);
     if (!coaches.length) {
       $('seasonPlannerMessage').textContent = 'Add at least one coach.';
@@ -262,6 +272,7 @@
           <strong>${escapeHtml(admin.username)}</strong>
           <span>${escapeHtml(admin.label || '')}${admin.locked ? ' (locked)' : ''}</span>
           <code>${escapeHtml(admin.password || '')}</code>
+          ${admin.removable ? `<button class="secondary season-remove-admin" type="button" data-remove-admin="${escapeHtml(admin.username)}">Remove</button>` : ''}
         </div>
         ${renderPrivilegeToggle(admin, 'canSwitchSites', 'Switch sites')}
         ${renderPrivilegeToggle(admin, 'canEditCoachEmails', 'Edit coach emails')}
@@ -269,6 +280,9 @@
         ${renderPrivilegeToggle(admin, 'hideSyncFailures', 'Hide sync failures')}
       </article>
     `).join('');
+    list.querySelectorAll('[data-remove-admin]').forEach((button) => {
+      button.addEventListener('click', () => removeAdminAccount(button.dataset.removeAdmin));
+    });
   }
 
   function renderPrivilegeToggle(admin, key, label) {
@@ -334,6 +348,21 @@
     $('adminPasswordInput').value = '';
     $('adminInitialsInput').value = '';
     $('seasonPlannerMessage').textContent = 'Admin added.';
+    await loadSeasonPlanner();
+  }
+
+  async function removeAdminAccount(username) {
+    if (!username) return;
+    if (!window.confirm(`Remove admin ${username}?`)) return;
+    const response = await fetch(`/api/admin/accounts/${encodeURIComponent(username)}`, {
+      method: 'DELETE'
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      $('seasonPlannerMessage').textContent = payload.error || 'Could not remove admin.';
+      return;
+    }
+    $('seasonPlannerMessage').textContent = 'Admin removed.';
     await loadSeasonPlanner();
   }
 

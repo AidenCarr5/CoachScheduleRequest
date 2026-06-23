@@ -2677,7 +2677,7 @@ dialog {
 
 .season-create-form {
   display: grid;
-  grid-template-columns: minmax(180px, .45fr) minmax(220px, .75fr) auto;
+  grid-template-columns: minmax(180px, .45fr) minmax(220px, .75fr) auto auto;
   gap: 16px;
   align-items: end;
 }
@@ -2803,6 +2803,13 @@ dialog {
   overflow-wrap: anywhere;
   color: #0f3d16;
   margin-top: 4px;
+}
+
+.season-remove-admin {
+  display: inline-flex;
+  margin-top: 8px;
+  min-height: 34px;
+  padding: 0 12px;
 }
 
 .season-conflict-list {
