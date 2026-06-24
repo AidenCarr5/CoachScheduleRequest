@@ -43,21 +43,21 @@
 
   const MASTER_SCHEDULE_UNAVAILABLE_RULES = {
     weekly: [
-      { day: 'Monday', start: '6:00 PM', end: '8:00 PM', diamonds: ['Vollmer #2', 'Vollmer #5', 'Vollmer #6', 'Vollmer #7', 'Vollmer #8'] },
-      { day: 'Monday', start: '6:00 PM', end: '8:00 PM', diamonds: ['River Canard #1', 'River Canard #3', 'River Canard #4'] },
-      { day: 'Tuesday', start: '6:00 PM', end: '8:00 PM', diamonds: ['River Canard #1', 'River Canard #2'] },
-      { day: 'Wednesday', start: '6:00 PM', end: '8:00 PM', diamonds: ['River Canard #1', 'River Canard #3', 'River Canard #4'] },
-      { day: 'Thursday', start: '6:00 PM', end: '8:00 PM', diamonds: ['Vollmer #1', 'River Canard #1', 'River Canard #3', 'River Canard #4'] },
-      { day: 'Friday', start: '6:00 PM', end: '8:00 PM', diamonds: ['Vollmer #1', 'River Canard #1', 'River Canard #2', 'River Canard #3', 'River Canard #4'] },
+      { day: 'Monday', start: '5:00 PM', end: '9:00 PM', diamonds: ['Vollmer #2', 'Vollmer #5', 'Vollmer #6', 'Vollmer #7', 'Vollmer #8'] },
+      { day: 'Monday', start: '5:00 PM', end: '9:00 PM', diamonds: ['River Canard #1', 'River Canard #3', 'River Canard #4'] },
+      { day: 'Tuesday', start: '5:00 PM', end: '9:00 PM', diamonds: ['River Canard #1', 'River Canard #2'] },
+      { day: 'Wednesday', start: '5:00 PM', end: '9:00 PM', diamonds: ['River Canard #1', 'River Canard #3', 'River Canard #4'] },
+      { day: 'Thursday', start: '5:00 PM', end: '9:00 PM', diamonds: ['Vollmer #1', 'River Canard #1', 'River Canard #3', 'River Canard #4'] },
+      { day: 'Friday', start: '5:00 PM', end: '9:00 PM', diamonds: ['Vollmer #1', 'River Canard #1', 'River Canard #2', 'River Canard #3', 'River Canard #4'] },
       { day: 'Saturday', start: '9:00 AM', end: '8:00 PM', diamonds: ['Vollmer #8'] },
       { day: 'Sunday', start: '9:00 AM', end: '2:00 PM', diamonds: ['Vollmer #4', 'Vollmer #5', 'Vollmer #6', 'Vollmer #7', 'Vollmer #8'] }
     ],
     postHouseLeague: [
-      { day: 'Monday', start: '6:00 PM', end: '8:00 PM', diamonds: ['Vollmer #2', 'Vollmer #5', 'Vollmer #6', 'Vollmer #7', 'Vollmer #8', 'River Canard #1'] },
-      { day: 'Tuesday', start: '6:00 PM', end: '8:00 PM', diamonds: ['River Canard #1', 'River Canard #2'] },
-      { day: 'Wednesday', start: '6:00 PM', end: '8:00 PM', diamonds: ['River Canard #1'] },
-      { day: 'Thursday', start: '6:00 PM', end: '8:00 PM', diamonds: ['Vollmer #1', 'Vollmer #2', 'Vollmer #5', 'Vollmer #6', 'Vollmer #7', 'Vollmer #8', 'River Canard #1'] },
-      { day: 'Friday', start: '6:00 PM', end: '8:00 PM', diamonds: ['Vollmer #1'] },
+      { day: 'Monday', start: '5:00 PM', end: '9:00 PM', diamonds: ['Vollmer #2', 'Vollmer #5', 'Vollmer #6', 'Vollmer #7', 'Vollmer #8', 'River Canard #1'] },
+      { day: 'Tuesday', start: '5:00 PM', end: '9:00 PM', diamonds: ['River Canard #1', 'River Canard #2'] },
+      { day: 'Wednesday', start: '5:00 PM', end: '9:00 PM', diamonds: ['River Canard #1'] },
+      { day: 'Thursday', start: '5:00 PM', end: '9:00 PM', diamonds: ['Vollmer #1', 'Vollmer #2', 'Vollmer #5', 'Vollmer #6', 'Vollmer #7', 'Vollmer #8', 'River Canard #1'] },
+      { day: 'Friday', start: '5:00 PM', end: '9:00 PM', diamonds: ['Vollmer #1'] },
       { day: 'Saturday', start: '9:00 AM', end: '3:00 PM', diamonds: ['Vollmer #1'] },
       { day: 'Saturday', start: '9:00 AM', end: '8:00 PM', diamonds: ['Vollmer #2', 'Vollmer #3', 'Vollmer #5', 'Vollmer #6', 'Vollmer #7', 'Vollmer #8', 'River Canard #1', 'River Canard #2', 'River Canard #3', 'River Canard #4'] },
       { day: 'Saturday', start: '9:00 AM', end: '1:00 PM', diamonds: ['Vollmer #4'] },
@@ -1590,6 +1590,11 @@
     return null;
   }
 
+  function isWithinWeekdayOpenWindow(date, start, end) {
+    const day = new Date(`${date}T12:00:00`).getDay();
+    return day !== 0 && day !== 6 && start >= 1020 && end <= 1260;
+  }
+
   function checkAvailability() {
     const date = $('gameDate').value;
     const diamond = selectedVenueValue();
@@ -1641,11 +1646,15 @@
     const openSlot = data.availability.find((slot) => {
       return slot.date === date && normalizeAvailabilityDiamond(slot.diamond) === normalizedDiamond && minutesFromDisplay(slot.start) <= start && minutesFromDisplay(slot.end) >= end;
     });
+    const fitsWeekdayWindow = isWithinWeekdayOpenWindow(date, start, end);
     const fitsFreedSlot = freedSlots.find((slot) => slot.start <= start && slot.end >= end);
-    if (!openSlot && !fitsFreedSlot) return { ok: false, message: 'This request does not fit a published open diamond block or a time slot already being freed by a queued change.' };
+    if (!openSlot && !fitsWeekdayWindow && !fitsFreedSlot) return { ok: false, message: 'This request does not fit the weekday 5:00 PM-9:00 PM window, a published open diamond block, or a time slot already being freed by a queued change.' };
 
-    if (fitsFreedSlot && !openSlot) {
+    if (fitsFreedSlot && !openSlot && !fitsWeekdayWindow) {
       return { ok: true, message: `Available: this request uses the ${fitsFreedSlot.source} time being freed, and no other Turtle Club ${eventType.toLowerCase()} conflict overlaps.` };
+    }
+    if (fitsWeekdayWindow && !openSlot) {
+      return { ok: true, message: `Available: ${diamond} fits the weekday 5:00 PM-9:00 PM window, and no Turtle Club ${eventType.toLowerCase()} conflict overlaps.` };
     }
     return { ok: true, message: `Available: ${diamond} is open ${openSlot.start}-${openSlot.end}, and no Turtle Club ${eventType.toLowerCase()} conflict overlaps.` };
   }
