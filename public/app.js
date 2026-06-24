@@ -526,13 +526,16 @@
     const requestDate = String(request.date || '');
     if (eventDate !== requestDate) return false;
 
-    const eventDiamond = normalizeScheduleComparison(normalizeAvailabilityDiamond(event.diamond));
-    const requestDiamond = normalizeScheduleComparison(normalizeAvailabilityDiamond(request.diamond));
-    if (eventDiamond !== requestDiamond) return false;
-
     const eventKind = normalizeScheduleComparison(event.eventKind || event.type);
     const requestKind = normalizeScheduleComparison(request.newType || request.originalType || 'Event');
     if (eventKind !== requestKind) return false;
+
+    const isAwayGame = eventKind.includes('away');
+    if (!isAwayGame) {
+      const eventDiamond = normalizeScheduleComparison(normalizeAvailabilityDiamond(event.diamond));
+      const requestDiamond = normalizeScheduleComparison(normalizeAvailabilityDiamond(request.diamond));
+      if (eventDiamond !== requestDiamond) return false;
+    }
 
     if (!approvedRequestTimeMatches(event, request, eventKind)) return false;
 
@@ -567,7 +570,7 @@
 
   function normalizeScheduleComparison(value) {
     return String(value || '')
-      .replace(/^vs\.?\s*/i, '')
+      .replace(/^(vs\.?|@|at)\s*/i, '')
       .replace(/\s+/g, ' ')
       .trim()
       .toLowerCase();
