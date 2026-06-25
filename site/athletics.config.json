@@ -12,7 +12,8 @@
   "teamNamePattern": "^(?:U\\d+(?:\\/U\\d+)?(?:\\s+[A-Za-z]+)?|Intermediate)\\s*\\([^)]+\\)$",
   "teamExtractPattern": "((?:U\\d+(?:\\/U\\d+)?(?:\\s+[A-Za-z]+)?|Intermediate)\\s*\\([^)]+\\))",
   "hostedTournamentExcludePatterns": [
-    "Green and Gold Classic"
+    "Green and Gold Classic",
+    "Jack McCart / Ralph Hall Classic"
   ],
   "adminUsername": "admin",
   "serviceName": "Athletics scheduler",
