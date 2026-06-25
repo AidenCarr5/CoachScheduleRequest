@@ -1187,18 +1187,18 @@
   }
 
   function buildOpponentOptions() {
-    const titansTeams = new Set((data.teams || []).map((team) => normalizedSearchKey(normalizeOpponentLabel(team))).filter(Boolean));
     const choiceMap = new Map();
 
     function maybeAddOpponent(value) {
       const label = normalizeOpponentLabel(value);
       const key = normalizedSearchKey(label);
-      if (!key || titansTeams.has(key) || !isOpponentChoice(label)) return;
+      if (!key || !isOpponentChoice(label)) return;
       if (!choiceMap.has(key)) {
         choiceMap.set(key, label);
       }
     }
 
+    (data.teams || []).forEach(maybeAddOpponent);
     turtleClubOpponentCatalog.forEach(maybeAddOpponent);
     (data.opponentOptions || []).forEach(maybeAddOpponent);
     if (!choiceMap.size) {

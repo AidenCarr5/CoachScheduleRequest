@@ -720,18 +720,18 @@ function isOpponentOption(value) {
 }
 
 function buildOpponentOptions(schedule, conflictEvents, teams) {
-  const titansTeams = new Set((teams || []).map((team) => normalizedSearchKey(normalizeOpponentOption(team))).filter(Boolean));
   const choiceMap = new Map();
 
   function maybeAddOpponent(value) {
     const clean = normalizeOpponentOption(value);
     const key = normalizedSearchKey(clean);
-    if (!key || titansTeams.has(key) || !isOpponentOption(clean)) return;
+    if (!key || !isOpponentOption(clean)) return;
     if (!choiceMap.has(key)) {
       choiceMap.set(key, clean);
     }
   }
 
+  (teams || []).forEach(maybeAddOpponent);
   turtleClubOpponentCatalog.forEach(maybeAddOpponent);
   if (!choiceMap.size) {
     [...(schedule || []), ...(conflictEvents || [])].forEach((event) => {
