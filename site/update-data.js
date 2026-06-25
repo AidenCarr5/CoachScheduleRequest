@@ -23,6 +23,9 @@ const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep
 const organizationName = config.organizationName || 'Titans';
 const teamNamePattern = new RegExp(config.teamNamePattern || '^(\\d+U(?:\\s*T\\d+)?|8U\\/9U)\\s*\\([^)]+\\)$', 'i');
 const teamExtractPattern = new RegExp(config.teamExtractPattern || '((?:\\d+U(?:\\s*T\\d+)?|8U\\/9U)\\s*\\([^)]+\\))', 'gi');
+const hostedTournamentExcludePatterns = Array.isArray(config.hostedTournamentExcludePatterns)
+  ? config.hostedTournamentExcludePatterns.map((pattern) => new RegExp(pattern, 'i'))
+  : [];
 const officialPositionIds = ['4010', '4020', '4090'];
 
 function strip(value) {
@@ -222,6 +225,7 @@ function isHostedTournament(body, tagList) {
 }
 
 function hostedTournamentTeams(subject, teams) {
+  if (hostedTournamentExcludePatterns.some((pattern) => pattern.test(String(subject || '')))) return [];
   const ages = new Set(hostedTournamentAges(subject));
   if (!ages.size) return [];
   return (teams || []).filter((team) => teamAges(team).some((age) => ages.has(age)));

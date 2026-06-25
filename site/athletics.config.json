@@ -11,6 +11,9 @@
   "organizationName": "Athletics",
   "teamNamePattern": "^(?:U\\d+(?:\\/U\\d+)?(?:\\s+[A-Za-z]+)?|Intermediate)\\s*\\([^)]+\\)$",
   "teamExtractPattern": "((?:U\\d+(?:\\/U\\d+)?(?:\\s+[A-Za-z]+)?|Intermediate)\\s*\\([^)]+\\))",
+  "hostedTournamentExcludePatterns": [
+    "Green and Gold Classic"
+  ],
   "adminUsername": "admin",
   "serviceName": "Athletics scheduler",
   "alternateAdminSite": {
