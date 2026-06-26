@@ -180,12 +180,6 @@
               <span>at</span>
               <span>${escapeHtml(game.home || 'TBD')}</span>
             </div>
-            ${(game.projectedVisitor || game.projectedHome) ? `
-              <div class="bracket-projection">
-                <span>Projected</span>
-                <strong>${escapeHtml(game.projectedVisitor || game.visitor || 'TBD')} at ${escapeHtml(game.projectedHome || game.home || 'TBD')}</strong>
-              </div>
-            ` : ''}
             ${game.score ? `<div class="bracket-score">${escapeHtml(game.score)}</div>` : ''}
           </article>
         `).join('')}
