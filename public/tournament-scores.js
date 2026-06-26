@@ -6,7 +6,8 @@
     canSubmit: false,
     loading: false,
     reportedLoading: false,
-    bracketLoading: false
+    bracketLoading: false,
+    retryTimers: {}
   };
 
   function $(id) {
@@ -48,6 +49,14 @@
     message.textContent = text || '';
     message.className = `form-message ${tone || ''}`.trim();
     message.hidden = !text;
+  }
+
+  function scheduleCacheRetry(key, callback) {
+    if (state.retryTimers[key]) return;
+    state.retryTimers[key] = setTimeout(() => {
+      state.retryTimers[key] = null;
+      callback();
+    }, 12000);
   }
 
   function gameTitle(game) {
@@ -321,6 +330,10 @@
     try {
       const payload = await fetchJson(`/api/tournament-scores/games${forceRefresh ? '?refresh=1' : ''}`);
       state.games = Array.isArray(payload.games) ? payload.games : [];
+      if (!payload.refreshedAt && !forceRefresh) {
+        showMessage('Tournament games are refreshing in the background. This will update shortly.', 'success');
+        scheduleCacheRetry('games', () => loadGames(false));
+      }
     } catch (error) {
       state.games = [];
       showMessage(error.message || 'Tournament games could not be loaded.', 'error');
@@ -337,6 +350,10 @@
     try {
       const payload = await fetchJson(`/api/tournament-scores/reported${forceRefresh ? '?refresh=1' : ''}`);
       state.reportedGames = Array.isArray(payload.games) ? payload.games : [];
+      if (!payload.refreshedAt && !forceRefresh) {
+        showReportedScoreMessage('Reported scores are refreshing in the background. This will update shortly.', 'success');
+        scheduleCacheRetry('reported', () => loadReportedGames(false));
+      }
     } catch (error) {
       state.reportedGames = [];
       showReportedScoreMessage(error.message || 'Reported tournament scores could not be loaded.', 'error');
@@ -353,6 +370,10 @@
     try {
       const payload = await fetchJson(`/api/tournament-scores/bracket${forceRefresh ? '?refresh=1' : ''}`);
       state.bracket = payload.bracket || null;
+      if (!payload.refreshedAt && !forceRefresh) {
+        showBracketMessage('Tournament brackets are refreshing in the background. This will update shortly.', 'success');
+        scheduleCacheRetry('bracket', () => loadBracket(false));
+      }
     } catch (error) {
       state.bracket = null;
       showBracketMessage(error.message || 'Tournament bracket could not be loaded.', 'error');
