@@ -13,6 +13,10 @@
     return document.getElementById(id);
   }
 
+  function delay(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
   function escapeHtml(value) {
     return String(value || '')
       .replace(/&/g, '&amp;')
@@ -370,10 +374,11 @@
     const originalText = button ? button.textContent : '';
     if (button) {
       button.disabled = true;
-      button.textContent = 'Submitting...';
+      button.textContent = 'Sending...';
     }
     const showActiveMessage = listName === 'reported' ? showReportedScoreMessage : showMessage;
     showActiveMessage('', '');
+    const startedAt = Date.now();
     try {
       const formData = new FormData(form);
       await fetchJson('/api/tournament-scores/report', {
@@ -388,14 +393,28 @@
           homeDefensiveInnings: formData.get('homeDefensiveInnings')
         })
       });
-      showActiveMessage(listName === 'reported' ? 'Score correction submitted to Turtle Club.' : 'Score submitted to Turtle Club.', 'success');
-      await Promise.all([loadGames(), loadReportedGames()]);
+      const remaining = 900 - (Date.now() - startedAt);
+      if (remaining > 0) await delay(remaining);
+      showActiveMessage(
+        listName === 'reported'
+          ? 'Score correction queued. Turtle Club will update in the background.'
+          : 'Score queued. Turtle Club will update in the background.',
+        'success'
+      );
+      form.dataset.queued = 'true';
     } catch (error) {
+      const remaining = 900 - (Date.now() - startedAt);
+      if (remaining > 0) await delay(remaining);
       showActiveMessage(error.message || 'The score could not be submitted.', 'error');
     } finally {
       if (button) {
-        button.disabled = !state.canSubmit;
-        button.textContent = originalText;
+        if (form.dataset.queued === 'true') {
+          button.disabled = true;
+          button.textContent = 'Queued';
+        } else {
+          button.disabled = !state.canSubmit;
+          button.textContent = originalText;
+        }
       }
     }
   }
