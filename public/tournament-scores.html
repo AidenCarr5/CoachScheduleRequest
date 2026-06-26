@@ -37,11 +37,16 @@
   </header>
 
   <main class="wrap app-shell">
-    <section class="admin-panel tournament-score-panel">
+    <div class="tournament-tabs" role="tablist" aria-label="Tournament score sections">
+      <button class="tournament-tab active" type="button" role="tab" aria-selected="true" data-panel="scores">Score Entry</button>
+      <button class="tournament-tab" type="button" role="tab" aria-selected="false" data-panel="bracket">Brackets</button>
+    </div>
+
+    <section class="admin-panel tournament-score-panel" data-tournament-panel="scores">
       <div class="section-head">
         <div>
           <h2>Unreported Tournament Games</h2>
-          <p>Enter the final score, then submit it to Turtle Club.</p>
+          <p>Final scores and defensive innings.</p>
         </div>
         <button id="refreshScoresBtn" class="secondary" type="button">Refresh games</button>
       </div>
@@ -49,11 +54,11 @@
       <div id="scoreGames" class="tournament-score-list" aria-live="polite"></div>
     </section>
 
-    <section class="admin-panel tournament-bracket-panel">
+    <section class="admin-panel tournament-bracket-panel" data-tournament-panel="bracket" hidden>
       <div class="section-head">
         <div>
           <h2>Round Robin & Brackets</h2>
-          <p>Standings and playoff games are loaded from the Turtle Club tournament pages.</p>
+          <p>Standings and playoff games by age division.</p>
         </div>
         <button id="refreshBracketBtn" class="secondary" type="button">Refresh bracket</button>
       </div>

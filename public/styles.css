@@ -2656,6 +2656,33 @@ dialog {
   overflow: hidden;
 }
 
+.tournament-tabs {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+  border: 1px solid #cfd8ca;
+  background: #f7f9f4;
+  padding: 8px;
+}
+
+.tournament-tab {
+  min-height: 40px;
+  border: 1px solid #cfd8ca;
+  background: #e9eee3;
+  color: var(--green);
+  padding: 8px 14px;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.tournament-tab.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+
 .tournament-score-list,
 .tournament-bracket-list {
   display: grid;
@@ -2709,6 +2736,7 @@ dialog {
 .score-pill {
   display: inline-flex;
   align-items: center;
+  width: fit-content;
   min-height: 22px;
   padding: 3px 8px;
   background: var(--gold);
@@ -2767,17 +2795,100 @@ dialog {
   white-space: nowrap;
 }
 
+.tournament-score-table {
+  display: grid;
+  border: 1px solid #d8dfd4;
+  background: #fff;
+}
+
+.score-table-head,
+.score-table-row {
+  display: grid;
+  grid-template-columns: minmax(180px, .75fr) minmax(260px, 1fr) minmax(390px, 1.15fr);
+  gap: 12px;
+  align-items: center;
+}
+
+.score-table-head {
+  padding: 9px 12px;
+  background: #f0f4ed;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.score-table-row {
+  padding: 10px 12px;
+  border-top: 1px solid #d8dfd4;
+}
+
+.score-game-cell,
+.score-matchup-cell {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.score-game-cell strong,
+.score-matchup-cell strong {
+  color: var(--green);
+}
+
+.score-game-cell span,
+.score-matchup-cell span {
+  color: #5b6b57;
+}
+
+.score-matchup-cell {
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+}
+
+.score-matchup-cell strong {
+  overflow-wrap: anywhere;
+}
+
+.score-matchup-cell span {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.tournament-score-form.compact {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(56px, .7fr)) minmax(86px, auto);
+  gap: 8px;
+  align-items: end;
+}
+
+.tournament-score-form.compact label {
+  gap: 3px;
+  font-size: 11px;
+}
+
+.tournament-score-form.compact input {
+  min-height: 36px;
+  padding: 6px 8px;
+  font-size: 16px;
+}
+
+.tournament-score-form.compact button {
+  min-height: 36px;
+  padding-inline: 12px;
+}
+
 .tournament-bracket-panel {
   overflow: hidden;
 }
 
 .division-bracket-card {
   display: grid;
-  gap: 14px;
+  gap: 0;
   border: 1px solid #cfd8ca;
   border-left: 5px solid var(--gold);
   background: #fbfcf8;
-  padding: 14px;
+  padding: 0;
 }
 
 .division-bracket-head {
@@ -2785,8 +2896,25 @@ dialog {
   justify-content: space-between;
   gap: 12px;
   align-items: baseline;
-  border-bottom: 1px solid #dce3d8;
-  padding-bottom: 10px;
+  cursor: pointer;
+  list-style: none;
+  padding: 14px;
+}
+
+.division-bracket-head::-webkit-details-marker {
+  display: none;
+}
+
+.division-bracket-head::after {
+  content: "+";
+  margin-left: auto;
+  color: var(--green);
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.division-bracket-card[open] .division-bracket-head::after {
+  content: "-";
 }
 
 .division-bracket-head h3 {
@@ -2807,6 +2935,13 @@ dialog {
 .division-bracket-head span {
   color: #687563;
   font-weight: 700;
+}
+
+.division-bracket-body {
+  display: grid;
+  gap: 14px;
+  padding: 14px;
+  border-top: 1px solid #dce3d8;
 }
 
 .pool-grid {
@@ -3627,6 +3762,32 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
   .tournament-score-main,
   .tournament-score-form {
     grid-template-columns: 1fr;
+  }
+
+  .tournament-tabs {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .score-table-head {
+    display: none;
+  }
+
+  .score-table-row {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .score-matchup-cell {
+    grid-template-columns: 1fr;
+  }
+
+  .tournament-score-form.compact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tournament-score-form.compact button {
+    grid-column: 1 / -1;
   }
 
   .pool-grid {

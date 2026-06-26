@@ -42,9 +42,17 @@
   }
 
   function gameTitle(game) {
-    const visitor = game.visitor || game.opponent || 'Visitor';
-    const home = game.home || game.team || 'Home';
+    const visitor = gameVisitorLabel(game);
+    const home = gameHomeLabel(game);
     return `${visitor} at ${home}`;
+  }
+
+  function gameVisitorLabel(game) {
+    return game.visitor || game.opponent || 'Visitor';
+  }
+
+  function gameHomeLabel(game) {
+    return game.home || game.team || 'Home';
   }
 
   function defaultVisitorInnings(visitorScore, homeScore) {
@@ -65,41 +73,48 @@
       container.innerHTML = '<div class="empty-state">No unreported tournament games were found.</div>';
       return;
     }
-    container.innerHTML = state.games.map((game, index) => `
-      <article class="tournament-score-card" data-index="${index}">
-        <div class="tournament-score-meta">
-          <span class="score-pill">${escapeHtml(game.status || 'Tournament')}</span>
-          <strong>${escapeHtml(game.date || 'Date TBD')}</strong>
-          <span>${escapeHtml(game.time || '')}</span>
-          ${game.venue ? `<span>${escapeHtml(game.venue)}</span>` : ''}
+    container.innerHTML = `
+      <div class="tournament-score-table">
+        <div class="score-table-head">
+          <span>Game</span>
+          <span>Matchup</span>
+          <span>Score / Innings</span>
         </div>
-        <div class="tournament-score-main">
-          <div>
-            <h3>${escapeHtml(gameTitle(game))}</h3>
-            <p>${escapeHtml(game.summary || '')}</p>
-          </div>
-          <form class="tournament-score-form" data-index="${index}">
-            <label>
-              <span>Visitor score</span>
-              <input name="visitorScore" type="number" min="0" step="1" inputmode="numeric" required>
-            </label>
-            <label>
-              <span>Home score</span>
-              <input name="homeScore" type="number" min="0" step="1" inputmode="numeric" required>
-            </label>
-            <label>
-              <span>Visitor defensive innings</span>
-              <input name="visitorDefensiveInnings" type="text" inputmode="decimal" value="7" placeholder="7 or 6.2" title="Use baseball notation: 6.1 means 6 innings and 1 out; 6.2 means 6 innings and 2 outs." required>
-            </label>
-            <label>
-              <span>Home defensive innings</span>
-              <input name="homeDefensiveInnings" type="text" inputmode="decimal" value="7" placeholder="7 or 6.2" title="Use baseball notation: 6.1 means 6 innings and 1 out; 6.2 means 6 innings and 2 outs." required>
-            </label>
-            <button class="primary" type="submit"${state.canSubmit ? '' : ' disabled'}>Submit score</button>
-          </form>
-        </div>
-      </article>
-    `).join('');
+        ${state.games.map((game, index) => `
+          <article class="score-table-row" data-index="${index}">
+            <div class="score-game-cell">
+              <span class="score-pill">${escapeHtml(game.status || 'Tournament')}</span>
+              <strong>${escapeHtml([game.date, game.time].filter(Boolean).join(' ') || 'Date TBD')}</strong>
+              <span>${escapeHtml([game.division, game.gameNumber, game.venue].filter(Boolean).join(' - '))}</span>
+            </div>
+            <div class="score-matchup-cell">
+              <strong>${escapeHtml(gameVisitorLabel(game))}</strong>
+              <span>at</span>
+              <strong>${escapeHtml(gameHomeLabel(game))}</strong>
+            </div>
+            <form class="tournament-score-form compact" data-index="${index}">
+              <label>
+                <span>V Score</span>
+                <input name="visitorScore" type="number" min="0" step="1" inputmode="numeric" aria-label="Visitor score" required>
+              </label>
+              <label>
+                <span>H Score</span>
+                <input name="homeScore" type="number" min="0" step="1" inputmode="numeric" aria-label="Home score" required>
+              </label>
+              <label>
+                <span>V Inn</span>
+                <input name="visitorDefensiveInnings" type="text" inputmode="decimal" value="7" placeholder="7" title="Use baseball notation: 6.1 means 6 innings and 1 out; 6.2 means 6 innings and 2 outs." required>
+              </label>
+              <label>
+                <span>H Inn</span>
+                <input name="homeDefensiveInnings" type="text" inputmode="decimal" value="7" placeholder="7" title="Use baseball notation: 6.1 means 6 innings and 1 out; 6.2 means 6 innings and 2 outs." required>
+              </label>
+              <button class="primary" type="submit"${state.canSubmit ? '' : ' disabled'}>Submit</button>
+            </form>
+          </article>
+        `).join('')}
+      </div>
+    `;
 
     container.querySelectorAll('.tournament-score-form').forEach((form) => {
       form.addEventListener('submit', submitScore);
@@ -199,29 +214,46 @@
       container.innerHTML = '<div class="empty-state">No tournament bracket data was found.</div>';
       return;
     }
-    container.innerHTML = divisions.map((division) => `
-      <article class="division-bracket-card">
-        <div class="division-bracket-head">
+    container.innerHTML = divisions.map((division, index) => `
+      <details class="division-bracket-card" ${index === 0 ? 'open' : ''}>
+        <summary class="division-bracket-head">
           <div>
             <h3>${escapeHtml(division.name)}</h3>
             ${division.cpUrl ? `<a class="division-cp-link" href="${escapeHtml(division.cpUrl)}" target="_blank" rel="noopener">Open Turtle Club division</a>` : ''}
           </div>
           <span>${escapeHtml((division.games || []).length)} games</span>
+        </summary>
+        <div class="division-bracket-body">
+          <div class="pool-grid">
+            ${(division.pools || []).map((pool) => `
+              <section class="pool-card">
+                <h4>${escapeHtml(pool.name)}</h4>
+                ${renderStandingsTable(pool)}
+              </section>
+            `).join('')}
+          </div>
+          <section class="bracket-games-section">
+            <h4>Bracket Games</h4>
+            ${renderBracketGames(division.bracketGames)}
+          </section>
         </div>
-        <div class="pool-grid">
-          ${(division.pools || []).map((pool) => `
-            <section class="pool-card">
-              <h4>${escapeHtml(pool.name)}</h4>
-              ${renderStandingsTable(pool)}
-            </section>
-          `).join('')}
-        </div>
-        <section class="bracket-games-section">
-          <h4>Bracket Games</h4>
-          ${renderBracketGames(division.bracketGames)}
-        </section>
-      </article>
+      </details>
     `).join('');
+    container.querySelectorAll('.division-cp-link').forEach((link) => {
+      link.addEventListener('click', (event) => event.stopPropagation());
+    });
+  }
+
+  function setTournamentPanel(panelName) {
+    const selected = panelName === 'bracket' ? 'bracket' : 'scores';
+    document.querySelectorAll('[data-tournament-panel]').forEach((panel) => {
+      panel.hidden = panel.dataset.tournamentPanel !== selected;
+    });
+    document.querySelectorAll('.tournament-tab').forEach((tab) => {
+      const active = tab.dataset.panel === selected;
+      tab.classList.toggle('active', active);
+      tab.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
   }
 
   async function fetchJson(url, options) {
@@ -316,6 +348,10 @@
   }
 
   async function init() {
+    document.querySelectorAll('.tournament-tab').forEach((tab) => {
+      tab.addEventListener('click', () => setTournamentPanel(tab.dataset.panel));
+    });
+    setTournamentPanel('scores');
     const refresh = $('refreshScoresBtn');
     if (refresh) refresh.addEventListener('click', loadGames);
     const refreshBracket = $('refreshBracketBtn');
