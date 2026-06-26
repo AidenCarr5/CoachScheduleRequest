@@ -39,6 +39,7 @@
   <main class="wrap app-shell">
     <div class="tournament-tabs" role="tablist" aria-label="Tournament score sections">
       <button class="tournament-tab active" type="button" role="tab" aria-selected="true" data-panel="scores">Score Entry</button>
+      <button class="tournament-tab" type="button" role="tab" aria-selected="false" data-panel="reported">Reported Scores</button>
       <button class="tournament-tab" type="button" role="tab" aria-selected="false" data-panel="bracket">Brackets</button>
     </div>
 
@@ -52,6 +53,18 @@
       </div>
       <div id="scoreMessage" class="form-message" hidden></div>
       <div id="scoreGames" class="tournament-score-list" aria-live="polite"></div>
+    </section>
+
+    <section class="admin-panel tournament-score-panel" data-tournament-panel="reported" hidden>
+      <div class="section-head">
+        <div>
+          <h2>Reported Scores</h2>
+          <p>Correct scores or defensive innings already submitted.</p>
+        </div>
+        <button id="refreshReportedScoresBtn" class="secondary" type="button">Refresh reported</button>
+      </div>
+      <div id="reportedScoreMessage" class="form-message" hidden></div>
+      <div id="reportedScoreGames" class="tournament-score-list" aria-live="polite"></div>
     </section>
 
     <section class="admin-panel tournament-bracket-panel" data-tournament-panel="bracket" hidden>

@@ -1,9 +1,11 @@
 (function () {
   const state = {
     games: [],
+    reportedGames: [],
     bracket: null,
     canSubmit: false,
     loading: false,
+    reportedLoading: false,
     bracketLoading: false
   };
 
@@ -36,6 +38,14 @@
     message.hidden = !text;
   }
 
+  function showReportedScoreMessage(text, tone) {
+    const message = $('reportedScoreMessage');
+    if (!message) return;
+    message.textContent = text || '';
+    message.className = `form-message ${tone || ''}`.trim();
+    message.hidden = !text;
+  }
+
   function setStatus(text) {
     const status = $('scoreStatus');
     if (status) status.textContent = text || '';
@@ -62,15 +72,22 @@
     return '7';
   }
 
-  function renderGames() {
-    const container = $('scoreGames');
+  function scoreParts(game) {
+    const result = String(game && game.result || game && game.score || '').trim();
+    const match = result.match(/(\d+)\D+(\d+)/);
+    if (!match) return { visitor: '', home: '' };
+    return { visitor: match[1], home: match[2] };
+  }
+
+  function renderScoreTable({ containerId, games, loading, emptyText, loadingText, submitText, listName, showResult }) {
+    const container = $(containerId);
     if (!container) return;
-    if (state.loading) {
-      container.innerHTML = '<div class="empty-state">Loading tournament games from Turtle Club...</div>';
+    if (loading) {
+      container.innerHTML = `<div class="empty-state">${escapeHtml(loadingText)}</div>`;
       return;
     }
-    if (!state.games.length) {
-      container.innerHTML = '<div class="empty-state">No unreported tournament games were found.</div>';
+    if (!games.length) {
+      container.innerHTML = `<div class="empty-state">${escapeHtml(emptyText)}</div>`;
       return;
     }
     container.innerHTML = `
@@ -80,26 +97,29 @@
           <span>Matchup</span>
           <span>Score / Innings</span>
         </div>
-        ${state.games.map((game, index) => `
+        ${games.map((game, index) => {
+          const currentScore = scoreParts(game);
+          return `
           <article class="score-table-row" data-index="${index}">
             <div class="score-game-cell">
               <span class="score-pill">${escapeHtml(game.status || 'Tournament')}</span>
               <strong>${escapeHtml([game.date, game.time].filter(Boolean).join(' ') || 'Date TBD')}</strong>
               <span>${escapeHtml([game.division, game.gameNumber, game.venue].filter(Boolean).join(' - '))}</span>
+              ${showResult && game.result ? `<span class="score-current-result">Current: ${escapeHtml(game.result)}</span>` : ''}
             </div>
             <div class="score-matchup-cell">
               <strong>${escapeHtml(gameVisitorLabel(game))}</strong>
               <span>at</span>
               <strong>${escapeHtml(gameHomeLabel(game))}</strong>
             </div>
-            <form class="tournament-score-form compact" data-index="${index}">
+            <form class="tournament-score-form compact" data-index="${index}" data-list="${escapeHtml(listName)}">
               <label>
                 <span>V Score</span>
-                <input name="visitorScore" type="number" min="0" step="1" inputmode="numeric" aria-label="Visitor score" required>
+                <input name="visitorScore" type="number" min="0" step="1" inputmode="numeric" aria-label="Visitor score" value="${escapeHtml(currentScore.visitor)}" required>
               </label>
               <label>
                 <span>H Score</span>
-                <input name="homeScore" type="number" min="0" step="1" inputmode="numeric" aria-label="Home score" required>
+                <input name="homeScore" type="number" min="0" step="1" inputmode="numeric" aria-label="Home score" value="${escapeHtml(currentScore.home)}" required>
               </label>
               <label>
                 <span>V Inn</span>
@@ -109,10 +129,11 @@
                 <span>H Inn</span>
                 <input name="homeDefensiveInnings" type="text" inputmode="decimal" value="7" placeholder="7" title="Use baseball notation: 6.1 means 6 innings and 1 out; 6.2 means 6 innings and 2 outs." required>
               </label>
-              <button class="primary" type="submit"${state.canSubmit ? '' : ' disabled'}>Submit</button>
+              <button class="primary" type="submit"${state.canSubmit ? '' : ' disabled'}>${escapeHtml(submitText)}</button>
             </form>
           </article>
-        `).join('')}
+        `;
+        }).join('')}
       </div>
     `;
 
@@ -132,6 +153,32 @@
       }
       if (visitorScore) visitorScore.addEventListener('input', refreshSuggestedInnings);
       if (homeScore) homeScore.addEventListener('input', refreshSuggestedInnings);
+    });
+  }
+
+  function renderGames() {
+    renderScoreTable({
+      containerId: 'scoreGames',
+      games: state.games,
+      loading: state.loading,
+      emptyText: 'No unreported tournament games were found.',
+      loadingText: 'Loading tournament games from Turtle Club...',
+      submitText: 'Submit',
+      listName: 'unreported',
+      showResult: false
+    });
+  }
+
+  function renderReportedGames() {
+    renderScoreTable({
+      containerId: 'reportedScoreGames',
+      games: state.reportedGames,
+      loading: state.reportedLoading,
+      emptyText: 'No reported tournament scores were found.',
+      loadingText: 'Loading reported tournament scores from Turtle Club...',
+      submitText: 'Update',
+      listName: 'reported',
+      showResult: true
     });
   }
 
@@ -219,9 +266,7 @@
         <summary class="division-bracket-head">
           <div>
             <h3>${escapeHtml(division.name)}</h3>
-            ${division.cpUrl ? `<a class="division-cp-link" href="${escapeHtml(division.cpUrl)}" target="_blank" rel="noopener">Open Turtle Club division</a>` : ''}
           </div>
-          <span>${escapeHtml((division.games || []).length)} games</span>
         </summary>
         <div class="division-bracket-body">
           <div class="pool-grid">
@@ -239,13 +284,10 @@
         </div>
       </details>
     `).join('');
-    container.querySelectorAll('.division-cp-link').forEach((link) => {
-      link.addEventListener('click', (event) => event.stopPropagation());
-    });
   }
 
   function setTournamentPanel(panelName) {
-    const selected = panelName === 'bracket' ? 'bracket' : 'scores';
+    const selected = ['scores', 'reported', 'bracket'].includes(panelName) ? panelName : 'scores';
     document.querySelectorAll('[data-tournament-panel]').forEach((panel) => {
       panel.hidden = panel.dataset.tournamentPanel !== selected;
     });
@@ -292,6 +334,22 @@
     }
   }
 
+  async function loadReportedGames() {
+    state.reportedLoading = true;
+    showReportedScoreMessage('', '');
+    renderReportedGames();
+    try {
+      const payload = await fetchJson('/api/tournament-scores/reported');
+      state.reportedGames = Array.isArray(payload.games) ? payload.games : [];
+    } catch (error) {
+      state.reportedGames = [];
+      showReportedScoreMessage(error.message || 'Reported tournament scores could not be loaded.', 'error');
+    } finally {
+      state.reportedLoading = false;
+      renderReportedGames();
+    }
+  }
+
   async function loadBracket() {
     state.bracketLoading = true;
     showBracketMessage('', '');
@@ -312,7 +370,9 @@
     event.preventDefault();
     const form = event.currentTarget;
     const index = Number(form.dataset.index);
-    const game = state.games[index];
+    const listName = form.dataset.list === 'reported' ? 'reported' : 'unreported';
+    const games = listName === 'reported' ? state.reportedGames : state.games;
+    const game = games[index];
     if (!game) return;
     const button = form.querySelector('button[type="submit"]');
     const originalText = button ? button.textContent : '';
@@ -320,7 +380,8 @@
       button.disabled = true;
       button.textContent = 'Submitting...';
     }
-    showMessage('', '');
+    const showActiveMessage = listName === 'reported' ? showReportedScoreMessage : showMessage;
+    showActiveMessage('', '');
     try {
       const formData = new FormData(form);
       await fetchJson('/api/tournament-scores/report', {
@@ -335,10 +396,10 @@
           homeDefensiveInnings: formData.get('homeDefensiveInnings')
         })
       });
-      showMessage('Score submitted to Turtle Club.', 'success');
-      await loadGames();
+      showActiveMessage(listName === 'reported' ? 'Score correction submitted to Turtle Club.' : 'Score submitted to Turtle Club.', 'success');
+      await Promise.all([loadGames(), loadReportedGames()]);
     } catch (error) {
-      showMessage(error.message || 'The score could not be submitted.', 'error');
+      showActiveMessage(error.message || 'The score could not be submitted.', 'error');
     } finally {
       if (button) {
         button.disabled = !state.canSubmit;
@@ -354,16 +415,20 @@
     setTournamentPanel('scores');
     const refresh = $('refreshScoresBtn');
     if (refresh) refresh.addEventListener('click', loadGames);
+    const refreshReported = $('refreshReportedScoresBtn');
+    if (refreshReported) refreshReported.addEventListener('click', loadReportedGames);
     const refreshBracket = $('refreshBracketBtn');
     if (refreshBracket) refreshBracket.addEventListener('click', loadBracket);
     try {
       await loadBootstrap();
-      await Promise.all([loadGames(), loadBracket()]);
+      await Promise.all([loadGames(), loadReportedGames(), loadBracket()]);
     } catch (error) {
       setStatus('Access unavailable');
       showMessage(error.message || 'You do not have access to tournament score updates.', 'error');
       state.loading = false;
+      state.reportedLoading = false;
       renderGames();
+      renderReportedGames();
     }
   }
 
