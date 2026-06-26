@@ -134,6 +134,34 @@
     return switchLink;
   }
 
+  function ensureTournamentScoresLink() {
+    const topbarInner = document.querySelector('.topbar-inner');
+    if (!topbarInner) return null;
+    let tournamentLink = document.getElementById('tournamentScoresLink');
+    if (tournamentLink) return tournamentLink;
+
+    tournamentLink = document.createElement('a');
+    tournamentLink.id = 'tournamentScoresLink';
+    tournamentLink.className = 'topbar-link';
+    tournamentLink.dataset.navKey = 'tournament-scores';
+    tournamentLink.href = '/tournament-scores.html';
+    tournamentLink.hidden = true;
+    tournamentLink.textContent = 'Tournament Scores';
+
+    const fieldStatusLink = document.getElementById('fieldStatusLink');
+    if (fieldStatusLink && fieldStatusLink.parentElement === topbarInner && fieldStatusLink.nextSibling) {
+      topbarInner.insertBefore(tournamentLink, fieldStatusLink.nextSibling);
+      return tournamentLink;
+    }
+    if (fieldStatusLink && fieldStatusLink.parentElement === topbarInner) {
+      topbarInner.appendChild(tournamentLink);
+      return tournamentLink;
+    }
+
+    topbarInner.appendChild(tournamentLink);
+    return tournamentLink;
+  }
+
   function ensureUmpireAvailabilityLink() {
     const topbarInner = document.querySelector('.topbar-inner');
     if (!topbarInner) return null;
@@ -232,6 +260,7 @@
     const homeLink = document.getElementById('homeNavLink');
     const profileLink = ensureProfileLink();
     const siteSwitchLink = ensureAdminSiteSwitchLink();
+    const tournamentScoresLink = ensureTournamentScoresLink();
     const umpireLink = ensureUmpireAvailabilityLink();
     const umpireAssignmentsLink = ensureUmpireAssignmentsDayLink();
     const adminLink = document.getElementById('adminLink');
@@ -267,6 +296,12 @@
       const canAccessFieldStatus = Boolean(publicConfig.fieldStatusPath) && (role === 'admin' || role === 'admin_viewer' || role === 'status_editor');
       fieldStatusLink.href = publicConfig.fieldStatusPath || '/diamond-status-admin.html';
       fieldStatusLink.hidden = !canAccessFieldStatus;
+    }
+
+    if (tournamentScoresLink) {
+      const canAccessTournamentScores = Boolean(publicConfig.tournamentScoresPath);
+      tournamentScoresLink.href = publicConfig.tournamentScoresPath || '/tournament-scores.html';
+      tournamentScoresLink.hidden = !canAccessTournamentScores || role === 'umpire';
     }
 
     if (umpireLink) {
@@ -386,7 +421,7 @@
   async function refreshTopNav() {
     await acceptIncomingSwitchLogin();
     let session = { authenticated: false };
-    let publicConfig = { adminPath: '/admin.html', fieldStatusPath: '', profilePath: '', umpirePath: '' };
+    let publicConfig = { adminPath: '/admin.html', fieldStatusPath: '', profilePath: '', umpirePath: '', tournamentScoresPath: '' };
     const cached = readCachedState();
     if (cached) {
       session = cached.session || session;

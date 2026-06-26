@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tournament Scores</title>
+  <link rel="icon" type="image/png" href="/titans-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-nav="tournament-scores">
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <a id="homeNavLink" class="topbar-link" data-nav-key="home" href="/">Coach Schedule</a>
+      <a class="topbar-link" data-nav-key="availability" href="/availability.html">Diamond Availability</a>
+      <a class="topbar-link" data-nav-key="status" href="/diamond-status.html">Diamond Status</a>
+      <a class="topbar-link" data-nav-key="contact" href="/contact.html">Contact</a>
+      <a id="adminLink" class="topbar-link" data-nav-key="admin" href="/admin.html" hidden>Admin approval</a>
+      <a id="fieldStatusLink" class="topbar-link" data-nav-key="field-status" href="/diamond-status-admin.html" hidden>Field Status Control</a>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <div>
+        <p class="eyebrow">Tournament</p>
+        <h1>Score Updates</h1>
+      </div>
+      <div class="source">
+        <span id="scoreStatus" class="source-note">Loading tournament games</span>
+        <span id="sessionLabel" hidden></span>
+        <button id="logoutBtn" class="link-button" type="button" hidden>Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap app-shell">
+    <section class="admin-panel tournament-score-panel">
+      <div class="section-head">
+        <div>
+          <h2>Unreported Tournament Games</h2>
+          <p>Enter the final score, then submit it to Turtle Club.</p>
+        </div>
+        <button id="refreshScoresBtn" class="secondary" type="button">Refresh games</button>
+      </div>
+      <div id="scoreMessage" class="form-message" hidden></div>
+      <div id="scoreGames" class="tournament-score-list" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="nav.js"></script>
+  <script src="tournament-scores.js"></script>
+</body>
+</html>

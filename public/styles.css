@@ -2652,6 +2652,117 @@ dialog {
   color: var(--bad) !important;
 }
 
+.tournament-score-panel {
+  overflow: hidden;
+}
+
+.tournament-score-list {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+}
+
+.tournament-score-panel .form-message {
+  margin: 0;
+  padding: 10px 16px;
+  border-top: 1px solid #d8dfd4;
+  border-bottom: 1px solid #d8dfd4;
+  background: #f4f6f1;
+  color: #344230;
+  font-weight: 600;
+}
+
+.tournament-score-panel .form-message.error {
+  border-color: #edc2bd;
+  background: #fff3f1;
+  color: var(--bad);
+}
+
+.tournament-score-panel .form-message.success {
+  border-color: #b9d9bc;
+  background: #eef8f0;
+  color: var(--good);
+}
+
+.tournament-score-card {
+  display: grid;
+  border: 1px solid #cfd8ca;
+  border-left: 5px solid var(--green);
+  background: #fbfcf8;
+}
+
+.tournament-score-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #dce3d8;
+  color: #52614e;
+  font-size: 14px;
+}
+
+.score-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 3px 8px;
+  background: var(--gold);
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.tournament-score-main {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(360px, 0.9fr);
+  gap: 16px;
+  align-items: end;
+  padding: 14px 12px;
+}
+
+.tournament-score-main h3 {
+  margin: 0 0 6px;
+  color: var(--green);
+  font-size: 20px;
+}
+
+.tournament-score-main p {
+  margin: 0;
+  color: #5b6b57;
+}
+
+.tournament-score-form {
+  display: grid;
+  grid-template-columns: minmax(96px, 1fr) minmax(96px, 1fr) auto;
+  gap: 10px;
+  align-items: end;
+}
+
+.tournament-score-form label {
+  display: grid;
+  gap: 5px;
+  color: #42533f;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.tournament-score-form input {
+  min-height: 42px;
+  border: 1px solid #cfd8ca;
+  padding: 8px 10px;
+  font: inherit;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.tournament-score-form button {
+  min-height: 42px;
+  white-space: nowrap;
+}
+
 .season-grid {
   display: grid;
   grid-template-columns: minmax(260px, 1fr) minmax(320px, 1.4fr);
@@ -3363,6 +3474,11 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
 
   .coach-account-email input {
     width: 100%;
+  }
+
+  .tournament-score-main,
+  .tournament-score-form {
+    grid-template-columns: 1fr;
   }
 
   .row-actions {

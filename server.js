@@ -5,7 +5,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const { URL } = require('url');
-const { handleApi, useSupabaseStore, notificationsEnabled, storageFile, canAccessStatusEditorRequest, canAccessAdminPortalRequest, canUseAdminSwitchTokenRequest, canAccessCoachProfileRequest } = require('./lib/app-handler');
+const { handleApi, useSupabaseStore, notificationsEnabled, storageFile, canAccessStatusEditorRequest, canAccessAdminPortalRequest, canUseAdminSwitchTokenRequest, canAccessCoachProfileRequest, canAccessTournamentScoresRequest } = require('./lib/app-handler');
 const { refreshData } = require('./lib/data-store');
 const { checkForDiamondStatusAlerts, smtpConfigured } = require('./lib/diamond-status-monitor');
 
@@ -175,6 +175,11 @@ const server = http.createServer(async (req, res) => {
       return;
     }
     if (url.pathname === '/diamond-status-admin.html' && !canAccessStatusEditorRequest(req) && !hasAdminSwitchToken) {
+      res.writeHead(302, { Location: '/' });
+      res.end();
+      return;
+    }
+    if (url.pathname === '/tournament-scores.html' && !canAccessTournamentScoresRequest(req) && !hasAdminSwitchToken) {
       res.writeHead(302, { Location: '/' });
       res.end();
       return;
