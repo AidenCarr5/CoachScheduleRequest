@@ -2739,7 +2739,7 @@ dialog {
 
 .tournament-score-form {
   display: grid;
-  grid-template-columns: minmax(96px, 1fr) minmax(96px, 1fr) auto;
+  grid-template-columns: repeat(4, minmax(116px, 1fr)) auto;
   gap: 10px;
   align-items: end;
 }
@@ -2793,6 +2793,15 @@ dialog {
   margin: 0;
   color: var(--green);
   font-size: 24px;
+}
+
+.division-cp-link {
+  display: inline-flex;
+  margin-top: 4px;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: underline;
 }
 
 .division-bracket-head span {

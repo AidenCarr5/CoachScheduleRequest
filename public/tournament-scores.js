@@ -47,6 +47,13 @@
     return `${visitor} at ${home}`;
   }
 
+  function defaultVisitorInnings(visitorScore, homeScore) {
+    const visitor = Number(visitorScore);
+    const home = Number(homeScore);
+    if (Number.isFinite(visitor) && Number.isFinite(home) && home > visitor) return '6';
+    return '7';
+  }
+
   function renderGames() {
     const container = $('scoreGames');
     if (!container) return;
@@ -80,6 +87,14 @@
               <span>Home score</span>
               <input name="homeScore" type="number" min="0" step="1" inputmode="numeric" required>
             </label>
+            <label>
+              <span>Visitor defensive innings</span>
+              <input name="visitorDefensiveInnings" type="text" inputmode="decimal" value="7" placeholder="7 or 6.2" title="Use baseball notation: 6.1 means 6 innings and 1 out; 6.2 means 6 innings and 2 outs." required>
+            </label>
+            <label>
+              <span>Home defensive innings</span>
+              <input name="homeDefensiveInnings" type="text" inputmode="decimal" value="7" placeholder="7 or 6.2" title="Use baseball notation: 6.1 means 6 innings and 1 out; 6.2 means 6 innings and 2 outs." required>
+            </label>
             <button class="primary" type="submit"${state.canSubmit ? '' : ' disabled'}>Submit score</button>
           </form>
         </div>
@@ -88,6 +103,20 @@
 
     container.querySelectorAll('.tournament-score-form').forEach((form) => {
       form.addEventListener('submit', submitScore);
+      const visitorScore = form.elements.visitorScore;
+      const homeScore = form.elements.homeScore;
+      const visitorInnings = form.elements.visitorDefensiveInnings;
+      function refreshSuggestedInnings() {
+        if (!visitorInnings || visitorInnings.dataset.userEdited === '1') return;
+        visitorInnings.value = defaultVisitorInnings(visitorScore && visitorScore.value, homeScore && homeScore.value);
+      }
+      if (visitorInnings) {
+        visitorInnings.addEventListener('input', () => {
+          visitorInnings.dataset.userEdited = '1';
+        });
+      }
+      if (visitorScore) visitorScore.addEventListener('input', refreshSuggestedInnings);
+      if (homeScore) homeScore.addEventListener('input', refreshSuggestedInnings);
     });
   }
 
@@ -179,7 +208,10 @@
     container.innerHTML = divisions.map((division) => `
       <article class="division-bracket-card">
         <div class="division-bracket-head">
-          <h3>${escapeHtml(division.name)}</h3>
+          <div>
+            <h3>${escapeHtml(division.name)}</h3>
+            ${division.cpUrl ? `<a class="division-cp-link" href="${escapeHtml(division.cpUrl)}" target="_blank" rel="noopener">Open Turtle Club division</a>` : ''}
+          </div>
           <span>${escapeHtml((division.games || []).length)} games</span>
         </div>
         <div class="pool-grid">
@@ -272,7 +304,9 @@
           game,
           visitorScore: formData.get('visitorScore'),
           homeScore: formData.get('homeScore'),
-          awayScore: formData.get('visitorScore')
+          awayScore: formData.get('visitorScore'),
+          visitorDefensiveInnings: formData.get('visitorDefensiveInnings'),
+          homeDefensiveInnings: formData.get('homeDefensiveInnings')
         })
       });
       showMessage('Score submitted to Turtle Club.', 'success');
