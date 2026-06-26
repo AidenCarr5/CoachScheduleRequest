@@ -314,12 +314,12 @@
     state.canSubmit = Boolean(payload.canSubmit);
   }
 
-  async function loadGames() {
+  async function loadGames(forceRefresh = false) {
     state.loading = true;
     showMessage('', '');
     renderGames();
     try {
-      const payload = await fetchJson('/api/tournament-scores/games');
+      const payload = await fetchJson(`/api/tournament-scores/games${forceRefresh ? '?refresh=1' : ''}`);
       state.games = Array.isArray(payload.games) ? payload.games : [];
     } catch (error) {
       state.games = [];
@@ -330,12 +330,12 @@
     }
   }
 
-  async function loadReportedGames() {
+  async function loadReportedGames(forceRefresh = false) {
     state.reportedLoading = true;
     showReportedScoreMessage('', '');
     renderReportedGames();
     try {
-      const payload = await fetchJson('/api/tournament-scores/reported');
+      const payload = await fetchJson(`/api/tournament-scores/reported${forceRefresh ? '?refresh=1' : ''}`);
       state.reportedGames = Array.isArray(payload.games) ? payload.games : [];
     } catch (error) {
       state.reportedGames = [];
@@ -346,12 +346,12 @@
     }
   }
 
-  async function loadBracket() {
+  async function loadBracket(forceRefresh = false) {
     state.bracketLoading = true;
     showBracketMessage('', '');
     renderBracket();
     try {
-      const payload = await fetchJson('/api/tournament-scores/bracket');
+      const payload = await fetchJson(`/api/tournament-scores/bracket${forceRefresh ? '?refresh=1' : ''}`);
       state.bracket = payload.bracket || null;
     } catch (error) {
       state.bracket = null;
@@ -425,11 +425,11 @@
     });
     setTournamentPanel('scores');
     const refresh = $('refreshScoresBtn');
-    if (refresh) refresh.addEventListener('click', loadGames);
+    if (refresh) refresh.addEventListener('click', () => loadGames(true));
     const refreshReported = $('refreshReportedScoresBtn');
-    if (refreshReported) refreshReported.addEventListener('click', loadReportedGames);
+    if (refreshReported) refreshReported.addEventListener('click', () => loadReportedGames(true));
     const refreshBracket = $('refreshBracketBtn');
-    if (refreshBracket) refreshBracket.addEventListener('click', loadBracket);
+    if (refreshBracket) refreshBracket.addEventListener('click', () => loadBracket(true));
     try {
       await loadBootstrap();
       await Promise.all([loadGames(), loadReportedGames(), loadBracket()]);
