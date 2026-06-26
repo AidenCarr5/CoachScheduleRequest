@@ -32,8 +32,9 @@
   }
 
   function gameTitle(game) {
-    const opponent = game.opponent ? ` vs. ${game.opponent}` : '';
-    return `${game.team || 'Tournament game'}${opponent}`;
+    const visitor = game.visitor || game.opponent || 'Visitor';
+    const home = game.home || game.team || 'Home';
+    return `${visitor} at ${home}`;
   }
 
   function renderGames() {
@@ -62,12 +63,12 @@
           </div>
           <form class="tournament-score-form" data-index="${index}">
             <label>
-              <span>Our score</span>
-              <input name="homeScore" type="number" min="0" step="1" inputmode="numeric" required>
+              <span>Visitor score</span>
+              <input name="visitorScore" type="number" min="0" step="1" inputmode="numeric" required>
             </label>
             <label>
-              <span>Opponent score</span>
-              <input name="awayScore" type="number" min="0" step="1" inputmode="numeric" required>
+              <span>Home score</span>
+              <input name="homeScore" type="number" min="0" step="1" inputmode="numeric" required>
             </label>
             <button class="primary" type="submit"${state.canSubmit ? '' : ' disabled'}>Submit score</button>
           </form>
@@ -136,8 +137,9 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           game,
+          visitorScore: formData.get('visitorScore'),
           homeScore: formData.get('homeScore'),
-          awayScore: formData.get('awayScore')
+          awayScore: formData.get('visitorScore')
         })
       });
       showMessage('Score submitted to Turtle Club.', 'success');
