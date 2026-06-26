@@ -46,11 +46,6 @@
     message.hidden = !text;
   }
 
-  function setStatus(text) {
-    const status = $('scoreStatus');
-    if (status) status.textContent = text || '';
-  }
-
   function gameTitle(game) {
     const visitor = gameVisitorLabel(game);
     const home = gameHomeLabel(game);
@@ -318,15 +313,12 @@
   async function loadGames() {
     state.loading = true;
     showMessage('', '');
-    setStatus('Loading tournament games');
     renderGames();
     try {
       const payload = await fetchJson('/api/tournament-scores/games');
       state.games = Array.isArray(payload.games) ? payload.games : [];
-      setStatus(`${state.games.length} game${state.games.length === 1 ? '' : 's'} found`);
     } catch (error) {
       state.games = [];
-      setStatus('Tournament games unavailable');
       showMessage(error.message || 'Tournament games could not be loaded.', 'error');
     } finally {
       state.loading = false;
@@ -423,7 +415,6 @@
       await loadBootstrap();
       await Promise.all([loadGames(), loadReportedGames(), loadBracket()]);
     } catch (error) {
-      setStatus('Access unavailable');
       showMessage(error.message || 'You do not have access to tournament score updates.', 'error');
       state.loading = false;
       state.reportedLoading = false;
