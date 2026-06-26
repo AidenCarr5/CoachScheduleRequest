@@ -121,11 +121,11 @@
                 <input name="homeScore" type="number" min="0" step="1" inputmode="numeric" aria-label="Home score" value="${escapeHtml(currentScore.home)}" required>
               </label>
               <label>
-                <span>V Inn</span>
+                <span>Visitor Innings</span>
                 <input name="visitorDefensiveInnings" type="text" inputmode="decimal" value="7" placeholder="7" title="Use baseball notation: 6.1 means 6 innings and 1 out; 6.2 means 6 innings and 2 outs." required>
               </label>
               <label>
-                <span>H Inn</span>
+                <span>Home Inning</span>
                 <input name="homeDefensiveInnings" type="text" inputmode="decimal" value="7" placeholder="7" title="Use baseball notation: 6.1 means 6 innings and 1 out; 6.2 means 6 innings and 2 outs." required>
               </label>
               <button class="primary" type="submit"${state.canSubmit ? '' : ' disabled'}>${escapeHtml(submitText)}</button>
