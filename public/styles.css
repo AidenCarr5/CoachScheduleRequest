@@ -2656,13 +2656,15 @@ dialog {
   overflow: hidden;
 }
 
-.tournament-score-list {
+.tournament-score-list,
+.tournament-bracket-list {
   display: grid;
   gap: 12px;
   padding: 16px;
 }
 
-.tournament-score-panel .form-message {
+.tournament-score-panel .form-message,
+.tournament-bracket-panel .form-message {
   margin: 0;
   padding: 10px 16px;
   border-top: 1px solid #d8dfd4;
@@ -2672,13 +2674,15 @@ dialog {
   font-weight: 600;
 }
 
-.tournament-score-panel .form-message.error {
+.tournament-score-panel .form-message.error,
+.tournament-bracket-panel .form-message.error {
   border-color: #edc2bd;
   background: #fff3f1;
   color: var(--bad);
 }
 
-.tournament-score-panel .form-message.success {
+.tournament-score-panel .form-message.success,
+.tournament-bracket-panel .form-message.success {
   border-color: #b9d9bc;
   background: #eef8f0;
   color: var(--good);
@@ -2761,6 +2765,161 @@ dialog {
 .tournament-score-form button {
   min-height: 42px;
   white-space: nowrap;
+}
+
+.tournament-bracket-panel {
+  overflow: hidden;
+}
+
+.division-bracket-card {
+  display: grid;
+  gap: 14px;
+  border: 1px solid #cfd8ca;
+  border-left: 5px solid var(--gold);
+  background: #fbfcf8;
+  padding: 14px;
+}
+
+.division-bracket-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+  border-bottom: 1px solid #dce3d8;
+  padding-bottom: 10px;
+}
+
+.division-bracket-head h3 {
+  margin: 0;
+  color: var(--green);
+  font-size: 24px;
+}
+
+.division-bracket-head span {
+  color: #687563;
+  font-weight: 700;
+}
+
+.pool-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.pool-card,
+.bracket-games-section {
+  border: 1px solid #d8dfd4;
+  background: #ffffff;
+  padding: 12px;
+}
+
+.pool-card h4,
+.bracket-games-section h4 {
+  margin: 0 0 10px;
+  color: var(--green);
+  font-size: 18px;
+}
+
+.standings-table-wrap {
+  overflow-x: auto;
+}
+
+.standings-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 620px;
+  font-size: 13px;
+}
+
+.standings-table th,
+.standings-table td {
+  border-bottom: 1px solid #e0e6dc;
+  padding: 7px 8px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.standings-table th:first-child,
+.standings-table td:first-child {
+  text-align: left;
+  min-width: 180px;
+}
+
+.standings-table th {
+  background: #f0f4ed;
+  color: var(--green);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.bracket-game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 10px;
+}
+
+.bracket-game-card {
+  display: grid;
+  gap: 8px;
+  border: 1px solid #d8dfd4;
+  background: #f7f9f4;
+  padding: 10px;
+}
+
+.bracket-game-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #5e6c58;
+  font-size: 13px;
+}
+
+.bracket-game-meta strong {
+  color: var(--green);
+}
+
+.bracket-matchup {
+  display: grid;
+  gap: 4px;
+  color: #112b14;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.bracket-matchup span:nth-child(2) {
+  color: #71806b;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.bracket-score {
+  color: var(--good);
+  font-weight: 800;
+}
+
+.bracket-projection {
+  display: grid;
+  gap: 2px;
+  border-top: 1px solid #d8dfd4;
+  padding-top: 8px;
+  color: #4f5d4b;
+  font-size: 13px;
+}
+
+.bracket-projection span {
+  color: #7a856f;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.bracket-projection strong {
+  color: var(--green);
+}
+
+.empty-state.compact {
+  padding: 12px;
+  font-size: 14px;
 }
 
 .season-grid {
@@ -3478,6 +3637,10 @@ dialog::backdrop { background: rgba(0,0,0,.45); }
 
   .tournament-score-main,
   .tournament-score-form {
+    grid-template-columns: 1fr;
+  }
+
+  .pool-grid {
     grid-template-columns: 1fr;
   }
 

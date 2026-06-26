@@ -1,8 +1,10 @@
 (function () {
   const state = {
     games: [],
+    bracket: null,
     canSubmit: false,
-    loading: false
+    loading: false,
+    bracketLoading: false
   };
 
   function $(id) {
@@ -20,6 +22,14 @@
 
   function showMessage(text, tone) {
     const message = $('scoreMessage');
+    if (!message) return;
+    message.textContent = text || '';
+    message.className = `form-message ${tone || ''}`.trim();
+    message.hidden = !text;
+  }
+
+  function showBracketMessage(text, tone) {
+    const message = $('bracketMessage');
     if (!message) return;
     message.textContent = text || '';
     message.className = `form-message ${tone || ''}`.trim();
@@ -81,6 +91,113 @@
     });
   }
 
+  function renderStandingsTable(pool) {
+    const teams = Array.isArray(pool.teams) ? pool.teams : [];
+    if (!teams.length) {
+      return '<div class="empty-state compact">No teams found for this pool.</div>';
+    }
+    return `
+      <div class="standings-table-wrap">
+        <table class="standings-table">
+          <thead>
+            <tr>
+              <th>Team</th>
+              <th>W</th>
+              <th>L</th>
+              <th>T</th>
+              <th>Pts</th>
+              <th>RF</th>
+              <th>RA</th>
+              <th>Def Inn</th>
+              <th>RA/DI</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${teams.map((team) => `
+              <tr>
+                <td>${escapeHtml(team.team)}</td>
+                <td>${escapeHtml(team.wins)}</td>
+                <td>${escapeHtml(team.losses)}</td>
+                <td>${escapeHtml(team.ties)}</td>
+                <td>${escapeHtml(team.points)}</td>
+                <td>${escapeHtml(team.runsFor)}</td>
+                <td>${escapeHtml(team.runsAgainst)}</td>
+                <td>${escapeHtml(team.defensiveInnings)}</td>
+                <td>${escapeHtml(team.runsAgainstRatio)}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  function renderBracketGames(games) {
+    if (!Array.isArray(games) || !games.length) {
+      return '<div class="empty-state compact">No bracket games found yet.</div>';
+    }
+    return `
+      <div class="bracket-game-grid">
+        ${games.map((game) => `
+          <article class="bracket-game-card">
+            <div class="bracket-game-meta">
+              <strong>${escapeHtml(game.gameNumber || 'Bracket')}</strong>
+              <span>${escapeHtml(game.date || '')}</span>
+              <span>${escapeHtml(game.time || '')}</span>
+              <span>${escapeHtml(game.venue || '')}</span>
+            </div>
+            <div class="bracket-matchup">
+              <span>${escapeHtml(game.visitor || 'TBD')}</span>
+              <span>at</span>
+              <span>${escapeHtml(game.home || 'TBD')}</span>
+            </div>
+            ${(game.projectedVisitor || game.projectedHome) ? `
+              <div class="bracket-projection">
+                <span>Projected</span>
+                <strong>${escapeHtml(game.projectedVisitor || game.visitor || 'TBD')} at ${escapeHtml(game.projectedHome || game.home || 'TBD')}</strong>
+              </div>
+            ` : ''}
+            ${game.score ? `<div class="bracket-score">${escapeHtml(game.score)}</div>` : ''}
+          </article>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  function renderBracket() {
+    const container = $('tournamentBracket');
+    if (!container) return;
+    if (state.bracketLoading) {
+      container.innerHTML = '<div class="empty-state">Loading tournament brackets from Turtle Club...</div>';
+      return;
+    }
+    const divisions = state.bracket && Array.isArray(state.bracket.divisions) ? state.bracket.divisions : [];
+    if (!divisions.length) {
+      container.innerHTML = '<div class="empty-state">No tournament bracket data was found.</div>';
+      return;
+    }
+    container.innerHTML = divisions.map((division) => `
+      <article class="division-bracket-card">
+        <div class="division-bracket-head">
+          <h3>${escapeHtml(division.name)}</h3>
+          <span>${escapeHtml((division.games || []).length)} games</span>
+        </div>
+        <div class="pool-grid">
+          ${(division.pools || []).map((pool) => `
+            <section class="pool-card">
+              <h4>${escapeHtml(pool.name)}</h4>
+              ${renderStandingsTable(pool)}
+            </section>
+          `).join('')}
+        </div>
+        <section class="bracket-games-section">
+          <h4>Bracket Games</h4>
+          ${renderBracketGames(division.bracketGames)}
+        </section>
+      </article>
+    `).join('');
+  }
+
   async function fetchJson(url, options) {
     const response = await fetch(url, {
       cache: 'no-store',
@@ -114,6 +231,22 @@
     } finally {
       state.loading = false;
       renderGames();
+    }
+  }
+
+  async function loadBracket() {
+    state.bracketLoading = true;
+    showBracketMessage('', '');
+    renderBracket();
+    try {
+      const payload = await fetchJson('/api/tournament-scores/bracket');
+      state.bracket = payload.bracket || null;
+    } catch (error) {
+      state.bracket = null;
+      showBracketMessage(error.message || 'Tournament bracket could not be loaded.', 'error');
+    } finally {
+      state.bracketLoading = false;
+      renderBracket();
     }
   }
 
@@ -157,9 +290,11 @@
   async function init() {
     const refresh = $('refreshScoresBtn');
     if (refresh) refresh.addEventListener('click', loadGames);
+    const refreshBracket = $('refreshBracketBtn');
+    if (refreshBracket) refreshBracket.addEventListener('click', loadBracket);
     try {
       await loadBootstrap();
-      await loadGames();
+      await Promise.all([loadGames(), loadBracket()]);
     } catch (error) {
       setStatus('Access unavailable');
       showMessage(error.message || 'You do not have access to tournament score updates.', 'error');
