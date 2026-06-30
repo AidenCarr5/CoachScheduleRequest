@@ -1072,7 +1072,7 @@
 
   function openCancel(eventId) {
     if (calendarDayDialog.open) calendarDayDialog.close();
-    const event = data.schedule.find((item) => item.id === eventId);
+    const event = findDisplayEventById(eventId);
     if (!event) return;
     if (`${event.eventKind || ''} ${event.type || ''}`.toLowerCase().includes('cancelled')) {
       alert('This event is already marked cancelled on Turtle Club, so there is nothing left to cancel.');
@@ -1135,7 +1135,7 @@
 
   function openReplace(eventId) {
     if (calendarDayDialog.open) calendarDayDialog.close();
-    const original = data.schedule.find((item) => item.id === eventId);
+    const original = findDisplayEventById(eventId);
     if (!original) return;
     if (`${original.eventKind || ''} ${original.type || ''}`.toLowerCase().includes('cancelled')) {
       alert('This event is already marked cancelled on Turtle Club. Create a new event instead of replacing it.');
@@ -1555,7 +1555,7 @@
         box.textContent = 'Choose an away field from the Turtle Club venue suggestions.';
         return;
       }
-      const original = mode === 'replace' ? data.schedule.find((item) => item.id === $('eventId').value) : null;
+      const original = mode === 'replace' ? findDisplayEventById($('eventId').value) : null;
       payload = {
         action: mode === 'replace' ? `Replace ${original.eventKind || 'event'}` : `Create ${$('eventTypeSelect').value}`,
         team: state.team,
@@ -1687,7 +1687,7 @@
     }
 
     const ignoredId = $('requestMode').value === 'replace' ? $('eventId').value : '';
-    const original = ignoredId ? data.schedule.find((item) => item.id === ignoredId) : null;
+    const original = ignoredId ? findDisplayEventById(ignoredId) : null;
     const { freedSlots, queuedConflicts } = queuedScheduleAdjustments(date, normalizedDiamond, ignoredId, original);
 
     const conflict = (data.conflictEvents || data.schedule).find((item) => {
@@ -1747,10 +1747,11 @@
     state.requests
       .filter((request) => request.status !== 'rejected')
       .filter((request) => request.team === state.team)
-      .forEach((request) => {
+      .forEach((request, index) => {
+        const replacingThisApprovedRequest = original && (original.requestIndex === index || queuedRequestMatchesEvent(request, original));
         const action = String(request.action || '');
         if ((action.startsWith('Cancel ') || action.startsWith('Replace ')) && request.originalId) {
-          if (!(ignoredId && request.originalId === ignoredId)) {
+          if (!(ignoredId && request.originalId === ignoredId) && !replacingThisApprovedRequest) {
             const originalEvent = findEventById(request.originalId);
             const slot = originalEvent ? eventToFreedSlot(originalEvent) : originalRequestToFreedSlot(request);
             if (slot && slot.date === date && normalizeAvailabilityDiamond(slot.diamond) === normalizedDiamond) {
@@ -1760,6 +1761,7 @@
         }
 
         if ((action.startsWith('Create ') || action.startsWith('Replace '))
+          && !replacingThisApprovedRequest
           && request.date === date
           && normalizeAvailabilityDiamond(request.diamond) === normalizedDiamond) {
           const queuedStart = minutesFromDisplay(request.start);
@@ -1777,6 +1779,21 @@
       });
 
     return { freedSlots, queuedConflicts };
+  }
+
+  function findDisplayEventById(id) {
+    return buildDisplaySchedule().find((event) => event.id === id)
+      || data.schedule.find((event) => event.id === id)
+      || null;
+  }
+
+  function queuedRequestMatchesEvent(request, event) {
+    if (!request || !event) return false;
+    if (request.team !== event.team) return false;
+    if (String(request.date || '') !== String(event.date || '')) return false;
+    if (minutesFromDisplay(request.start) !== minutesFromDisplay(event.time)) return false;
+    if (!displayGameKindsMatch(normalizeDisplayGameKind(request.newType || request.action), normalizeDisplayGameKind(event.eventKind || event.type))) return false;
+    return displayOpponentMatches(normalizeDisplayOpponent(request.opponent), normalizeDisplayOpponent(event.opponent));
   }
 
   function findEventById(id) {
