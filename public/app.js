@@ -472,11 +472,18 @@
         }
 
         if (request.status === 'approved') {
-          const approvedEvent = schedule.find((event) => eventMatchesApprovedRequest(event, request));
-          if (approvedEvent) {
+          const approvedMatches = schedule.filter((event) => eventMatchesApprovedRequest(event, request));
+          if (approvedMatches.length) {
+            const approvedEvent = approvedMatches[0];
             approvedEvent.pendingState = 'approved-new';
             approvedEvent.pendingLabel = 'Approved request';
             approvedEvent.requestIndex = index;
+            for (let matchIndex = schedule.length - 1; matchIndex >= 0; matchIndex -= 1) {
+              const candidate = schedule[matchIndex];
+              if (candidate !== approvedEvent && approvedMatches.includes(candidate)) {
+                schedule.splice(matchIndex, 1);
+              }
+            }
             return;
           }
         }
@@ -501,7 +508,46 @@
         });
       });
 
-    return schedule;
+    return consolidateDisplaySchedule(schedule);
+  }
+
+  function consolidateDisplaySchedule(schedule) {
+    const byKey = new Map();
+    const result = [];
+    for (const event of schedule) {
+      const key = displayEventKey(event);
+      const existingIndex = byKey.get(key);
+      if (existingIndex === undefined) {
+        byKey.set(key, result.length);
+        result.push(event);
+        continue;
+      }
+      const existing = result[existingIndex];
+      if (displayEventRank(event) > displayEventRank(existing)) {
+        result[existingIndex] = event;
+      }
+    }
+    return result;
+  }
+
+  function displayEventRank(event) {
+    if (/approved/i.test(event.pendingState || '')) return 4;
+    if (event.pendingState) return 3;
+    if (/control panel/i.test(event.source || '')) return 2;
+    return 1;
+  }
+
+  function displayEventKey(event) {
+    const kind = normalizeDisplayGameKind(event.eventKind || event.type);
+    return [
+      event.date || '',
+      minutesFromDisplay(event.time),
+      event.endTime ? minutesFromDisplay(event.endTime) : '',
+      normalizeScheduleComparison(event.team),
+      kind,
+      normalizeScheduleComparison(normalizeAvailabilityDiamond(event.diamond)),
+      kind.includes('local') ? '' : normalizeScheduleComparison(event.opponent)
+    ].join('|');
   }
 
   function matchingCancellationEvents(schedule, request, byId) {
@@ -526,9 +572,9 @@
     const requestDate = String(request.date || '');
     if (eventDate !== requestDate) return false;
 
-    const eventKind = normalizeScheduleComparison(event.eventKind || event.type);
-    const requestKind = normalizeScheduleComparison(request.newType || request.originalType || 'Event');
-    if (eventKind !== requestKind) return false;
+    const eventKind = normalizeDisplayGameKind(event.eventKind || event.type);
+    const requestKind = normalizeDisplayGameKind(request.newType || request.originalType || 'Event');
+    if (!displayGameKindsMatch(eventKind, requestKind)) return false;
 
     const isAwayGame = eventKind.includes('away');
     if (!isAwayGame) {
@@ -546,7 +592,22 @@
 
     const eventOpponent = normalizeScheduleComparison(event.opponent);
     const requestOpponent = normalizeScheduleComparison(request.opponent);
+    if (eventKind.includes('local') && (!eventOpponent || !requestOpponent)) return true;
     return eventOpponent === requestOpponent;
+  }
+
+  function normalizeDisplayGameKind(value) {
+    const normalized = normalizeScheduleComparison(value);
+    if (normalized.includes('local') && normalized.includes('game')) return 'local game';
+    if (normalized.includes('home') && normalized.includes('game')) return 'home game';
+    if (normalized.includes('away') && normalized.includes('game')) return 'away game';
+    return normalized;
+  }
+
+  function displayGameKindsMatch(left, right) {
+    if (left === right) return true;
+    const homeLike = new Set(['home game', 'local game']);
+    return homeLike.has(left) && homeLike.has(right);
   }
 
   function approvedRequestTimeMatches(event, request, eventKind) {
