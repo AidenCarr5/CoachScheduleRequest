@@ -539,14 +539,15 @@
 
   function displayEventKey(event) {
     const kind = normalizeDisplayGameKind(event.eventKind || event.type);
+    const homeLikeGame = kind.includes('home') || kind.includes('local');
     return [
       event.date || '',
       minutesFromDisplay(event.time),
       event.endTime ? minutesFromDisplay(event.endTime) : '',
       normalizeScheduleComparison(event.team),
       kind,
-      normalizeScheduleComparison(normalizeAvailabilityDiamond(event.diamond)),
-      kind.includes('local') ? '' : normalizeScheduleComparison(event.opponent)
+      homeLikeGame ? '' : normalizeScheduleComparison(normalizeAvailabilityDiamond(event.diamond)),
+      normalizeDisplayOpponent(event.opponent)
     ].join('|');
   }
 
@@ -577,7 +578,8 @@
     if (!displayGameKindsMatch(eventKind, requestKind)) return false;
 
     const isAwayGame = eventKind.includes('away');
-    if (!isAwayGame) {
+    const isHomeLikeGame = eventKind.includes('home') || eventKind.includes('local') || requestKind.includes('home') || requestKind.includes('local');
+    if (!isAwayGame && !isHomeLikeGame) {
       const eventDiamond = normalizeScheduleComparison(normalizeAvailabilityDiamond(event.diamond));
       const requestDiamond = normalizeScheduleComparison(normalizeAvailabilityDiamond(request.diamond));
       if (eventDiamond !== requestDiamond) return false;
@@ -590,10 +592,22 @@
     if (eventEnd && requestEnd && eventEnd !== requestEnd) return false;
     if ((!eventEnd || !requestEnd) && !eventKind.includes('game')) return false;
 
-    const eventOpponent = normalizeScheduleComparison(event.opponent);
-    const requestOpponent = normalizeScheduleComparison(request.opponent);
+    const eventOpponent = normalizeDisplayOpponent(event.opponent);
+    const requestOpponent = normalizeDisplayOpponent(request.opponent);
     if (eventKind.includes('local') && (!eventOpponent || !requestOpponent)) return true;
-    return eventOpponent === requestOpponent;
+    return displayOpponentMatches(eventOpponent, requestOpponent);
+  }
+
+  function normalizeDisplayOpponent(value) {
+    return normalizeScheduleComparison(value)
+      .replace(/^(lasalle\s+)?(athletics|titans)\s*-\s*/i, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function displayOpponentMatches(left, right) {
+    if (!left || !right) return false;
+    return left === right || left.includes(right) || right.includes(left);
   }
 
   function normalizeDisplayGameKind(value) {
