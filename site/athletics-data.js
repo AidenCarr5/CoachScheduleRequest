@@ -1,7 +1,7 @@
 window.TITANS_DATA = {
   "seasonYear": 2026,
   "brandName": "LaSalle Athletics",
-  "scrapedAt": "2026-06-16T00:21:28.966Z",
+  "scrapedAt": "2026-06-30T14:10:49.083Z",
   "sourceSchedule": "https://turtleclubbaseball.com/CP/Content/Scheduling/Schedule.aspx?ParentID=1017",
   "sourceCalendar": "https://turtleclubbaseball.com/CP/Content/Scheduling/Schedule.aspx?ParentID=1017",
   "sourceAvailability": "https://turtleclubbaseball.com/CP/Content/Scheduling/Schedule.aspx?ParentID=1017",
@@ -60,7 +60,7 @@ window.TITANS_DATA = {
       "email": "aidenmeers54@gmail.com",
       "qualification": "Not Set",
       "experience": "Not Set",
-      "age": "14",
+      "age": "15",
       "city": "LaSalle",
       "positions": [
         "4010",
@@ -112,7 +112,7 @@ window.TITANS_DATA = {
       "email": "Simkeamanda@gmail.com",
       "qualification": "not used",
       "experience": "Not Set",
-      "age": "32",
+      "age": "33",
       "city": "Lasalle",
       "positions": [
         "4090"
@@ -1258,7 +1258,7 @@ window.TITANS_DATA = {
       ]
     },
     {
-      "username": "function ShowNewGameOfficialForm() { OpenModal('/CP/Modals/Officials/Official_Add.aspx?Position=' + $get(\"cMain_cBot_hfPosition\").value + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function ShowEditGameOfficialForm(username) { OpenModal('/CP/Modals/Officials/Official.aspx?UserName=' + username + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function cmd_gameofficial(ID, Username, CommandName) { $get(\"cMain_cBot_hfOfficial\").value = ID + \"|\" + Username + \"|\" + CommandName; __doPostBack(\"cMain_cBot_hfOfficial\", \"\"); } function selPage(ID) { var hfPage = $get(\"cMain_cBot_hfPage\"); hfPage.value = ID; __doPostBack(\"cMain_cBot_hfPage\", ''); } Officials 1-40 of 107 | Page: 1 2 3 Username",
+      "username": "function ShowNewGameOfficialForm() { OpenModal('/CP/Modals/Officials/Official_Add.aspx?Position=' + $get(\"cMain_cBot_hfPosition\").value + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function ShowEditGameOfficialForm(username) { OpenModal('/CP/Modals/Officials/Official.aspx?UserName=' + username + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function cmd_gameofficial(ID, Username, CommandName) { $get(\"cMain_cBot_hfOfficial\").value = ID + \"|\" + Username + \"|\" + CommandName; __doPostBack(\"cMain_cBot_hfOfficial\", \"\"); } function selPage(ID) { var hfPage = $get(\"cMain_cBot_hfPage\"); hfPage.value = ID; __doPostBack(\"cMain_cBot_hfPage\", ''); } Officials 1-40 of 106 | Page: 1 2 3 Username",
       "name": "Real Name",
       "email": "",
       "qualification": "Qualification",
@@ -1270,7 +1270,7 @@ window.TITANS_DATA = {
       ]
     },
     {
-      "username": "function ShowNewGameOfficialForm() { OpenModal('/CP/Modals/Officials/Official_Add.aspx?Position=' + $get(\"cMain_cBot_hfPosition\").value + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function ShowEditGameOfficialForm(username) { OpenModal('/CP/Modals/Officials/Official.aspx?UserName=' + username + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function cmd_gameofficial(ID, Username, CommandName) { $get(\"cMain_cBot_hfOfficial\").value = ID + \"|\" + Username + \"|\" + CommandName; __doPostBack(\"cMain_cBot_hfOfficial\", \"\"); } function selPage(ID) { var hfPage = $get(\"cMain_cBot_hfPage\"); hfPage.value = ID; __doPostBack(\"cMain_cBot_hfPage\", ''); } Officials 41-80 of 107 | Page: 1 2 3 Username",
+      "username": "function ShowNewGameOfficialForm() { OpenModal('/CP/Modals/Officials/Official_Add.aspx?Position=' + $get(\"cMain_cBot_hfPosition\").value + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function ShowEditGameOfficialForm(username) { OpenModal('/CP/Modals/Officials/Official.aspx?UserName=' + username + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function cmd_gameofficial(ID, Username, CommandName) { $get(\"cMain_cBot_hfOfficial\").value = ID + \"|\" + Username + \"|\" + CommandName; __doPostBack(\"cMain_cBot_hfOfficial\", \"\"); } function selPage(ID) { var hfPage = $get(\"cMain_cBot_hfPage\"); hfPage.value = ID; __doPostBack(\"cMain_cBot_hfPage\", ''); } Officials 41-80 of 106 | Page: 1 2 3 Username",
       "name": "Real Name",
       "email": "",
       "qualification": "Qualification",
@@ -1282,7 +1282,7 @@ window.TITANS_DATA = {
       ]
     },
     {
-      "username": "function ShowNewGameOfficialForm() { OpenModal('/CP/Modals/Officials/Official_Add.aspx?Position=' + $get(\"cMain_cBot_hfPosition\").value + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function ShowEditGameOfficialForm(username) { OpenModal('/CP/Modals/Officials/Official.aspx?UserName=' + username + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function cmd_gameofficial(ID, Username, CommandName) { $get(\"cMain_cBot_hfOfficial\").value = ID + \"|\" + Username + \"|\" + CommandName; __doPostBack(\"cMain_cBot_hfOfficial\", \"\"); } function selPage(ID) { var hfPage = $get(\"cMain_cBot_hfPage\"); hfPage.value = ID; __doPostBack(\"cMain_cBot_hfPage\", ''); } Officials 81-107 of 107 | Page: 1 2 3 Username",
+      "username": "function ShowNewGameOfficialForm() { OpenModal('/CP/Modals/Officials/Official_Add.aspx?Position=' + $get(\"cMain_cBot_hfPosition\").value + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function ShowEditGameOfficialForm(username) { OpenModal('/CP/Modals/Officials/Official.aspx?UserName=' + username + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function cmd_gameofficial(ID, Username, CommandName) { $get(\"cMain_cBot_hfOfficial\").value = ID + \"|\" + Username + \"|\" + CommandName; __doPostBack(\"cMain_cBot_hfOfficial\", \"\"); } function selPage(ID) { var hfPage = $get(\"cMain_cBot_hfPage\"); hfPage.value = ID; __doPostBack(\"cMain_cBot_hfPage\", ''); } Officials 81-106 of 106 | Page: 1 2 3 Username",
       "name": "Real Name",
       "email": "",
       "qualification": "Qualification",
@@ -1294,7 +1294,7 @@ window.TITANS_DATA = {
       ]
     },
     {
-      "username": "function ShowNewGameOfficialForm() { OpenModal('/CP/Modals/Officials/Official_Add.aspx?Position=' + $get(\"cMain_cBot_hfPosition\").value + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function ShowEditGameOfficialForm(username) { OpenModal('/CP/Modals/Officials/Official.aspx?UserName=' + username + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function cmd_gameofficial(ID, Username, CommandName) { $get(\"cMain_cBot_hfOfficial\").value = ID + \"|\" + Username + \"|\" + CommandName; __doPostBack(\"cMain_cBot_hfOfficial\", \"\"); } function selPage(ID) { var hfPage = $get(\"cMain_cBot_hfPage\"); hfPage.value = ID; __doPostBack(\"cMain_cBot_hfPage\", ''); } Officials 1-40 of 101 | Page: 1 2 3 Username",
+      "username": "function ShowNewGameOfficialForm() { OpenModal('/CP/Modals/Officials/Official_Add.aspx?Position=' + $get(\"cMain_cBot_hfPosition\").value + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function ShowEditGameOfficialForm(username) { OpenModal('/CP/Modals/Officials/Official.aspx?UserName=' + username + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function cmd_gameofficial(ID, Username, CommandName) { $get(\"cMain_cBot_hfOfficial\").value = ID + \"|\" + Username + \"|\" + CommandName; __doPostBack(\"cMain_cBot_hfOfficial\", \"\"); } function selPage(ID) { var hfPage = $get(\"cMain_cBot_hfPage\"); hfPage.value = ID; __doPostBack(\"cMain_cBot_hfPage\", ''); } Officials 1-40 of 100 | Page: 1 2 3 Username",
       "name": "Real Name",
       "email": "",
       "qualification": "Qualification",
@@ -1306,7 +1306,7 @@ window.TITANS_DATA = {
       ]
     },
     {
-      "username": "function ShowNewGameOfficialForm() { OpenModal('/CP/Modals/Officials/Official_Add.aspx?Position=' + $get(\"cMain_cBot_hfPosition\").value + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function ShowEditGameOfficialForm(username) { OpenModal('/CP/Modals/Officials/Official.aspx?UserName=' + username + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function cmd_gameofficial(ID, Username, CommandName) { $get(\"cMain_cBot_hfOfficial\").value = ID + \"|\" + Username + \"|\" + CommandName; __doPostBack(\"cMain_cBot_hfOfficial\", \"\"); } function selPage(ID) { var hfPage = $get(\"cMain_cBot_hfPage\"); hfPage.value = ID; __doPostBack(\"cMain_cBot_hfPage\", ''); } Officials 41-80 of 101 | Page: 1 2 3 Username",
+      "username": "function ShowNewGameOfficialForm() { OpenModal('/CP/Modals/Officials/Official_Add.aspx?Position=' + $get(\"cMain_cBot_hfPosition\").value + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function ShowEditGameOfficialForm(username) { OpenModal('/CP/Modals/Officials/Official.aspx?UserName=' + username + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function cmd_gameofficial(ID, Username, CommandName) { $get(\"cMain_cBot_hfOfficial\").value = ID + \"|\" + Username + \"|\" + CommandName; __doPostBack(\"cMain_cBot_hfOfficial\", \"\"); } function selPage(ID) { var hfPage = $get(\"cMain_cBot_hfPage\"); hfPage.value = ID; __doPostBack(\"cMain_cBot_hfPage\", ''); } Officials 41-80 of 100 | Page: 1 2 3 Username",
       "name": "Real Name",
       "email": "",
       "qualification": "Qualification",
@@ -1318,7 +1318,7 @@ window.TITANS_DATA = {
       ]
     },
     {
-      "username": "function ShowNewGameOfficialForm() { OpenModal('/CP/Modals/Officials/Official_Add.aspx?Position=' + $get(\"cMain_cBot_hfPosition\").value + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function ShowEditGameOfficialForm(username) { OpenModal('/CP/Modals/Officials/Official.aspx?UserName=' + username + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function cmd_gameofficial(ID, Username, CommandName) { $get(\"cMain_cBot_hfOfficial\").value = ID + \"|\" + Username + \"|\" + CommandName; __doPostBack(\"cMain_cBot_hfOfficial\", \"\"); } function selPage(ID) { var hfPage = $get(\"cMain_cBot_hfPage\"); hfPage.value = ID; __doPostBack(\"cMain_cBot_hfPage\", ''); } Officials 81-101 of 101 | Page: 1 2 3 Username",
+      "username": "function ShowNewGameOfficialForm() { OpenModal('/CP/Modals/Officials/Official_Add.aspx?Position=' + $get(\"cMain_cBot_hfPosition\").value + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function ShowEditGameOfficialForm(username) { OpenModal('/CP/Modals/Officials/Official.aspx?UserName=' + username + '&HFID=' + \"cMain_cBot_hfUC\"); return false; } function cmd_gameofficial(ID, Username, CommandName) { $get(\"cMain_cBot_hfOfficial\").value = ID + \"|\" + Username + \"|\" + CommandName; __doPostBack(\"cMain_cBot_hfOfficial\", \"\"); } function selPage(ID) { var hfPage = $get(\"cMain_cBot_hfPage\"); hfPage.value = ID; __doPostBack(\"cMain_cBot_hfPage\", ''); } Officials 81-100 of 100 | Page: 1 2 3 Username",
       "name": "Real Name",
       "email": "",
       "qualification": "Qualification",
@@ -1399,19 +1399,6 @@ window.TITANS_DATA = {
       "qualification": "Level 1",
       "experience": "Not Set",
       "age": "15",
-      "city": "LaSalle",
-      "positions": [
-        "4010",
-        "4020"
-      ]
-    },
-    {
-      "username": "sgut",
-      "name": "Samantha Gut",
-      "email": "SamGut2090@gmail.com",
-      "qualification": "Level 1",
-      "experience": "Not Set",
-      "age": "19",
       "city": "LaSalle",
       "positions": [
         "4010",
@@ -1527,7 +1514,7 @@ window.TITANS_DATA = {
       "email": "trevorkoppeser@gmail.com",
       "qualification": "Level 3",
       "experience": "Not Set",
-      "age": "9",
+      "age": "10",
       "city": "Lasalle",
       "positions": [
         "4010",
@@ -1742,6 +1729,7 @@ window.TITANS_DATA = {
     "Ingersoll",
     "Ingersoll Ironbirds",
     "Ingersoll PeeWee",
+    "Intermediate (Stadler)",
     "Kingston Queens",
     "Kingsville",
     "Kingsville 16U",
@@ -2006,6 +1994,12 @@ window.TITANS_DATA = {
     "Toronto Varsity Blues",
     "Toronto York",
     "Trenton Travelers",
+    "U13 Gold (Hunt)",
+    "U13 Green (Grondin)",
+    "U15 (Baltzer)",
+    "U17 (Signorelli)",
+    "U9/U11 Gold (Natyshak)",
+    "U9/U11 Green (Lussier)",
     "University of Guelph",
     "University of Ottawa",
     "University of Toronto",
@@ -5050,8 +5044,8 @@ window.TITANS_DATA = {
       "tournamentScheduleUrl": ""
     },
     {
-      "id": "tc-cp-78485",
-      "cpGameId": "78485",
+      "id": "tc-cp-2026-06-08-U13 Gold (Hunt)-Turtle Club - Diamond #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-08",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -5066,8 +5060,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80165",
-      "cpGameId": "80165",
+      "id": "tc-cp-2026-06-08-Intermediate (Stadler)-Vollmer #3-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-08",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -5082,8 +5076,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79988",
-      "cpGameId": "79988",
+      "id": "tc-cp-2026-06-09-U13 Green (Grondin)-Vollmer #6-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-09",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -5098,8 +5092,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80076",
-      "cpGameId": "80076",
+      "id": "tc-cp-2026-06-09-U15 (Baltzer)-Vollmer #8-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-09",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -5130,8 +5124,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80901",
-      "cpGameId": "80901",
+      "id": "tc-cp-2026-06-09-U17 (Signorelli)-Vollmer #3-6:30 PM-8:30 PM",
+      "cpGameId": "",
       "date": "2026-06-09",
       "month": "Jun 2026",
       "time": "6:30 PM",
@@ -5146,8 +5140,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78503",
-      "cpGameId": "78503",
+      "id": "tc-cp-2026-06-10-U13 Gold (Hunt)-Turtle Club - Diamond #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-10",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -5162,8 +5156,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79901",
-      "cpGameId": "79901",
+      "id": "tc-cp-2026-06-10-U9/U11 Gold (Natyshak)-Turtle Club - Diamond #5-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-10",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -5178,8 +5172,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79954",
-      "cpGameId": "79954",
+      "id": "tc-cp-2026-06-11-U9/U11 Green (Lussier)-Turtle Club - Diamond #5-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-11",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -5194,8 +5188,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80112",
-      "cpGameId": "80112",
+      "id": "tc-cp-2026-06-11-U17 (Signorelli)-Turtle Club - Diamond #2-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-11",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -5210,8 +5204,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80006",
-      "cpGameId": "80006",
+      "id": "tc-cp-2026-06-11-U13 Green (Grondin)-Turtle Club - Diamond #4-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-11",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -5226,8 +5220,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80893",
-      "cpGameId": "80893",
+      "id": "tc-cp-2026-06-12-U9/U11 Gold (Natyshak)-Turtle Club - Diamond #5-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-12",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -5242,8 +5236,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80130",
-      "cpGameId": "80130",
+      "id": "tc-cp-2026-06-12-U17 (Signorelli)-Turtle Club - Diamond #4-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-12",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -5479,8 +5473,8 @@ window.TITANS_DATA = {
       "tournamentScheduleUrl": ""
     },
     {
-      "id": "tc-cp-78486",
-      "cpGameId": "78486",
+      "id": "tc-cp-2026-06-15-U13 Gold (Hunt)-Turtle Club - Diamond #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-15",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -5495,8 +5489,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80166",
-      "cpGameId": "80166",
+      "id": "tc-cp-2026-06-15-Intermediate (Stadler)-Vollmer #3-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-15",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -5511,24 +5505,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79989",
-      "cpGameId": "79989",
-      "date": "2026-06-16",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Green (Grondin)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80077",
-      "cpGameId": "80077",
+      "id": "tc-cp-2026-06-16-U15 (Baltzer)-Vollmer #8-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-16",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -5543,8 +5521,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79937",
-      "cpGameId": "79937",
+      "id": "tc-cp-2026-06-16-U9/U11 Green (Lussier)-Turtle Club - Diamond #5-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-16",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -5555,6 +5533,22 @@ window.TITANS_DATA = {
       "team": "U9/U11 Green (Lussier)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-16-U13 Green (Grondin)-Vollmer #6-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-16",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U13 Green (Grondin)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #6",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -5619,8 +5613,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-78504",
-      "cpGameId": "78504",
+      "id": "tc-cp-2026-06-17-U13 Gold (Hunt)-Turtle Club - Diamond #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-17",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -5635,8 +5629,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79902",
-      "cpGameId": "79902",
+      "id": "tc-cp-2026-06-17-U9/U11 Gold (Natyshak)-Turtle Club - Diamond #5-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-17",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -5651,8 +5645,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80043",
-      "cpGameId": "80043",
+      "id": "tc-cp-2026-06-17-U15 (Baltzer)-Turtle Club - Diamond #4-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-17",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -5667,8 +5661,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79955",
-      "cpGameId": "79955",
+      "id": "tc-cp-2026-06-18-U9/U11 Green (Lussier)-Turtle Club - Diamond #5-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-18",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -5683,8 +5677,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80007",
-      "cpGameId": "80007",
+      "id": "tc-cp-2026-06-18-U13 Green (Grondin)-Turtle Club - Diamond #4-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-18",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -5699,8 +5693,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80113",
-      "cpGameId": "80113",
+      "id": "tc-cp-2026-06-18-U17 (Signorelli)-Turtle Club - Diamond #2-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-18",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -5715,8 +5709,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78521",
-      "cpGameId": "78521",
+      "id": "tc-cp-2026-06-19-U13 Gold (Hunt)-Vollmer #3-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-19",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -5731,40 +5725,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79972",
-      "cpGameId": "79972",
-      "date": "2026-06-19",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Green (Lussier)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-79919",
-      "cpGameId": "79919",
-      "date": "2026-06-19",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Gold (Natyshak)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #8",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80025",
-      "cpGameId": "80025",
+      "id": "tc-cp-2026-06-19-U13 Green (Grondin)-Turtle Club - Diamond #3-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-19",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -5779,8 +5741,40 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80131",
-      "cpGameId": "80131",
+      "id": "tc-cp-2026-06-19-U9/U11 Green (Lussier)-Vollmer #6-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-19",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Green (Lussier)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #6",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-19-U9/U11 Gold (Natyshak)-Vollmer #8-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-19",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Gold (Natyshak)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #8",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-19-U17 (Signorelli)-Turtle Club - Diamond #4-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-19",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -5874,9 +5868,9 @@ window.TITANS_DATA = {
         "source": "officials-daily",
         "autoConfirmed": false,
         "umpire1Confirmed": true,
-        "umpire2Confirmed": false,
+        "umpire2Confirmed": true,
         "umpire1Name": "Ryan Cabana",
-        "umpire2Name": "",
+        "umpire2Name": "Gabriella Sivell",
         "officials": [
           {
             "username": "rcabana",
@@ -5902,8 +5896,8 @@ window.TITANS_DATA = {
             "position": "Bases",
             "pay": "$50.00",
             "payAmount": 50,
-            "confirmed": false,
-            "status": "pending"
+            "confirmed": true,
+            "status": "confirmed"
           }
         ]
       }
@@ -5943,8 +5937,8 @@ window.TITANS_DATA = {
       "tournamentScheduleUrl": ""
     },
     {
-      "id": "tc-cp-78487",
-      "cpGameId": "78487",
+      "id": "tc-cp-2026-06-22-U13 Gold (Hunt)-Turtle Club - Diamond #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-22",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -5959,24 +5953,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79885",
-      "cpGameId": "79885",
-      "date": "2026-06-22",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Gold (Natyshak)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80167",
-      "cpGameId": "80167",
+      "id": "tc-cp-2026-06-22-Intermediate (Stadler)-Vollmer #3-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-22",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -5991,48 +5969,20 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80514",
-      "cpGameId": "80514",
-      "date": "2026-06-23",
+      "id": "tc-cp-2026-06-22-U9/U11 Gold (Natyshak)-Turtle Club - Diamond #5-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-22",
       "month": "Jun 2026",
       "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "U15 (Baltzer)",
-      "opponent": "vs. Windsor Wildcats",
-      "diamond": "Vollmer #8",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Gold (Natyshak)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #5",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": false,
-        "umpire1Name": "Bob Masschaele",
-        "umpire2Name": "",
-        "officials": [
-          {
-            "username": "bmash",
-            "name": "Bob Masschaele",
-            "position": "Home Plate",
-            "pay": "$55.00",
-            "payAmount": 55,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "tomkelly",
-            "name": "Tom Kelly",
-            "position": "Bases",
-            "pay": "$50.00",
-            "payAmount": 50,
-            "confirmed": false,
-            "status": "pending"
-          }
-        ]
-      }
+      "source": "Turtle Club Control Panel"
     },
     {
       "id": "tc-cp-79990",
@@ -6079,6 +6029,22 @@ window.TITANS_DATA = {
       "team": "U17 (Signorelli)",
       "opponent": "Practice",
       "diamond": "Vollmer #3",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-81124",
+      "cpGameId": "81124",
+      "date": "2026-06-23",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U15 (Baltzer)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #8",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -6156,22 +6122,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80008",
-      "cpGameId": "80008",
-      "date": "2026-06-25",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Green (Grondin)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-79956",
       "cpGameId": "79956",
       "date": "2026-06-25",
@@ -6184,6 +6134,22 @@ window.TITANS_DATA = {
       "team": "U9/U11 Green (Lussier)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80008",
+      "cpGameId": "80008",
+      "date": "2026-06-25",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U13 Green (Grondin)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #4",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -6204,88 +6170,38 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78522",
-      "cpGameId": "78522",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Gold (Hunt)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #3",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-calendar-tournament-2026-06-26-U13 Gold (Hunt)-Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
+      "id": "tc-calendar-tournament-2026-06-26-U13 Green (Grondin)-Chatham Summer Gold",
+      "tournamentGroupId": "tournament-u13-green-grondin-chatham-summer-gold",
       "date": "2026-06-26",
       "month": "Jun 2026",
       "time": "Jun 26-Jun 28",
       "endTime": "",
       "durationMinutes": null,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "U13 Gold (Hunt)",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "diamond": "Home Diamonds",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3331/Schedule/"
-    },
-    {
-      "id": "tc-calendar-tournament-2026-06-26-U13 Green (Grondin)-Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "tournamentGroupId": "tournament-u13-green-grondin-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "Jun 26-Jun 28",
-      "endTime": "",
-      "durationMinutes": null,
-      "type": "Hosted Tournament",
+      "type": "Tournament",
       "eventKind": "Tournament",
       "team": "U13 Green (Grondin)",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "diamond": "Home Diamonds",
+      "opponent": "Chatham Summer Gold",
+      "diamond": "Chatham, ON",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3331/Schedule/"
+      "source": "Turtle Club full calendar",
+      "tournamentScheduleUrl": ""
     },
     {
-      "id": "tc-calendar-tournament-2026-06-26-U9/U11 Gold (Natyshak)-Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "tournamentGroupId": "tournament-u9-u11-gold-natyshak-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
+      "id": "tc-calendar-tournament-2026-06-26-U13 Gold (Hunt)-Chatham Summer Gold",
+      "tournamentGroupId": "tournament-u13-gold-hunt-chatham-summer-gold",
       "date": "2026-06-26",
       "month": "Jun 2026",
       "time": "Jun 26-Jun 28",
       "endTime": "",
       "durationMinutes": null,
-      "type": "Hosted Tournament",
+      "type": "Tournament",
       "eventKind": "Tournament",
-      "team": "U9/U11 Gold (Natyshak)",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "diamond": "Home Diamonds",
+      "team": "U13 Gold (Hunt)",
+      "opponent": "Chatham Summer Gold",
+      "diamond": "Chatham, Ontario",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3331/Schedule/"
-    },
-    {
-      "id": "tc-calendar-tournament-2026-06-26-U9/U11 Green (Lussier)-Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "tournamentGroupId": "tournament-u9-u11-green-lussier-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "Jun 26-Jun 28",
-      "endTime": "",
-      "durationMinutes": null,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "U9/U11 Green (Lussier)",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "diamond": "Home Diamonds",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3331/Schedule/"
+      "source": "Turtle Club full calendar",
+      "tournamentScheduleUrl": ""
     },
     {
       "id": "tc-calendar-tournament-2026-06-26-U17 (Signorelli)-Bash Championships",
@@ -6305,72 +6221,55 @@ window.TITANS_DATA = {
       "tournamentScheduleUrl": ""
     },
     {
-      "id": "tc-calendar-tournament-2026-06-27-U13 Gold (Hunt)-Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
+      "id": "tc-calendar-tournament-2026-06-26-U9/U11 Green (Lussier)-Leamington Tournament",
+      "tournamentGroupId": "tournament-u9-u11-green-lussier-leamington-tournament",
+      "date": "2026-06-26",
       "month": "Jun 2026",
       "time": "Jun 26-Jun 28",
       "endTime": "",
       "durationMinutes": null,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "U13 Gold (Hunt)",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "diamond": "Home Diamonds",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3331/Schedule/"
-    },
-    {
-      "id": "tc-calendar-tournament-2026-06-27-U13 Green (Grondin)-Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "tournamentGroupId": "tournament-u13-green-grondin-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "Jun 26-Jun 28",
-      "endTime": "",
-      "durationMinutes": null,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "U13 Green (Grondin)",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "diamond": "Home Diamonds",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3331/Schedule/"
-    },
-    {
-      "id": "tc-calendar-tournament-2026-06-27-U9/U11 Gold (Natyshak)-Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "tournamentGroupId": "tournament-u9-u11-gold-natyshak-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "Jun 26-Jun 28",
-      "endTime": "",
-      "durationMinutes": null,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "U9/U11 Gold (Natyshak)",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "diamond": "Home Diamonds",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3331/Schedule/"
-    },
-    {
-      "id": "tc-calendar-tournament-2026-06-27-U9/U11 Green (Lussier)-Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "tournamentGroupId": "tournament-u9-u11-green-lussier-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "Jun 26-Jun 28",
-      "endTime": "",
-      "durationMinutes": null,
-      "type": "Hosted Tournament",
+      "type": "Tournament",
       "eventKind": "Tournament",
       "team": "U9/U11 Green (Lussier)",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "diamond": "Home Diamonds",
+      "opponent": "Leamington Tournament",
+      "diamond": "Leamington, ON",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3331/Schedule/"
+      "source": "Turtle Club full calendar",
+      "tournamentScheduleUrl": ""
+    },
+    {
+      "id": "tc-calendar-tournament-2026-06-27-U13 Green (Grondin)-Chatham Summer Gold",
+      "tournamentGroupId": "tournament-u13-green-grondin-chatham-summer-gold",
+      "date": "2026-06-27",
+      "month": "Jun 2026",
+      "time": "Jun 26-Jun 28",
+      "endTime": "",
+      "durationMinutes": null,
+      "type": "Tournament",
+      "eventKind": "Tournament",
+      "team": "U13 Green (Grondin)",
+      "opponent": "Chatham Summer Gold",
+      "diamond": "Chatham, ON",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar",
+      "tournamentScheduleUrl": ""
+    },
+    {
+      "id": "tc-calendar-tournament-2026-06-27-U13 Gold (Hunt)-Chatham Summer Gold",
+      "tournamentGroupId": "tournament-u13-gold-hunt-chatham-summer-gold",
+      "date": "2026-06-27",
+      "month": "Jun 2026",
+      "time": "Jun 26-Jun 28",
+      "endTime": "",
+      "durationMinutes": null,
+      "type": "Tournament",
+      "eventKind": "Tournament",
+      "team": "U13 Gold (Hunt)",
+      "opponent": "Chatham Summer Gold",
+      "diamond": "Chatham, Ontario",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar",
+      "tournamentScheduleUrl": ""
     },
     {
       "id": "tc-calendar-tournament-2026-06-27-U17 (Signorelli)-Bash Championships",
@@ -6390,72 +6289,55 @@ window.TITANS_DATA = {
       "tournamentScheduleUrl": ""
     },
     {
-      "id": "tc-calendar-tournament-2026-06-28-U13 Gold (Hunt)-Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
+      "id": "tc-calendar-tournament-2026-06-27-U9/U11 Green (Lussier)-Leamington Tournament",
+      "tournamentGroupId": "tournament-u9-u11-green-lussier-leamington-tournament",
+      "date": "2026-06-27",
       "month": "Jun 2026",
       "time": "Jun 26-Jun 28",
       "endTime": "",
       "durationMinutes": null,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "U13 Gold (Hunt)",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "diamond": "Home Diamonds",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3331/Schedule/"
-    },
-    {
-      "id": "tc-calendar-tournament-2026-06-28-U13 Green (Grondin)-Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "tournamentGroupId": "tournament-u13-green-grondin-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "Jun 26-Jun 28",
-      "endTime": "",
-      "durationMinutes": null,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "U13 Green (Grondin)",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "diamond": "Home Diamonds",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3331/Schedule/"
-    },
-    {
-      "id": "tc-calendar-tournament-2026-06-28-U9/U11 Gold (Natyshak)-Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "tournamentGroupId": "tournament-u9-u11-gold-natyshak-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "Jun 26-Jun 28",
-      "endTime": "",
-      "durationMinutes": null,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "U9/U11 Gold (Natyshak)",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "diamond": "Home Diamonds",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3331/Schedule/"
-    },
-    {
-      "id": "tc-calendar-tournament-2026-06-28-U9/U11 Green (Lussier)-Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "tournamentGroupId": "tournament-u9-u11-green-lussier-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "Jun 26-Jun 28",
-      "endTime": "",
-      "durationMinutes": null,
-      "type": "Hosted Tournament",
+      "type": "Tournament",
       "eventKind": "Tournament",
       "team": "U9/U11 Green (Lussier)",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U)",
-      "diamond": "Home Diamonds",
+      "opponent": "Leamington Tournament",
+      "diamond": "Leamington, ON",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3331/Schedule/"
+      "source": "Turtle Club full calendar",
+      "tournamentScheduleUrl": ""
+    },
+    {
+      "id": "tc-calendar-tournament-2026-06-28-U13 Green (Grondin)-Chatham Summer Gold",
+      "tournamentGroupId": "tournament-u13-green-grondin-chatham-summer-gold",
+      "date": "2026-06-28",
+      "month": "Jun 2026",
+      "time": "Jun 26-Jun 28",
+      "endTime": "",
+      "durationMinutes": null,
+      "type": "Tournament",
+      "eventKind": "Tournament",
+      "team": "U13 Green (Grondin)",
+      "opponent": "Chatham Summer Gold",
+      "diamond": "Chatham, ON",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar",
+      "tournamentScheduleUrl": ""
+    },
+    {
+      "id": "tc-calendar-tournament-2026-06-28-U13 Gold (Hunt)-Chatham Summer Gold",
+      "tournamentGroupId": "tournament-u13-gold-hunt-chatham-summer-gold",
+      "date": "2026-06-28",
+      "month": "Jun 2026",
+      "time": "Jun 26-Jun 28",
+      "endTime": "",
+      "durationMinutes": null,
+      "type": "Tournament",
+      "eventKind": "Tournament",
+      "team": "U13 Gold (Hunt)",
+      "opponent": "Chatham Summer Gold",
+      "diamond": "Chatham, Ontario",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar",
+      "tournamentScheduleUrl": ""
     },
     {
       "id": "tc-calendar-tournament-2026-06-28-U17 (Signorelli)-Bash Championships",
@@ -6470,6 +6352,23 @@ window.TITANS_DATA = {
       "team": "U17 (Signorelli)",
       "opponent": "Bash Championships",
       "diamond": "Indiana",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar",
+      "tournamentScheduleUrl": ""
+    },
+    {
+      "id": "tc-calendar-tournament-2026-06-28-U9/U11 Green (Lussier)-Leamington Tournament",
+      "tournamentGroupId": "tournament-u9-u11-green-lussier-leamington-tournament",
+      "date": "2026-06-28",
+      "month": "Jun 2026",
+      "time": "Jun 26-Jun 28",
+      "endTime": "",
+      "durationMinutes": null,
+      "type": "Tournament",
+      "eventKind": "Tournament",
+      "team": "U9/U11 Green (Lussier)",
+      "opponent": "Leamington Tournament",
+      "diamond": "Leamington, ON",
       "status": "Scheduled",
       "source": "Turtle Club full calendar",
       "tournamentScheduleUrl": ""
@@ -6523,22 +6422,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80079",
-      "cpGameId": "80079",
-      "date": "2026-06-30",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U15 (Baltzer)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #8",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-79939",
       "cpGameId": "79939",
       "date": "2026-06-30",
@@ -6551,6 +6434,22 @@ window.TITANS_DATA = {
       "team": "U9/U11 Green (Lussier)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80079",
+      "cpGameId": "80079",
+      "date": "2026-06-30",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U15 (Baltzer)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #8",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -6589,9 +6488,9 @@ window.TITANS_DATA = {
         "source": "officials-daily",
         "autoConfirmed": false,
         "umpire1Confirmed": true,
-        "umpire2Confirmed": false,
+        "umpire2Confirmed": true,
         "umpire1Name": "Bob Masschaele",
-        "umpire2Name": "",
+        "umpire2Name": "Gabriella Sivell",
         "officials": [
           {
             "username": "bmash",
@@ -6608,8 +6507,8 @@ window.TITANS_DATA = {
             "position": "Bases",
             "pay": "$50.00",
             "payAmount": 50,
-            "confirmed": false,
-            "status": "pending"
+            "confirmed": true,
+            "status": "confirmed"
           },
           {
             "username": "rcabana",
@@ -6656,22 +6555,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79904",
-      "cpGameId": "79904",
-      "date": "2026-07-01",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Gold (Natyshak)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80045",
       "cpGameId": "80045",
       "date": "2026-07-01",
@@ -6684,6 +6567,22 @@ window.TITANS_DATA = {
       "team": "U15 (Baltzer)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-79904",
+      "cpGameId": "79904",
+      "date": "2026-07-01",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Gold (Natyshak)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #5",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -6704,22 +6603,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80009",
-      "cpGameId": "80009",
-      "date": "2026-07-02",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Green (Grondin)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80115",
       "cpGameId": "80115",
       "date": "2026-07-02",
@@ -6734,6 +6617,68 @@ window.TITANS_DATA = {
       "diamond": "Turtle Club - Diamond #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-81050",
+      "cpGameId": "81050",
+      "date": "2026-07-02",
+      "month": "Jul 2026",
+      "time": "6:30 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "U13 Green (Grondin)",
+      "opponent": "vs. Chatham Golden Eagles",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Gabriella Sivell",
+        "umpire2Name": "Brianna Dinchik",
+        "officials": [
+          {
+            "username": "gsivell",
+            "name": "Gabriella Sivell",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "lsivell",
+            "name": "Luca Sivell",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "tmcdermott",
+            "name": "Terry McDermott",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "bdinchik",
+            "name": "Brianna Dinchik",
+            "position": "Bases",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
+      }
     },
     {
       "id": "tc-cp-78523",
@@ -6768,22 +6713,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80027",
-      "cpGameId": "80027",
-      "date": "2026-07-03",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Green (Grondin)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #3",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-79974",
       "cpGameId": "79974",
       "date": "2026-07-03",
@@ -6796,6 +6725,22 @@ window.TITANS_DATA = {
       "team": "U9/U11 Green (Lussier)",
       "opponent": "Practice",
       "diamond": "Vollmer #6",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80027",
+      "cpGameId": "80027",
+      "date": "2026-07-03",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U13 Green (Grondin)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #3",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -6850,11 +6795,57 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "David Ludberg",
+        "umpire2Name": "Gabriella Sivell",
+        "officials": [
+          {
+            "username": "dludberg",
+            "name": "David Ludberg",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "bmash",
+            "name": "Bob Masschaele",
+            "position": "Bases",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "gsivell",
+            "name": "Gabriella Sivell",
+            "position": "Bases",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "lpaun",
+            "name": "Liam Paun",
+            "position": "Bases",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "rcabana",
+            "name": "Ryan Cabana",
+            "position": "Bases",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": false,
+            "status": "denied"
+          }
+        ]
       }
     },
     {
@@ -6875,11 +6866,57 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "David Ludberg",
+        "umpire2Name": "Ryan Torti",
+        "officials": [
+          {
+            "username": "bmash",
+            "name": "Bob Masschaele",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "dludberg",
+            "name": "David Ludberg",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "lpaun",
+            "name": "Liam Paun",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "rcabana",
+            "name": "Ryan Cabana",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "rtorti",
+            "name": "Ryan Torti",
+            "position": "Bases",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -6933,22 +6970,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79887",
-      "cpGameId": "79887",
-      "date": "2026-07-06",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Gold (Natyshak)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80169",
       "cpGameId": "80169",
       "date": "2026-07-06",
@@ -6961,6 +6982,22 @@ window.TITANS_DATA = {
       "team": "Intermediate (Stadler)",
       "opponent": "Practice",
       "diamond": "Vollmer #3",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-81150",
+      "cpGameId": "81150",
+      "date": "2026-07-06",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Gold (Natyshak)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #5",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -7030,11 +7067,21 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": false,
-        "umpire1Name": "",
+        "umpire1Name": "Terry McDermott",
         "umpire2Name": "",
-        "officials": []
+        "officials": [
+          {
+            "username": "tmcdermott",
+            "name": "Terry McDermott",
+            "position": "Home Plate",
+            "pay": "$55.00",
+            "payAmount": 55,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -7055,11 +7102,21 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": false,
-        "umpire1Name": "",
+        "umpire1Name": "Bob Masschaele",
         "umpire2Name": "",
-        "officials": []
+        "officials": [
+          {
+            "username": "bmash",
+            "name": "Bob Masschaele",
+            "position": "Home Plate",
+            "pay": "$55.00",
+            "payAmount": 55,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -7075,22 +7132,6 @@ window.TITANS_DATA = {
       "team": "U13 Gold (Hunt)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-79905",
-      "cpGameId": "79905",
-      "date": "2026-07-08",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Gold (Natyshak)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -7111,20 +7152,48 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79958",
-      "cpGameId": "79958",
-      "date": "2026-07-09",
+      "id": "tc-cp-81131",
+      "cpGameId": "81131",
+      "date": "2026-07-08",
       "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Green (Lussier)",
-      "opponent": "Practice",
+      "time": "6:30 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "U9/U11 Gold (Natyshak)",
+      "opponent": "vs. Leamington Whitecaps U11",
       "diamond": "Turtle Club - Diamond #5",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Gabriella Sivell",
+        "umpire2Name": "Amit Sra",
+        "officials": [
+          {
+            "username": "gsivell",
+            "name": "Gabriella Sivell",
+            "position": "Home Plate",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "asra",
+            "name": "Amit Sra",
+            "position": "Bases",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
+      }
     },
     {
       "id": "tc-cp-80010",
@@ -7139,6 +7208,22 @@ window.TITANS_DATA = {
       "team": "U13 Green (Grondin)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-79958",
+      "cpGameId": "79958",
+      "date": "2026-07-09",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Green (Lussier)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #5",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -7207,22 +7292,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80028",
-      "cpGameId": "80028",
-      "date": "2026-07-10",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Green (Grondin)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #3",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-79922",
       "cpGameId": "79922",
       "date": "2026-07-10",
@@ -7235,6 +7304,22 @@ window.TITANS_DATA = {
       "team": "U9/U11 Gold (Natyshak)",
       "opponent": "Practice",
       "diamond": "Vollmer #8",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80028",
+      "cpGameId": "80028",
+      "date": "2026-07-10",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U13 Green (Grondin)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #3",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -7408,6 +7493,22 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-79888",
+      "cpGameId": "79888",
+      "date": "2026-07-13",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Gold (Natyshak)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "id": "tc-cp-80170",
       "cpGameId": "80170",
       "date": "2026-07-13",
@@ -7424,18 +7525,18 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79888",
-      "cpGameId": "79888",
-      "date": "2026-07-13",
+      "id": "tc-cp-80081",
+      "cpGameId": "80081",
+      "date": "2026-07-14",
       "month": "Jul 2026",
       "time": "6:00 PM",
       "endTime": "8:00 PM",
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "U9/U11 Gold (Natyshak)",
+      "team": "U15 (Baltzer)",
       "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
+      "diamond": "Vollmer #8",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -7472,18 +7573,18 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80081",
-      "cpGameId": "80081",
+      "id": "tc-cp-80626",
+      "cpGameId": "80626",
       "date": "2026-07-14",
       "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U15 (Baltzer)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #8",
+      "time": "6:30 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Intermediate (Stadler)",
+      "opponent": "@ Windsor WLE U19",
+      "diamond": "Weston Front",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -7511,22 +7612,6 @@ window.TITANS_DATA = {
         "umpire2Name": "",
         "officials": []
       }
-    },
-    {
-      "id": "tc-cp-80626",
-      "cpGameId": "80626",
-      "date": "2026-07-14",
-      "month": "Jul 2026",
-      "time": "6:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Away Game",
-      "eventKind": "Away Game",
-      "team": "Intermediate (Stadler)",
-      "opponent": "@ Windsor WLE U19",
-      "diamond": "Weston Front",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
     },
     {
       "id": "tc-cp-78508",
@@ -7577,8 +7662,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79959",
-      "cpGameId": "79959",
+      "id": "tc-cp-80117",
+      "cpGameId": "80117",
       "date": "2026-07-16",
       "month": "Jul 2026",
       "time": "6:00 PM",
@@ -7586,9 +7671,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "U9/U11 Green (Lussier)",
+      "team": "U17 (Signorelli)",
       "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
+      "diamond": "Turtle Club - Diamond #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -7609,8 +7694,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80117",
-      "cpGameId": "80117",
+      "id": "tc-cp-79959",
+      "cpGameId": "79959",
       "date": "2026-07-16",
       "month": "Jul 2026",
       "time": "6:00 PM",
@@ -7618,9 +7703,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "U17 (Signorelli)",
+      "team": "U9/U11 Green (Lussier)",
       "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #2",
+      "diamond": "Turtle Club - Diamond #5",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -7657,6 +7742,22 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-79976",
+      "cpGameId": "79976",
+      "date": "2026-07-17",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Green (Lussier)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #6",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "id": "tc-cp-80064",
       "cpGameId": "80064",
       "date": "2026-07-17",
@@ -7685,22 +7786,6 @@ window.TITANS_DATA = {
       "team": "U13 Green (Grondin)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #3",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-79976",
-      "cpGameId": "79976",
-      "date": "2026-07-17",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Green (Lussier)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #6",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -7890,22 +7975,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79994",
-      "cpGameId": "79994",
-      "date": "2026-07-21",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Green (Grondin)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80082",
       "cpGameId": "80082",
       "date": "2026-07-21",
@@ -7918,6 +7987,22 @@ window.TITANS_DATA = {
       "team": "U15 (Baltzer)",
       "opponent": "Practice",
       "diamond": "Vollmer #8",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80154",
+      "cpGameId": "80154",
+      "date": "2026-07-21",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Intermediate (Stadler)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -7954,8 +8039,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80154",
-      "cpGameId": "80154",
+      "id": "tc-cp-79994",
+      "cpGameId": "79994",
       "date": "2026-07-21",
       "month": "Jul 2026",
       "time": "6:00 PM",
@@ -7963,9 +8048,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "Intermediate (Stadler)",
+      "team": "U13 Green (Grondin)",
       "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #2",
+      "diamond": "Vollmer #6",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -8034,22 +8119,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79960",
-      "cpGameId": "79960",
-      "date": "2026-07-23",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Green (Lussier)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80118",
       "cpGameId": "80118",
       "date": "2026-07-23",
@@ -8062,6 +8131,22 @@ window.TITANS_DATA = {
       "team": "U17 (Signorelli)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-79960",
+      "cpGameId": "79960",
+      "date": "2026-07-23",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Green (Lussier)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #5",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -8670,55 +8755,21 @@ window.TITANS_DATA = {
       "tournamentScheduleUrl": ""
     },
     {
-      "id": "tc-calendar-tournament-2026-07-31-U15 (Baltzer)-Green and Gold Classic #2 (8U, 9U, 14U, 15U)",
-      "tournamentGroupId": "tournament-u15-baltzer-green-and-gold-classic-2-8u-9u-14u-15u",
+      "id": "tc-calendar-tournament-2026-07-31-U15 (Baltzer)-PWSA Grands",
+      "tournamentGroupId": "tournament-u15-baltzer-pwsa-grands",
       "date": "2026-07-31",
       "month": "Jul 2026",
       "time": "Jul 31-Aug 02",
       "endTime": "",
       "durationMinutes": null,
-      "type": "Hosted Tournament",
+      "type": "Tournament",
       "eventKind": "Tournament",
       "team": "U15 (Baltzer)",
-      "opponent": "Green and Gold Classic #2 (8U, 9U, 14U, 15U)",
-      "diamond": "Home Diamonds",
+      "opponent": "PWSA Grands",
+      "diamond": "TBD",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3333/Schedule/"
-    },
-    {
-      "id": "tc-calendar-tournament-2026-07-31-U9/U11 Gold (Natyshak)-Green and Gold Classic #2 (8U, 9U, 14U, 15U)",
-      "tournamentGroupId": "tournament-u9-u11-gold-natyshak-green-and-gold-classic-2-8u-9u-14u-15u",
-      "date": "2026-07-31",
-      "month": "Jul 2026",
-      "time": "Jul 31-Aug 02",
-      "endTime": "",
-      "durationMinutes": null,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "U9/U11 Gold (Natyshak)",
-      "opponent": "Green and Gold Classic #2 (8U, 9U, 14U, 15U)",
-      "diamond": "Home Diamonds",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3333/Schedule/"
-    },
-    {
-      "id": "tc-calendar-tournament-2026-07-31-U9/U11 Green (Lussier)-Green and Gold Classic #2 (8U, 9U, 14U, 15U)",
-      "tournamentGroupId": "tournament-u9-u11-green-lussier-green-and-gold-classic-2-8u-9u-14u-15u",
-      "date": "2026-07-31",
-      "month": "Jul 2026",
-      "time": "Jul 31-Aug 02",
-      "endTime": "",
-      "durationMinutes": null,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "U9/U11 Green (Lussier)",
-      "opponent": "Green and Gold Classic #2 (8U, 9U, 14U, 15U)",
-      "diamond": "Home Diamonds",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3333/Schedule/"
+      "source": "Turtle Club full calendar",
+      "tournamentScheduleUrl": ""
     },
     {
       "id": "tc-calendar-tournament-2026-08-01-U17 (Signorelli)-USSA Eastern National Championship",
@@ -8738,106 +8789,38 @@ window.TITANS_DATA = {
       "tournamentScheduleUrl": ""
     },
     {
-      "id": "tc-calendar-tournament-2026-08-01-U15 (Baltzer)-Green and Gold Classic #2 (8U, 9U, 14U, 15U)",
-      "tournamentGroupId": "tournament-u15-baltzer-green-and-gold-classic-2-8u-9u-14u-15u",
+      "id": "tc-calendar-tournament-2026-08-01-U15 (Baltzer)-PWSA Grands",
+      "tournamentGroupId": "tournament-u15-baltzer-pwsa-grands",
       "date": "2026-08-01",
       "month": "Aug 2026",
       "time": "Jul 31-Aug 02",
       "endTime": "",
       "durationMinutes": null,
-      "type": "Hosted Tournament",
+      "type": "Tournament",
       "eventKind": "Tournament",
       "team": "U15 (Baltzer)",
-      "opponent": "Green and Gold Classic #2 (8U, 9U, 14U, 15U)",
-      "diamond": "Home Diamonds",
+      "opponent": "PWSA Grands",
+      "diamond": "TBD",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3333/Schedule/"
+      "source": "Turtle Club full calendar",
+      "tournamentScheduleUrl": ""
     },
     {
-      "id": "tc-calendar-tournament-2026-08-01-U9/U11 Gold (Natyshak)-Green and Gold Classic #2 (8U, 9U, 14U, 15U)",
-      "tournamentGroupId": "tournament-u9-u11-gold-natyshak-green-and-gold-classic-2-8u-9u-14u-15u",
-      "date": "2026-08-01",
-      "month": "Aug 2026",
-      "time": "Jul 31-Aug 02",
-      "endTime": "",
-      "durationMinutes": null,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "U9/U11 Gold (Natyshak)",
-      "opponent": "Green and Gold Classic #2 (8U, 9U, 14U, 15U)",
-      "diamond": "Home Diamonds",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3333/Schedule/"
-    },
-    {
-      "id": "tc-calendar-tournament-2026-08-01-U9/U11 Green (Lussier)-Green and Gold Classic #2 (8U, 9U, 14U, 15U)",
-      "tournamentGroupId": "tournament-u9-u11-green-lussier-green-and-gold-classic-2-8u-9u-14u-15u",
-      "date": "2026-08-01",
-      "month": "Aug 2026",
-      "time": "Jul 31-Aug 02",
-      "endTime": "",
-      "durationMinutes": null,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "U9/U11 Green (Lussier)",
-      "opponent": "Green and Gold Classic #2 (8U, 9U, 14U, 15U)",
-      "diamond": "Home Diamonds",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3333/Schedule/"
-    },
-    {
-      "id": "tc-calendar-tournament-2026-08-02-U15 (Baltzer)-Green and Gold Classic #2 (8U, 9U, 14U, 15U)",
-      "tournamentGroupId": "tournament-u15-baltzer-green-and-gold-classic-2-8u-9u-14u-15u",
+      "id": "tc-calendar-tournament-2026-08-02-U15 (Baltzer)-PWSA Grands",
+      "tournamentGroupId": "tournament-u15-baltzer-pwsa-grands",
       "date": "2026-08-02",
       "month": "Aug 2026",
       "time": "Jul 31-Aug 02",
       "endTime": "",
       "durationMinutes": null,
-      "type": "Hosted Tournament",
+      "type": "Tournament",
       "eventKind": "Tournament",
       "team": "U15 (Baltzer)",
-      "opponent": "Green and Gold Classic #2 (8U, 9U, 14U, 15U)",
-      "diamond": "Home Diamonds",
+      "opponent": "PWSA Grands",
+      "diamond": "TBD",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3333/Schedule/"
-    },
-    {
-      "id": "tc-calendar-tournament-2026-08-02-U9/U11 Gold (Natyshak)-Green and Gold Classic #2 (8U, 9U, 14U, 15U)",
-      "tournamentGroupId": "tournament-u9-u11-gold-natyshak-green-and-gold-classic-2-8u-9u-14u-15u",
-      "date": "2026-08-02",
-      "month": "Aug 2026",
-      "time": "Jul 31-Aug 02",
-      "endTime": "",
-      "durationMinutes": null,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "U9/U11 Gold (Natyshak)",
-      "opponent": "Green and Gold Classic #2 (8U, 9U, 14U, 15U)",
-      "diamond": "Home Diamonds",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3333/Schedule/"
-    },
-    {
-      "id": "tc-calendar-tournament-2026-08-02-U9/U11 Green (Lussier)-Green and Gold Classic #2 (8U, 9U, 14U, 15U)",
-      "tournamentGroupId": "tournament-u9-u11-green-lussier-green-and-gold-classic-2-8u-9u-14u-15u",
-      "date": "2026-08-02",
-      "month": "Aug 2026",
-      "time": "Jul 31-Aug 02",
-      "endTime": "",
-      "durationMinutes": null,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "U9/U11 Green (Lussier)",
-      "opponent": "Green and Gold Classic #2 (8U, 9U, 14U, 15U)",
-      "diamond": "Home Diamonds",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament",
-      "tournamentScheduleUrl": "https://turtleclubbaseball.com/Tournaments/3333/Schedule/"
+      "source": "Turtle Club full calendar",
+      "tournamentScheduleUrl": ""
     },
     {
       "id": "tc-cp-78493",
@@ -8904,8 +8887,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80156",
-      "cpGameId": "80156",
+      "id": "tc-cp-79996",
+      "cpGameId": "79996",
       "date": "2026-08-04",
       "month": "Aug 2026",
       "time": "6:00 PM",
@@ -8913,9 +8896,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "Intermediate (Stadler)",
+      "team": "U13 Green (Grondin)",
       "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #2",
+      "diamond": "Vollmer #6",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -8952,8 +8935,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79996",
-      "cpGameId": "79996",
+      "id": "tc-cp-80156",
+      "cpGameId": "80156",
       "date": "2026-08-04",
       "month": "Aug 2026",
       "time": "6:00 PM",
@@ -8961,9 +8944,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "U13 Green (Grondin)",
+      "team": "Intermediate (Stadler)",
       "opponent": "Practice",
-      "diamond": "Vollmer #6",
+      "diamond": "Turtle Club - Diamond #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -9344,22 +9327,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79945",
-      "cpGameId": "79945",
-      "date": "2026-08-11",
-      "month": "Aug 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Green (Lussier)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80085",
       "cpGameId": "80085",
       "date": "2026-08-11",
@@ -9376,22 +9343,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79997",
-      "cpGameId": "79997",
-      "date": "2026-08-11",
-      "month": "Aug 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Green (Grondin)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80157",
       "cpGameId": "80157",
       "date": "2026-08-11",
@@ -9404,6 +9355,38 @@ window.TITANS_DATA = {
       "team": "Intermediate (Stadler)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-79945",
+      "cpGameId": "79945",
+      "date": "2026-08-11",
+      "month": "Aug 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Green (Lussier)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-79997",
+      "cpGameId": "79997",
+      "date": "2026-08-11",
+      "month": "Aug 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U13 Green (Grondin)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #6",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -9472,22 +9455,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80015",
-      "cpGameId": "80015",
-      "date": "2026-08-13",
-      "month": "Aug 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Green (Grondin)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-79963",
       "cpGameId": "79963",
       "date": "2026-08-13",
@@ -9500,6 +9467,22 @@ window.TITANS_DATA = {
       "team": "U9/U11 Green (Lussier)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80015",
+      "cpGameId": "80015",
+      "date": "2026-08-13",
+      "month": "Aug 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U13 Green (Grondin)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #4",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -9536,8 +9519,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79980",
-      "cpGameId": "79980",
+      "id": "tc-cp-80068",
+      "cpGameId": "80068",
       "date": "2026-08-14",
       "month": "Aug 2026",
       "time": "6:00 PM",
@@ -9545,9 +9528,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "U9/U11 Green (Lussier)",
+      "team": "U15 (Baltzer)",
       "opponent": "Practice",
-      "diamond": "Vollmer #6",
+      "diamond": "Vollmer #5",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -9568,8 +9551,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80068",
-      "cpGameId": "80068",
+      "id": "tc-cp-79980",
+      "cpGameId": "79980",
       "date": "2026-08-14",
       "month": "Aug 2026",
       "time": "6:00 PM",
@@ -9577,9 +9560,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "U15 (Baltzer)",
+      "team": "U9/U11 Green (Lussier)",
       "opponent": "Practice",
-      "diamond": "Vollmer #5",
+      "diamond": "Vollmer #6",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -23468,79 +23451,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79738",
-      "cpGameId": "79738",
-      "date": "2026-05-27",
-      "month": "May 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Away Game",
-      "eventKind": "Away Game",
-      "team": "Titans - 10U T1 (Picco)",
-      "opponent": "@ Windsor Stars",
-      "diamond": "Windsor",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80234",
-      "cpGameId": "80234",
-      "date": "2026-05-27",
-      "month": "May 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Away Game",
-      "eventKind": "Away Game",
-      "team": "Titans - 8U (Ellwood)",
-      "opponent": "@ Windsor Stars",
-      "diamond": "Windsor",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-79711",
-      "cpGameId": "79711",
-      "date": "2026-05-27",
-      "month": "May 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Away Game",
-      "eventKind": "Away Game",
-      "team": "Titans - 10U T2 (Martin)",
-      "opponent": "@ Lakeshore Whitecaps",
-      "diamond": "Lakeshore",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-78676",
-      "cpGameId": "78676",
-      "date": "2026-05-27",
-      "month": "May 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "Titans - 15U T1 (Nickleson)",
-      "opponent": "vs. Essex Yellow Jackets",
-      "diamond": "Vollmer #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "auto-age",
-        "autoConfirmed": true,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
-      }
-    },
-    {
       "id": "tc-cp-78653",
       "cpGameId": "78653",
       "date": "2026-05-27",
@@ -23583,6 +23493,63 @@ window.TITANS_DATA = {
           }
         ]
       }
+    },
+    {
+      "id": "tc-cp-80234",
+      "cpGameId": "80234",
+      "date": "2026-05-27",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Titans - 8U (Ellwood)",
+      "opponent": "@ Windsor Stars",
+      "diamond": "Windsor",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-78676",
+      "cpGameId": "78676",
+      "date": "2026-05-27",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "Titans - 15U T1 (Nickleson)",
+      "opponent": "vs. Essex Yellow Jackets",
+      "diamond": "Vollmer #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "auto-age",
+        "autoConfirmed": true,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
+    },
+    {
+      "id": "tc-cp-79711",
+      "cpGameId": "79711",
+      "date": "2026-05-27",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Titans - 10U T2 (Martin)",
+      "opponent": "@ Lakeshore Whitecaps",
+      "diamond": "Lakeshore",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
     },
     {
       "id": "tc-cp-79659",
@@ -23638,18 +23605,18 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-2026-05-27-U15 (Baltzer)-Turtle Club - Diamond #4-6:00 PM-8:00 PM",
-      "cpGameId": "",
+      "id": "tc-cp-79738",
+      "cpGameId": "79738",
       "date": "2026-05-27",
       "month": "May 2026",
       "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U15 (Baltzer)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #4",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Titans - 10U T1 (Picco)",
+      "opponent": "@ Windsor Stars",
+      "diamond": "Windsor",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -23670,38 +23637,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-2026-05-27-Selects - U11 Softball (Meyers)-Vollmer #5-6:00 PM-8:00 PM",
-      "cpGameId": "",
-      "date": "2026-05-27",
-      "month": "May 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - U11 Softball (Meyers)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #5",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-2026-05-27-U9/U11 Gold (Natyshak)-Turtle Club - Diamond #5-6:00 PM-8:00 PM",
-      "cpGameId": "",
-      "date": "2026-05-27",
-      "month": "May 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Gold (Natyshak)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-2026-05-27-Selects - U13 Softball (Paquette)-Vollmer #6-6:00 PM-8:00 PM",
       "cpGameId": "",
       "date": "2026-05-27",
@@ -23714,6 +23649,22 @@ window.TITANS_DATA = {
       "team": "Selects - U13 Softball (Paquette)",
       "opponent": "Practice",
       "diamond": "Vollmer #6",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-05-27-U15 (Baltzer)-Turtle Club - Diamond #4-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-05-27",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U15 (Baltzer)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #4",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -23750,6 +23701,22 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-2026-05-27-U9/U11 Gold (Natyshak)-Turtle Club - Diamond #5-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-05-27",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Gold (Natyshak)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "id": "tc-cp-2026-05-27-HL - WFCU Credit Union- Grey - (Montean) & Antonino's Pizza - Red - (Grondin)-Turtle Club - Diamond #1-6:00 PM-8:00 PM",
       "cpGameId": "",
       "date": "2026-05-27",
@@ -23762,6 +23729,22 @@ window.TITANS_DATA = {
       "team": "HL - WFCU Credit Union- Grey - (Montean) & Antonino's Pizza - Red - (Grondin)",
       "opponent": "Shared Practice",
       "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-05-27-Selects - U11 Softball (Meyers)-Vollmer #5-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-05-27",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - U11 Softball (Meyers)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #5",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -25054,8 +25037,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-79476",
-      "cpGameId": "79476",
+      "id": "tc-cp-2026-05-31-HL - Anita M. Bois Bookkeeping Services - Carolina Blue - (Fletcher)-Turtle Club - Diamond #2 [G04-1]-9:00 AM",
+      "cpGameId": "",
       "date": "2026-05-31",
       "month": "May 2026",
       "time": "9:00 AM",
@@ -25069,32 +25052,13 @@ window.TITANS_DATA = {
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
-        "source": "officials-daily",
+        "source": "officials-daily-missing",
         "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Grace Doidge",
-        "umpire2Name": "MeganCampbell",
-        "officials": [
-          {
-            "username": "gracedoidge",
-            "name": "Grace Doidge",
-            "position": "Home Plate",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "megancampbell",
-            "name": "MeganCampbell",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
       }
     },
     {
@@ -26416,22 +26380,6 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-2026-06-02-U13 Green (Grondin)-Vollmer #6-6:00 PM-8:00 PM",
-      "cpGameId": "",
-      "date": "2026-06-02",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Green (Grondin)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-2026-06-02-Selects - U15 Softball (Brewer)-Vollmer #3-6:00 PM-8:00 PM",
       "cpGameId": "",
       "date": "2026-06-02",
@@ -26444,6 +26392,22 @@ window.TITANS_DATA = {
       "team": "Selects - U15 Softball (Brewer)",
       "opponent": "Practice",
       "diamond": "Vollmer #3",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-02-U13 Green (Grondin)-Vollmer #6-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-02",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U13 Green (Grondin)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #6",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -27592,8 +27556,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80861",
-      "cpGameId": "80861",
+      "id": "tc-cp-2026-06-06-HL - Antonino's Pizza - Red - (Meyers)-Turtle Club - Diamond #6-9:00 AM",
+      "cpGameId": "",
       "date": "2026-06-06",
       "month": "Jun 2026",
       "time": "9:00 AM",
@@ -27607,32 +27571,13 @@ window.TITANS_DATA = {
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
-        "source": "officials-daily",
+        "source": "officials-daily-missing",
         "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Amit Sra",
-        "umpire2Name": "Keegan Noecker",
-        "officials": [
-          {
-            "username": "asra",
-            "name": "Amit Sra",
-            "position": "Home Plate",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "keegannoecker",
-            "name": "Keegan Noecker",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
       }
     },
     {
@@ -27746,7 +27691,7 @@ window.TITANS_DATA = {
           },
           {
             "username": "sgut",
-            "name": "Samantha Gut",
+            "name": "sgut",
             "position": "Bases",
             "pay": "$50.00",
             "payAmount": 50,
@@ -28892,8 +28837,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79754",
-      "cpGameId": "79754",
+      "id": "tc-cp-2026-06-08-Titans - 8U/9U (Wachna)-Turtle Club - Diamond #4-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-08",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -28908,8 +28853,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79825",
-      "cpGameId": "79825",
+      "id": "tc-cp-2026-06-08-Titans - 10U T2 (Martin)-Vollmer #4-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-08",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -28924,8 +28869,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77308",
-      "cpGameId": "77308",
+      "id": "tc-cp-2026-06-08-Titans - 8U (Ellwood)-River Canard #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-08",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -28940,8 +28885,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77985",
-      "cpGameId": "77985",
+      "id": "tc-cp-2026-06-08-Titans - 13U T1 (Baker)-Villanova - Diamond #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-08",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -28956,8 +28901,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78485",
-      "cpGameId": "78485",
+      "id": "tc-cp-2026-06-08-U13 Gold (Hunt)-Turtle Club - Diamond #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-08",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -29088,8 +29033,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80165",
-      "cpGameId": "80165",
+      "id": "tc-cp-2026-06-08-Intermediate (Stadler)-Vollmer #3-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-08",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -29170,8 +29115,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79753",
-      "cpGameId": "79753",
+      "id": "tc-cp-2026-06-09-Titans - 9U (Shaw)-River Canard #3-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-09",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -29186,8 +29131,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78361",
-      "cpGameId": "78361",
+      "id": "tc-cp-2026-06-09-Titans - 18U T1 (Diotte)-Villanova - Diamond #1-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-09",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -29202,8 +29147,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78288",
-      "cpGameId": "78288",
+      "id": "tc-cp-2026-06-09-Titans - 16U T1 (Layson)-Vollmer #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-09",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -29218,8 +29163,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78145",
-      "cpGameId": "78145",
+      "id": "tc-cp-2026-06-09-Titans - 14U T2 (Soltis)-Vollmer #1-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-09",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -29234,8 +29179,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77931",
-      "cpGameId": "77931",
+      "id": "tc-cp-2026-06-09-Titans - 12U T2 (Palubiski)-Vollmer #7-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-09",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -29250,8 +29195,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77843",
-      "cpGameId": "77843",
+      "id": "tc-cp-2026-06-09-Titans - 12U T1 (Hotts)-Villanova - Diamond #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-09",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -29266,8 +29211,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77772",
-      "cpGameId": "77772",
+      "id": "tc-cp-2026-06-09-Titans - 11U T2 (Dufour)-Vollmer #5-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-09",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -29282,8 +29227,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77701",
-      "cpGameId": "77701",
+      "id": "tc-cp-2026-06-09-Titans - 11U T1 (Sivell)-Vollmer #4-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-09",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -29383,8 +29328,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-79571",
-      "cpGameId": "79571",
+      "id": "tc-cp-2026-06-09-HL - Laser It! Salon & Medical Spa - Gold - (Taylor) & Active Body Physical Therapy - Purple - (Pare)-River Canard #4-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-09",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -29399,8 +29344,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79988",
-      "cpGameId": "79988",
+      "id": "tc-cp-2026-06-09-U13 Green (Grondin)-Vollmer #6-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-09",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -29415,8 +29360,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80076",
-      "cpGameId": "80076",
+      "id": "tc-cp-2026-06-09-U15 (Baltzer)-Vollmer #8-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-09",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -29447,8 +29392,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80901",
-      "cpGameId": "80901",
+      "id": "tc-cp-2026-06-09-U17 (Signorelli)-Vollmer #3-6:30 PM-8:30 PM",
+      "cpGameId": "",
       "date": "2026-06-09",
       "month": "Jun 2026",
       "time": "6:30 PM",
@@ -29463,8 +29408,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77415",
-      "cpGameId": "77415",
+      "id": "tc-cp-2026-06-10-Titans - 9U (Shaw)-Turtle Club - Diamond #3-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-10",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -29479,8 +29424,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78503",
-      "cpGameId": "78503",
+      "id": "tc-cp-2026-06-10-U13 Gold (Hunt)-Turtle Club - Diamond #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-10",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -29539,8 +29484,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-80905",
-      "cpGameId": "80905",
+      "id": "tc-cp-2026-06-10-Selects - U11 Softball (Meyers)-Turtle Club - Diamond #6-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-10",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -29555,8 +29500,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80871",
-      "cpGameId": "80871",
+      "id": "tc-cp-2026-06-10-HL - Antonino's Pizza - Red - (Grondin) & TD Bank - Kelly Green - (Roehler)-Turtle Club - Diamond #1-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-10",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -29571,8 +29516,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80872",
-      "cpGameId": "80872",
+      "id": "tc-cp-2026-06-10-HL - Hunt Law - Black - (Johns) & SWT Group - Gold - (Boismier)-Turtle Club - Diamond #7-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-10",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -29587,8 +29532,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80873",
-      "cpGameId": "80873",
+      "id": "tc-cp-2026-06-10-HL - Windsor Factory Supply - White - (Pare) & WFCU Credit Union- Grey - (Montean)-Turtle Club - Diamond #4-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-10",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -29603,8 +29548,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79901",
-      "cpGameId": "79901",
+      "id": "tc-cp-2026-06-10-U9/U11 Gold (Natyshak)-Turtle Club - Diamond #5-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-10",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -29619,8 +29564,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78414",
-      "cpGameId": "78414",
+      "id": "tc-cp-2026-06-11-Titans - 14U T2 (Soltis)-Turtle Club - Diamond #7-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-11",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -29635,8 +29580,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77719",
-      "cpGameId": "77719",
+      "id": "tc-cp-2026-06-11-Titans - 11U T1 (Sivell)-Villanova - Diamond #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-11",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -29676,8 +29621,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-80910",
-      "cpGameId": "80910",
+      "id": "tc-cp-2026-06-11-HL - SWT Group - Black - (Hurdis)-Turtle Club - Diamond #3-6:00 PM",
+      "cpGameId": "",
       "date": "2026-06-11",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -29691,55 +29636,18 @@ window.TITANS_DATA = {
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
-        "source": "officials-daily",
+        "source": "officials-daily-missing",
         "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Jim Taylor",
-        "umpire2Name": "Josie Tregenza",
-        "officials": [
-          {
-            "username": "bdinchik",
-            "name": "Brianna Dinchik",
-            "position": "Home Plate",
-            "pay": "$40.00",
-            "payAmount": 40,
-            "confirmed": false,
-            "status": "denied"
-          },
-          {
-            "username": "jtaylor",
-            "name": "Jim Taylor",
-            "position": "Home Plate",
-            "pay": "$40.00",
-            "payAmount": 40,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "josietregenza",
-            "name": "Josie Tregenza",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "megancampbell",
-            "name": "MeganCampbell",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": false,
-            "status": "denied"
-          }
-        ]
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
       }
     },
     {
-      "id": "tc-cp-80911",
-      "cpGameId": "80911",
+      "id": "tc-cp-2026-06-11-HL - Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez)-Turtle Club - Diamond #1-6:00 PM",
+      "cpGameId": "",
       "date": "2026-06-11",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -29753,28 +29661,18 @@ window.TITANS_DATA = {
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
-        "source": "officials-daily",
+        "source": "officials-daily-missing",
         "autoConfirmed": false,
-        "umpire1Confirmed": true,
+        "umpire1Confirmed": false,
         "umpire2Confirmed": false,
-        "umpire1Name": "Kaden Bissonnette",
+        "umpire1Name": "",
         "umpire2Name": "",
-        "officials": [
-          {
-            "username": "kadenbissonnette",
-            "name": "Kaden Bissonnette",
-            "position": "Home Plate",
-            "pay": "$40.00",
-            "payAmount": 40,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
+        "officials": []
       }
     },
     {
-      "id": "tc-cp-79954",
-      "cpGameId": "79954",
+      "id": "tc-cp-2026-06-11-U9/U11 Green (Lussier)-Turtle Club - Diamond #5-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-11",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -29789,8 +29687,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80112",
-      "cpGameId": "80112",
+      "id": "tc-cp-2026-06-11-U17 (Signorelli)-Turtle Club - Diamond #2-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-11",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -29805,8 +29703,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80006",
-      "cpGameId": "80006",
+      "id": "tc-cp-2026-06-11-U13 Green (Grondin)-Turtle Club - Diamond #4-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-11",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -29821,8 +29719,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80904",
-      "cpGameId": "80904",
+      "id": "tc-cp-2026-06-11-Selects - T-Ball Girls (Dufour)-River Canard #2-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-11",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -29837,8 +29735,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80914",
-      "cpGameId": "80914",
+      "id": "tc-cp-2026-06-11-Selects - U9 Softball (Goz)-Turtle Club - Diamond #6-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-11",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -29885,8 +29783,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80883",
-      "cpGameId": "80883",
+      "id": "tc-cp-2026-06-12-Titans - 12U T1 (Hotts)-Turtle Club - Diamond #7-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-12",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -30011,8 +29909,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79534",
-      "cpGameId": "79534",
+      "id": "tc-cp-2026-06-12-HL - Hunt Law - Black - (Meyers)-Turtle Club - Diamond #2 [G05-1]-6:00 PM",
+      "cpGameId": "",
       "date": "2026-06-12",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -30026,32 +29924,13 @@ window.TITANS_DATA = {
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
-        "source": "officials-daily",
+        "source": "officials-daily-missing",
         "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Ryan Cabana",
-        "umpire2Name": "Amit Sra",
-        "officials": [
-          {
-            "username": "rcabana",
-            "name": "Ryan Cabana",
-            "position": "Home Plate",
-            "pay": "$40.00",
-            "payAmount": 40,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "asra",
-            "name": "Amit Sra",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
       }
     },
     {
@@ -30080,8 +29959,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-80915",
-      "cpGameId": "80915",
+      "id": "tc-cp-2026-06-12-Selects - 18U/Midget (Guthrie)-Villanova - Diamond #1-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-12",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -30096,8 +29975,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80906",
-      "cpGameId": "80906",
+      "id": "tc-cp-2026-06-12-Selects - T-Ball Green (Koppeser)-Turtle Club - Diamond #3-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-12",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -30112,8 +29991,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80893",
-      "cpGameId": "80893",
+      "id": "tc-cp-2026-06-12-U9/U11 Gold (Natyshak)-Turtle Club - Diamond #5-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-12",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -30128,8 +30007,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80130",
-      "cpGameId": "80130",
+      "id": "tc-cp-2026-06-12-U17 (Signorelli)-Turtle Club - Diamond #4-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-12",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -30144,8 +30023,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78899",
-      "cpGameId": "78899",
+      "id": "tc-cp-2026-06-13-HL - WFCU Credit Union - Red - (TBD) & WFCU Credit Union - Forest Green - (TBD)-Turtle Club - Diamond #3-8:45 AM-9:45 AM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "8:45 AM",
@@ -30160,8 +30039,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78900",
-      "cpGameId": "78900",
+      "id": "tc-cp-2026-06-13-HL - WFCU Credit Union - Black - (TBD) & WFCU Credit Union - White - (TBD)-Turtle Club - Diamond #4-8:45 AM-9:45 AM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "8:45 AM",
@@ -30176,8 +30055,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78901",
-      "cpGameId": "78901",
+      "id": "tc-cp-2026-06-13-HL - WFCU Credit Union - Royal Blue - (TBD) & WFCU Credit Union - Grey - (TBD)-Turtle Club - Diamond #5-8:45 AM-9:45 AM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "8:45 AM",
@@ -30192,8 +30071,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79455",
-      "cpGameId": "79455",
+      "id": "tc-cp-2026-06-13-HL - Marie-Rose Music Studio - Peach - (Young) & Antonino's Pizza - Red - (Meyers)-Turtle Club - Diamond #2-9:00 AM-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "9:00 AM",
@@ -30208,8 +30087,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79456",
-      "cpGameId": "79456",
+      "id": "tc-cp-2026-06-13-HL - Blush Spa & Salon - Black - (Dadalt) & Anita M. Bois Bookkeeping Services - Carolina Blue - (Fletcher)-Turtle Club - Diamond #6-9:00 AM-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "9:00 AM",
@@ -30224,8 +30103,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79232",
-      "cpGameId": "79232",
+      "id": "tc-cp-2026-06-13-HL - Reaume Chevrolet Buick GMC - Royal Blue - (Castellan) & Malden Vet - White - (Maziak)-Turtle Club - Diamond #1-9:00 AM-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "9:00 AM",
@@ -30240,8 +30119,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78962",
-      "cpGameId": "78962",
+      "id": "tc-cp-2026-06-13-HL - WFCU Credit Union - Carolina Blue - (TBD) & WFCU Credit Union - Purple - (TBD)-Turtle Club - Diamond #3-10:00 AM-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "10:00 AM",
@@ -30256,8 +30135,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78963",
-      "cpGameId": "78963",
+      "id": "tc-cp-2026-06-13-HL - WFCU Credit Union - Orange - (TBD) & WFCU Credit Union - Navy Blue - (TBD)-Turtle Club - Diamond #4-10:00 AM-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "10:00 AM",
@@ -30272,8 +30151,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78964",
-      "cpGameId": "78964",
+      "id": "tc-cp-2026-06-13-HL - WFCU Credit Union - Maroon - (TBD) & Rivertown Dance Academy - Gold - (TBD)-Turtle Club - Diamond #5-10:00 AM-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "10:00 AM",
@@ -30419,8 +30298,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-79233",
-      "cpGameId": "79233",
+      "id": "tc-cp-2026-06-13-HL - Equinox Realty - Orange - (Steptoe) & R&D Controls Corp. - Grey - (Carr)-Turtle Club - Diamond #1-11:00 AM-1:00 PM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "11:00 AM",
@@ -30435,8 +30314,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79457",
-      "cpGameId": "79457",
+      "id": "tc-cp-2026-06-13-HL - Lasalle Police Association - White - (Goz) & Willson Income Tax - Grey - (Skeats)-Turtle Club - Diamond #6-11:00 AM-1:00 PM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "11:00 AM",
@@ -30451,8 +30330,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79010",
-      "cpGameId": "79010",
+      "id": "tc-cp-2026-06-13-HL - SWT Group - Black - (Kelly) & Ascents Tree - Kelly Green - (Goz)-Turtle Club - Diamond #3-11:15 AM-1:00 PM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "11:15 AM",
@@ -30467,8 +30346,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79011",
-      "cpGameId": "79011",
+      "id": "tc-cp-2026-06-13-HL - WFCU Credit Union - Gold - (Pillon) & Rob's Pharmacy - Maroon - (Krenwich)-Turtle Club - Diamond #4-11:15 AM-1:00 PM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "11:15 AM",
@@ -30483,8 +30362,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79012",
-      "cpGameId": "79012",
+      "id": "tc-cp-2026-06-13-HL - Malden Dental - Royal Blue - (Rankin) & Lasalle Police Association - White - (Lesperance)-Turtle Club - Diamond #5-11:15 AM-1:00 PM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "11:15 AM",
@@ -30515,8 +30394,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78181",
-      "cpGameId": "78181",
+      "id": "tc-cp-2026-06-13-Titans - 14U T2 (Soltis)-Turtle Club - Diamond #7-12:00 PM-3:00 PM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "12:00 PM",
@@ -30531,8 +30410,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77879",
-      "cpGameId": "77879",
+      "id": "tc-cp-2026-06-13-Titans - 12U T1 (Hotts)-Villanova - Diamond #2-12:00 PM-3:00 PM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "12:00 PM",
@@ -30579,8 +30458,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79169",
-      "cpGameId": "79169",
+      "id": "tc-cp-2026-06-13-HL - Reaume Chevrolet Buick GMC - Royal Blue - (Koppeser) & Tim Horton's Malden - Red - (McIntyre)-Turtle Club - Diamond #3-1:00 PM-3:00 PM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "1:00 PM",
@@ -30595,8 +30474,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79170",
-      "cpGameId": "79170",
+      "id": "tc-cp-2026-06-13-HL - Bondy Insurance - Forest Green - (Craig) & Home Hardware - Gold - (Dufour)-Turtle Club - Diamond #4-1:00 PM-3:00 PM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "1:00 PM",
@@ -30611,8 +30490,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79171",
-      "cpGameId": "79171",
+      "id": "tc-cp-2026-06-13-HL - Hunt Law - Black - (Chandler) & Active Body Physical Therapy - Purple - (Kelly)-Turtle Club - Diamond #5-1:00 PM-3:00 PM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "1:00 PM",
@@ -30627,8 +30506,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79234",
-      "cpGameId": "79234",
+      "id": "tc-cp-2026-06-13-HL - Active Body Physical Therapy - Purple - (Campagna) & Bennett Mobile Truck Repair - Black - (Heuchan)-Turtle Club - Diamond #1-1:00 PM-3:00 PM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "1:00 PM",
@@ -30676,7 +30555,7 @@ window.TITANS_DATA = {
           },
           {
             "username": "sgut",
-            "name": "Samantha Gut",
+            "name": "sgut",
             "position": "Home Plate",
             "pay": "$45.00",
             "payAmount": 45,
@@ -30721,8 +30600,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78039",
-      "cpGameId": "78039",
+      "id": "tc-cp-2026-06-13-Titans - 13U T1 (Baker)-Villanova - Diamond #2-3:00 PM-6:00 PM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "3:00 PM",
@@ -30737,8 +30616,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78468",
-      "cpGameId": "78468",
+      "id": "tc-cp-2026-06-13-Titans - 16U T1 (Layson)-Villanova - Diamond #1-3:00 PM-9:00 PM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "3:00 PM",
@@ -30769,8 +30648,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80320",
-      "cpGameId": "80320",
+      "id": "tc-cp-2026-06-13-Selects - 11U/Mosquito (Bouchard)-Turtle Club - Diamond #2-4:30 PM-6:30 PM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "4:30 PM",
@@ -30785,8 +30664,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77362",
-      "cpGameId": "77362",
+      "id": "tc-cp-2026-06-13-Titans - 8U (Ellwood)-Turtle Club - Diamond #5-4:30 PM-7:30 PM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "4:30 PM",
@@ -30854,8 +30733,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-80307",
-      "cpGameId": "80307",
+      "id": "tc-cp-2026-06-13-Selects - 9U/Rookie (Carr)-Turtle Club - Diamond #1-5:30 PM-7:30 PM",
+      "cpGameId": "",
       "date": "2026-06-13",
       "month": "Jun 2026",
       "time": "5:30 PM",
@@ -30886,8 +30765,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78902",
-      "cpGameId": "78902",
+      "id": "tc-cp-2026-06-14-HL - WFCU Credit Union - Forest Green - (TBD) & WFCU Credit Union - Black - (TBD)-Turtle Club - Diamond #3-8:45 AM-9:45 AM",
+      "cpGameId": "",
       "date": "2026-06-14",
       "month": "Jun 2026",
       "time": "8:45 AM",
@@ -30902,8 +30781,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78903",
-      "cpGameId": "78903",
+      "id": "tc-cp-2026-06-14-HL - WFCU Credit Union - Royal Blue - (TBD) & WFCU Credit Union - White - (TBD)-Turtle Club - Diamond #4-8:45 AM-9:45 AM",
+      "cpGameId": "",
       "date": "2026-06-14",
       "month": "Jun 2026",
       "time": "8:45 AM",
@@ -30918,8 +30797,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78904",
-      "cpGameId": "78904",
+      "id": "tc-cp-2026-06-14-HL - WFCU Credit Union - Grey - (TBD) & WFCU Credit Union - Red - (TBD)-Turtle Club - Diamond #5-8:45 AM-9:45 AM",
+      "cpGameId": "",
       "date": "2026-06-14",
       "month": "Jun 2026",
       "time": "8:45 AM",
@@ -30934,96 +30813,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79482",
-      "cpGameId": "79482",
-      "date": "2026-06-14",
-      "month": "Jun 2026",
-      "time": "9:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "HL - Antonino's Pizza - Red - (Meyers)",
-      "opponent": "vs. HL - Jr. Softball - Marie-Rose Music Studio - Peach - (Young)",
-      "diamond": "Turtle Club - Diamond #6 [G06-1]",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Logan Mailloux",
-        "umpire2Name": "Parker Wilson",
-        "officials": [
-          {
-            "username": "loganmailloux",
-            "name": "Logan Mailloux",
-            "position": "Home Plate",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "parkerwilson",
-            "name": "Parker Wilson",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
-      }
-    },
-    {
-      "id": "tc-cp-79483",
-      "cpGameId": "79483",
-      "date": "2026-06-14",
-      "month": "Jun 2026",
-      "time": "9:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "HL - Anita M. Bois Bookkeeping Services - Carolina Blue - (Fletcher)",
-      "opponent": "vs. HL - Jr. Softball - Lasalle Police Association - White - (Goz)",
-      "diamond": "Turtle Club - Diamond #2 [G06-3]",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Brianna Dinchik",
-        "umpire2Name": "Josie Tregenza",
-        "officials": [
-          {
-            "username": "bdinchik",
-            "name": "Brianna Dinchik",
-            "position": "Home Plate",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "josietregenza",
-            "name": "Josie Tregenza",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
-      }
-    },
-    {
-      "id": "tc-cp-79261",
-      "cpGameId": "79261",
+      "id": "tc-cp-2026-06-14-HL - R&D Controls Corp. - Grey - (Carr)-Turtle Club - Diamond #1 [G06-3]-9:00 AM",
+      "cpGameId": "",
       "date": "2026-06-14",
       "month": "Jun 2026",
       "time": "9:00 AM",
@@ -31037,32 +30828,63 @@ window.TITANS_DATA = {
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
-        "source": "officials-daily",
+        "source": "officials-daily-missing",
         "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Brady Ippoliti",
-        "umpire2Name": "Keegan Noecker",
-        "officials": [
-          {
-            "username": "bipolliti",
-            "name": "Brady Ippoliti",
-            "position": "Home Plate",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "keegannoecker",
-            "name": "Keegan Noecker",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
+    },
+    {
+      "id": "tc-cp-2026-06-14-HL - Antonino's Pizza - Red - (Meyers)-Turtle Club - Diamond #6 [G06-1]-9:00 AM",
+      "cpGameId": "",
+      "date": "2026-06-14",
+      "month": "Jun 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "HL - Antonino's Pizza - Red - (Meyers)",
+      "opponent": "vs. HL - Jr. Softball - Marie-Rose Music Studio - Peach - (Young)",
+      "diamond": "Turtle Club - Diamond #6 [G06-1]",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily-missing",
+        "autoConfirmed": false,
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
+    },
+    {
+      "id": "tc-cp-2026-06-14-HL - Anita M. Bois Bookkeeping Services - Carolina Blue - (Fletcher)-Turtle Club - Diamond #2 [G06-3]-9:00 AM",
+      "cpGameId": "",
+      "date": "2026-06-14",
+      "month": "Jun 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "HL - Anita M. Bois Bookkeeping Services - Carolina Blue - (Fletcher)",
+      "opponent": "vs. HL - Jr. Softball - Lasalle Police Association - White - (Goz)",
+      "diamond": "Turtle Club - Diamond #2 [G06-3]",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily-missing",
+        "autoConfirmed": false,
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
       }
     },
     {
@@ -31205,8 +31027,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78965",
-      "cpGameId": "78965",
+      "id": "tc-cp-2026-06-14-HL - WFCU Credit Union - Purple - (TBD) & WFCU Credit Union - Orange - (TBD)-Turtle Club - Diamond #3-10:00 AM-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-14",
       "month": "Jun 2026",
       "time": "10:00 AM",
@@ -31221,8 +31043,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78966",
-      "cpGameId": "78966",
+      "id": "tc-cp-2026-06-14-HL - WFCU Credit Union - Maroon - (TBD) & WFCU Credit Union - Navy Blue - (TBD)-Turtle Club - Diamond #4-10:00 AM-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-14",
       "month": "Jun 2026",
       "time": "10:00 AM",
@@ -31237,8 +31059,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78967",
-      "cpGameId": "78967",
+      "id": "tc-cp-2026-06-14-HL - Rivertown Dance Academy - Gold - (TBD) & WFCU Credit Union - Carolina Blue - (TBD)-Turtle Club - Diamond #5-10:00 AM-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-14",
       "month": "Jun 2026",
       "time": "10:00 AM",
@@ -31297,8 +31119,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-79260",
-      "cpGameId": "79260",
+      "id": "tc-cp-2026-06-14-HL - Bennett Mobile Truck Repair - Black - (Heuchan)-Turtle Club - Diamond #1 [G06-1]-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-14",
       "month": "Jun 2026",
       "time": "11:00 AM",
@@ -31312,32 +31134,13 @@ window.TITANS_DATA = {
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
-        "source": "officials-daily",
+        "source": "officials-daily-missing",
         "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Keegan Noecker",
-        "umpire2Name": "Brady Ippoliti",
-        "officials": [
-          {
-            "username": "keegannoecker",
-            "name": "Keegan Noecker",
-            "position": "Home Plate",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "bipolliti",
-            "name": "Brady Ippoliti",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
       }
     },
     {
@@ -31522,50 +31325,13 @@ window.TITANS_DATA = {
       "time": "1:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
+      "type": "Home Game Cancelled",
+      "eventKind": "Home Game Cancelled",
       "team": "HL - Bondy Insurance - Forest Green - (Craig)",
       "opponent": "vs. HL - Sr. T-Ball - Tim Horton's Malden - Red - (McIntyre)",
       "diamond": "Turtle Club - Diamond #5 [G6-3]",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Brock Racette",
-        "umpire2Name": "Josie Tregenza",
-        "officials": [
-          {
-            "username": "brockracette",
-            "name": "Brock Racette",
-            "position": "Home Plate",
-            "pay": "$30.00",
-            "payAmount": 30,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "josietregenza",
-            "name": "Josie Tregenza",
-            "position": "Bases",
-            "pay": "$30.00",
-            "payAmount": 30,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "tcarlini",
-            "name": "Thomas Carlini",
-            "position": "Bases",
-            "pay": "$30.00",
-            "payAmount": 30,
-            "confirmed": false,
-            "status": "denied"
-          }
-        ]
-      }
+      "source": "Turtle Club Control Panel"
     },
     {
       "id": "tc-cp-80797",
@@ -31644,41 +31410,13 @@ window.TITANS_DATA = {
       "time": "1:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
+      "type": "Home Game Cancelled",
+      "eventKind": "Home Game Cancelled",
       "team": "HL - Reaume Chevrolet Buick GMC - Royal Blue - (Castellan)",
       "opponent": "vs. HL - Rookie - Equinox Realty - Orange - (Steptoe)",
       "diamond": "Turtle Club - Diamond #1 [G06-2]",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Parker Wilson",
-        "umpire2Name": "Ross Nelson",
-        "officials": [
-          {
-            "username": "parkerwilson",
-            "name": "Parker Wilson",
-            "position": "Home Plate",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "rossnelson",
-            "name": "Ross Nelson",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
-      }
+      "source": "Turtle Club Control Panel"
     },
     {
       "id": "tc-cp-79685",
@@ -31713,41 +31451,13 @@ window.TITANS_DATA = {
       "time": "1:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
+      "type": "Home Game Cancelled",
+      "eventKind": "Home Game Cancelled",
       "team": "HL - Reaume Chevrolet Buick GMC - Royal Blue - (Koppeser)",
       "opponent": "vs. HL - Sr. T-Ball - Hunt Law - Black - (Chandler)",
       "diamond": "Turtle Club - Diamond #4 [G6-2]",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Avery Pare",
-        "umpire2Name": "Colby Saunders",
-        "officials": [
-          {
-            "username": "apare",
-            "name": "Avery Pare",
-            "position": "Home Plate",
-            "pay": "$30.00",
-            "payAmount": 30,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "csaunders",
-            "name": "Colby Saunders",
-            "position": "Bases",
-            "pay": "$30.00",
-            "payAmount": 30,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
-      }
+      "source": "Turtle Club Control Panel"
     },
     {
       "id": "tc-cp-79196",
@@ -31757,54 +31467,17 @@ window.TITANS_DATA = {
       "time": "1:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
+      "type": "Home Game Cancelled",
+      "eventKind": "Home Game Cancelled",
       "team": "HL - Active Body Physical Therapy - Purple - (Kelly)",
       "opponent": "vs. HL - Sr. T-Ball - Home Hardware - Gold - (Dufour)",
       "diamond": "Turtle Club - Diamond #3 [G6-1]",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Isaac Wally",
-        "umpire2Name": "Nino Blanchard",
-        "officials": [
-          {
-            "username": "isaacwally",
-            "name": "Isaac Wally",
-            "position": "Home Plate",
-            "pay": "$30.00",
-            "payAmount": 30,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "nvigneux",
-            "name": "Natalie Vigneux",
-            "position": "Home Plate",
-            "pay": "$30.00",
-            "payAmount": 30,
-            "confirmed": false,
-            "status": "denied"
-          },
-          {
-            "username": "ninoblanchard",
-            "name": "Nino Blanchard",
-            "position": "Bases",
-            "pay": "$30.00",
-            "payAmount": 30,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
-      }
+      "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77755",
-      "cpGameId": "77755",
+      "id": "tc-cp-2026-06-14-Titans - 11U T2 (Dufour)-Turtle Club - Diamond #2-1:00 PM-4:00 PM",
+      "cpGameId": "",
       "date": "2026-06-14",
       "month": "Jun 2026",
       "time": "1:00 PM",
@@ -31819,8 +31492,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80916",
-      "cpGameId": "80916",
+      "id": "tc-cp-2026-06-14-Selects - U13 Softball (Paquette)-Turtle Club - Diamond #3-3:00 PM-5:00 PM",
+      "cpGameId": "",
       "date": "2026-06-14",
       "month": "Jun 2026",
       "time": "3:00 PM",
@@ -31932,18 +31605,27 @@ window.TITANS_DATA = {
       "type": "Home Game",
       "eventKind": "Home Game",
       "team": "Titans - 9U (Shaw)",
-      "opponent": "vs. Amherstburg Cardinals",
+      "opponent": "vs. Windsor Stars",
       "diamond": "Turtle Club - Diamond #6",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": false,
-        "umpire1Name": "",
+        "umpire1Name": "Colby Saunders",
         "umpire2Name": "",
         "officials": [
+          {
+            "username": "csaunders",
+            "name": "Colby Saunders",
+            "position": "Home Plate",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": true,
+            "status": "confirmed"
+          },
           {
             "username": "lparent",
             "name": "Liam Parent",
@@ -31957,8 +31639,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-80359",
-      "cpGameId": "80359",
+      "id": "tc-cp-2026-06-14-Selects - 18U/Midget (Guthrie)-Turtle Club - Diamond #7-4:30 PM-6:30 PM",
+      "cpGameId": "",
       "date": "2026-06-14",
       "month": "Jun 2026",
       "time": "4:30 PM",
@@ -31973,8 +31655,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80333",
-      "cpGameId": "80333",
+      "id": "tc-cp-2026-06-14-Selects - 13U/Pee Wee (Gignac)-Turtle Club - Diamond #2-4:30 PM-6:30 PM",
+      "cpGameId": "",
       "date": "2026-06-14",
       "month": "Jun 2026",
       "time": "4:30 PM",
@@ -32046,56 +31728,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-77398",
-      "cpGameId": "77398",
-      "date": "2026-06-15",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 9U (Shaw)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-77986",
-      "cpGameId": "77986",
-      "date": "2026-06-15",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 13U T1 (Baker)",
-      "opponent": "Practice",
-      "diamond": "Villanova - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-77309",
-      "cpGameId": "77309",
-      "date": "2026-06-15",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 8U (Ellwood)",
-      "opponent": "Practice",
-      "diamond": "River Canard #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-78486",
-      "cpGameId": "78486",
+      "id": "tc-cp-2026-06-15-U13 Gold (Hunt)-Turtle Club - Diamond #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-15",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -32110,8 +31744,56 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79383",
-      "cpGameId": "79383",
+      "id": "tc-cp-2026-06-15-Titans - 9U (Shaw)-Turtle Club - Diamond #4-5:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-15",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 9U (Shaw)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-15-Titans - 13U T1 (Baker)-Villanova - Diamond #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-15",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 13U T1 (Baker)",
+      "opponent": "Practice",
+      "diamond": "Villanova - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-15-Titans - 8U (Ellwood)-River Canard #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-15",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 8U (Ellwood)",
+      "opponent": "Practice",
+      "diamond": "River Canard #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-15-HL - SWT Group - Gold - (Boismier)-Turtle Club - Diamond #1 [G06-1]-6:00 PM",
+      "cpGameId": "",
       "date": "2026-06-15",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -32125,37 +31807,18 @@ window.TITANS_DATA = {
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
-        "source": "officials-daily",
+        "source": "officials-daily-missing",
         "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Ben Soltis",
-        "umpire2Name": "Brianna Dinchik",
-        "officials": [
-          {
-            "username": "bensoltis",
-            "name": "Ben Soltis",
-            "position": "Home Plate",
-            "pay": "$50.00",
-            "payAmount": 50,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "bdinchik",
-            "name": "Brianna Dinchik",
-            "position": "Bases",
-            "pay": "$45.00",
-            "payAmount": 45,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
       }
     },
     {
-      "id": "tc-cp-79384",
-      "cpGameId": "79384",
+      "id": "tc-cp-2026-06-15-HL - Hunt Law - Black - (Johns)-Turtle Club - Diamond #7 [G06-2]-6:00 PM",
+      "cpGameId": "",
       "date": "2026-06-15",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -32169,46 +31832,18 @@ window.TITANS_DATA = {
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
-        "source": "officials-daily",
+        "source": "officials-daily-missing",
         "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Cameron Robinet",
-        "umpire2Name": "Ross Nelson",
-        "officials": [
-          {
-            "username": "crobinet",
-            "name": "Cameron Robinet",
-            "position": "Home Plate",
-            "pay": "$50.00",
-            "payAmount": 50,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "lewismatte",
-            "name": "Lewis Matte",
-            "position": "Bases",
-            "pay": "$45.00",
-            "payAmount": 45,
-            "confirmed": false,
-            "status": "denied"
-          },
-          {
-            "username": "rossnelson",
-            "name": "Ross Nelson",
-            "position": "Bases",
-            "pay": "$45.00",
-            "payAmount": 45,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
       }
     },
     {
-      "id": "tc-cp-79385",
-      "cpGameId": "79385",
+      "id": "tc-cp-2026-06-15-HL - Antonino's Pizza - Red - (Grondin)-Vollmer #1 [G06-3]-6:00 PM",
+      "cpGameId": "",
       "date": "2026-06-15",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -32222,41 +31857,13 @@ window.TITANS_DATA = {
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
-        "source": "officials-daily",
+        "source": "officials-daily-missing",
         "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Brady Ippoliti",
-        "umpire2Name": "Ryan Torti",
-        "officials": [
-          {
-            "username": "bipolliti",
-            "name": "Brady Ippoliti",
-            "position": "Home Plate",
-            "pay": "$50.00",
-            "payAmount": 50,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "dnaccarato",
-            "name": "David Naccarato",
-            "position": "Home Plate",
-            "pay": "$50.00",
-            "payAmount": 50,
-            "confirmed": false,
-            "status": "denied"
-          },
-          {
-            "username": "rtorti",
-            "name": "Ryan Torti",
-            "position": "Bases",
-            "pay": "$45.00",
-            "payAmount": 45,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
       }
     },
     {
@@ -32272,22 +31879,6 @@ window.TITANS_DATA = {
       "team": "Titans - 14U T2 (Soltis)",
       "opponent": "@ Windsor Stars",
       "diamond": "Mic Mac Park",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-79788",
-      "cpGameId": "79788",
-      "date": "2026-06-15",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Away Game",
-      "eventKind": "Away Game",
-      "team": "Titans - 11U T2 (Dufour)",
-      "opponent": "@ Windsor Hawks",
-      "diamond": "Walker Homesites",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -32308,8 +31899,24 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79518",
-      "cpGameId": "79518",
+      "id": "tc-cp-79788",
+      "cpGameId": "79788",
+      "date": "2026-06-15",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Titans - 11U T2 (Dufour)",
+      "opponent": "@ Windsor Hawks",
+      "diamond": "Walker Homesites",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-15-HL - R&D Controls Corp. - Silver - (Paquette) & Laser It! Salon & Medical Spa - Gold - (Booker)-Turtle Club - Diamond #6-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-15",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -32324,8 +31931,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79519",
-      "cpGameId": "79519",
+      "id": "tc-cp-2026-06-15-HL - Plantscape - Royal Blue - (Anson) & Hunt Law - Black - (Meyers)-Turtle Club - Diamond #3-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-15",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -32340,8 +31947,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80166",
-      "cpGameId": "80166",
+      "id": "tc-cp-2026-06-15-Intermediate (Stadler)-Vollmer #3-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-15",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -32372,40 +31979,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78362",
-      "cpGameId": "78362",
-      "date": "2026-06-16",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 18U T1 (Diotte)",
-      "opponent": "Practice",
-      "diamond": "Villanova - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-78289",
-      "cpGameId": "78289",
-      "date": "2026-06-16",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 16U T1 (Layson)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-77327",
-      "cpGameId": "77327",
+      "id": "tc-cp-2026-06-16-Titans - 8U (Ellwood)-Turtle Club - Diamond #6-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-16",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -32420,8 +31995,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77702",
-      "cpGameId": "77702",
+      "id": "tc-cp-2026-06-16-Titans - 11U T1 (Sivell)-Vollmer #4-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-16",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -32436,24 +32011,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77844",
-      "cpGameId": "77844",
-      "date": "2026-06-16",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 12U T1 (Hotts)",
-      "opponent": "Practice",
-      "diamond": "Villanova - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-77488",
-      "cpGameId": "77488",
+      "id": "tc-cp-2026-06-16-Titans - 8U/9U (Wachna)-River Canard #3-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-16",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -32468,56 +32027,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78075",
-      "cpGameId": "78075",
-      "date": "2026-06-16",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 14U T1 (vanWezel)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #7",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-78146",
-      "cpGameId": "78146",
-      "date": "2026-06-16",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 14U T2 (Soltis)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #1",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-77773",
-      "cpGameId": "77773",
-      "date": "2026-06-16",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 11U T2 (Dufour)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #5",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-77932",
-      "cpGameId": "77932",
+      "id": "tc-cp-2026-06-16-Titans - 12U T2 (Palubiski)-Vollmer #7-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-16",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -32532,8 +32043,104 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79315",
-      "cpGameId": "79315",
+      "id": "tc-cp-2026-06-16-Titans - 16U T1 (Layson)-Vollmer #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-16",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 16U T1 (Layson)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-16-Titans - 14U T1 (vanWezel)-Turtle Club - Diamond #7-5:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-16",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 14U T1 (vanWezel)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #7",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-16-Titans - 11U T2 (Dufour)-Vollmer #5-5:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-16",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 11U T2 (Dufour)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-16-Titans - 12U T1 (Hotts)-Villanova - Diamond #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-16",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 12U T1 (Hotts)",
+      "opponent": "Practice",
+      "diamond": "Villanova - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-16-Titans - 18U T1 (Diotte)-Villanova - Diamond #1-5:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-16",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 18U T1 (Diotte)",
+      "opponent": "Practice",
+      "diamond": "Villanova - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-16-Titans - 14U T2 (Soltis)-Vollmer #1-5:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-16",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 14U T2 (Soltis)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #1",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-16-HL - Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez)-Turtle Club - Diamond #1 [G06-1]-6:00 PM",
+      "cpGameId": "",
       "date": "2026-06-16",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -32547,37 +32154,18 @@ window.TITANS_DATA = {
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
-        "source": "officials-daily",
+        "source": "officials-daily-missing",
         "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "David Naccarato",
-        "umpire2Name": "MeganCampbell",
-        "officials": [
-          {
-            "username": "dnaccarato",
-            "name": "David Naccarato",
-            "position": "Home Plate",
-            "pay": "$40.00",
-            "payAmount": 40,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "megancampbell",
-            "name": "MeganCampbell",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
       }
     },
     {
-      "id": "tc-cp-79316",
-      "cpGameId": "79316",
+      "id": "tc-cp-2026-06-16-HL - Excelsior Detailing - Atomic Blue - (Meloche)-Turtle Club - Diamond #3 [G06-2]-6:00 PM",
+      "cpGameId": "",
       "date": "2026-06-16",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -32591,32 +32179,13 @@ window.TITANS_DATA = {
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
-        "source": "officials-daily",
+        "source": "officials-daily-missing",
         "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Gabriella Sivell",
-        "umpire2Name": "Grace Doidge",
-        "officials": [
-          {
-            "username": "gsivell",
-            "name": "Gabriella Sivell",
-            "position": "Home Plate",
-            "pay": "$40.00",
-            "payAmount": 40,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "gracedoidge",
-            "name": "Grace Doidge",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
       }
     },
     {
@@ -32673,24 +32242,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-79989",
-      "cpGameId": "79989",
-      "date": "2026-06-16",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Green (Grondin)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80077",
-      "cpGameId": "80077",
+      "id": "tc-cp-2026-06-16-U15 (Baltzer)-Vollmer #8-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-16",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -32705,8 +32258,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79937",
-      "cpGameId": "79937",
+      "id": "tc-cp-2026-06-16-U9/U11 Green (Lussier)-Turtle Club - Diamond #5-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-16",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -32717,6 +32270,22 @@ window.TITANS_DATA = {
       "team": "U9/U11 Green (Lussier)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-16-U13 Green (Grondin)-Vollmer #6-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-16",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U13 Green (Grondin)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #6",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -32732,7 +32301,7 @@ window.TITANS_DATA = {
       "eventKind": "Home Game",
       "team": "HL - Laser It! Salon & Medical Spa - Gold - (Taylor)",
       "opponent": "vs. Kingsville Krush #1",
-      "diamond": "River Canard #4",
+      "diamond": "Turtle Club - Diamond #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
@@ -32825,72 +32394,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-77791",
-      "cpGameId": "77791",
-      "date": "2026-06-17",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 11U T2 (Dufour)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #8",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-78004",
-      "cpGameId": "78004",
-      "date": "2026-06-17",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 13U T1 (Baker)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #4",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-77506",
-      "cpGameId": "77506",
-      "date": "2026-06-17",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 8U/9U (Wachna)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #6",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-77416",
-      "cpGameId": "77416",
-      "date": "2026-06-17",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 9U (Shaw)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #3",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-78235",
-      "cpGameId": "78235",
+      "id": "tc-cp-2026-06-17-Titans - 15U T1 (Nickleson)-Vollmer #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-17",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -32905,8 +32410,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78504",
-      "cpGameId": "78504",
+      "id": "tc-cp-2026-06-17-U13 Gold (Hunt)-Turtle Club - Diamond #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-17",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -32921,126 +32426,68 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79720",
-      "cpGameId": "79720",
+      "id": "tc-cp-2026-06-17-Titans - 11U T2 (Dufour)-Vollmer #8-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-17",
       "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "Titans - 10U T2 (Martin)",
-      "opponent": "vs. Kingsville Knights",
-      "diamond": "Vollmer #5",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 11U T2 (Dufour)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #8",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Gabriella Sivell",
-        "umpire2Name": "Luca Sivell",
-        "officials": [
-          {
-            "username": "gsivell",
-            "name": "Gabriella Sivell",
-            "position": "Home Plate",
-            "pay": "$50.00",
-            "payAmount": 50,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "lparent",
-            "name": "Liam Parent",
-            "position": "Home Plate",
-            "pay": "$50.00",
-            "payAmount": 50,
-            "confirmed": false,
-            "status": "denied"
-          },
-          {
-            "username": "lsivell",
-            "name": "Luca Sivell",
-            "position": "Bases",
-            "pay": "$45.00",
-            "payAmount": 45,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
-      }
+      "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78630",
-      "cpGameId": "78630",
+      "id": "tc-cp-2026-06-17-Titans - 13U T1 (Baker)-Vollmer #4-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-17",
       "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "Titans - 18U T1 (Diotte)",
-      "opponent": "vs. Windsor Stars",
-      "diamond": "Vollmer #1",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 13U T1 (Baker)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #4",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "auto-age",
-        "autoConfirmed": true,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
-      }
+      "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79664",
-      "cpGameId": "79664",
+      "id": "tc-cp-2026-06-17-Titans - 8U/9U (Wachna)-Turtle Club - Diamond #6-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-17",
       "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "Titans - 12U T2 (Palubiski)",
-      "opponent": "vs. Kingsville Knights",
-      "diamond": "Villanova - Diamond #2",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 8U/9U (Wachna)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #6",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Paul MacArthur",
-        "umpire2Name": "Scott Saxton",
-        "officials": [
-          {
-            "username": "pmacarthur",
-            "name": "Paul MacArthur",
-            "position": "Home Plate",
-            "pay": "$55.00",
-            "payAmount": 55,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "scottsaxton",
-            "name": "Scott Saxton",
-            "position": "Bases",
-            "pay": "$50.00",
-            "payAmount": 50,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
-      }
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-17-Titans - 9U (Shaw)-Turtle Club - Diamond #3-5:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-17",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 9U (Shaw)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
     },
     {
       "id": "tc-cp-80635",
@@ -33059,68 +32506,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79804",
-      "cpGameId": "79804",
-      "date": "2026-06-17",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "Titans - 12U T1 (Hotts)",
-      "opponent": "vs. Leamington Lakers",
-      "diamond": "Vollmer #7",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Cameron Robinet",
-        "umpire2Name": "Owen Fazekas",
-        "officials": [
-          {
-            "username": "crobinet",
-            "name": "Cameron Robinet",
-            "position": "Home Plate",
-            "pay": "$55.00",
-            "payAmount": 55,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "ofazekas",
-            "name": "Owen Fazekas",
-            "position": "Bases",
-            "pay": "$50.00",
-            "payAmount": 50,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
-      }
-    },
-    {
-      "id": "tc-cp-79358",
-      "cpGameId": "79358",
-      "date": "2026-06-17",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "HL - Windsor Factory Supply - White - (Pare) & Antonino's Pizza - Red - (Grondin)",
-      "opponent": "Shared Practice",
-      "diamond": "Vollmer #3",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-79356",
-      "cpGameId": "79356",
+      "id": "tc-cp-2026-06-17-HL - Hunt Law - Black - (Johns) & WFCU Credit Union- Grey - (Montean)-Turtle Club - Diamond #1-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-17",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -33135,56 +32522,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80889",
-      "cpGameId": "80889",
-      "date": "2026-06-17",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - 18U/Midget (Guthrie)",
-      "opponent": "Practice",
-      "diamond": "Villanova - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-79902",
-      "cpGameId": "79902",
-      "date": "2026-06-17",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Gold (Natyshak)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80043",
-      "cpGameId": "80043",
-      "date": "2026-06-17",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U15 (Baltzer)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-79357",
-      "cpGameId": "79357",
+      "id": "tc-cp-2026-06-17-HL - TD Bank - Kelly Green - (Roehler) & SWT Group - Gold - (Boismier)-Turtle Club - Diamond #7-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-17",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -33199,24 +32538,88 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79844",
-      "cpGameId": "79844",
-      "date": "2026-06-18",
+      "id": "tc-cp-2026-06-17-HL - Windsor Factory Supply - White - (Pare) & Antonino's Pizza - Red - (Grondin)-Vollmer #3-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-17",
       "month": "Jun 2026",
-      "time": "5:00 PM",
+      "time": "6:00 PM",
       "endTime": "8:00 PM",
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "Titans - 13U T1 (Baker)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #5",
+      "team": "HL - Windsor Factory Supply - White - (Pare) & Antonino's Pizza - Red - (Grondin)",
+      "opponent": "Shared Practice",
+      "diamond": "Vollmer #3",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80886",
-      "cpGameId": "80886",
+      "id": "tc-cp-2026-06-17-U9/U11 Gold (Natyshak)-Turtle Club - Diamond #5-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-17",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Gold (Natyshak)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-17-U15 (Baltzer)-Turtle Club - Diamond #4-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-17",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U15 (Baltzer)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-17-Selects - 18U/Midget (Guthrie)-Villanova - Diamond #1-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-17",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - 18U/Midget (Guthrie)",
+      "opponent": "Practice",
+      "diamond": "Villanova - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-17-Titans - 10U T1 (Picco)-Vollmer #6-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-17",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 10U T1 (Picco)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #6",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-18-Titans - 12U T1 (Hotts)-Vollmer #6-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-18",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -33231,8 +32634,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78415",
-      "cpGameId": "78415",
+      "id": "tc-cp-2026-06-18-Titans - 13U T1 (Baker)-Vollmer #5-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-18",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -33240,15 +32643,15 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "Titans - 14U T2 (Soltis)",
+      "team": "Titans - 13U T1 (Baker)",
       "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #7",
+      "diamond": "Vollmer #5",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77577",
-      "cpGameId": "77577",
+      "id": "tc-cp-2026-06-18-Titans - 10U T1 (Picco)-Vollmer #4-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-18",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -33263,8 +32666,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77720",
-      "cpGameId": "77720",
+      "id": "tc-cp-2026-06-18-Titans - 11U T1 (Sivell)-Villanova - Diamond #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-18",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -33275,6 +32678,22 @@ window.TITANS_DATA = {
       "team": "Titans - 11U T1 (Sivell)",
       "opponent": "Practice",
       "diamond": "Villanova - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-18-Titans - 14U T2 (Soltis)-Turtle Club - Diamond #7-5:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-18",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 14U T2 (Soltis)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #7",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -33320,24 +32739,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79955",
-      "cpGameId": "79955",
-      "date": "2026-06-18",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Green (Lussier)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80346",
-      "cpGameId": "80346",
+      "id": "tc-cp-2026-06-18-Selects - 15U/Bantam (Johns)-Vollmer #2-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-18",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -33352,8 +32755,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80907",
-      "cpGameId": "80907",
+      "id": "tc-cp-2026-06-18-HL - SWT Group - Black - (Hurdis) & Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez)-Turtle Club - Diamond #1-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-18",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -33361,15 +32764,15 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "Selects - T-Ball Gold (McIntyre)",
-      "opponent": "Practice",
-      "diamond": "River Canard #2",
+      "team": "HL - SWT Group - Black - (Hurdis) & Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez)",
+      "opponent": "Shared Practice",
+      "diamond": "Turtle Club - Diamond #1",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79296",
-      "cpGameId": "79296",
+      "id": "tc-cp-2026-06-18-HL - Excelsior Detailing - Atomic Blue - (Meloche) & Home Run Sports - White - (Pineda)-Turtle Club - Diamond #3-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-18",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -33384,8 +32787,24 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80007",
-      "cpGameId": "80007",
+      "id": "tc-cp-2026-06-18-U9/U11 Green (Lussier)-Turtle Club - Diamond #5-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-18",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Green (Lussier)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-18-U13 Green (Grondin)-Turtle Club - Diamond #4-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-18",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -33400,24 +32819,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80113",
-      "cpGameId": "80113",
-      "date": "2026-06-18",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U17 (Signorelli)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80281",
-      "cpGameId": "80281",
+      "id": "tc-cp-2026-06-18-Selects - T-Ball Green (Koppeser)-Vollmer #8-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-18",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -33432,24 +32835,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80294",
-      "cpGameId": "80294",
-      "date": "2026-06-18",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - T-Ball Girls (Dufour)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #7",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80372",
-      "cpGameId": "80372",
+      "id": "tc-cp-2026-06-18-Selects - U9 Softball (Goz)-Turtle Club - Diamond #6-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-18",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -33464,8 +32851,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80385",
-      "cpGameId": "80385",
+      "id": "tc-cp-2026-06-18-Selects - U11 Softball (Meyers)-Vollmer #3-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-18",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -33480,8 +32867,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79295",
-      "cpGameId": "79295",
+      "id": "tc-cp-2026-06-18-Selects - T-Ball Girls (Dufour)-Vollmer #7-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-18",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -33489,9 +32876,41 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "HL - SWT Group - Black - (Hurdis) & Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez)",
-      "opponent": "Shared Practice",
-      "diamond": "Turtle Club - Diamond #1",
+      "team": "Selects - T-Ball Girls (Dufour)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #7",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-18-Selects - T-Ball Gold (McIntyre)-River Canard #2-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-18",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - T-Ball Gold (McIntyre)",
+      "opponent": "Practice",
+      "diamond": "River Canard #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-18-U17 (Signorelli)-Turtle Club - Diamond #2-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-18",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U17 (Signorelli)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -33528,8 +32947,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78521",
-      "cpGameId": "78521",
+      "id": "tc-cp-2026-06-19-U13 Gold (Hunt)-Vollmer #3-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-19",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -33544,8 +32963,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77666",
-      "cpGameId": "77666",
+      "id": "tc-cp-2026-06-19-Titans - 10U T2 (Martin)-Turtle Club - Diamond #1-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-19",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -33560,8 +32979,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77345",
-      "cpGameId": "77345",
+      "id": "tc-cp-2026-06-19-Titans - 8U (Ellwood)-Turtle Club - Diamond #5-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-19",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -33572,22 +32991,6 @@ window.TITANS_DATA = {
       "team": "Titans - 8U (Ellwood)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #5",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-77968",
-      "cpGameId": "77968",
-      "date": "2026-06-19",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 12U T2 (Palubiski)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #7",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -33608,8 +33011,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79536",
-      "cpGameId": "79536",
+      "id": "tc-cp-2026-06-19-HL - Plantscape - Royal Blue - (Anson)-Turtle Club - Diamond #2 [G06-1]-6:00 PM",
+      "cpGameId": "",
       "date": "2026-06-19",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -33623,37 +33026,18 @@ window.TITANS_DATA = {
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
-        "source": "officials-daily",
+        "source": "officials-daily-missing",
         "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Ben Soltis",
-        "umpire2Name": "Molly Pare",
-        "officials": [
-          {
-            "username": "bensoltis",
-            "name": "Ben Soltis",
-            "position": "Home Plate",
-            "pay": "$40.00",
-            "payAmount": 40,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "mollypare",
-            "name": "Molly Pare",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
       }
     },
     {
-      "id": "tc-cp-79537",
-      "cpGameId": "79537",
+      "id": "tc-cp-2026-06-19-HL - Laser It! Salon & Medical Spa - Gold - (Booker)-Turtle Club - Diamond #6 [G06-2]-6:00 PM",
+      "cpGameId": "",
       "date": "2026-06-19",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -33667,41 +33051,13 @@ window.TITANS_DATA = {
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
-        "source": "officials-daily",
+        "source": "officials-daily-missing",
         "autoConfirmed": false,
         "umpire1Confirmed": false,
-        "umpire2Confirmed": true,
+        "umpire2Confirmed": false,
         "umpire1Name": "",
-        "umpire2Name": "Amit Sra",
-        "officials": [
-          {
-            "username": "gsivell",
-            "name": "Gabriella Sivell",
-            "position": "Home Plate",
-            "pay": "$40.00",
-            "payAmount": 40,
-            "confirmed": false,
-            "status": "pending"
-          },
-          {
-            "username": "asra",
-            "name": "Amit Sra",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "lsivell",
-            "name": "Luca Sivell",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": false,
-            "status": "denied"
-          }
-        ]
+        "umpire2Name": "",
+        "officials": []
       }
     },
     {
@@ -33719,6 +33075,41 @@ window.TITANS_DATA = {
       "diamond": "Leamington (TBD)",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-81046",
+      "cpGameId": "81046",
+      "date": "2026-06-19",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "Titans - 12U T2 (Palubiski)",
+      "opponent": "vs. Kingsville",
+      "diamond": "Turtle Club - Diamond #7",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": false,
+        "umpire1Name": "mmacdonald",
+        "umpire2Name": "",
+        "officials": [
+          {
+            "username": "mmac19",
+            "name": "mmacdonald",
+            "position": "Home Plate",
+            "pay": "$0.00",
+            "payAmount": 0,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
+      }
     },
     {
       "id": "tc-cp-80887",
@@ -33746,8 +33137,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-79420",
-      "cpGameId": "79420",
+      "id": "tc-cp-2026-06-19-HL - Dean Construction - Red - (Guthrie) & SWT Group - Black - (Morrison)-Vollmer #2-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-19",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -33762,56 +33153,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79972",
-      "cpGameId": "79972",
-      "date": "2026-06-19",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Green (Lussier)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-79919",
-      "cpGameId": "79919",
-      "date": "2026-06-19",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Gold (Natyshak)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #8",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80025",
-      "cpGameId": "80025",
-      "date": "2026-06-19",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Green (Grondin)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #3",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80411",
-      "cpGameId": "80411",
+      "id": "tc-cp-2026-06-19-Selects - U15 Softball (Brewer)-Vollmer #7-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-19",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -33826,8 +33169,56 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80131",
-      "cpGameId": "80131",
+      "id": "tc-cp-2026-06-19-U13 Green (Grondin)-Turtle Club - Diamond #3-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-19",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U13 Green (Grondin)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-19-U9/U11 Green (Lussier)-Vollmer #6-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-19",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Green (Lussier)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #6",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-19-U9/U11 Gold (Natyshak)-Vollmer #8-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-19",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Gold (Natyshak)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #8",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-19-U17 (Signorelli)-Turtle Club - Diamond #4-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-19",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -33842,8 +33233,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78905",
-      "cpGameId": "78905",
+      "id": "tc-cp-2026-06-20-HL - WFCU Credit Union - Royal Blue - (TBD) & WFCU Credit Union - Black - (TBD)-Turtle Club - Diamond #3-8:45 AM-9:45 AM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "8:45 AM",
@@ -33858,8 +33249,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78906",
-      "cpGameId": "78906",
+      "id": "tc-cp-2026-06-20-HL - WFCU Credit Union - Grey - (TBD) & WFCU Credit Union - Forest Green - (TBD)-Turtle Club - Diamond #4-8:45 AM-9:45 AM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "8:45 AM",
@@ -33874,8 +33265,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78907",
-      "cpGameId": "78907",
+      "id": "tc-cp-2026-06-20-HL - WFCU Credit Union - Red - (TBD) & WFCU Credit Union - White - (TBD)-Turtle Club - Diamond #5-8:45 AM-9:45 AM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "8:45 AM",
@@ -33931,8 +33322,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79458",
-      "cpGameId": "79458",
+      "id": "tc-cp-2026-06-20-HL - Anita M. Bois Bookkeeping Services - Carolina Blue - (Fletcher) & Lasalle Police Association - White - (Goz)-Turtle Club - Diamond #2-9:00 AM-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "9:00 AM",
@@ -33947,8 +33338,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79459",
-      "cpGameId": "79459",
+      "id": "tc-cp-2026-06-20-HL - Willson Income Tax - Grey - (Skeats) & Antonino's Pizza - Red - (Meyers)-Turtle Club - Diamond #6-9:00 AM-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "9:00 AM",
@@ -33963,8 +33354,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79421",
-      "cpGameId": "79421",
+      "id": "tc-cp-2026-06-20-HL - SWT Group - Black - (Morrison) & Dean Construction - Red - (Guthrie)-Turtle Club - Diamond #7-9:00 AM-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "9:00 AM",
@@ -33979,8 +33370,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79235",
-      "cpGameId": "79235",
+      "id": "tc-cp-2026-06-20-HL - R&D Controls Corp. - Grey - (Carr) & Active Body Physical Therapy - Purple - (Campagna)-Turtle Club - Diamond #1-9:00 AM-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "9:00 AM",
@@ -34027,8 +33418,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78968",
-      "cpGameId": "78968",
+      "id": "tc-cp-2026-06-20-HL - WFCU Credit Union - Maroon - (TBD) & WFCU Credit Union - Orange - (TBD)-Turtle Club - Diamond #3-10:00 AM-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "10:00 AM",
@@ -34043,8 +33434,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78969",
-      "cpGameId": "78969",
+      "id": "tc-cp-2026-06-20-HL - Rivertown Dance Academy - Gold - (TBD) & WFCU Credit Union - Purple - (TBD)-Turtle Club - Diamond #4-10:00 AM-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "10:00 AM",
@@ -34059,8 +33450,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78970",
-      "cpGameId": "78970",
+      "id": "tc-cp-2026-06-20-HL - WFCU Credit Union - Carolina Blue - (TBD) & WFCU Credit Union - Navy Blue - (TBD)-Turtle Club - Diamond #5-10:00 AM-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "10:00 AM",
@@ -34092,9 +33483,9 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": true,
-        "umpire1Name": "",
+        "umpire1Name": "Ryan Cabana",
         "umpire2Name": "Logan Mailloux",
         "officials": [
           {
@@ -34105,6 +33496,15 @@ window.TITANS_DATA = {
             "payAmount": 45,
             "confirmed": false,
             "status": "denied"
+          },
+          {
+            "username": "rcabana",
+            "name": "Ryan Cabana",
+            "position": "Home Plate",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": true,
+            "status": "confirmed"
           },
           {
             "username": "loganmailloux",
@@ -34119,8 +33519,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-79460",
-      "cpGameId": "79460",
+      "id": "tc-cp-2026-06-20-HL - Blush Spa & Salon - Black - (Dadalt) & Marie-Rose Music Studio - Peach - (Young)-Turtle Club - Diamond #6-11:00 AM-1:00 PM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "11:00 AM",
@@ -34135,8 +33535,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79236",
-      "cpGameId": "79236",
+      "id": "tc-cp-2026-06-20-HL - Bennett Mobile Truck Repair - Black - (Heuchan) & Malden Vet - White - (Maziak)-Turtle Club - Diamond #1-11:00 AM-1:00 PM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "11:00 AM",
@@ -34151,8 +33551,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79014",
-      "cpGameId": "79014",
+      "id": "tc-cp-2026-06-20-HL - Lasalle Police Association - White - (Lesperance) & Ascents Tree - Kelly Green - (Goz)-Turtle Club - Diamond #4-11:15 AM-1:00 PM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "11:15 AM",
@@ -34167,8 +33567,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79015",
-      "cpGameId": "79015",
+      "id": "tc-cp-2026-06-20-HL - WFCU Credit Union - Gold - (Pillon) & SWT Group - Black - (Kelly)-Turtle Club - Diamond #5-11:15 AM-1:00 PM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "11:15 AM",
@@ -34183,8 +33583,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79013",
-      "cpGameId": "79013",
+      "id": "tc-cp-2026-06-20-HL - Rob's Pharmacy - Maroon - (Krenwich) & Malden Dental - Royal Blue - (Rankin)-Turtle Club - Diamond #3-11:15 AM-1:00 PM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "11:15 AM",
@@ -34199,8 +33599,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78398",
-      "cpGameId": "78398",
+      "id": "tc-cp-2026-06-20-Titans - 18U T1 (Diotte)-Villanova - Diamond #1-12:00 PM-3:00 PM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "12:00 PM",
@@ -34215,8 +33615,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77880",
-      "cpGameId": "77880",
+      "id": "tc-cp-2026-06-20-Titans - 12U T1 (Hotts)-Villanova - Diamond #2-12:00 PM-3:00 PM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "12:00 PM",
@@ -34256,8 +33656,40 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-79237",
-      "cpGameId": "79237",
+      "id": "tc-cp-2026-06-20-HL - Bondy Insurance - Forest Green - (Craig) & Reaume Chevrolet Buick GMC - Royal Blue - (Koppeser)-Turtle Club - Diamond #5-1:00 PM-3:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-20",
+      "month": "Jun 2026",
+      "time": "1:00 PM",
+      "endTime": "3:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "HL - Bondy Insurance - Forest Green - (Craig) & Reaume Chevrolet Buick GMC - Royal Blue - (Koppeser)",
+      "opponent": "Shared Practice",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-20-Selects - U13 Softball (Paquette)-Turtle Club - Diamond #6-1:00 PM-3:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-20",
+      "month": "Jun 2026",
+      "time": "1:00 PM",
+      "endTime": "3:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - U13 Softball (Paquette)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-20-HL - Equinox Realty - Orange - (Steptoe) & Reaume Chevrolet Buick GMC - Royal Blue - (Castellan)-Turtle Club - Diamond #1-1:00 PM-3:00 PM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "1:00 PM",
@@ -34272,8 +33704,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79172",
-      "cpGameId": "79172",
+      "id": "tc-cp-2026-06-20-HL - Home Hardware - Gold - (Dufour) & Hunt Law - Black - (Chandler)-Turtle Club - Diamond #3-1:00 PM-3:00 PM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "1:00 PM",
@@ -34288,8 +33720,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79173",
-      "cpGameId": "79173",
+      "id": "tc-cp-2026-06-20-HL - Active Body Physical Therapy - Purple - (Kelly) & Tim Horton's Malden - Red - (McIntyre)-Turtle Club - Diamond #4-1:00 PM-3:00 PM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "1:00 PM",
@@ -34300,22 +33732,6 @@ window.TITANS_DATA = {
       "team": "HL - Active Body Physical Therapy - Purple - (Kelly) & Tim Horton's Malden - Red - (McIntyre)",
       "opponent": "Shared Practice",
       "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-79174",
-      "cpGameId": "79174",
-      "date": "2026-06-20",
-      "month": "Jun 2026",
-      "time": "1:00 PM",
-      "endTime": "3:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "HL - Bondy Insurance - Forest Green - (Craig) & Reaume Chevrolet Buick GMC - Royal Blue - (Koppeser)",
-      "opponent": "Shared Practice",
-      "diamond": "Turtle Club - Diamond #5",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -34364,8 +33780,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-78469",
-      "cpGameId": "78469",
+      "id": "tc-cp-2026-06-20-Titans - 16U T1 (Layson)-Villanova - Diamond #1-3:00 PM-9:00 PM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "3:00 PM",
@@ -34398,9 +33814,9 @@ window.TITANS_DATA = {
         "source": "officials-daily",
         "autoConfirmed": false,
         "umpire1Confirmed": true,
-        "umpire2Confirmed": false,
+        "umpire2Confirmed": true,
         "umpire1Name": "Ryan Cabana",
-        "umpire2Name": "",
+        "umpire2Name": "Gabriella Sivell",
         "officials": [
           {
             "username": "rcabana",
@@ -34426,15 +33842,15 @@ window.TITANS_DATA = {
             "position": "Bases",
             "pay": "$50.00",
             "payAmount": 50,
-            "confirmed": false,
-            "status": "pending"
+            "confirmed": true,
+            "status": "confirmed"
           }
         ]
       }
     },
     {
-      "id": "tc-cp-80308",
-      "cpGameId": "80308",
+      "id": "tc-cp-2026-06-20-Selects - 9U/Rookie (Carr)-Turtle Club - Diamond #1-4:30 PM-6:30 PM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "4:30 PM",
@@ -34449,8 +33865,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77363",
-      "cpGameId": "77363",
+      "id": "tc-cp-2026-06-20-Titans - 8U (Ellwood)-Turtle Club - Diamond #5-4:30 PM-7:30 PM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "4:30 PM",
@@ -34537,12 +33953,39 @@ window.TITANS_DATA = {
         "autoConfirmed": false,
         "umpire1Confirmed": true,
         "umpire2Confirmed": true,
-        "umpire1Name": "Cameron Robinet",
+        "umpire1Name": "Ross Nelson",
         "umpire2Name": "Ryan Cabana",
         "officials": [
           {
-            "username": "crobinet",
-            "name": "Cameron Robinet",
+            "username": "evanwezel",
+            "name": "Emmett Vanwezel",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "ofazekas",
+            "name": "Owen Fazekas",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "pmacarthur",
+            "name": "Paul MacArthur",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "rossnelson",
+            "name": "Ross Nelson",
             "position": "Home Plate",
             "pay": "$50.00",
             "payAmount": 50,
@@ -34562,8 +34005,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-80896",
-      "cpGameId": "80896",
+      "id": "tc-cp-2026-06-20-Selects - 11U/Mosquito (Bouchard)-Turtle Club - Diamond #2-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-20",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -34578,8 +34021,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78908",
-      "cpGameId": "78908",
+      "id": "tc-cp-2026-06-21-HL - WFCU Credit Union - Grey - (TBD) & WFCU Credit Union - Royal Blue - (TBD)-Turtle Club - Diamond #3-8:45 AM-9:45 AM",
+      "cpGameId": "",
       "date": "2026-06-21",
       "month": "Jun 2026",
       "time": "8:45 AM",
@@ -34594,8 +34037,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78909",
-      "cpGameId": "78909",
+      "id": "tc-cp-2026-06-21-HL - WFCU Credit Union - Forest Green - (TBD) & WFCU Credit Union - Red - (TBD)-Turtle Club - Diamond #4-8:45 AM-9:45 AM",
+      "cpGameId": "",
       "date": "2026-06-21",
       "month": "Jun 2026",
       "time": "8:45 AM",
@@ -34610,8 +34053,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78910",
-      "cpGameId": "78910",
+      "id": "tc-cp-2026-06-21-HL - WFCU Credit Union - White - (TBD) & WFCU Credit Union - Black - (TBD)-Turtle Club - Diamond #5-8:45 AM-9:45 AM",
+      "cpGameId": "",
       "date": "2026-06-21",
       "month": "Jun 2026",
       "time": "8:45 AM",
@@ -34626,52 +34069,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79262",
-      "cpGameId": "79262",
-      "date": "2026-06-21",
-      "month": "Jun 2026",
-      "time": "9:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "HL - R&D Controls Corp. - Grey - (Carr)",
-      "opponent": "vs. HL - Rookie - Reaume Chevrolet Buick GMC - Royal Blue - (Castellan)",
-      "diamond": "Turtle Club - Diamond #1 [G07-1]",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": false,
-        "umpire1Name": "Ryan Torti",
-        "umpire2Name": "",
-        "officials": [
-          {
-            "username": "rtorti",
-            "name": "Ryan Torti",
-            "position": "Home Plate",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "brennanlo",
-            "name": "Brennan Lo",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": false,
-            "status": "pending"
-          }
-        ]
-      }
-    },
-    {
-      "id": "tc-cp-79485",
-      "cpGameId": "79485",
+      "id": "tc-cp-2026-06-21-HL - Anita M. Bois Bookkeeping Services - Carolina Blue - (Fletcher)-Turtle Club - Diamond #2 [G07-1]-9:00 AM",
+      "cpGameId": "",
       "date": "2026-06-21",
       "month": "Jun 2026",
       "time": "9:00 AM",
@@ -34685,37 +34084,18 @@ window.TITANS_DATA = {
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
-        "source": "officials-daily",
+        "source": "officials-daily-missing",
         "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Emily Hannan",
-        "umpire2Name": "Grace Doidge",
-        "officials": [
-          {
-            "username": "emilyhannan",
-            "name": "Emily Hannan",
-            "position": "Home Plate",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "gracedoidge",
-            "name": "Grace Doidge",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
       }
     },
     {
-      "id": "tc-cp-79486",
-      "cpGameId": "79486",
+      "id": "tc-cp-2026-06-21-HL - Marie-Rose Music Studio - Peach - (Young)-Turtle Club - Diamond #6 [G07-3]-9:00 AM",
+      "cpGameId": "",
       "date": "2026-06-21",
       "month": "Jun 2026",
       "time": "9:00 AM",
@@ -34729,32 +34109,38 @@ window.TITANS_DATA = {
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
-        "source": "officials-daily",
+        "source": "officials-daily-missing",
         "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Nora Smith",
-        "umpire2Name": "Mikayla Reeb",
-        "officials": [
-          {
-            "username": "norasmith",
-            "name": "Nora Smith",
-            "position": "Home Plate",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "mikaylareeb",
-            "name": "Mikayla Reeb",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
+    },
+    {
+      "id": "tc-cp-2026-06-21-HL - R&D Controls Corp. - Grey - (Carr)-Turtle Club - Diamond #1 [G07-1]-9:00 AM",
+      "cpGameId": "",
+      "date": "2026-06-21",
+      "month": "Jun 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "HL - R&D Controls Corp. - Grey - (Carr)",
+      "opponent": "vs. HL - Rookie - Reaume Chevrolet Buick GMC - Royal Blue - (Castellan)",
+      "diamond": "Turtle Club - Diamond #1 [G07-1]",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily-missing",
+        "autoConfirmed": false,
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
       }
     },
     {
@@ -34783,8 +34169,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-78200",
-      "cpGameId": "78200",
+      "id": "tc-cp-2026-06-21-Titans - 15U T1 (Nickleson)-Villanova - Diamond #1-9:00 AM-12:00 PM",
+      "cpGameId": "",
       "date": "2026-06-21",
       "month": "Jun 2026",
       "time": "9:00 AM",
@@ -34816,10 +34202,10 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": true,
-        "umpire1Name": "",
-        "umpire2Name": "Paul MacArthur",
+        "umpire1Name": "Paul MacArthur",
+        "umpire2Name": "Ross Nelson",
         "officials": [
           {
             "username": "asra",
@@ -34846,7 +34232,25 @@ window.TITANS_DATA = {
             "pay": "$50.00",
             "payAmount": 50,
             "confirmed": false,
-            "status": "pending"
+            "status": "denied"
+          },
+          {
+            "username": "pmacarthur",
+            "name": "Paul MacArthur",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "lewismatte",
+            "name": "Lewis Matte",
+            "position": "Bases",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": false,
+            "status": "denied"
           },
           {
             "username": "lparent",
@@ -34855,11 +34259,11 @@ window.TITANS_DATA = {
             "pay": "$45.00",
             "payAmount": 45,
             "confirmed": false,
-            "status": "pending"
+            "status": "denied"
           },
           {
-            "username": "pmacarthur",
-            "name": "Paul MacArthur",
+            "username": "rossnelson",
+            "name": "Ross Nelson",
             "position": "Bases",
             "pay": "$45.00",
             "payAmount": 45,
@@ -34870,8 +34274,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-78971",
-      "cpGameId": "78971",
+      "id": "tc-cp-2026-06-21-HL - Rivertown Dance Academy - Gold - (TBD) & WFCU Credit Union - Maroon - (TBD)-Turtle Club - Diamond #3-10:00 AM-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-21",
       "month": "Jun 2026",
       "time": "10:00 AM",
@@ -34886,8 +34290,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78972",
-      "cpGameId": "78972",
+      "id": "tc-cp-2026-06-21-HL - WFCU Credit Union - Purple - (TBD) & WFCU Credit Union - Carolina Blue - (TBD)-Turtle Club - Diamond #4-10:00 AM-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-21",
       "month": "Jun 2026",
       "time": "10:00 AM",
@@ -34902,8 +34306,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78973",
-      "cpGameId": "78973",
+      "id": "tc-cp-2026-06-21-HL - WFCU Credit Union - Navy Blue - (TBD) & WFCU Credit Union - Orange - (TBD)-Turtle Club - Diamond #5-10:00 AM-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-21",
       "month": "Jun 2026",
       "time": "10:00 AM",
@@ -34932,6 +34336,31 @@ window.TITANS_DATA = {
       "diamond": "Sarnia",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80183",
+      "cpGameId": "80183",
+      "date": "2026-06-21",
+      "month": "Jun 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "Titans - Windsor Selects 13U",
+      "opponent": "vs. Great Lakes Canadians",
+      "diamond": "Vollmer #4",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
     },
     {
       "id": "tc-cp-79868",
@@ -34978,77 +34407,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-80183",
-      "cpGameId": "80183",
-      "date": "2026-06-21",
-      "month": "Jun 2026",
-      "time": "11:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "Titans - Windsor Selects 13U",
-      "opponent": "vs. Great Lakes Canadians",
-      "diamond": "Vollmer #4",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
-      }
-    },
-    {
-      "id": "tc-cp-79487",
-      "cpGameId": "79487",
-      "date": "2026-06-21",
-      "month": "Jun 2026",
-      "time": "11:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "HL - Antonino's Pizza - Red - (Meyers)",
-      "opponent": "vs. HL - Jr. Softball - Blush Spa & Salon - Black - (Dadalt)",
-      "diamond": "Turtle Club - Diamond #6 [G07-2]",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": false,
-        "umpire1Name": "Emily Hannan",
-        "umpire2Name": "",
-        "officials": [
-          {
-            "username": "emilyhannan",
-            "name": "Emily Hannan",
-            "position": "Home Plate",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "gracedoidge",
-            "name": "Grace Doidge",
-            "position": "Home Plate",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
-      }
-    },
-    {
-      "id": "tc-cp-79263",
-      "cpGameId": "79263",
+      "id": "tc-cp-2026-06-21-HL - Active Body Physical Therapy - Purple - (Campagna)-Turtle Club - Diamond #1 [G07-3]-11:00 AM",
+      "cpGameId": "",
       "date": "2026-06-21",
       "month": "Jun 2026",
       "time": "11:00 AM",
@@ -35062,67 +34422,38 @@ window.TITANS_DATA = {
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": false,
-        "umpire1Name": "Ryan Torti",
-        "umpire2Name": "",
-        "officials": [
-          {
-            "username": "rtorti",
-            "name": "Ryan Torti",
-            "position": "Home Plate",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "alaporte",
-            "name": "Andre Laporte",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": false,
-            "status": "pending"
-          }
-        ]
-      }
-    },
-    {
-      "id": "tc-cp-79040",
-      "cpGameId": "79040",
-      "date": "2026-06-21",
-      "month": "Jun 2026",
-      "time": "11:15 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "HL - Ascents Tree - Kelly Green - (Goz)",
-      "opponent": "vs. HL - Jr. T-Ball - Lasalle Police Association - White - (Lesperance)",
-      "diamond": "Turtle Club - Diamond #3 [G7-1]",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
+        "source": "officials-daily-missing",
         "autoConfirmed": false,
         "umpire1Confirmed": false,
         "umpire2Confirmed": false,
         "umpire1Name": "",
         "umpire2Name": "",
-        "officials": [
-          {
-            "username": "tcarlini",
-            "name": "Thomas Carlini",
-            "position": "Home Plate",
-            "pay": "$25.00",
-            "payAmount": 25,
-            "confirmed": false,
-            "status": "denied"
-          }
-        ]
+        "officials": []
+      }
+    },
+    {
+      "id": "tc-cp-2026-06-21-HL - Antonino's Pizza - Red - (Meyers)-Turtle Club - Diamond #6 [G07-2]-11:00 AM",
+      "cpGameId": "",
+      "date": "2026-06-21",
+      "month": "Jun 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "HL - Antonino's Pizza - Red - (Meyers)",
+      "opponent": "vs. HL - Jr. Softball - Blush Spa & Salon - Black - (Dadalt)",
+      "diamond": "Turtle Club - Diamond #6 [G07-2]",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily-missing",
+        "autoConfirmed": false,
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
       }
     },
     {
@@ -35196,24 +34527,52 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-78129",
-      "cpGameId": "78129",
+      "id": "tc-cp-79040",
+      "cpGameId": "79040",
       "date": "2026-06-21",
       "month": "Jun 2026",
-      "time": "12:00 PM",
-      "endTime": "3:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 14U T2 (Soltis)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #7",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "HL - Ascents Tree - Kelly Green - (Goz)",
+      "opponent": "vs. HL - Jr. T-Ball - Lasalle Police Association - White - (Lesperance)",
+      "diamond": "Turtle Club - Diamond #3 [G7-1]",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": false,
+        "umpire1Name": "Calvin Szabo",
+        "umpire2Name": "",
+        "officials": [
+          {
+            "username": "cszabo",
+            "name": "Calvin Szabo",
+            "position": "Home Plate",
+            "pay": "$25.00",
+            "payAmount": 25,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "tcarlini",
+            "name": "Thomas Carlini",
+            "position": "Home Plate",
+            "pay": "$25.00",
+            "payAmount": 25,
+            "confirmed": false,
+            "status": "denied"
+          }
+        ]
+      }
     },
     {
-      "id": "tc-cp-77915",
-      "cpGameId": "77915",
+      "id": "tc-cp-2026-06-21-Titans - 12U T2 (Palubiski)-Villanova - Diamond #2-12:00 PM-3:00 PM",
+      "cpGameId": "",
       "date": "2026-06-21",
       "month": "Jun 2026",
       "time": "12:00 PM",
@@ -35224,6 +34583,22 @@ window.TITANS_DATA = {
       "team": "Titans - 12U T2 (Palubiski)",
       "opponent": "Practice",
       "diamond": "Villanova - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-21-Titans - 14U T2 (Soltis)-Turtle Club - Diamond #7-12:00 PM-3:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-21",
+      "month": "Jun 2026",
+      "time": "12:00 PM",
+      "endTime": "3:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 14U T2 (Soltis)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #7",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -35269,140 +34644,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79199",
-      "cpGameId": "79199",
-      "date": "2026-06-21",
-      "month": "Jun 2026",
-      "time": "1:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "HL - Bondy Insurance - Forest Green - (Craig)",
-      "opponent": "vs. HL - Sr. T-Ball - Reaume Chevrolet Buick GMC - Royal Blue - (Koppeser)",
-      "diamond": "Turtle Club - Diamond #3 [G7-1]",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": [
-          {
-            "username": "tcarlini",
-            "name": "Thomas Carlini",
-            "position": "Home Plate",
-            "pay": "$30.00",
-            "payAmount": 30,
-            "confirmed": false,
-            "status": "denied"
-          },
-          {
-            "username": "alvinalcid",
-            "name": "Alvin Alcid",
-            "position": "Bases",
-            "pay": "$30.00",
-            "payAmount": 30,
-            "confirmed": false,
-            "status": "pending"
-          }
-        ]
-      }
-    },
-    {
-      "id": "tc-cp-79200",
-      "cpGameId": "79200",
-      "date": "2026-06-21",
-      "month": "Jun 2026",
-      "time": "1:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "HL - Active Body Physical Therapy - Purple - (Kelly)",
-      "opponent": "vs. HL - Sr. T-Ball - Hunt Law - Black - (Chandler)",
-      "diamond": "Turtle Club - Diamond #4 [G7-2]",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Avery Pare",
-        "umpire2Name": "Aramis Grondin",
-        "officials": [
-          {
-            "username": "apare",
-            "name": "Avery Pare",
-            "position": "Home Plate",
-            "pay": "$30.00",
-            "payAmount": 30,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "agrondin",
-            "name": "Aramis Grondin",
-            "position": "Bases",
-            "pay": "$30.00",
-            "payAmount": 30,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
-      }
-    },
-    {
-      "id": "tc-cp-79201",
-      "cpGameId": "79201",
-      "date": "2026-06-21",
-      "month": "Jun 2026",
-      "time": "1:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "HL - Home Hardware - Gold - (Dufour)",
-      "opponent": "vs. HL - Sr. T-Ball - Tim Horton's Malden - Red - (McIntyre)",
-      "diamond": "Turtle Club - Diamond #5 [G7-3]",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": false,
-        "umpire1Name": "Brady Ippoliti",
-        "umpire2Name": "",
-        "officials": [
-          {
-            "username": "bipolliti",
-            "name": "Brady Ippoliti",
-            "position": "Home Plate",
-            "pay": "$30.00",
-            "payAmount": 30,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "keegannoecker",
-            "name": "Keegan Noecker",
-            "position": "Home Plate",
-            "pay": "$30.00",
-            "payAmount": 30,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
-      }
-    },
-    {
-      "id": "tc-cp-79264",
-      "cpGameId": "79264",
+      "id": "tc-cp-2026-06-21-HL - Bennett Mobile Truck Repair - Black - (Heuchan)-Turtle Club - Diamond #1 [G07-2]-1:00 PM",
+      "cpGameId": "",
       "date": "2026-06-21",
       "month": "Jun 2026",
       "time": "1:00 PM",
@@ -35416,46 +34659,93 @@ window.TITANS_DATA = {
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
-        "source": "officials-daily",
+        "source": "officials-daily-missing",
         "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Parker Wilson",
-        "umpire2Name": "Nino Blanchard",
-        "officials": [
-          {
-            "username": "parkerwilson",
-            "name": "Parker Wilson",
-            "position": "Home Plate",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "mikaylareeb",
-            "name": "Mikayla Reeb",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": false,
-            "status": "denied"
-          },
-          {
-            "username": "ninoblanchard",
-            "name": "Nino Blanchard",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
       }
     },
     {
-      "id": "tc-cp-77756",
-      "cpGameId": "77756",
+      "id": "tc-cp-2026-06-21-HL - Home Hardware - Gold - (Dufour)-Turtle Club - Diamond #5 [G7-3]-1:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-21",
+      "month": "Jun 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "HL - Home Hardware - Gold - (Dufour)",
+      "opponent": "vs. HL - Sr. T-Ball - Tim Horton's Malden - Red - (McIntyre)",
+      "diamond": "Turtle Club - Diamond #5 [G7-3]",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily-missing",
+        "autoConfirmed": false,
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
+    },
+    {
+      "id": "tc-cp-2026-06-21-HL - Bondy Insurance - Forest Green - (Craig)-Turtle Club - Diamond #3 [G7-1]-1:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-21",
+      "month": "Jun 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "HL - Bondy Insurance - Forest Green - (Craig)",
+      "opponent": "vs. HL - Sr. T-Ball - Reaume Chevrolet Buick GMC - Royal Blue - (Koppeser)",
+      "diamond": "Turtle Club - Diamond #3 [G7-1]",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily-missing",
+        "autoConfirmed": false,
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
+    },
+    {
+      "id": "tc-cp-2026-06-21-HL - Active Body Physical Therapy - Purple - (Kelly)-Turtle Club - Diamond #4 [G7-2]-1:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-21",
+      "month": "Jun 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "HL - Active Body Physical Therapy - Purple - (Kelly)",
+      "opponent": "vs. HL - Sr. T-Ball - Hunt Law - Black - (Chandler)",
+      "diamond": "Turtle Club - Diamond #4 [G7-2]",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily-missing",
+        "autoConfirmed": false,
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
+    },
+    {
+      "id": "tc-cp-2026-06-21-Titans - 11U T2 (Dufour)-Turtle Club - Diamond #2-1:00 PM-4:00 PM",
+      "cpGameId": "",
       "date": "2026-06-21",
       "month": "Jun 2026",
       "time": "1:00 PM",
@@ -35495,6 +34785,31 @@ window.TITANS_DATA = {
       }
     },
     {
+      "id": "tc-cp-78570",
+      "cpGameId": "78570",
+      "date": "2026-06-21",
+      "month": "Jun 2026",
+      "time": "3:30 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "Titans - 16U T1 (Layson)",
+      "opponent": "vs. Port Lambton Pirates",
+      "diamond": "Villanova - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "auto-age",
+        "autoConfirmed": true,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
+    },
+    {
       "id": "tc-cp-79722",
       "cpGameId": "79722",
       "date": "2026-06-21",
@@ -35511,33 +34826,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78570",
-      "cpGameId": "78570",
-      "date": "2026-06-21",
-      "month": "Jun 2026",
-      "time": "4:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "Titans - 16U T1 (Layson)",
-      "opponent": "vs. Port Lambton Pirates",
-      "diamond": "Villanova - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "auto-age",
-        "autoConfirmed": true,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
-      }
-    },
-    {
-      "id": "tc-cp-80334",
-      "cpGameId": "80334",
+      "id": "tc-cp-2026-06-21-Selects - 13U/Pee Wee (Gignac)-Turtle Club - Diamond #2-4:30 PM-6:30 PM",
+      "cpGameId": "",
       "date": "2026-06-21",
       "month": "Jun 2026",
       "time": "4:30 PM",
@@ -35552,8 +34842,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80360",
-      "cpGameId": "80360",
+      "id": "tc-cp-2026-06-21-Selects - 18U/Midget (Guthrie)-Turtle Club - Diamond #7-4:30 PM-6:30 PM",
+      "cpGameId": "",
       "date": "2026-06-21",
       "month": "Jun 2026",
       "time": "4:30 PM",
@@ -35568,8 +34858,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77471",
-      "cpGameId": "77471",
+      "id": "tc-cp-2026-06-21-Titans - 8U/9U (Wachna)-Turtle Club - Diamond #5-4:30 PM-7:30 PM",
+      "cpGameId": "",
       "date": "2026-06-21",
       "month": "Jun 2026",
       "time": "4:30 PM",
@@ -35584,33 +34874,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78571",
-      "cpGameId": "78571",
-      "date": "2026-06-21",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "Titans - 16U T1 (Layson)",
-      "opponent": "vs. Port Lambton Pirates",
-      "diamond": "Villanova - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "auto-age",
-        "autoConfirmed": true,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
-      }
-    },
-    {
-      "id": "tc-cp-80269",
-      "cpGameId": "80269",
+      "id": "tc-cp-2026-06-21-Selects - T-Ball Gold (McIntyre)-Turtle Club - Diamond #4-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-21",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -35625,88 +34890,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78487",
-      "cpGameId": "78487",
-      "date": "2026-06-22",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Gold (Hunt)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-78218",
-      "cpGameId": "78218",
-      "date": "2026-06-22",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 15U T1 (Nickleson)",
-      "opponent": "Practice",
-      "diamond": "Villanova - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-77310",
-      "cpGameId": "77310",
-      "date": "2026-06-22",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 8U (Ellwood)",
-      "opponent": "Practice",
-      "diamond": "River Canard #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-77987",
-      "cpGameId": "77987",
-      "date": "2026-06-22",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 13U T1 (Baker)",
-      "opponent": "Practice",
-      "diamond": "Villanova - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-79755",
-      "cpGameId": "79755",
-      "date": "2026-06-22",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 8U/9U (Wachna)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-79827",
-      "cpGameId": "79827",
+      "id": "tc-cp-2026-06-22-Titans - 10U T2 (Martin)-Vollmer #4-5:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-22",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -35721,8 +34906,88 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79386",
-      "cpGameId": "79386",
+      "id": "tc-cp-2026-06-22-Titans - 8U/9U (Wachna)-Turtle Club - Diamond #4-5:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-22",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 8U/9U (Wachna)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-22-Titans - 8U (Ellwood)-River Canard #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-22",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 8U (Ellwood)",
+      "opponent": "Practice",
+      "diamond": "River Canard #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-22-Titans - 13U T1 (Baker)-Villanova - Diamond #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-22",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 13U T1 (Baker)",
+      "opponent": "Practice",
+      "diamond": "Villanova - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-22-Titans - 15U T1 (Nickleson)-Villanova - Diamond #1-5:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-22",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 15U T1 (Nickleson)",
+      "opponent": "Practice",
+      "diamond": "Villanova - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-22-U13 Gold (Hunt)-Turtle Club - Diamond #2-5:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-22",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U13 Gold (Hunt)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-22-HL - Antonino's Pizza - Red - (Grondin)-Turtle Club - Diamond #1 [G07-1]-6:00 PM",
+      "cpGameId": "",
       "date": "2026-06-22",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -35736,37 +35001,18 @@ window.TITANS_DATA = {
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
-        "source": "officials-daily",
+        "source": "officials-daily-missing",
         "autoConfirmed": false,
-        "umpire1Confirmed": true,
+        "umpire1Confirmed": false,
         "umpire2Confirmed": false,
-        "umpire1Name": "Ben Soltis",
+        "umpire1Name": "",
         "umpire2Name": "",
-        "officials": [
-          {
-            "username": "bensoltis",
-            "name": "Ben Soltis",
-            "position": "Home Plate",
-            "pay": "$50.00",
-            "payAmount": 50,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "josietregenza",
-            "name": "Josie Tregenza",
-            "position": "Bases",
-            "pay": "$45.00",
-            "payAmount": 45,
-            "confirmed": false,
-            "status": "pending"
-          }
-        ]
+        "officials": []
       }
     },
     {
-      "id": "tc-cp-79387",
-      "cpGameId": "79387",
+      "id": "tc-cp-2026-06-22-HL - SWT Group - Gold - (Boismier)-Turtle Club - Diamond #7 [G07-2]-6:00 PM",
+      "cpGameId": "",
       "date": "2026-06-22",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -35780,32 +35026,13 @@ window.TITANS_DATA = {
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
-        "source": "officials-daily",
+        "source": "officials-daily-missing",
         "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Scott Saxton",
-        "umpire2Name": "Brianna Dinchik",
-        "officials": [
-          {
-            "username": "scottsaxton",
-            "name": "Scott Saxton",
-            "position": "Home Plate",
-            "pay": "$50.00",
-            "payAmount": 50,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "bdinchik",
-            "name": "Brianna Dinchik",
-            "position": "Bases",
-            "pay": "$45.00",
-            "payAmount": 45,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
       }
     },
     {
@@ -35827,9 +35054,9 @@ window.TITANS_DATA = {
         "source": "officials-daily",
         "autoConfirmed": false,
         "umpire1Confirmed": true,
-        "umpire2Confirmed": false,
+        "umpire2Confirmed": true,
         "umpire1Name": "Ryan Torti",
-        "umpire2Name": "",
+        "umpire2Name": "Kaden Bissonnette",
         "officials": [
           {
             "username": "rtorti",
@@ -35846,31 +35073,15 @@ window.TITANS_DATA = {
             "position": "Bases",
             "pay": "$45.00",
             "payAmount": 45,
-            "confirmed": false,
-            "status": "pending"
+            "confirmed": true,
+            "status": "confirmed"
           }
         ]
       }
     },
     {
-      "id": "tc-cp-79885",
-      "cpGameId": "79885",
-      "date": "2026-06-22",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Gold (Natyshak)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-79520",
-      "cpGameId": "79520",
+      "id": "tc-cp-2026-06-22-HL - Laser It! Salon & Medical Spa - Gold - (Booker) & Hunt Law - Black - (Meyers)-Turtle Club - Diamond #6-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-22",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -35885,8 +35096,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79521",
-      "cpGameId": "79521",
+      "id": "tc-cp-2026-06-22-HL - R&D Controls Corp. - Silver - (Paquette) & Plantscape - Royal Blue - (Anson)-Turtle Club - Diamond #3-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-22",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -35901,8 +35112,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80167",
-      "cpGameId": "80167",
+      "id": "tc-cp-2026-06-22-Intermediate (Stadler)-Vollmer #3-6:00 PM-8:00 PM",
+      "cpGameId": "",
       "date": "2026-06-22",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -35913,6 +35124,86 @@ window.TITANS_DATA = {
       "team": "Intermediate (Stadler)",
       "opponent": "Practice",
       "diamond": "Vollmer #3",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-22-U9/U11 Gold (Natyshak)-Turtle Club - Diamond #5-6:00 PM-8:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-22",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Gold (Natyshak)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-79756",
+      "cpGameId": "79756",
+      "date": "2026-06-23",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 9U (Shaw)",
+      "opponent": "Practice",
+      "diamond": "River Canard #3",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-78363",
+      "cpGameId": "78363",
+      "date": "2026-06-23",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 18U T1 (Diotte)",
+      "opponent": "Practice",
+      "diamond": "Villanova - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-78147",
+      "cpGameId": "78147",
+      "date": "2026-06-23",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 14U T2 (Soltis)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #1",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-78290",
+      "cpGameId": "78290",
+      "date": "2026-06-23",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 16U T1 (Layson)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -35965,82 +35256,68 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78147",
-      "cpGameId": "78147",
+      "id": "tc-cp-2026-06-23-HL - Home Run Sports - White - (Pineda)-Turtle Club - Diamond #3 [G07-2]-6:00 PM",
+      "cpGameId": "",
       "date": "2026-06-23",
       "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 14U T2 (Soltis)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #1",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "HL - Home Run Sports - White - (Pineda)",
+      "opponent": "vs. HL - Mosquito - SWT Group - Black - (Hurdis)",
+      "diamond": "Turtle Club - Diamond #3 [G07-2]",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily-missing",
+        "autoConfirmed": false,
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
     },
     {
-      "id": "tc-cp-78076",
-      "cpGameId": "78076",
+      "id": "tc-cp-2026-06-23-HL - Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez)-Turtle Club - Diamond #1 [G07-1]-6:00 PM",
+      "cpGameId": "",
       "date": "2026-06-23",
       "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 14U T1 (vanWezel)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #7",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "HL - Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez)",
+      "opponent": "vs. HL - Mosquito - Excelsior Detailing - Atomic Blue - (Meloche)",
+      "diamond": "Turtle Club - Diamond #1 [G07-1]",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily-missing",
+        "autoConfirmed": false,
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
     },
     {
-      "id": "tc-cp-78363",
-      "cpGameId": "78363",
+      "id": "tc-cp-80882",
+      "cpGameId": "80882",
       "date": "2026-06-23",
       "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 18U T1 (Diotte)",
-      "opponent": "Practice",
-      "diamond": "Villanova - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-78290",
-      "cpGameId": "78290",
-      "date": "2026-06-23",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 16U T1 (Layson)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-79756",
-      "cpGameId": "79756",
-      "date": "2026-06-23",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 9U (Shaw)",
-      "opponent": "Practice",
-      "diamond": "River Canard #3",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Titans - 11U T2 (Dufour)",
+      "opponent": "@ Amherstburg",
+      "diamond": "Amherstburg Diamond #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -36062,19 +35339,19 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": true,
-        "umpire1Name": "",
+        "umpire1Name": "Andre Laporte",
         "umpire2Name": "Emmett Vanwezel",
         "officials": [
           {
-            "username": "asra",
-            "name": "Amit Sra",
+            "username": "alaporte",
+            "name": "Andre Laporte",
             "position": "Home Plate",
             "pay": "$40.00",
             "payAmount": 40,
-            "confirmed": false,
-            "status": "pending"
+            "confirmed": true,
+            "status": "confirmed"
           },
           {
             "username": "lparent",
@@ -36098,150 +35375,18 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-80514",
-      "cpGameId": "80514",
+      "id": "tc-cp-79577",
+      "cpGameId": "79577",
       "date": "2026-06-23",
       "month": "Jun 2026",
       "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "U15 (Baltzer)",
-      "opponent": "vs. Windsor Wildcats",
-      "diamond": "Vollmer #8",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": false,
-        "umpire1Name": "Bob Masschaele",
-        "umpire2Name": "",
-        "officials": [
-          {
-            "username": "bmash",
-            "name": "Bob Masschaele",
-            "position": "Home Plate",
-            "pay": "$55.00",
-            "payAmount": 55,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "tomkelly",
-            "name": "Tom Kelly",
-            "position": "Bases",
-            "pay": "$50.00",
-            "payAmount": 50,
-            "confirmed": false,
-            "status": "pending"
-          }
-        ]
-      }
-    },
-    {
-      "id": "tc-cp-79317",
-      "cpGameId": "79317",
-      "date": "2026-06-23",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "HL - Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez)",
-      "opponent": "vs. HL - Mosquito - Excelsior Detailing - Atomic Blue - (Meloche)",
-      "diamond": "Turtle Club - Diamond #1 [G07-1]",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": [
-          {
-            "username": "rossnelson",
-            "name": "Ross Nelson",
-            "position": "Home Plate",
-            "pay": "$40.00",
-            "payAmount": 40,
-            "confirmed": false,
-            "status": "pending"
-          },
-          {
-            "username": "emilyhannan",
-            "name": "Emily Hannan",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": false,
-            "status": "pending"
-          }
-        ]
-      }
-    },
-    {
-      "id": "tc-cp-79318",
-      "cpGameId": "79318",
-      "date": "2026-06-23",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "HL - Home Run Sports - White - (Pineda)",
-      "opponent": "vs. HL - Mosquito - SWT Group - Black - (Hurdis)",
-      "diamond": "Turtle Club - Diamond #3 [G07-2]",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": true,
-        "umpire1Name": "",
-        "umpire2Name": "Nora Smith",
-        "officials": [
-          {
-            "username": "aidenoneil",
-            "name": "Aiden Oneil",
-            "position": "Home Plate",
-            "pay": "$40.00",
-            "payAmount": 40,
-            "confirmed": false,
-            "status": "pending"
-          },
-          {
-            "username": "norasmith",
-            "name": "Nora Smith",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
-      }
-    },
-    {
-      "id": "tc-cp-80882",
-      "cpGameId": "80882",
-      "date": "2026-06-23",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Away Game",
-      "eventKind": "Away Game",
-      "team": "Titans - 11U T2 (Dufour)",
-      "opponent": "@ Amherstburg",
-      "diamond": "Amherstburg Diamond #2",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "HL - Active Body Physical Therapy - Purple - (Pare) & Laser It! Salon & Medical Spa - Gold - (Taylor)",
+      "opponent": "Shared Practice",
+      "diamond": "River Canard #4",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -36278,22 +35423,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79577",
-      "cpGameId": "79577",
-      "date": "2026-06-23",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "HL - Active Body Physical Therapy - Purple - (Pare) & Laser It! Salon & Medical Spa - Gold - (Taylor)",
-      "opponent": "Shared Practice",
-      "diamond": "River Canard #4",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80096",
       "cpGameId": "80096",
       "date": "2026-06-23",
@@ -36306,6 +35435,22 @@ window.TITANS_DATA = {
       "team": "U17 (Signorelli)",
       "opponent": "Practice",
       "diamond": "Vollmer #3",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-81124",
+      "cpGameId": "81124",
+      "date": "2026-06-23",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U15 (Baltzer)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #8",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -36367,8 +35512,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78381",
-      "cpGameId": "78381",
+      "id": "tc-cp-78505",
+      "cpGameId": "78505",
       "date": "2026-06-24",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -36376,9 +35521,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "Titans - 18U T1 (Diotte)",
+      "team": "U13 Gold (Hunt)",
       "opponent": "Practice",
-      "diamond": "Vollmer #1",
+      "diamond": "Turtle Club - Diamond #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -36399,8 +35544,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78505",
-      "cpGameId": "78505",
+      "id": "tc-cp-78381",
+      "cpGameId": "78381",
       "date": "2026-06-24",
       "month": "Jun 2026",
       "time": "5:00 PM",
@@ -36408,9 +35553,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "U13 Gold (Hunt)",
+      "team": "Titans - 18U T1 (Diotte)",
       "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #2",
+      "diamond": "Vollmer #1",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -36463,6 +35608,22 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-77951",
+      "cpGameId": "77951",
+      "date": "2026-06-24",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 12U T2 (Palubiski)",
+      "opponent": "Practice",
+      "diamond": "Villanova - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "id": "tc-cp-78005",
       "cpGameId": "78005",
       "date": "2026-06-24",
@@ -36479,18 +35640,78 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77951",
-      "cpGameId": "77951",
+      "id": "tc-cp-79807",
+      "cpGameId": "79807",
       "date": "2026-06-24",
       "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 12U T2 (Palubiski)",
-      "opponent": "Practice",
-      "diamond": "Villanova - Diamond #2",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Titans - 12U T1 (Hotts)",
+      "opponent": "@ Amherstburg Cardinals",
+      "diamond": "Amherstburg",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-79639",
+      "cpGameId": "79639",
+      "date": "2026-06-24",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "Titans - 8U/9U (Wachna)",
+      "opponent": "vs. Riverside Royals",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Emmett Vanwezel",
+        "umpire2Name": "Lewis Matte",
+        "officials": [
+          {
+            "username": "evanwezel",
+            "name": "Emmett Vanwezel",
+            "position": "Home Plate",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "lewismatte",
+            "name": "Lewis Matte",
+            "position": "Bases",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tc-cp-80884",
+      "cpGameId": "80884",
+      "date": "2026-06-24",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Titans - 14U T1 (vanWezel)",
+      "opponent": "@ Trenton Travelers",
+      "diamond": "Teifer Park",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -36539,80 +35760,52 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-80884",
-      "cpGameId": "80884",
+      "id": "tc-cp-80044",
+      "cpGameId": "80044",
       "date": "2026-06-24",
       "month": "Jun 2026",
       "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Away Game",
-      "eventKind": "Away Game",
-      "team": "Titans - 14U T1 (vanWezel)",
-      "opponent": "@ Trenton Travelers",
-      "diamond": "Teifer Park",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U15 (Baltzer)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #4",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79807",
-      "cpGameId": "79807",
+      "id": "tc-cp-79903",
+      "cpGameId": "79903",
       "date": "2026-06-24",
       "month": "Jun 2026",
       "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Away Game",
-      "eventKind": "Away Game",
-      "team": "Titans - 12U T1 (Hotts)",
-      "opponent": "@ Amherstburg Cardinals",
-      "diamond": "Amherstburg",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Gold (Natyshak)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #5",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79639",
-      "cpGameId": "79639",
+      "id": "tc-cp-79359",
+      "cpGameId": "79359",
       "date": "2026-06-24",
       "month": "Jun 2026",
       "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "Titans - 8U/9U (Wachna)",
-      "opponent": "vs. Riverside Royals",
-      "diamond": "Turtle Club - Diamond #6",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "HL - Hunt Law - Black - (Johns) & TD Bank - Kelly Green - (Roehler)",
+      "opponent": "Shared Practice",
+      "diamond": "Turtle Club - Diamond #1",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": false,
-        "umpire1Name": "Emmett Vanwezel",
-        "umpire2Name": "",
-        "officials": [
-          {
-            "username": "evanwezel",
-            "name": "Emmett Vanwezel",
-            "position": "Home Plate",
-            "pay": "$40.00",
-            "payAmount": 40,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "lparent",
-            "name": "Liam Parent",
-            "position": "Bases",
-            "pay": "$40.00",
-            "payAmount": 40,
-            "confirmed": false,
-            "status": "pending"
-          }
-        ]
-      }
+      "source": "Turtle Club Control Panel"
     },
     {
       "id": "tc-cp-79361",
@@ -36647,38 +35840,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80044",
-      "cpGameId": "80044",
-      "date": "2026-06-24",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U15 (Baltzer)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-79903",
-      "cpGameId": "79903",
-      "date": "2026-06-24",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Gold (Natyshak)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80604",
       "cpGameId": "80604",
       "date": "2026-06-24",
@@ -36691,22 +35852,6 @@ window.TITANS_DATA = {
       "team": "Selects - U9 Softball (Goz)",
       "opponent": "Practice",
       "diamond": "River Canard #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-79359",
-      "cpGameId": "79359",
-      "date": "2026-06-24",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "HL - Hunt Law - Black - (Johns) & TD Bank - Kelly Green - (Roehler)",
-      "opponent": "Shared Practice",
-      "diamond": "Turtle Club - Diamond #1",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -36759,22 +35904,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78308",
-      "cpGameId": "78308",
-      "date": "2026-06-25",
-      "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 16U T1 (Layson)",
-      "opponent": "Practice",
-      "diamond": "Villanova - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-78416",
       "cpGameId": "78416",
       "date": "2026-06-25",
@@ -36787,6 +35916,22 @@ window.TITANS_DATA = {
       "team": "Titans - 14U T2 (Soltis)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #7",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-78308",
+      "cpGameId": "78308",
+      "date": "2026-06-25",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 16U T1 (Layson)",
+      "opponent": "Practice",
+      "diamond": "Villanova - Diamond #1",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -36823,38 +35968,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80008",
-      "cpGameId": "80008",
-      "date": "2026-06-25",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Green (Grondin)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80282",
-      "cpGameId": "80282",
-      "date": "2026-06-25",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - T-Ball Green (Koppeser)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #8",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-79956",
       "cpGameId": "79956",
       "date": "2026-06-25",
@@ -36867,22 +35980,6 @@ window.TITANS_DATA = {
       "team": "U9/U11 Green (Lussier)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #5",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80386",
-      "cpGameId": "80386",
-      "date": "2026-06-25",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - U11 Softball (Meyers)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #3",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -36903,8 +36000,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80347",
-      "cpGameId": "80347",
+      "id": "tc-cp-80008",
+      "cpGameId": "80008",
       "date": "2026-06-25",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -36912,41 +36009,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "Selects - 15U/Bantam (Johns)",
+      "team": "U13 Green (Grondin)",
       "opponent": "Practice",
-      "diamond": "Vollmer #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80114",
-      "cpGameId": "80114",
-      "date": "2026-06-25",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U17 (Signorelli)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80295",
-      "cpGameId": "80295",
-      "date": "2026-06-25",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - T-Ball Girls (Dufour)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #7",
+      "diamond": "Turtle Club - Diamond #4",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -36967,6 +36032,86 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-80114",
+      "cpGameId": "80114",
+      "date": "2026-06-25",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U17 (Signorelli)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80386",
+      "cpGameId": "80386",
+      "date": "2026-06-25",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - U11 Softball (Meyers)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #3",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80295",
+      "cpGameId": "80295",
+      "date": "2026-06-25",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - T-Ball Girls (Dufour)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #7",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80347",
+      "cpGameId": "80347",
+      "date": "2026-06-25",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - 15U/Bantam (Johns)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80282",
+      "cpGameId": "80282",
+      "date": "2026-06-25",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - T-Ball Green (Koppeser)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #8",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "id": "tc-cp-79855",
       "cpGameId": "79855",
       "date": "2026-06-25",
@@ -36983,20 +36128,89 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78522",
-      "cpGameId": "78522",
+      "id": "tc-cp-79765",
+      "cpGameId": "79765",
       "date": "2026-06-26",
       "month": "Jun 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Gold (Hunt)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #3",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Titans - 9U (Shaw)",
+      "opponent": "@ Tecumseh Rangers",
+      "diamond": "Tecumseh Town Hall (Arena)",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-2026-06-26-HL - Plantscape - Royal Blue - (Anson)-River Canard #2 [G07-1]-6:00 PM",
+      "cpGameId": "",
+      "date": "2026-06-26",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "HL - Plantscape - Royal Blue - (Anson)",
+      "opponent": "vs. HL - INT. Softball - Laser It! Salon & Medical Spa - Gold - (Booker)",
+      "diamond": "River Canard #2 [G07-1]",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily-missing",
+        "autoConfirmed": false,
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
+    },
+    {
+      "id": "tc-cp-79539",
+      "cpGameId": "79539",
+      "date": "2026-06-26",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "HL - R&D Controls Corp. - Silver - (Paquette)",
+      "opponent": "vs. HL - INT. Softball - Hunt Law - Black - (Meyers)",
+      "diamond": "River Canard #4 [G07-2]",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Ben Soltis",
+        "umpire2Name": "Amit Sra",
+        "officials": [
+          {
+            "username": "bensoltis",
+            "name": "Ben Soltis",
+            "position": "Home Plate",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "asra",
+            "name": "Amit Sra",
+            "position": "Bases",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
+      }
     },
     {
       "id": "tc-cp-79875",
@@ -37050,128 +36264,6 @@ window.TITANS_DATA = {
           }
         ]
       }
-    },
-    {
-      "id": "tc-cp-79538",
-      "cpGameId": "79538",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "HL - Plantscape - Royal Blue - (Anson)",
-      "opponent": "vs. HL - INT. Softball - Laser It! Salon & Medical Spa - Gold - (Booker)",
-      "diamond": "River Canard #2 [G07-1]",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": [
-          {
-            "username": "gsivell",
-            "name": "Gabriella Sivell",
-            "position": "Home Plate",
-            "pay": "$40.00",
-            "payAmount": 40,
-            "confirmed": false,
-            "status": "denied"
-          },
-          {
-            "username": "mollypare",
-            "name": "Molly Pare",
-            "position": "Home Plate",
-            "pay": "$40.00",
-            "payAmount": 40,
-            "confirmed": false,
-            "status": "denied"
-          },
-          {
-            "username": "apare",
-            "name": "Avery Pare",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": false,
-            "status": "denied"
-          },
-          {
-            "username": "lsivell",
-            "name": "Luca Sivell",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": false,
-            "status": "denied"
-          }
-        ]
-      }
-    },
-    {
-      "id": "tc-cp-79539",
-      "cpGameId": "79539",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "HL - R&D Controls Corp. - Silver - (Paquette)",
-      "opponent": "vs. HL - INT. Softball - Hunt Law - Black - (Meyers)",
-      "diamond": "River Canard #4 [G07-2]",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "Ben Soltis",
-        "umpire2Name": "Amit Sra",
-        "officials": [
-          {
-            "username": "bensoltis",
-            "name": "Ben Soltis",
-            "position": "Home Plate",
-            "pay": "$40.00",
-            "payAmount": 40,
-            "confirmed": true,
-            "status": "confirmed"
-          },
-          {
-            "username": "asra",
-            "name": "Amit Sra",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": true,
-            "status": "confirmed"
-          }
-        ]
-      }
-    },
-    {
-      "id": "tc-cp-79765",
-      "cpGameId": "79765",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Away Game",
-      "eventKind": "Away Game",
-      "team": "Titans - 9U (Shaw)",
-      "opponent": "@ Tecumseh Rangers",
-      "diamond": "Tecumseh Town Hall (Arena)",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
     },
     {
       "id": "tc-cp-79422",
@@ -37314,22 +36406,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80309",
-      "cpGameId": "80309",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "4:30 PM",
-      "endTime": "6:30 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - 9U/Rookie (Carr)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80237",
       "cpGameId": "80237",
       "date": "2026-06-27",
@@ -37378,6 +36454,22 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-81136",
+      "cpGameId": "81136",
+      "date": "2026-06-28",
+      "month": "Jun 2026",
+      "time": "1:30 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Selects - 9U/Rookie (Carr)",
+      "opponent": "@ Amherstburg",
+      "diamond": "Bill Wigle Park",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "id": "tc-cp-80527",
       "cpGameId": "80527",
       "date": "2026-06-28",
@@ -37395,23 +36487,32 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": true,
-        "umpire1Name": "",
-        "umpire2Name": "Emmett Vanwezel",
+        "umpire1Name": "Brady Ippoliti",
+        "umpire2Name": "Luca Sivell",
         "officials": [
           {
-            "username": "lpaun",
-            "name": "Liam Paun",
+            "username": "bipolliti",
+            "name": "Brady Ippoliti",
             "position": "Home Plate",
             "pay": "$40.00",
             "payAmount": 40,
-            "confirmed": false,
-            "status": "pending"
+            "confirmed": true,
+            "status": "confirmed"
           },
           {
-            "username": "evanwezel",
-            "name": "Emmett Vanwezel",
+            "username": "lparent",
+            "name": "Liam Parent",
+            "position": "Bases",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "lsivell",
+            "name": "Luca Sivell",
             "position": "Bases",
             "pay": "$40.00",
             "payAmount": 40,
@@ -37652,11 +36753,20 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": true,
-        "umpire1Name": "",
+        "umpire1Name": "Brady Ippoliti",
         "umpire2Name": "Josie Tregenza",
         "officials": [
+          {
+            "username": "bipolliti",
+            "name": "Brady Ippoliti",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": true,
+            "status": "confirmed"
+          },
           {
             "username": "dludberg",
             "name": "David Ludberg",
@@ -37664,7 +36774,16 @@ window.TITANS_DATA = {
             "pay": "$50.00",
             "payAmount": 50,
             "confirmed": false,
-            "status": "pending"
+            "status": "denied"
+          },
+          {
+            "username": "lpaun",
+            "name": "Liam Paun",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
           },
           {
             "username": "josietregenza",
@@ -37741,9 +36860,9 @@ window.TITANS_DATA = {
         "source": "officials-daily",
         "autoConfirmed": false,
         "umpire1Confirmed": true,
-        "umpire2Confirmed": false,
+        "umpire2Confirmed": true,
         "umpire1Name": "Ryan Torti",
-        "umpire2Name": "",
+        "umpire2Name": "Kaden Bissonnette",
         "officials": [
           {
             "username": "rtorti",
@@ -37760,8 +36879,8 @@ window.TITANS_DATA = {
             "position": "Bases",
             "pay": "$45.00",
             "payAmount": 45,
-            "confirmed": false,
-            "status": "pending"
+            "confirmed": true,
+            "status": "confirmed"
           }
         ]
       }
@@ -37843,6 +36962,22 @@ window.TITANS_DATA = {
       "team": "HL - Laser It! Salon & Medical Spa - Gold - (Taylor)",
       "opponent": "@ Leamington White Caps #1",
       "diamond": "Leamington Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-81146",
+      "cpGameId": "81146",
+      "date": "2026-06-30",
+      "month": "Jun 2026",
+      "time": "5:00 PM",
+      "endTime": "7:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - T-Ball Green (Koppeser)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -37975,8 +37110,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79320",
-      "cpGameId": "79320",
+      "id": "tc-cp-79699",
+      "cpGameId": "79699",
       "date": "2026-06-30",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -37984,122 +37119,43 @@ window.TITANS_DATA = {
       "durationMinutes": 120,
       "type": "Home Game",
       "eventKind": "Home Game",
-      "team": "HL - Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez)",
-      "opponent": "vs. HL - Mosquito - Home Run Sports - White - (Pineda)",
-      "diamond": "Turtle Club - Diamond #3 [G08-2]",
+      "team": "Titans - 8U (Ellwood)",
+      "opponent": "vs. Lakeshore Whitecaps",
+      "diamond": "Turtle Club - Diamond #6",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": [
-          {
-            "username": "lsivell",
-            "name": "Luca Sivell",
-            "position": "Home Plate",
-            "pay": "$40.00",
-            "payAmount": 40,
-            "confirmed": false,
-            "status": "pending"
-          },
-          {
-            "username": "emilyhannan",
-            "name": "Emily Hannan",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": false,
-            "status": "pending"
-          }
-        ]
-      }
-    },
-    {
-      "id": "tc-cp-79319",
-      "cpGameId": "79319",
-      "date": "2026-06-30",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "HL - Excelsior Detailing - Atomic Blue - (Meloche)",
-      "opponent": "vs. HL - Mosquito - SWT Group - Black - (Hurdis)",
-      "diamond": "Turtle Club - Diamond #1 [G08-1]",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": [
-          {
-            "username": "dnaccarato",
-            "name": "David Naccarato",
-            "position": "Home Plate",
-            "pay": "$40.00",
-            "payAmount": 40,
-            "confirmed": false,
-            "status": "pending"
-          },
-          {
-            "username": "norasmith",
-            "name": "Nora Smith",
-            "position": "Bases",
-            "pay": "$35.00",
-            "payAmount": 35,
-            "confirmed": false,
-            "status": "pending"
-          }
-        ]
-      }
-    },
-    {
-      "id": "tc-cp-80801",
-      "cpGameId": "80801",
-      "date": "2026-06-30",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "HL - Dean Construction - Red - (Guthrie)",
-      "opponent": "vs. Riverside Select 18U",
-      "diamond": "Turtle Club - Diamond #7",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": true,
-        "umpire1Name": "",
-        "umpire2Name": "Emmett Vanwezel",
+        "umpire1Name": "Liam Parent",
+        "umpire2Name": "Brady Ippoliti",
         "officials": [
           {
-            "username": "dludberg",
-            "name": "David Ludberg",
+            "username": "lparent",
+            "name": "Liam Parent",
             "position": "Home Plate",
-            "pay": "$55.00",
-            "payAmount": 55,
-            "confirmed": false,
-            "status": "pending"
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": true,
+            "status": "confirmed"
           },
           {
-            "username": "evanwezel",
-            "name": "Emmett Vanwezel",
+            "username": "lpaun",
+            "name": "Liam Paun",
+            "position": "Home Plate",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "bipolliti",
+            "name": "Brady Ippoliti",
             "position": "Bases",
-            "pay": "$50.00",
-            "payAmount": 50,
+            "pay": "$40.00",
+            "payAmount": 40,
             "confirmed": true,
             "status": "confirmed"
           }
@@ -38123,8 +37179,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79699",
-      "cpGameId": "79699",
+      "id": "tc-cp-80801",
+      "cpGameId": "80801",
       "date": "2026-06-30",
       "month": "Jun 2026",
       "time": "6:00 PM",
@@ -38132,36 +37188,127 @@ window.TITANS_DATA = {
       "durationMinutes": 120,
       "type": "Home Game",
       "eventKind": "Home Game",
-      "team": "Titans - 8U (Ellwood)",
-      "opponent": "vs. Lakeshore Whitecaps",
-      "diamond": "Turtle Club - Diamond #6",
+      "team": "HL - Dean Construction - Red - (Guthrie)",
+      "opponent": "vs. Riverside Select 18U",
+      "diamond": "Turtle Club - Diamond #7",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "David Ludberg",
+        "umpire2Name": "Ross Nelson",
+        "officials": [
+          {
+            "username": "dludberg",
+            "name": "David Ludberg",
+            "position": "Home Plate",
+            "pay": "$55.00",
+            "payAmount": 55,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "rossnelson",
+            "name": "Ross Nelson",
+            "position": "Bases",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
-      "id": "tc-cp-80079",
-      "cpGameId": "80079",
+      "id": "tc-cp-79320",
+      "cpGameId": "79320",
       "date": "2026-06-30",
       "month": "Jun 2026",
       "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U15 (Baltzer)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #8",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "HL - Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez)",
+      "opponent": "vs. HL - Mosquito - Home Run Sports - White - (Pineda)",
+      "diamond": "Turtle Club - Diamond #3 [G08-2]",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Luca Sivell",
+        "umpire2Name": "Emily Hannan",
+        "officials": [
+          {
+            "username": "lsivell",
+            "name": "Luca Sivell",
+            "position": "Home Plate",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "emilyhannan",
+            "name": "Emily Hannan",
+            "position": "Bases",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tc-cp-79319",
+      "cpGameId": "79319",
+      "date": "2026-06-30",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "HL - Excelsior Detailing - Atomic Blue - (Meloche)",
+      "opponent": "vs. HL - Mosquito - SWT Group - Black - (Hurdis)",
+      "diamond": "Turtle Club - Diamond #1 [G08-1]",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "David Naccarato",
+        "umpire2Name": "Nora Smith",
+        "officials": [
+          {
+            "username": "dnaccarato",
+            "name": "David Naccarato",
+            "position": "Home Plate",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "norasmith",
+            "name": "Nora Smith",
+            "position": "Bases",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
+      }
     },
     {
       "id": "tc-cp-79578",
@@ -38192,6 +37339,22 @@ window.TITANS_DATA = {
       "team": "U9/U11 Green (Lussier)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80079",
+      "cpGameId": "80079",
+      "date": "2026-06-30",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U15 (Baltzer)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #8",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -38230,9 +37393,9 @@ window.TITANS_DATA = {
         "source": "officials-daily",
         "autoConfirmed": false,
         "umpire1Confirmed": true,
-        "umpire2Confirmed": false,
+        "umpire2Confirmed": true,
         "umpire1Name": "Bob Masschaele",
-        "umpire2Name": "",
+        "umpire2Name": "Gabriella Sivell",
         "officials": [
           {
             "username": "bmash",
@@ -38249,8 +37412,8 @@ window.TITANS_DATA = {
             "position": "Bases",
             "pay": "$50.00",
             "payAmount": 50,
-            "confirmed": false,
-            "status": "pending"
+            "confirmed": true,
+            "status": "confirmed"
           },
           {
             "username": "rcabana",
@@ -38279,31 +37442,6 @@ window.TITANS_DATA = {
       "diamond": "Weston back diamond",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-79768",
-      "cpGameId": "79768",
-      "date": "2026-07-01",
-      "month": "Jul 2026",
-      "time": "4:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "Titans - 9U (Shaw)",
-      "opponent": "vs. Riverside Royals",
-      "diamond": "Turtle Club - Diamond #3",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
-      }
     },
     {
       "id": "tc-cp-78506",
@@ -38451,28 +37589,147 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": false,
-        "umpire1Name": "",
+        "umpire1Name": "Paul MacArthur",
         "umpire2Name": "",
-        "officials": []
+        "officials": [
+          {
+            "username": "crobinet",
+            "name": "Cameron Robinet",
+            "position": "Home Plate",
+            "pay": "$55.00",
+            "payAmount": 55,
+            "confirmed": false,
+            "status": "pending"
+          },
+          {
+            "username": "pmacarthur",
+            "name": "Paul MacArthur",
+            "position": "Home Plate",
+            "pay": "$55.00",
+            "payAmount": 55,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "scottsaxton",
+            "name": "Scott Saxton",
+            "position": "Home Plate",
+            "pay": "$55.00",
+            "payAmount": 55,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "asra",
+            "name": "Amit Sra",
+            "position": "Bases",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "pending"
+          },
+          {
+            "username": "bsemande",
+            "name": "Brady Semande",
+            "position": "Bases",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "dnaccarato",
+            "name": "David Naccarato",
+            "position": "Bases",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "etownsend",
+            "name": "Everhett Townsend",
+            "position": "Bases",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "pending"
+          },
+          {
+            "username": "lewismatte",
+            "name": "Lewis Matte",
+            "position": "Bases",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "pending"
+          },
+          {
+            "username": "lsivell",
+            "name": "Luca Sivell",
+            "position": "Bases",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "ofazekas",
+            "name": "Owen Fazekas",
+            "position": "Bases",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "pending"
+          }
+        ]
       }
     },
     {
-      "id": "tc-cp-79362",
-      "cpGameId": "79362",
+      "id": "tc-cp-81133",
+      "cpGameId": "81133",
       "date": "2026-07-01",
       "month": "Jul 2026",
       "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "HL - Windsor Factory Supply - White - (Pare) & WFCU Credit Union- Grey - (Montean)",
-      "opponent": "Shared Practice",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "HL - Windsor Factory Supply - White - (Pare)",
+      "opponent": "vs. HL - PeeWee/ Bantam - TD Bank - Kelly Green - (Roehler)",
       "diamond": "Turtle Club - Diamond #1",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Ben Soltis",
+        "umpire2Name": "Ryan Torti",
+        "officials": [
+          {
+            "username": "bensoltis",
+            "name": "Ben Soltis",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "rtorti",
+            "name": "Ryan Torti",
+            "position": "Bases",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
+      }
     },
     {
       "id": "tc-cp-79363",
@@ -38484,7 +37741,7 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "HL - Antonino's Pizza - Red - (Grondin) & TD Bank - Kelly Green - (Roehler)",
+      "team": "HL - Antonino's Pizza - Red - (Grondin) & WFCU Credit Union- Grey - (Montean)",
       "opponent": "Shared Practice",
       "diamond": "Turtle Club - Diamond #7",
       "status": "Scheduled",
@@ -38507,8 +37764,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79904",
-      "cpGameId": "79904",
+      "id": "tc-cp-80400",
+      "cpGameId": "80400",
       "date": "2026-07-01",
       "month": "Jul 2026",
       "time": "6:00 PM",
@@ -38516,9 +37773,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "U9/U11 Gold (Natyshak)",
+      "team": "Selects - U13 Softball (Paquette)",
       "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
+      "diamond": "Vollmer #6",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -38539,8 +37796,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80400",
-      "cpGameId": "80400",
+      "id": "tc-cp-79904",
+      "cpGameId": "79904",
       "date": "2026-07-01",
       "month": "Jul 2026",
       "time": "6:00 PM",
@@ -38548,9 +37805,25 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "Selects - U13 Softball (Paquette)",
+      "team": "U9/U11 Gold (Natyshak)",
       "opponent": "Practice",
-      "diamond": "Vollmer #6",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-81128",
+      "cpGameId": "81128",
+      "date": "2026-07-01",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - 18U/Midget (Guthrie)",
+      "opponent": "Practice",
+      "diamond": "Villanova - Diamond #1",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -38567,6 +37840,38 @@ window.TITANS_DATA = {
       "team": "Titans - 13U T1 (Baker)",
       "opponent": "Practice",
       "diamond": "Vollmer #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-78417",
+      "cpGameId": "78417",
+      "date": "2026-07-02",
+      "month": "Jul 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 14U T2 (Soltis)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #7",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-78309",
+      "cpGameId": "78309",
+      "date": "2026-07-02",
+      "month": "Jul 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 16U T1 (Layson)",
+      "opponent": "Practice",
+      "diamond": "Villanova - Diamond #1",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -38603,38 +37908,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78309",
-      "cpGameId": "78309",
-      "date": "2026-07-02",
-      "month": "Jul 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 16U T1 (Layson)",
-      "opponent": "Practice",
-      "diamond": "Villanova - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-78417",
-      "cpGameId": "78417",
-      "date": "2026-07-02",
-      "month": "Jul 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 14U T2 (Soltis)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #7",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-79654",
       "cpGameId": "79654",
       "date": "2026-07-02",
@@ -38649,6 +37922,94 @@ window.TITANS_DATA = {
       "diamond": "Walker Homesites",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-81137",
+      "cpGameId": "81137",
+      "date": "2026-07-02",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "Selects - 9U/Rookie (Carr)",
+      "opponent": "vs. Tecumseh Rangers",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": false,
+        "umpire1Name": "Grace Doidge",
+        "umpire2Name": "",
+        "officials": [
+          {
+            "username": "gracedoidge",
+            "name": "Grace Doidge",
+            "position": "Home Plate",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "megancampbell",
+            "name": "MeganCampbell",
+            "position": "Home Plate",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tc-cp-81054",
+      "cpGameId": "81054",
+      "date": "2026-07-02",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "Selects - T-Ball Green (Koppeser)",
+      "opponent": "vs. Amherstburg",
+      "diamond": "Vollmer #8",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Kaden Bissonnette",
+        "umpire2Name": "Josie Tregenza",
+        "officials": [
+          {
+            "username": "kadenbissonnette",
+            "name": "Kaden Bissonnette",
+            "position": "Home Plate",
+            "pay": "$30.00",
+            "payAmount": 30,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "josietregenza",
+            "name": "Josie Tregenza",
+            "position": "Bases",
+            "pay": "$30.00",
+            "payAmount": 30,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
+      }
     },
     {
       "id": "tc-cp-79299",
@@ -38699,22 +38060,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80009",
-      "cpGameId": "80009",
-      "date": "2026-07-02",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Green (Grondin)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80115",
       "cpGameId": "80115",
       "date": "2026-07-02",
@@ -38727,70 +38072,6 @@ window.TITANS_DATA = {
       "team": "U17 (Signorelli)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80283",
-      "cpGameId": "80283",
-      "date": "2026-07-02",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - T-Ball Green (Koppeser)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #8",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80296",
-      "cpGameId": "80296",
-      "date": "2026-07-02",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - T-Ball Girls (Dufour)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #7",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80614",
-      "cpGameId": "80614",
-      "date": "2026-07-02",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - 9U/Rookie (Carr)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #6",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80387",
-      "cpGameId": "80387",
-      "date": "2026-07-02",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - U11 Softball (Meyers)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #3",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -38811,20 +38092,82 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78523",
-      "cpGameId": "78523",
-      "date": "2026-07-03",
+      "id": "tc-cp-80296",
+      "cpGameId": "80296",
+      "date": "2026-07-02",
       "month": "Jul 2026",
-      "time": "5:00 PM",
+      "time": "6:00 PM",
       "endTime": "8:00 PM",
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "U13 Gold (Hunt)",
+      "team": "Selects - T-Ball Girls (Dufour)",
       "opponent": "Practice",
-      "diamond": "Vollmer #3",
+      "diamond": "Vollmer #7",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-81050",
+      "cpGameId": "81050",
+      "date": "2026-07-02",
+      "month": "Jul 2026",
+      "time": "6:30 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "U13 Green (Grondin)",
+      "opponent": "vs. Chatham Golden Eagles",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Gabriella Sivell",
+        "umpire2Name": "Brianna Dinchik",
+        "officials": [
+          {
+            "username": "gsivell",
+            "name": "Gabriella Sivell",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "lsivell",
+            "name": "Luca Sivell",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "tmcdermott",
+            "name": "Terry McDermott",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "bdinchik",
+            "name": "Brianna Dinchik",
+            "position": "Bases",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
+      }
     },
     {
       "id": "tc-cp-77970",
@@ -38875,6 +38218,22 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-78523",
+      "cpGameId": "78523",
+      "date": "2026-07-03",
+      "month": "Jul 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U13 Gold (Hunt)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #3",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "id": "tc-cp-79540",
       "cpGameId": "79540",
       "date": "2026-07-03",
@@ -38892,11 +38251,30 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Ryan Torti",
+        "umpire2Name": "Logan Mailloux",
+        "officials": [
+          {
+            "username": "rtorti",
+            "name": "Ryan Torti",
+            "position": "Home Plate",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "loganmailloux",
+            "name": "Logan Mailloux",
+            "position": "Bases",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -38917,11 +38295,48 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Avery Pare",
+        "umpire2Name": "Kaden Bissonnette",
+        "officials": [
+          {
+            "username": "apare",
+            "name": "Avery Pare",
+            "position": "Home Plate",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "lpaun",
+            "name": "Liam Paun",
+            "position": "Home Plate",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "mollypare",
+            "name": "Molly Pare",
+            "position": "Home Plate",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "kadenbissonnette",
+            "name": "Kaden Bissonnette",
+            "position": "Bases",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -38942,11 +38357,30 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "David Ludberg",
+        "umpire2Name": "Amit Sra",
+        "officials": [
+          {
+            "username": "dludberg",
+            "name": "David Ludberg",
+            "position": "Home Plate",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "asra",
+            "name": "Amit Sra",
+            "position": "Bases",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -38962,6 +38396,22 @@ window.TITANS_DATA = {
       "team": "HL - SWT Group - Black - (Morrison)",
       "opponent": "@ Amherstburg Cardinals u18",
       "diamond": "Amherstburg",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80898",
+      "cpGameId": "80898",
+      "date": "2026-07-03",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - 11U/Mosquito (Bouchard)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #1",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -38982,22 +38432,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80027",
-      "cpGameId": "80027",
-      "date": "2026-07-03",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Green (Grondin)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #3",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-79974",
       "cpGameId": "79974",
       "date": "2026-07-03",
@@ -39014,6 +38448,22 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-80027",
+      "cpGameId": "80027",
+      "date": "2026-07-03",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U13 Green (Grondin)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "id": "tc-cp-79921",
       "cpGameId": "79921",
       "date": "2026-07-03",
@@ -39026,22 +38476,6 @@ window.TITANS_DATA = {
       "team": "U9/U11 Gold (Natyshak)",
       "opponent": "Practice",
       "diamond": "Vollmer #8",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80898",
-      "cpGameId": "80898",
-      "date": "2026-07-03",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - 11U/Mosquito (Bouchard)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #1",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -39067,7 +38501,62 @@ window.TITANS_DATA = {
         "umpire2Confirmed": false,
         "umpire1Name": "",
         "umpire2Name": "",
-        "officials": []
+        "officials": [
+          {
+            "username": "crobinet",
+            "name": "Cameron Robinet",
+            "position": "Home Plate",
+            "pay": "$55.00",
+            "payAmount": 55,
+            "confirmed": false,
+            "status": "pending"
+          },
+          {
+            "username": "evanwezel",
+            "name": "Emmett Vanwezel",
+            "position": "Home Plate",
+            "pay": "$55.00",
+            "payAmount": 55,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "ofazekas",
+            "name": "Owen Fazekas",
+            "position": "Home Plate",
+            "pay": "$55.00",
+            "payAmount": 55,
+            "confirmed": false,
+            "status": "pending"
+          },
+          {
+            "username": "pmacarthur",
+            "name": "Paul MacArthur",
+            "position": "Home Plate",
+            "pay": "$55.00",
+            "payAmount": 55,
+            "confirmed": false,
+            "status": "pending"
+          },
+          {
+            "username": "lewismatte",
+            "name": "Lewis Matte",
+            "position": "Bases",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "nixonvanwezel",
+            "name": "Nixon Vanwezel",
+            "position": "Bases",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "pending"
+          }
+        ]
       }
     },
     {
@@ -39089,10 +38578,38 @@ window.TITANS_DATA = {
         "source": "officials-daily",
         "autoConfirmed": false,
         "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
+        "umpire2Confirmed": true,
         "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire2Name": "Brady Ippoliti",
+        "officials": [
+          {
+            "username": "gsivell",
+            "name": "Gabriella Sivell",
+            "position": "Home Plate",
+            "pay": "$55.00",
+            "payAmount": 55,
+            "confirmed": false,
+            "status": "pending"
+          },
+          {
+            "username": "jtaylor",
+            "name": "Jim Taylor",
+            "position": "Home Plate",
+            "pay": "$55.00",
+            "payAmount": 55,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "bipolliti",
+            "name": "Brady Ippoliti",
+            "position": "Bases",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -39283,10 +38800,47 @@ window.TITANS_DATA = {
         "source": "officials-daily",
         "autoConfirmed": false,
         "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
+        "umpire2Confirmed": true,
         "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire2Name": "Brady Ippoliti",
+        "officials": [
+          {
+            "username": "crobinet",
+            "name": "Cameron Robinet",
+            "position": "Home Plate",
+            "pay": "$55.00",
+            "payAmount": 55,
+            "confirmed": false,
+            "status": "pending"
+          },
+          {
+            "username": "dnaccarato",
+            "name": "David Naccarato",
+            "position": "Home Plate",
+            "pay": "$55.00",
+            "payAmount": 55,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "tmcdermott",
+            "name": "Terry McDermott",
+            "position": "Home Plate",
+            "pay": "$55.00",
+            "payAmount": 55,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "bipolliti",
+            "name": "Brady Ippoliti",
+            "position": "Bases",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -39307,11 +38861,30 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Gabriella Sivell",
+        "umpire2Name": "Luca Sivell",
+        "officials": [
+          {
+            "username": "gsivell",
+            "name": "Gabriella Sivell",
+            "position": "Home Plate",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "lsivell",
+            "name": "Luca Sivell",
+            "position": "Bases",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -39324,7 +38897,7 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "HL - Malden Vet - White - (Maziak) & Equinox Realty - Orange - (Steptoe)",
+      "team": "HL - Malden Vet - White - (Maziak) & Active Body Physical Therapy - Purple - (Campagna)",
       "opponent": "Shared Practice",
       "diamond": "Turtle Club - Diamond #1",
       "status": "Scheduled",
@@ -39453,28 +39026,102 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "David Ludberg",
+        "umpire2Name": "Gabriella Sivell",
+        "officials": [
+          {
+            "username": "dludberg",
+            "name": "David Ludberg",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "bmash",
+            "name": "Bob Masschaele",
+            "position": "Bases",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "gsivell",
+            "name": "Gabriella Sivell",
+            "position": "Bases",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "lpaun",
+            "name": "Liam Paun",
+            "position": "Bases",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "rcabana",
+            "name": "Ryan Cabana",
+            "position": "Bases",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": false,
+            "status": "denied"
+          }
+        ]
       }
     },
     {
-      "id": "tc-cp-79240",
-      "cpGameId": "79240",
+      "id": "tc-cp-81134",
+      "cpGameId": "81134",
       "date": "2026-07-04",
       "month": "Jul 2026",
       "time": "1:00 PM",
-      "endTime": "3:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "HL - Reaume Chevrolet Buick GMC - Royal Blue - (Castellan) & Active Body Physical Therapy - Purple - (Campagna)",
-      "opponent": "Shared Practice",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "HL - Reaume Chevrolet Buick GMC - Royal Blue - (Castellan)",
+      "opponent": "vs. HL - Rookie - Equinox Realty - Orange - (Steptoe)",
       "diamond": "Turtle Club - Diamond #1",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Parker Wilson",
+        "umpire2Name": "Brady Ippoliti",
+        "officials": [
+          {
+            "username": "parkerwilson",
+            "name": "Parker Wilson",
+            "position": "Home Plate",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "bipolliti",
+            "name": "Brady Ippoliti",
+            "position": "Bases",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
+      }
     },
     {
       "id": "tc-cp-79175",
@@ -39525,6 +39172,31 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-81145",
+      "cpGameId": "81145",
+      "date": "2026-07-04",
+      "month": "Jul 2026",
+      "time": "1:30 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "Selects - U9 Softball (Goz)",
+      "opponent": "vs. Forest Glade Falcons",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
+    },
+    {
       "id": "tc-cp-78536",
       "cpGameId": "78536",
       "date": "2026-07-04",
@@ -39542,11 +39214,57 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "David Ludberg",
+        "umpire2Name": "Ryan Torti",
+        "officials": [
+          {
+            "username": "bmash",
+            "name": "Bob Masschaele",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "dludberg",
+            "name": "David Ludberg",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "lpaun",
+            "name": "Liam Paun",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "rcabana",
+            "name": "Ryan Cabana",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "rtorti",
+            "name": "Ryan Torti",
+            "position": "Bases",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -39583,28 +39301,49 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Scott Saxton",
+        "umpire2Name": "Brady Ippoliti",
+        "officials": [
+          {
+            "username": "scottsaxton",
+            "name": "Scott Saxton",
+            "position": "Home Plate",
+            "pay": "$55.00",
+            "payAmount": 55,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "bipolliti",
+            "name": "Brady Ippoliti",
+            "position": "Bases",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "lsivell",
+            "name": "Luca Sivell",
+            "position": "Bases",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "pmacarthur",
+            "name": "Paul MacArthur",
+            "position": "Bases",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          }
+        ]
       }
-    },
-    {
-      "id": "tc-cp-80605",
-      "cpGameId": "80605",
-      "date": "2026-07-04",
-      "month": "Jul 2026",
-      "time": "4:00 PM",
-      "endTime": "6:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - U9 Softball (Goz)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
     },
     {
       "id": "tc-cp-80323",
@@ -39768,11 +39507,30 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Parker Wilson",
+        "umpire2Name": "Colby Saunders",
+        "officials": [
+          {
+            "username": "parkerwilson",
+            "name": "Parker Wilson",
+            "position": "Home Plate",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "csaunders",
+            "name": "Colby Saunders",
+            "position": "Bases",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -39793,11 +39551,30 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Mikayla Reeb",
+        "umpire2Name": "Nora Smith",
+        "officials": [
+          {
+            "username": "mikaylareeb",
+            "name": "Mikayla Reeb",
+            "position": "Home Plate",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "norasmith",
+            "name": "Nora Smith",
+            "position": "Bases",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -39818,11 +39595,30 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": false,
-        "umpire1Name": "",
+        "umpire1Name": "Grace Doidge",
         "umpire2Name": "",
-        "officials": []
+        "officials": [
+          {
+            "username": "gracedoidge",
+            "name": "Grace Doidge",
+            "position": "Home Plate",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "megancampbell",
+            "name": "MeganCampbell",
+            "position": "Home Plate",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -39907,11 +39703,30 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Mikayla Reeb",
+        "umpire2Name": "Nora Smith",
+        "officials": [
+          {
+            "username": "mikaylareeb",
+            "name": "Mikayla Reeb",
+            "position": "Home Plate",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "norasmith",
+            "name": "Nora Smith",
+            "position": "Bases",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -39932,11 +39747,30 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "MeganCampbell",
+        "umpire2Name": "Grace Doidge",
+        "officials": [
+          {
+            "username": "megancampbell",
+            "name": "MeganCampbell",
+            "position": "Home Plate",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "gracedoidge",
+            "name": "Grace Doidge",
+            "position": "Bases",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -39957,11 +39791,30 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Colby Saunders",
+        "umpire2Name": "Parker Wilson",
+        "officials": [
+          {
+            "username": "csaunders",
+            "name": "Colby Saunders",
+            "position": "Home Plate",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "parkerwilson",
+            "name": "Parker Wilson",
+            "position": "Bases",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -39982,11 +39835,21 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": false,
-        "umpire1Name": "",
+        "umpire1Name": "Nino Blanchard",
         "umpire2Name": "",
-        "officials": []
+        "officials": [
+          {
+            "username": "ninoblanchard",
+            "name": "Nino Blanchard",
+            "position": "Home Plate",
+            "pay": "$25.00",
+            "payAmount": 25,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -40007,11 +39870,21 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": false,
-        "umpire1Name": "",
+        "umpire1Name": "Isaac Wally",
         "umpire2Name": "",
-        "officials": []
+        "officials": [
+          {
+            "username": "isaacwally",
+            "name": "Isaac Wally",
+            "position": "Home Plate",
+            "pay": "$25.00",
+            "payAmount": 25,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -40032,11 +39905,21 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": false,
-        "umpire1Name": "",
+        "umpire1Name": "Keegan Noecker",
         "umpire2Name": "",
-        "officials": []
+        "officials": [
+          {
+            "username": "keegannoecker",
+            "name": "Keegan Noecker",
+            "position": "Home Plate",
+            "pay": "$25.00",
+            "payAmount": 25,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -40081,47 +39964,6 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-79267",
-      "cpGameId": "79267",
-      "date": "2026-07-05",
-      "month": "Jul 2026",
-      "time": "1:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "HL - Reaume Chevrolet Buick GMC - Royal Blue - (Castellan)",
-      "opponent": "vs. HL - Rookie - Active Body Physical Therapy - Purple - (Campagna)",
-      "diamond": "Turtle Club - Diamond #1 [G08-2]",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
-      }
-    },
-    {
-      "id": "tc-cp-79640",
-      "cpGameId": "79640",
-      "date": "2026-07-05",
-      "month": "Jul 2026",
-      "time": "1:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Away Game",
-      "eventKind": "Away Game",
-      "team": "Titans - 8U/9U (Wachna)",
-      "opponent": "@ Essex Yellow Jackets",
-      "diamond": "Essex Arena",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-79202",
       "cpGameId": "79202",
       "date": "2026-07-05",
@@ -40139,11 +39981,30 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Nino Blanchard",
+        "umpire2Name": "McKenna Brewer",
+        "officials": [
+          {
+            "username": "ninoblanchard",
+            "name": "Nino Blanchard",
+            "position": "Home Plate",
+            "pay": "$30.00",
+            "payAmount": 30,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "mbrewer",
+            "name": "McKenna Brewer",
+            "position": "Bases",
+            "pay": "$30.00",
+            "payAmount": 30,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -40164,11 +40025,30 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Isaac Wally",
+        "umpire2Name": "Nolan Saunders",
+        "officials": [
+          {
+            "username": "isaacwally",
+            "name": "Isaac Wally",
+            "position": "Home Plate",
+            "pay": "$30.00",
+            "payAmount": 30,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "nolansaunders",
+            "name": "Nolan Saunders",
+            "position": "Bases",
+            "pay": "$30.00",
+            "payAmount": 30,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -40189,12 +40069,100 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Colby Saunders",
+        "umpire2Name": "Keegan Noecker",
+        "officials": [
+          {
+            "username": "csaunders",
+            "name": "Colby Saunders",
+            "position": "Home Plate",
+            "pay": "$30.00",
+            "payAmount": 30,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "elliedean",
+            "name": "Ellie Dean",
+            "position": "Home Plate",
+            "pay": "$30.00",
+            "payAmount": 30,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "keegannoecker",
+            "name": "Keegan Noecker",
+            "position": "Bases",
+            "pay": "$30.00",
+            "payAmount": 30,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
+    },
+    {
+      "id": "tc-cp-79267",
+      "cpGameId": "79267",
+      "date": "2026-07-05",
+      "month": "Jul 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "HL - Reaume Chevrolet Buick GMC - Royal Blue - (Castellan)",
+      "opponent": "vs. HL - Rookie - Active Body Physical Therapy - Purple - (Campagna)",
+      "diamond": "Turtle Club - Diamond #1 [G08-2]",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Avery Pare",
+        "umpire2Name": "Ty Ouimette",
+        "officials": [
+          {
+            "username": "apare",
+            "name": "Avery Pare",
+            "position": "Home Plate",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "touimette",
+            "name": "Ty Ouimette",
+            "position": "Bases",
+            "pay": "$35.00",
+            "payAmount": 35,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tc-cp-79640",
+      "cpGameId": "79640",
+      "date": "2026-07-05",
+      "month": "Jul 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Titans - 8U/9U (Wachna)",
+      "opponent": "@ Essex Yellow Jackets",
+      "diamond": "Essex Arena",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
     },
     {
       "id": "tc-cp-79790",
@@ -40214,8 +40182,61 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Cameron Robinet",
+        "umpire2Name": "Luca Sivell",
+        "officials": [
+          {
+            "username": "crobinet",
+            "name": "Cameron Robinet",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "lsivell",
+            "name": "Luca Sivell",
+            "position": "Bases",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "ofazekas",
+            "name": "Owen Fazekas",
+            "position": "Bases",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": false,
+            "status": "denied"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tc-cp-81056",
+      "cpGameId": "81056",
+      "date": "2026-07-05",
+      "month": "Jul 2026",
+      "time": "4:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "Selects - 18U/Midget (Guthrie)",
+      "opponent": "vs. TBD",
+      "diamond": "Turtle Club - Diamond #7",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "auto-age",
+        "autoConfirmed": true,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
         "umpire1Name": "",
         "umpire2Name": "",
         "officials": []
@@ -40247,36 +40268,48 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-80336",
-      "cpGameId": "80336",
+      "id": "tc-cp-81125",
+      "cpGameId": "81125",
       "date": "2026-07-05",
       "month": "Jul 2026",
       "time": "4:30 PM",
-      "endTime": "6:30 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
       "team": "Selects - 13U/Pee Wee (Gignac)",
-      "opponent": "Practice",
+      "opponent": "vs. Forest Glade Falcons",
       "diamond": "Turtle Club - Diamond #2",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80362",
-      "cpGameId": "80362",
-      "date": "2026-07-05",
-      "month": "Jul 2026",
-      "time": "4:30 PM",
-      "endTime": "6:30 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - 18U/Midget (Guthrie)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #7",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": false,
+        "umpire1Name": "David Ludberg",
+        "umpire2Name": "",
+        "officials": [
+          {
+            "username": "dludberg",
+            "name": "David Ludberg",
+            "position": "Home Plate",
+            "pay": "$55.00",
+            "payAmount": 55,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "rtorti",
+            "name": "Ryan Torti",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
+      }
     },
     {
       "id": "tc-cp-78574",
@@ -40401,11 +40434,21 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": false,
-        "umpire1Name": "",
+        "umpire1Name": "Luca Sivell",
         "umpire2Name": "",
-        "officials": []
+        "officials": [
+          {
+            "username": "lsivell",
+            "name": "Luca Sivell",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -40426,11 +40469,21 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": false,
-        "umpire1Name": "",
+        "umpire1Name": "Ross Nelson",
         "umpire2Name": "",
-        "officials": []
+        "officials": [
+          {
+            "username": "rossnelson",
+            "name": "Ross Nelson",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -40455,7 +40508,17 @@ window.TITANS_DATA = {
         "umpire2Confirmed": false,
         "umpire1Name": "",
         "umpire2Name": "",
-        "officials": []
+        "officials": [
+          {
+            "username": "lpaun",
+            "name": "Liam Paun",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "pending"
+          }
+        ]
       }
     },
     {
@@ -40491,22 +40554,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79887",
-      "cpGameId": "79887",
-      "date": "2026-07-06",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Gold (Natyshak)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80169",
       "cpGameId": "80169",
       "date": "2026-07-06",
@@ -40519,6 +40566,38 @@ window.TITANS_DATA = {
       "team": "Intermediate (Stadler)",
       "opponent": "Practice",
       "diamond": "Vollmer #3",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-81129",
+      "cpGameId": "81129",
+      "date": "2026-07-06",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - 18U/Midget (Guthrie)",
+      "opponent": "Practice",
+      "diamond": "Villanova - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-81150",
+      "cpGameId": "81150",
+      "date": "2026-07-06",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Gold (Natyshak)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #5",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -40560,7 +40639,17 @@ window.TITANS_DATA = {
         "umpire2Confirmed": false,
         "umpire1Name": "",
         "umpire2Name": "",
-        "officials": []
+        "officials": [
+          {
+            "username": "dnaccarato",
+            "name": "David Naccarato",
+            "position": "Home Plate",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": false,
+            "status": "denied"
+          }
+        ]
       }
     },
     {
@@ -40581,11 +40670,21 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": false,
-        "umpire1Name": "",
+        "umpire1Name": "Ryan Torti",
         "umpire2Name": "",
-        "officials": []
+        "officials": [
+          {
+            "username": "rtorti",
+            "name": "Ryan Torti",
+            "position": "Home Plate",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -40685,22 +40784,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78149",
-      "cpGameId": "78149",
-      "date": "2026-07-07",
-      "month": "Jul 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 14U T2 (Soltis)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #1",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-78634",
       "cpGameId": "78634",
       "date": "2026-07-07",
@@ -40747,7 +40830,17 @@ window.TITANS_DATA = {
         "umpire2Confirmed": false,
         "umpire1Name": "",
         "umpire2Name": "",
-        "officials": []
+        "officials": [
+          {
+            "username": "dnaccarato",
+            "name": "David Naccarato",
+            "position": "Home Plate",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": false,
+            "status": "denied"
+          }
+        ]
       }
     },
     {
@@ -40772,7 +40865,17 @@ window.TITANS_DATA = {
         "umpire2Confirmed": false,
         "umpire1Name": "",
         "umpire2Name": "",
-        "officials": []
+        "officials": [
+          {
+            "username": "etownsend",
+            "name": "Everhett Townsend",
+            "position": "Home Plate",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": false,
+            "status": "pending"
+          }
+        ]
       }
     },
     {
@@ -40793,8 +40896,52 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Luca Sivell",
+        "umpire2Name": "Gabriella Sivell",
+        "officials": [
+          {
+            "username": "lsivell",
+            "name": "Luca Sivell",
+            "position": "Home Plate",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "gsivell",
+            "name": "Gabriella Sivell",
+            "position": "Bases",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tc-cp-81044",
+      "cpGameId": "81044",
+      "date": "2026-07-07",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "Titans - 14U T2 (Soltis)",
+      "opponent": "vs. Windsor Stars",
+      "diamond": "Vollmer #1",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "auto-age",
+        "autoConfirmed": true,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
         "umpire1Name": "",
         "umpire2Name": "",
         "officials": []
@@ -40849,22 +40996,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79871",
-      "cpGameId": "79871",
-      "date": "2026-07-07",
-      "month": "Jul 2026",
-      "time": "6:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Away Game",
-      "eventKind": "Away Game",
-      "team": "HL - Laser It! Salon & Medical Spa - Gold - (Taylor)",
-      "opponent": "@ Kingsville Krush #2",
-      "diamond": "Kingsville Arena - #4",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80631",
       "cpGameId": "80631",
       "date": "2026-07-07",
@@ -40882,11 +41013,21 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": false,
-        "umpire1Name": "",
+        "umpire1Name": "Terry McDermott",
         "umpire2Name": "",
-        "officials": []
+        "officials": [
+          {
+            "username": "tmcdermott",
+            "name": "Terry McDermott",
+            "position": "Home Plate",
+            "pay": "$55.00",
+            "payAmount": 55,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -40907,12 +41048,70 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": false,
-        "umpire1Name": "",
+        "umpire1Name": "Bob Masschaele",
         "umpire2Name": "",
-        "officials": []
+        "officials": [
+          {
+            "username": "bmash",
+            "name": "Bob Masschaele",
+            "position": "Home Plate",
+            "pay": "$55.00",
+            "payAmount": 55,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
+    },
+    {
+      "id": "tc-cp-79871",
+      "cpGameId": "79871",
+      "date": "2026-07-07",
+      "month": "Jul 2026",
+      "time": "6:30 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "HL - Laser It! Salon & Medical Spa - Gold - (Taylor)",
+      "opponent": "@ Kingsville Krush #2",
+      "diamond": "Kingsville Arena - #4",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-78507",
+      "cpGameId": "78507",
+      "date": "2026-07-08",
+      "month": "Jul 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U13 Gold (Hunt)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-78238",
+      "cpGameId": "78238",
+      "date": "2026-07-08",
+      "month": "Jul 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 15U T1 (Nickleson)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
     },
     {
       "id": "tc-cp-77953",
@@ -40947,22 +41146,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78238",
-      "cpGameId": "78238",
-      "date": "2026-07-08",
-      "month": "Jul 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 15U T1 (Nickleson)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-78383",
       "cpGameId": "78383",
       "date": "2026-07-08",
@@ -40975,22 +41158,6 @@ window.TITANS_DATA = {
       "team": "Titans - 18U T1 (Diotte)",
       "opponent": "Practice",
       "diamond": "Vollmer #1",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-78507",
-      "cpGameId": "78507",
-      "date": "2026-07-08",
-      "month": "Jul 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Gold (Hunt)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -41060,11 +41227,30 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": false,
-        "umpire1Name": "",
+        "umpire1Name": "Brady Ippoliti",
         "umpire2Name": "",
-        "officials": []
+        "officials": [
+          {
+            "username": "bipolliti",
+            "name": "Brady Ippoliti",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "jtaylor",
+            "name": "Jim Taylor",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          }
+        ]
       }
     },
     {
@@ -41085,11 +41271,21 @@ window.TITANS_DATA = {
       "umpireStatus": {
         "source": "officials-daily",
         "autoConfirmed": false,
-        "umpire1Confirmed": false,
+        "umpire1Confirmed": true,
         "umpire2Confirmed": false,
-        "umpire1Name": "",
+        "umpire1Name": "Ben Soltis",
         "umpire2Name": "",
-        "officials": []
+        "officials": [
+          {
+            "username": "bensoltis",
+            "name": "Ben Soltis",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -41114,7 +41310,17 @@ window.TITANS_DATA = {
         "umpire2Confirmed": false,
         "umpire1Name": "",
         "umpire2Name": "",
-        "officials": []
+        "officials": [
+          {
+            "username": "lsivell",
+            "name": "Luca Sivell",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          }
+        ]
       }
     },
     {
@@ -41134,38 +41340,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80606",
-      "cpGameId": "80606",
-      "date": "2026-07-08",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - U9 Softball (Goz)",
-      "opponent": "Practice",
-      "diamond": "River Canard #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-79905",
-      "cpGameId": "79905",
-      "date": "2026-07-08",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Gold (Natyshak)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80046",
       "cpGameId": "80046",
       "date": "2026-07-08",
@@ -41178,6 +41352,22 @@ window.TITANS_DATA = {
       "team": "U15 (Baltzer)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80606",
+      "cpGameId": "80606",
+      "date": "2026-07-08",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - U9 Softball (Goz)",
+      "opponent": "Practice",
+      "diamond": "River Canard #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -41205,6 +41395,66 @@ window.TITANS_DATA = {
         "umpire2Name": "",
         "officials": []
       }
+    },
+    {
+      "id": "tc-cp-81131",
+      "cpGameId": "81131",
+      "date": "2026-07-08",
+      "month": "Jul 2026",
+      "time": "6:30 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "U9/U11 Gold (Natyshak)",
+      "opponent": "vs. Leamington Whitecaps U11",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "Gabriella Sivell",
+        "umpire2Name": "Amit Sra",
+        "officials": [
+          {
+            "username": "gsivell",
+            "name": "Gabriella Sivell",
+            "position": "Home Plate",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": true,
+            "status": "confirmed"
+          },
+          {
+            "username": "asra",
+            "name": "Amit Sra",
+            "position": "Bases",
+            "pay": "$40.00",
+            "payAmount": 40,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tc-cp-79847",
+      "cpGameId": "79847",
+      "date": "2026-07-09",
+      "month": "Jul 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 13U T1 (Baker)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
     },
     {
       "id": "tc-cp-78418",
@@ -41239,38 +41489,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79847",
-      "cpGameId": "79847",
-      "date": "2026-07-09",
-      "month": "Jul 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 13U T1 (Baker)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #5",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80912",
-      "cpGameId": "80912",
-      "date": "2026-07-09",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Away Game",
-      "eventKind": "Away Game",
-      "team": "Selects - T-Ball Gold (McIntyre)",
-      "opponent": "@ Windsor South Canadians",
-      "diamond": "Optimist Memorial Park",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-78575",
       "cpGameId": "78575",
       "date": "2026-07-09",
@@ -41296,130 +41514,18 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-79958",
-      "cpGameId": "79958",
+      "id": "tc-cp-80912",
+      "cpGameId": "80912",
       "date": "2026-07-09",
       "month": "Jul 2026",
       "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Green (Lussier)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80010",
-      "cpGameId": "80010",
-      "date": "2026-07-09",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Green (Grondin)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80284",
-      "cpGameId": "80284",
-      "date": "2026-07-09",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - T-Ball Green (Koppeser)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #8",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80116",
-      "cpGameId": "80116",
-      "date": "2026-07-09",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U17 (Signorelli)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80615",
-      "cpGameId": "80615",
-      "date": "2026-07-09",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - 9U/Rookie (Carr)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #6",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80388",
-      "cpGameId": "80388",
-      "date": "2026-07-09",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - U11 Softball (Meyers)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #3",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80349",
-      "cpGameId": "80349",
-      "date": "2026-07-09",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - 15U/Bantam (Johns)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80297",
-      "cpGameId": "80297",
-      "date": "2026-07-09",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - T-Ball Girls (Dufour)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #7",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Selects - T-Ball Gold (McIntyre)",
+      "opponent": "@ Windsor South Canadians",
+      "diamond": "Optimist Memorial Park",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -41452,6 +41558,134 @@ window.TITANS_DATA = {
       "team": "HL - SWT Group - Black - (Hurdis) & Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez)",
       "opponent": "Shared Practice",
       "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80010",
+      "cpGameId": "80010",
+      "date": "2026-07-09",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U13 Green (Grondin)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-79958",
+      "cpGameId": "79958",
+      "date": "2026-07-09",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Green (Lussier)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80116",
+      "cpGameId": "80116",
+      "date": "2026-07-09",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U17 (Signorelli)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80284",
+      "cpGameId": "80284",
+      "date": "2026-07-09",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - T-Ball Green (Koppeser)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #8",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80297",
+      "cpGameId": "80297",
+      "date": "2026-07-09",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - T-Ball Girls (Dufour)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #7",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80615",
+      "cpGameId": "80615",
+      "date": "2026-07-09",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - 9U/Rookie (Carr)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80349",
+      "cpGameId": "80349",
+      "date": "2026-07-09",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - 15U/Bantam (Johns)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80388",
+      "cpGameId": "80388",
+      "date": "2026-07-09",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - U11 Softball (Meyers)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #3",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -41643,22 +41877,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80028",
-      "cpGameId": "80028",
-      "date": "2026-07-10",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Green (Grondin)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #3",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-79922",
       "cpGameId": "79922",
       "date": "2026-07-10",
@@ -41671,6 +41889,22 @@ window.TITANS_DATA = {
       "team": "U9/U11 Gold (Natyshak)",
       "opponent": "Practice",
       "diamond": "Vollmer #8",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80028",
+      "cpGameId": "80028",
+      "date": "2026-07-10",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U13 Green (Grondin)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #3",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -41912,6 +42146,22 @@ window.TITANS_DATA = {
       }
     },
     {
+      "id": "tc-cp-79743",
+      "cpGameId": "79743",
+      "date": "2026-07-11",
+      "month": "Jul 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Titans - 10U T1 (Picco)",
+      "opponent": "@ Sarnia Brigade",
+      "diamond": "Sarnia",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "id": "tc-cp-79872",
       "cpGameId": "79872",
       "date": "2026-07-11",
@@ -41935,22 +42185,6 @@ window.TITANS_DATA = {
         "umpire2Name": "",
         "officials": []
       }
-    },
-    {
-      "id": "tc-cp-79743",
-      "cpGameId": "79743",
-      "date": "2026-07-11",
-      "month": "Jul 2026",
-      "time": "11:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Away Game",
-      "eventKind": "Away Game",
-      "team": "Titans - 10U T1 (Picco)",
-      "opponent": "@ Sarnia Brigade",
-      "diamond": "Sarnia",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
     },
     {
       "id": "tc-cp-79019",
@@ -42138,6 +42372,22 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-81052",
+      "cpGameId": "81052",
+      "date": "2026-07-11",
+      "month": "Jul 2026",
+      "time": "3:30 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Selects - U11 Softball (Meyers)",
+      "opponent": "@ Leamington Atlas Tube",
+      "diamond": "Leamington Kinsmen Sports Field",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "id": "tc-cp-80758",
       "cpGameId": "80758",
       "date": "2026-07-11",
@@ -42204,10 +42454,47 @@ window.TITANS_DATA = {
         "source": "officials-daily",
         "autoConfirmed": false,
         "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
+        "umpire2Confirmed": true,
         "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
+        "umpire2Name": "Scott Saxton",
+        "officials": [
+          {
+            "username": "lpaun",
+            "name": "Liam Paun",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "pending"
+          },
+          {
+            "username": "ofazekas",
+            "name": "Owen Fazekas",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "pending"
+          },
+          {
+            "username": "pmacarthur",
+            "name": "Paul MacArthur",
+            "position": "Home Plate",
+            "pay": "$50.00",
+            "payAmount": 50,
+            "confirmed": false,
+            "status": "denied"
+          },
+          {
+            "username": "scottsaxton",
+            "name": "Scott Saxton",
+            "position": "Bases",
+            "pay": "$45.00",
+            "payAmount": 45,
+            "confirmed": true,
+            "status": "confirmed"
+          }
+        ]
       }
     },
     {
@@ -42744,22 +43031,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-77545",
-      "cpGameId": "77545",
-      "date": "2026-07-12",
-      "month": "Jul 2026",
-      "time": "4:30 PM",
-      "endTime": "7:30 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 10U T1 (Picco)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-77456",
       "cpGameId": "77456",
       "date": "2026-07-12",
@@ -42772,6 +43043,22 @@ window.TITANS_DATA = {
       "team": "Titans - 9U (Shaw)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-77545",
+      "cpGameId": "77545",
+      "date": "2026-07-12",
+      "month": "Jul 2026",
+      "time": "4:30 PM",
+      "endTime": "7:30 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 10U T1 (Picco)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #1",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -42790,6 +43077,31 @@ window.TITANS_DATA = {
       "diamond": "Turtle Club - Diamond #4",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-81130",
+      "cpGameId": "81130",
+      "date": "2026-07-12",
+      "month": "Jul 2026",
+      "time": "8:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "HL - Laser It! Salon & Medical Spa - Gold - (Taylor)",
+      "opponent": "vs. HL - Sr. Softball - INTERLOCK - Active Body Physical Therapy - Purple - (Pare)",
+      "diamond": "St. Clair College SportsPark Softball Field",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
     },
     {
       "id": "tc-cp-80902",
@@ -43013,22 +43325,6 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-80170",
-      "cpGameId": "80170",
-      "date": "2026-07-13",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Intermediate (Stadler)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #3",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-79888",
       "cpGameId": "79888",
       "date": "2026-07-13",
@@ -43041,6 +43337,22 @@ window.TITANS_DATA = {
       "team": "U9/U11 Gold (Natyshak)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80170",
+      "cpGameId": "80170",
+      "date": "2026-07-13",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Intermediate (Stadler)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #3",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -43337,6 +43649,22 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-80081",
+      "cpGameId": "80081",
+      "date": "2026-07-14",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U15 (Baltzer)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #8",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "id": "tc-cp-79941",
       "cpGameId": "79941",
       "date": "2026-07-14",
@@ -43369,18 +43697,18 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80081",
-      "cpGameId": "80081",
+      "id": "tc-cp-80626",
+      "cpGameId": "80626",
       "date": "2026-07-14",
       "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U15 (Baltzer)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #8",
+      "time": "6:30 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Intermediate (Stadler)",
+      "opponent": "@ Windsor WLE U19",
+      "diamond": "Weston Front",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -43408,22 +43736,6 @@ window.TITANS_DATA = {
         "umpire2Name": "",
         "officials": []
       }
-    },
-    {
-      "id": "tc-cp-80626",
-      "cpGameId": "80626",
-      "date": "2026-07-14",
-      "month": "Jul 2026",
-      "time": "6:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Away Game",
-      "eventKind": "Away Game",
-      "team": "Intermediate (Stadler)",
-      "opponent": "@ Windsor WLE U19",
-      "diamond": "Weston Front",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
     },
     {
       "id": "tc-cp-77866",
@@ -43554,8 +43866,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79769",
-      "cpGameId": "79769",
+      "id": "tc-cp-79402",
+      "cpGameId": "79402",
       "date": "2026-07-15",
       "month": "Jul 2026",
       "time": "6:00 PM",
@@ -43563,34 +43875,9 @@ window.TITANS_DATA = {
       "durationMinutes": 120,
       "type": "Home Game",
       "eventKind": "Home Game",
-      "team": "Titans - 9U (Shaw)",
-      "opponent": "vs. TBD",
-      "diamond": "Turtle Club - Diamond #3",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
-      }
-    },
-    {
-      "id": "tc-cp-79401",
-      "cpGameId": "79401",
-      "date": "2026-07-15",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "HL - TD Bank - Kelly Green - (Roehler)",
-      "opponent": "vs. HL - PeeWee/ Bantam - Windsor Factory Supply - White - (Pare)",
-      "diamond": "Turtle Club - Diamond #1 [G12-1]",
+      "team": "HL - Antonino's Pizza - Red - (Grondin)",
+      "opponent": "vs. HL - PeeWee/ Bantam - SWT Group - Gold - (Boismier)",
+      "diamond": "Turtle Club - Diamond #7 [G12-2]",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
@@ -43629,8 +43916,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-79403",
-      "cpGameId": "79403",
+      "id": "tc-cp-79401",
+      "cpGameId": "79401",
       "date": "2026-07-15",
       "month": "Jul 2026",
       "time": "6:00 PM",
@@ -43638,9 +43925,9 @@ window.TITANS_DATA = {
       "durationMinutes": 120,
       "type": "Home Game",
       "eventKind": "Home Game",
-      "team": "HL - WFCU Credit Union- Grey - (Montean)",
-      "opponent": "vs. HL - PeeWee/ Bantam - Hunt Law - Black - (Johns)",
-      "diamond": "Vollmer #3 [G12-3]",
+      "team": "HL - TD Bank - Kelly Green - (Roehler)",
+      "opponent": "vs. HL - PeeWee/ Bantam - Windsor Factory Supply - White - (Pare)",
+      "diamond": "Turtle Club - Diamond #1 [G12-1]",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
@@ -43654,8 +43941,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-79402",
-      "cpGameId": "79402",
+      "id": "tc-cp-81048",
+      "cpGameId": "81048",
       "date": "2026-07-15",
       "month": "Jul 2026",
       "time": "6:00 PM",
@@ -43663,9 +43950,34 @@ window.TITANS_DATA = {
       "durationMinutes": 120,
       "type": "Home Game",
       "eventKind": "Home Game",
-      "team": "HL - Antonino's Pizza - Red - (Grondin)",
-      "opponent": "vs. HL - PeeWee/ Bantam - SWT Group - Gold - (Boismier)",
-      "diamond": "Turtle Club - Diamond #7 [G12-2]",
+      "team": "Titans - 9U (Shaw)",
+      "opponent": "vs. Windsor Stars",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
+    },
+    {
+      "id": "tc-cp-79403",
+      "cpGameId": "79403",
+      "date": "2026-07-15",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "HL - WFCU Credit Union- Grey - (Montean)",
+      "opponent": "vs. HL - PeeWee/ Bantam - Hunt Law - Black - (Johns)",
+      "diamond": "Vollmer #3 [G12-3]",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
@@ -43723,6 +44035,22 @@ window.TITANS_DATA = {
       "team": "Selects - U13 Softball (Paquette)",
       "opponent": "Practice",
       "diamond": "Vollmer #6",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-81126",
+      "cpGameId": "81126",
+      "date": "2026-07-15",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - T-Ball Gold (McIntyre)",
+      "opponent": "Practice",
+      "diamond": "River Canard #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -43873,8 +44201,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79959",
-      "cpGameId": "79959",
+      "id": "tc-cp-80117",
+      "cpGameId": "80117",
       "date": "2026-07-16",
       "month": "Jul 2026",
       "time": "6:00 PM",
@@ -43882,9 +44210,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "U9/U11 Green (Lussier)",
+      "team": "U17 (Signorelli)",
       "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
+      "diamond": "Turtle Club - Diamond #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -43905,8 +44233,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80117",
-      "cpGameId": "80117",
+      "id": "tc-cp-79959",
+      "cpGameId": "79959",
       "date": "2026-07-16",
       "month": "Jul 2026",
       "time": "6:00 PM",
@@ -43914,9 +44242,25 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "U17 (Signorelli)",
+      "team": "U9/U11 Green (Lussier)",
       "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #2",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80350",
+      "cpGameId": "80350",
+      "date": "2026-07-16",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - 15U/Bantam (Johns)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -43953,22 +44297,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80389",
-      "cpGameId": "80389",
-      "date": "2026-07-16",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - U11 Softball (Meyers)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #3",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80376",
       "cpGameId": "80376",
       "date": "2026-07-16",
@@ -43985,8 +44313,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80350",
-      "cpGameId": "80350",
+      "id": "tc-cp-80389",
+      "cpGameId": "80389",
       "date": "2026-07-16",
       "month": "Jul 2026",
       "time": "6:00 PM",
@@ -43994,9 +44322,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "Selects - 15U/Bantam (Johns)",
+      "team": "Selects - U11 Softball (Meyers)",
       "opponent": "Practice",
-      "diamond": "Vollmer #2",
+      "diamond": "Vollmer #3",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -44204,6 +44532,22 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-79976",
+      "cpGameId": "79976",
+      "date": "2026-07-17",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Green (Lussier)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #6",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "id": "tc-cp-80064",
       "cpGameId": "80064",
       "date": "2026-07-17",
@@ -44232,22 +44576,6 @@ window.TITANS_DATA = {
       "team": "U13 Green (Grondin)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #3",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-79976",
-      "cpGameId": "79976",
-      "date": "2026-07-17",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Green (Lussier)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #6",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -44535,20 +44863,29 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-80312",
-      "cpGameId": "80312",
+      "id": "tc-cp-81138",
+      "cpGameId": "81138",
       "date": "2026-07-18",
       "month": "Jul 2026",
       "time": "4:30 PM",
-      "endTime": "6:30 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
       "team": "Selects - 9U/Rookie (Carr)",
-      "opponent": "Practice",
+      "opponent": "vs. Riverside Royals",
       "diamond": "Turtle Club - Diamond #1",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
     },
     {
       "id": "tc-cp-80325",
@@ -45495,22 +45832,6 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-79994",
-      "cpGameId": "79994",
-      "date": "2026-07-21",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Green (Grondin)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80082",
       "cpGameId": "80082",
       "date": "2026-07-21",
@@ -45523,6 +45844,22 @@ window.TITANS_DATA = {
       "team": "U15 (Baltzer)",
       "opponent": "Practice",
       "diamond": "Vollmer #8",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80154",
+      "cpGameId": "80154",
+      "date": "2026-07-21",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Intermediate (Stadler)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -45559,8 +45896,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80154",
-      "cpGameId": "80154",
+      "id": "tc-cp-79994",
+      "cpGameId": "79994",
       "date": "2026-07-21",
       "month": "Jul 2026",
       "time": "6:00 PM",
@@ -45568,9 +45905,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "Intermediate (Stadler)",
+      "team": "U13 Green (Grondin)",
       "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #2",
+      "diamond": "Vollmer #6",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -45687,6 +46024,31 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-78635",
+      "cpGameId": "78635",
+      "date": "2026-07-22",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "Titans - 18U T1 (Diotte)",
+      "opponent": "vs. Tecumseh Rangers",
+      "diamond": "Vollmer #1",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "auto-age",
+        "autoConfirmed": true,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
+    },
+    {
       "id": "tc-cp-80913",
       "cpGameId": "80913",
       "date": "2026-07-22",
@@ -45699,6 +46061,63 @@ window.TITANS_DATA = {
       "team": "Selects - T-Ball Gold (McIntyre)",
       "opponent": "vs. Windsor West Major",
       "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
+    },
+    {
+      "id": "tc-cp-81055",
+      "cpGameId": "81055",
+      "date": "2026-07-22",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Selects - T-Ball Green (Koppeser)",
+      "opponent": "@ Amherstburg",
+      "diamond": "Malden Centre",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-79642",
+      "cpGameId": "79642",
+      "date": "2026-07-22",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Titans - 8U/9U (Wachna)",
+      "opponent": "@ Windsor Hawks",
+      "diamond": "Windsor Stars",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-79770",
+      "cpGameId": "79770",
+      "date": "2026-07-22",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "Titans - 9U (Shaw)",
+      "opponent": "vs. Riverside Royals",
+      "diamond": "Turtle Club - Diamond #3",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
@@ -45737,72 +46156,6 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-78635",
-      "cpGameId": "78635",
-      "date": "2026-07-22",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "Titans - 18U T1 (Diotte)",
-      "opponent": "vs. Tecumseh Rangers",
-      "diamond": "Vollmer #1",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "auto-age",
-        "autoConfirmed": true,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
-      }
-    },
-    {
-      "id": "tc-cp-79770",
-      "cpGameId": "79770",
-      "date": "2026-07-22",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "Titans - 9U (Shaw)",
-      "opponent": "vs. Riverside Royals",
-      "diamond": "Turtle Club - Diamond #3",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "officials-daily",
-        "autoConfirmed": false,
-        "umpire1Confirmed": false,
-        "umpire2Confirmed": false,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
-      }
-    },
-    {
-      "id": "tc-cp-79642",
-      "cpGameId": "79642",
-      "date": "2026-07-22",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Away Game",
-      "eventKind": "Away Game",
-      "team": "Titans - 8U/9U (Wachna)",
-      "opponent": "@ Windsor Hawks",
-      "diamond": "Windsor Stars",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80048",
       "cpGameId": "80048",
       "date": "2026-07-22",
@@ -45815,22 +46168,6 @@ window.TITANS_DATA = {
       "team": "U15 (Baltzer)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-79367",
-      "cpGameId": "79367",
-      "date": "2026-07-22",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "HL - WFCU Credit Union- Grey - (Montean) & TD Bank - Kelly Green - (Roehler)",
-      "opponent": "Shared Practice",
-      "diamond": "Vollmer #3",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -45867,8 +46204,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79365",
-      "cpGameId": "79365",
+      "id": "tc-cp-80403",
+      "cpGameId": "80403",
       "date": "2026-07-22",
       "month": "Jul 2026",
       "time": "6:00 PM",
@@ -45876,9 +46213,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "HL - Antonino's Pizza - Red - (Grondin) & SWT Group - Gold - (Boismier)",
-      "opponent": "Shared Practice",
-      "diamond": "Turtle Club - Diamond #1",
+      "team": "Selects - U13 Softball (Paquette)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #6",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -45899,8 +46236,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80403",
-      "cpGameId": "80403",
+      "id": "tc-cp-79365",
+      "cpGameId": "79365",
       "date": "2026-07-22",
       "month": "Jul 2026",
       "time": "6:00 PM",
@@ -45908,9 +46245,25 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "Selects - U13 Softball (Paquette)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #6",
+      "team": "HL - Antonino's Pizza - Red - (Grondin) & SWT Group - Gold - (Boismier)",
+      "opponent": "Shared Practice",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-79367",
+      "cpGameId": "79367",
+      "date": "2026-07-22",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "HL - WFCU Credit Union- Grey - (Montean) & TD Bank - Kelly Green - (Roehler)",
+      "opponent": "Shared Practice",
+      "diamond": "Vollmer #3",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -45988,6 +46341,31 @@ window.TITANS_DATA = {
       }
     },
     {
+      "id": "tc-cp-81053",
+      "cpGameId": "81053",
+      "date": "2026-07-23",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "Selects - U11 Softball (Meyers)",
+      "opponent": "vs. Amherstburg",
+      "diamond": "Vollmer #3",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
+    },
+    {
       "id": "tc-cp-79793",
       "cpGameId": "79793",
       "date": "2026-07-23",
@@ -46004,8 +46382,24 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80351",
-      "cpGameId": "80351",
+      "id": "tc-cp-81135",
+      "cpGameId": "81135",
+      "date": "2026-07-23",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Titans - 15U T1 (Nickleson)",
+      "opponent": "@ Windsor Stars",
+      "diamond": "Mic Mac Park",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80299",
+      "cpGameId": "80299",
       "date": "2026-07-23",
       "month": "Jul 2026",
       "time": "6:00 PM",
@@ -46013,9 +46407,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "Selects - 15U/Bantam (Johns)",
+      "team": "Selects - T-Ball Girls (Dufour)",
       "opponent": "Practice",
-      "diamond": "Vollmer #2",
+      "diamond": "Vollmer #7",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -46068,22 +46462,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79960",
-      "cpGameId": "79960",
-      "date": "2026-07-23",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Green (Lussier)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80118",
       "cpGameId": "80118",
       "date": "2026-07-23",
@@ -46100,8 +46478,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80299",
-      "cpGameId": "80299",
+      "id": "tc-cp-79960",
+      "cpGameId": "79960",
       "date": "2026-07-23",
       "month": "Jul 2026",
       "time": "6:00 PM",
@@ -46109,9 +46487,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "Selects - T-Ball Girls (Dufour)",
+      "team": "U9/U11 Green (Lussier)",
       "opponent": "Practice",
-      "diamond": "Vollmer #7",
+      "diamond": "Turtle Club - Diamond #5",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -46148,8 +46526,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80390",
-      "cpGameId": "80390",
+      "id": "tc-cp-80351",
+      "cpGameId": "80351",
       "date": "2026-07-23",
       "month": "Jul 2026",
       "time": "6:00 PM",
@@ -46157,9 +46535,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "Selects - U11 Softball (Meyers)",
+      "team": "Selects - 15U/Bantam (Johns)",
       "opponent": "Practice",
-      "diamond": "Vollmer #3",
+      "diamond": "Vollmer #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -46251,6 +46629,31 @@ window.TITANS_DATA = {
       "diamond": "Vollmer #4",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-78685",
+      "cpGameId": "78685",
+      "date": "2026-07-24",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "Titans - 15U T1 (Nickleson)",
+      "opponent": "vs. Woodslee Orioles",
+      "diamond": "Villanova - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "auto-age",
+        "autoConfirmed": true,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
     },
     {
       "id": "tc-cp-79727",
@@ -46394,22 +46797,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80136",
-      "cpGameId": "80136",
-      "date": "2026-07-24",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U17 (Signorelli)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80416",
       "cpGameId": "80416",
       "date": "2026-07-24",
@@ -46422,6 +46809,22 @@ window.TITANS_DATA = {
       "team": "Selects - U15 Softball (Brewer)",
       "opponent": "Practice",
       "diamond": "Vollmer #7",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80136",
+      "cpGameId": "80136",
+      "date": "2026-07-24",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U17 (Signorelli)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #4",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -46488,31 +46891,6 @@ window.TITANS_DATA = {
       "diamond": "Vollmer #8",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-78685",
-      "cpGameId": "78685",
-      "date": "2026-07-24",
-      "month": "Jul 2026",
-      "time": "7:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "Titans - 15U T1 (Nickleson)",
-      "opponent": "vs. Woodslee Orioles",
-      "diamond": "Villanova - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "auto-age",
-        "autoConfirmed": true,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
-      }
     },
     {
       "id": "tc-cp-79746",
@@ -47368,6 +47746,22 @@ window.TITANS_DATA = {
       }
     },
     {
+      "id": "tc-cp-81139",
+      "cpGameId": "81139",
+      "date": "2026-07-28",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Selects - 9U/Rookie (Carr)",
+      "opponent": "@ Forest Glade Falcons",
+      "diamond": "Optimist 2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "id": "tc-cp-80083",
       "cpGameId": "80083",
       "date": "2026-07-28",
@@ -47820,6 +48214,31 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-81051",
+      "cpGameId": "81051",
+      "date": "2026-07-30",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "Selects - U11 Softball (Meyers)",
+      "opponent": "vs. Leamington White Caps #1",
+      "diamond": "Vollmer #3",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
+    },
+    {
       "id": "tc-cp-80013",
       "cpGameId": "80013",
       "date": "2026-07-30",
@@ -47848,22 +48267,6 @@ window.TITANS_DATA = {
       "team": "U9/U11 Green (Lussier)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #5",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80391",
-      "cpGameId": "80391",
-      "date": "2026-07-30",
-      "month": "Jul 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - U11 Softball (Meyers)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #3",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -48085,8 +48488,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80137",
-      "cpGameId": "80137",
+      "id": "tc-cp-81140",
+      "cpGameId": "81140",
       "date": "2026-07-31",
       "month": "Jul 2026",
       "time": "6:00 PM",
@@ -48094,9 +48497,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "U17 (Signorelli)",
+      "team": "Selects - 9U/Rookie (Carr)",
       "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #4",
+      "diamond": "Turtle Club - Diamond #5",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -48113,6 +48516,22 @@ window.TITANS_DATA = {
       "team": "Selects - 11U/Mosquito (Bouchard)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80137",
+      "cpGameId": "80137",
+      "date": "2026-07-31",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U17 (Signorelli)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #4",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -48149,6 +48568,22 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-81132",
+      "cpGameId": "81132",
+      "date": "2026-08-01",
+      "month": "Aug 2026",
+      "time": "1:30 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Selects - U11 Softball (Meyers)",
+      "opponent": "@ Amherstburg",
+      "diamond": "Malden Centre",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "id": "tc-cp-78674",
       "cpGameId": "78674",
       "date": "2026-08-01",
@@ -48174,20 +48609,29 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-80314",
-      "cpGameId": "80314",
+      "id": "tc-cp-81141",
+      "cpGameId": "81141",
       "date": "2026-08-01",
       "month": "Aug 2026",
       "time": "4:30 PM",
-      "endTime": "6:30 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
       "team": "Selects - 9U/Rookie (Carr)",
-      "opponent": "Practice",
+      "opponent": "vs. Forest Glade Falcons",
       "diamond": "Turtle Club - Diamond #1",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "officials-daily",
+        "autoConfirmed": false,
+        "umpire1Confirmed": false,
+        "umpire2Confirmed": false,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
     },
     {
       "id": "tc-cp-80327",
@@ -48238,22 +48682,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80366",
-      "cpGameId": "80366",
-      "date": "2026-08-02",
-      "month": "Aug 2026",
-      "time": "4:30 PM",
-      "endTime": "6:30 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - 18U/Midget (Guthrie)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #7",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80340",
       "cpGameId": "80340",
       "date": "2026-08-02",
@@ -48266,6 +48694,22 @@ window.TITANS_DATA = {
       "team": "Selects - 13U/Pee Wee (Gignac)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80366",
+      "cpGameId": "80366",
+      "date": "2026-08-02",
+      "month": "Aug 2026",
+      "time": "4:30 PM",
+      "endTime": "6:30 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - 18U/Midget (Guthrie)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #7",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -48398,22 +48842,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78296",
-      "cpGameId": "78296",
-      "date": "2026-08-04",
-      "month": "Aug 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 16U T1 (Layson)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-78153",
       "cpGameId": "78153",
       "date": "2026-08-04",
@@ -48426,6 +48854,22 @@ window.TITANS_DATA = {
       "team": "Titans - 14U T2 (Soltis)",
       "opponent": "Practice",
       "diamond": "Vollmer #1",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-78296",
+      "cpGameId": "78296",
+      "date": "2026-08-04",
+      "month": "Aug 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 16U T1 (Layson)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -48544,6 +48988,22 @@ window.TITANS_DATA = {
       }
     },
     {
+      "id": "tc-cp-81142",
+      "cpGameId": "81142",
+      "date": "2026-08-04",
+      "month": "Aug 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Selects - 9U/Rookie (Carr)",
+      "opponent": "@ Tecumseh Rangers",
+      "diamond": "Shawanoe Park",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "id": "tc-cp-80875",
       "cpGameId": "80875",
       "date": "2026-08-04",
@@ -48601,8 +49061,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80156",
-      "cpGameId": "80156",
+      "id": "tc-cp-79996",
+      "cpGameId": "79996",
       "date": "2026-08-04",
       "month": "Aug 2026",
       "time": "6:00 PM",
@@ -48610,9 +49070,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "Intermediate (Stadler)",
+      "team": "U13 Green (Grondin)",
       "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #2",
+      "diamond": "Vollmer #6",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -48649,8 +49109,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79996",
-      "cpGameId": "79996",
+      "id": "tc-cp-80156",
+      "cpGameId": "80156",
       "date": "2026-08-04",
       "month": "Aug 2026",
       "time": "6:00 PM",
@@ -48658,9 +49118,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "U13 Green (Grondin)",
+      "team": "Intermediate (Stadler)",
       "opponent": "Practice",
-      "diamond": "Vollmer #6",
+      "diamond": "Turtle Club - Diamond #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -48777,38 +49237,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78511",
-      "cpGameId": "78511",
-      "date": "2026-08-05",
-      "month": "Aug 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Gold (Hunt)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-78242",
-      "cpGameId": "78242",
-      "date": "2026-08-05",
-      "month": "Aug 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 15U T1 (Nickleson)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-77957",
       "cpGameId": "77957",
       "date": "2026-08-05",
@@ -48841,6 +49269,22 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-78511",
+      "cpGameId": "78511",
+      "date": "2026-08-05",
+      "month": "Aug 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U13 Gold (Hunt)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "id": "tc-cp-78579",
       "cpGameId": "78579",
       "date": "2026-08-05",
@@ -48869,6 +49313,31 @@ window.TITANS_DATA = {
       "team": "Titans - 18U T1 (Diotte)",
       "opponent": "vs. Tecumseh Rangers",
       "diamond": "Vollmer #1",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "auto-age",
+        "autoConfirmed": true,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
+    },
+    {
+      "id": "tc-cp-81147",
+      "cpGameId": "81147",
+      "date": "2026-08-05",
+      "month": "Aug 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "Titans - 15U T1 (Nickleson)",
+      "opponent": "vs. Riverside 14U",
+      "diamond": "Vollmer #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel",
       "umpireStatus": {
@@ -48946,22 +49415,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78422",
-      "cpGameId": "78422",
-      "date": "2026-08-06",
-      "month": "Aug 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 14U T2 (Soltis)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #7",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-77584",
       "cpGameId": "77584",
       "date": "2026-08-06",
@@ -49010,6 +49463,22 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-81045",
+      "cpGameId": "81045",
+      "date": "2026-08-06",
+      "month": "Aug 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Titans - 14U T2 (Soltis)",
+      "opponent": "@ Windsor Stars",
+      "diamond": "Mic Mac - Cullen Stadium",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "id": "tc-cp-80120",
       "cpGameId": "80120",
       "date": "2026-08-06",
@@ -49038,6 +49507,22 @@ window.TITANS_DATA = {
       "team": "U13 Green (Grondin)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80353",
+      "cpGameId": "80353",
+      "date": "2026-08-06",
+      "month": "Aug 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - 15U/Bantam (Johns)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -49090,8 +49575,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80353",
-      "cpGameId": "80353",
+      "id": "tc-cp-80379",
+      "cpGameId": "80379",
       "date": "2026-08-06",
       "month": "Aug 2026",
       "time": "6:00 PM",
@@ -49099,9 +49584,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "Selects - 15U/Bantam (Johns)",
+      "team": "Selects - U9 Softball (Goz)",
       "opponent": "Practice",
-      "diamond": "Vollmer #2",
+      "diamond": "Turtle Club - Diamond #6",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -49118,22 +49603,6 @@ window.TITANS_DATA = {
       "team": "Selects - U11 Softball (Meyers)",
       "opponent": "Practice",
       "diamond": "Vollmer #3",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80379",
-      "cpGameId": "80379",
-      "date": "2026-08-06",
-      "month": "Aug 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - U9 Softball (Goz)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #6",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -49501,22 +49970,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80328",
-      "cpGameId": "80328",
-      "date": "2026-08-08",
-      "month": "Aug 2026",
-      "time": "4:30 PM",
-      "endTime": "6:30 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - 11U/Mosquito (Bouchard)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80315",
       "cpGameId": "80315",
       "date": "2026-08-08",
@@ -49529,6 +49982,22 @@ window.TITANS_DATA = {
       "team": "Selects - 9U/Rookie (Carr)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80328",
+      "cpGameId": "80328",
+      "date": "2026-08-08",
+      "month": "Aug 2026",
+      "time": "4:30 PM",
+      "endTime": "6:30 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - 11U/Mosquito (Bouchard)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -49677,6 +50146,31 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-81047",
+      "cpGameId": "81047",
+      "date": "2026-08-09",
+      "month": "Aug 2026",
+      "time": "12:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "Titans - 18U T1 (Diotte)",
+      "opponent": "vs. Chatham",
+      "diamond": "Villanova - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "auto-age",
+        "autoConfirmed": true,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
+    },
+    {
       "id": "tc-cp-78136",
       "cpGameId": "78136",
       "date": "2026-08-09",
@@ -49705,22 +50199,6 @@ window.TITANS_DATA = {
       "team": "Titans - 12U T2 (Palubiski)",
       "opponent": "Practice",
       "diamond": "Villanova - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-78352",
-      "cpGameId": "78352",
-      "date": "2026-08-09",
-      "month": "Aug 2026",
-      "time": "12:00 PM",
-      "endTime": "3:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 18U T1 (Diotte)",
-      "opponent": "Practice",
-      "diamond": "Villanova - Diamond #1",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -49757,6 +50235,31 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-81049",
+      "cpGameId": "81049",
+      "date": "2026-08-09",
+      "month": "Aug 2026",
+      "time": "2:45 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "Titans - 18U T1 (Diotte)",
+      "opponent": "vs. Chatham",
+      "diamond": "Villanova - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "auto-age",
+        "autoConfirmed": true,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
+    },
+    {
       "id": "tc-cp-79772",
       "cpGameId": "79772",
       "date": "2026-08-09",
@@ -49789,22 +50292,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80341",
-      "cpGameId": "80341",
-      "date": "2026-08-09",
-      "month": "Aug 2026",
-      "time": "4:30 PM",
-      "endTime": "6:30 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - 13U/Pee Wee (Gignac)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80367",
       "cpGameId": "80367",
       "date": "2026-08-09",
@@ -49817,6 +50304,22 @@ window.TITANS_DATA = {
       "team": "Selects - 18U/Midget (Guthrie)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #7",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80341",
+      "cpGameId": "80341",
+      "date": "2026-08-09",
+      "month": "Aug 2026",
+      "time": "4:30 PM",
+      "endTime": "6:30 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - 13U/Pee Wee (Gignac)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -49974,6 +50477,22 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-79645",
+      "cpGameId": "79645",
+      "date": "2026-08-10",
+      "month": "Aug 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Titans - 8U/9U (Wachna)",
+      "opponent": "@ Amherstburg Cardinals",
+      "diamond": "Amherstburg",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "id": "tc-cp-79773",
       "cpGameId": "79773",
       "date": "2026-08-10",
@@ -49997,22 +50516,6 @@ window.TITANS_DATA = {
         "umpire2Name": "",
         "officials": []
       }
-    },
-    {
-      "id": "tc-cp-79645",
-      "cpGameId": "79645",
-      "date": "2026-08-10",
-      "month": "Aug 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Away Game",
-      "eventKind": "Away Game",
-      "team": "Titans - 8U/9U (Wachna)",
-      "opponent": "@ Amherstburg Cardinals",
-      "diamond": "Amherstburg",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
     },
     {
       "id": "tc-cp-79892",
@@ -50191,29 +50694,20 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78580",
-      "cpGameId": "78580",
+      "id": "tc-cp-81143",
+      "cpGameId": "81143",
       "date": "2026-08-11",
       "month": "Aug 2026",
       "time": "6:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Home Game",
-      "eventKind": "Home Game",
-      "team": "Titans - 16U T1 (Layson)",
-      "opponent": "vs. Forest Glade Falcons",
-      "diamond": "Vollmer #2",
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Selects - 9U/Rookie (Carr)",
+      "opponent": "@ Riverside Royals",
+      "diamond": "Realtor Park East",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel",
-      "umpireStatus": {
-        "source": "auto-age",
-        "autoConfirmed": true,
-        "umpire1Confirmed": true,
-        "umpire2Confirmed": true,
-        "umpire1Name": "",
-        "umpire2Name": "",
-        "officials": []
-      }
+      "source": "Turtle Club Control Panel"
     },
     {
       "id": "tc-cp-79795",
@@ -50248,20 +50742,29 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79945",
-      "cpGameId": "79945",
+      "id": "tc-cp-78580",
+      "cpGameId": "78580",
       "date": "2026-08-11",
       "month": "Aug 2026",
       "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U9/U11 Green (Lussier)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Home Game",
+      "eventKind": "Home Game",
+      "team": "Titans - 16U T1 (Layson)",
+      "opponent": "vs. Forest Glade Falcons",
+      "diamond": "Vollmer #2",
       "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
+      "source": "Turtle Club Control Panel",
+      "umpireStatus": {
+        "source": "auto-age",
+        "autoConfirmed": true,
+        "umpire1Confirmed": true,
+        "umpire2Confirmed": true,
+        "umpire1Name": "",
+        "umpire2Name": "",
+        "officials": []
+      }
     },
     {
       "id": "tc-cp-80085",
@@ -50280,22 +50783,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79997",
-      "cpGameId": "79997",
-      "date": "2026-08-11",
-      "month": "Aug 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U13 Green (Grondin)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80157",
       "cpGameId": "80157",
       "date": "2026-08-11",
@@ -50308,6 +50795,38 @@ window.TITANS_DATA = {
       "team": "Intermediate (Stadler)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-79945",
+      "cpGameId": "79945",
+      "date": "2026-08-11",
+      "month": "Aug 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Green (Lussier)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-79997",
+      "cpGameId": "79997",
+      "date": "2026-08-11",
+      "month": "Aug 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U13 Green (Grondin)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #6",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -50472,6 +50991,22 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-79796",
+      "cpGameId": "79796",
+      "date": "2026-08-12",
+      "month": "Aug 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Away Game",
+      "eventKind": "Away Game",
+      "team": "Titans - 11U T2 (Dufour)",
+      "opponent": "@ Forest Glade Falcons",
+      "diamond": "Forest Glade",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "id": "tc-cp-79731",
       "cpGameId": "79731",
       "date": "2026-08-12",
@@ -50495,22 +51030,6 @@ window.TITANS_DATA = {
         "umpire2Name": "",
         "officials": []
       }
-    },
-    {
-      "id": "tc-cp-79796",
-      "cpGameId": "79796",
-      "date": "2026-08-12",
-      "month": "Aug 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Away Game",
-      "eventKind": "Away Game",
-      "team": "Titans - 11U T2 (Dufour)",
-      "opponent": "@ Forest Glade Falcons",
-      "diamond": "Forest Glade",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
     },
     {
       "id": "tc-cp-80051",
@@ -50545,22 +51064,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80406",
-      "cpGameId": "80406",
-      "date": "2026-08-12",
-      "month": "Aug 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - U13 Softball (Paquette)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80611",
       "cpGameId": "80611",
       "date": "2026-08-12",
@@ -50573,6 +51076,22 @@ window.TITANS_DATA = {
       "team": "Selects - U9 Softball (Goz)",
       "opponent": "Practice",
       "diamond": "River Canard #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80406",
+      "cpGameId": "80406",
+      "date": "2026-08-12",
+      "month": "Aug 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - U13 Softball (Paquette)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #6",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -50593,22 +51112,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78315",
-      "cpGameId": "78315",
-      "date": "2026-08-13",
-      "month": "Aug 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 16U T1 (Layson)",
-      "opponent": "Practice",
-      "diamond": "Villanova - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-78423",
       "cpGameId": "78423",
       "date": "2026-08-13",
@@ -50621,6 +51124,22 @@ window.TITANS_DATA = {
       "team": "Titans - 14U T2 (Soltis)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #7",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-78315",
+      "cpGameId": "78315",
+      "date": "2026-08-13",
+      "month": "Aug 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 16U T1 (Layson)",
+      "opponent": "Practice",
+      "diamond": "Villanova - Diamond #1",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -50657,6 +51176,22 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "id": "tc-cp-79963",
+      "cpGameId": "79963",
+      "date": "2026-08-13",
+      "month": "Aug 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "U9/U11 Green (Lussier)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "id": "tc-cp-80015",
       "cpGameId": "80015",
       "date": "2026-08-13",
@@ -50673,8 +51208,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-79963",
-      "cpGameId": "79963",
+      "id": "tc-cp-80121",
+      "cpGameId": "80121",
       "date": "2026-08-13",
       "month": "Aug 2026",
       "time": "6:00 PM",
@@ -50682,9 +51217,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "U9/U11 Green (Lussier)",
+      "team": "U17 (Signorelli)",
       "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #5",
+      "diamond": "Turtle Club - Diamond #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -50717,22 +51252,6 @@ window.TITANS_DATA = {
       "team": "Selects - 15U/Bantam (Johns)",
       "opponent": "Practice",
       "diamond": "Vollmer #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80121",
-      "cpGameId": "80121",
-      "date": "2026-08-13",
-      "month": "Aug 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "U17 (Signorelli)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #2",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -50931,8 +51450,8 @@ window.TITANS_DATA = {
       }
     },
     {
-      "id": "tc-cp-79980",
-      "cpGameId": "79980",
+      "id": "tc-cp-80068",
+      "cpGameId": "80068",
       "date": "2026-08-14",
       "month": "Aug 2026",
       "time": "6:00 PM",
@@ -50940,9 +51459,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "U9/U11 Green (Lussier)",
+      "team": "U15 (Baltzer)",
       "opponent": "Practice",
-      "diamond": "Vollmer #6",
+      "diamond": "Vollmer #5",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -50963,8 +51482,8 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80068",
-      "cpGameId": "80068",
+      "id": "tc-cp-79980",
+      "cpGameId": "79980",
       "date": "2026-08-14",
       "month": "Aug 2026",
       "time": "6:00 PM",
@@ -50972,9 +51491,9 @@ window.TITANS_DATA = {
       "durationMinutes": null,
       "type": "Practice",
       "eventKind": "Practice",
-      "team": "U15 (Baltzer)",
+      "team": "U9/U11 Green (Lussier)",
       "opponent": "Practice",
-      "diamond": "Vollmer #5",
+      "diamond": "Vollmer #6",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -51151,22 +51670,6 @@ window.TITANS_DATA = {
       "team": "Selects - 11U/Mosquito (Bouchard)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80316",
-      "cpGameId": "80316",
-      "date": "2026-08-15",
-      "month": "Aug 2026",
-      "time": "4:30 PM",
-      "endTime": "6:30 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - 9U/Rookie (Carr)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #1",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -52201,22 +52704,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-80394",
-      "cpGameId": "80394",
-      "date": "2026-08-20",
-      "month": "Aug 2026",
-      "time": "6:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - U11 Softball (Meyers)",
-      "opponent": "Practice",
-      "diamond": "Vollmer #3",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-80381",
       "cpGameId": "80381",
       "date": "2026-08-20",
@@ -52229,6 +52716,22 @@ window.TITANS_DATA = {
       "team": "Selects - U9 Softball (Goz)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-80394",
+      "cpGameId": "80394",
+      "date": "2026-08-20",
+      "month": "Aug 2026",
+      "time": "6:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Selects - U11 Softball (Meyers)",
+      "opponent": "Practice",
+      "diamond": "Vollmer #3",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -52663,22 +53166,6 @@ window.TITANS_DATA = {
       "team": "Selects - 11U/Mosquito (Bouchard)",
       "opponent": "Practice",
       "diamond": "Turtle Club - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "id": "tc-cp-80317",
-      "cpGameId": "80317",
-      "date": "2026-08-22",
-      "month": "Aug 2026",
-      "time": "4:30 PM",
-      "endTime": "6:30 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Selects - 9U/Rookie (Carr)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #1",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -54190,22 +54677,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78697",
-      "cpGameId": "78697",
-      "date": "2026-08-30",
-      "month": "Aug 2026",
-      "time": "9:00 AM",
-      "endTime": "12:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 14U T1 (vanWezel)",
-      "opponent": "Practice",
-      "diamond": "Turtle Club - Diamond #7",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-78708",
       "cpGameId": "78708",
       "date": "2026-08-30",
@@ -54218,6 +54689,22 @@ window.TITANS_DATA = {
       "team": "Titans - 11U T1 (Sivell)",
       "opponent": "Practice",
       "diamond": "Villanova - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "id": "tc-cp-78697",
+      "cpGameId": "78697",
+      "date": "2026-08-30",
+      "month": "Aug 2026",
+      "time": "9:00 AM",
+      "endTime": "12:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 14U T1 (vanWezel)",
+      "opponent": "Practice",
+      "diamond": "Turtle Club - Diamond #7",
       "status": "Scheduled",
       "source": "Turtle Club Control Panel"
     },
@@ -54359,22 +54846,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-cp-78690",
-      "cpGameId": "78690",
-      "date": "2026-08-31",
-      "month": "Aug 2026",
-      "time": "5:00 PM",
-      "endTime": "8:00 PM",
-      "durationMinutes": null,
-      "type": "Practice",
-      "eventKind": "Practice",
-      "team": "Titans - 13U T1 (Baker)",
-      "opponent": "Practice",
-      "diamond": "Villanova - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "id": "tc-cp-79837",
       "cpGameId": "79837",
       "date": "2026-08-31",
@@ -54391,3201 +54862,3430 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-hosted-tournament-availability-80804",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "12:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - RR1",
-      "diamond": "Turtle Club - Diamond #1",
+      "id": "tc-cp-78690",
+      "cpGameId": "78690",
+      "date": "2026-08-31",
+      "month": "Aug 2026",
+      "time": "5:00 PM",
+      "endTime": "8:00 PM",
+      "durationMinutes": null,
+      "type": "Practice",
+      "eventKind": "Practice",
+      "team": "Titans - 13U T1 (Baker)",
+      "opponent": "Practice",
+      "diamond": "Villanova - Diamond #2",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club Control Panel"
     },
     {
-      "id": "tc-hosted-tournament-availability-80805",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "12:00 PM",
+      "id": "tc-calendar-4-1",
+      "date": "2026-05-08",
+      "month": "May 2026",
+      "time": "6:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - RR2",
-      "diamond": "Turtle Club - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80806",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "12:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - RR3",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "U13 Gold (Hunt)",
+      "opponent": "@ U13 Green (Grondin)",
       "diamond": "Turtle Club - Diamond #3",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80807",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "12:00 PM",
+      "id": "tc-calendar-4-2",
+      "date": "2026-05-10",
+      "month": "May 2026",
+      "time": "9:00 AM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - RR4",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "R&D Controls Corp. - Grey - (Carr)",
+      "opponent": "@ Malden Vet - White - (Maziak) G01-3",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-4-3",
+      "date": "2026-05-10",
+      "month": "May 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Antonino's Pizza - Red - (Meyers)",
+      "opponent": "@ Marie-Rose Music Studio - Peach - (Young) G01-1",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-4-4",
+      "date": "2026-05-10",
+      "month": "May 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Willson Income Tax - Grey - (Skeats)",
+      "opponent": "@ Blush Spa & Salon - Black - (Dadalt) G01-2",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-4-5",
+      "date": "2026-05-10",
+      "month": "May 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Reaume Chevrolet Buick GMC - Royal Blue - (Castellan)",
+      "opponent": "@ Equinox Realty - Orange - (Steptoe) G01-2",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-4-6",
+      "date": "2026-05-10",
+      "month": "May 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Anita M. Bois Bookkeeping Services - Carolina Blue - (Fletcher)",
+      "opponent": "@ Lasalle Police Association - White - (Goz) G01-3",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-4-7",
+      "date": "2026-05-10",
+      "month": "May 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Rob's Pharmacy - Maroon - (Krenwich)",
+      "opponent": "@ Malden Dental - Royal Blue - (Rankin) G1-1",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-4-8",
+      "date": "2026-05-10",
+      "month": "May 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Lasalle Police Association - White - (Lesperance)",
+      "opponent": "@ WFCU Credit Union - Gold - (Pillon) G1-2",
       "diamond": "Turtle Club - Diamond #4",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80827",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "12:00 PM",
+      "id": "tc-calendar-4-9",
+      "date": "2026-05-10",
+      "month": "May 2026",
+      "time": "11:15 AM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - RR1",
-      "diamond": "Vollmer #5",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Ascents Tree - Kelly Green - (Goz)",
+      "opponent": "@ SWT Group - Black - (Kelly) G1-3",
+      "diamond": "Turtle Club - Diamond #5",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80828",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "12:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - RR2",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80829",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "12:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - RR3",
-      "diamond": "Vollmer #7",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80830",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "12:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - RR4",
-      "diamond": "Vollmer #8",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80666",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
+      "id": "tc-calendar-4-10",
+      "date": "2026-05-10",
+      "month": "May 2026",
       "time": "1:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - RR1",
-      "diamond": "Vollmer #1",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Bennett Mobile Truck Repair - Black - (Heuchan)",
+      "opponent": "@ Active Body Physical Therapy - Purple - (Campagna) G01-1",
+      "diamond": "Turtle Club - Diamond #1",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80667",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
+      "id": "tc-calendar-4-11",
+      "date": "2026-05-10",
+      "month": "May 2026",
       "time": "1:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - RR2",
-      "diamond": "Vollmer #2",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80243",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "2:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - RR1",
-      "diamond": "Turtle Club - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80244",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "2:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - RR2",
-      "diamond": "Turtle Club - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80245",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "2:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - RR3",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Active Body Physical Therapy - Purple - (Kelly)",
+      "opponent": "@ Home Hardware - Gold - (Dufour) G1-1",
       "diamond": "Turtle Club - Diamond #3",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80246",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "2:00 PM",
+      "id": "tc-calendar-4-12",
+      "date": "2026-05-10",
+      "month": "May 2026",
+      "time": "1:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - RR4",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Reaume Chevrolet Buick GMC - Royal Blue - (Koppeser)",
+      "opponent": "@ Hunt Law - Black - (Chandler) G1-2",
       "diamond": "Turtle Club - Diamond #4",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80808",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "2:00 PM",
+      "id": "tc-calendar-4-13",
+      "date": "2026-05-10",
+      "month": "May 2026",
+      "time": "1:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - RR5",
-      "diamond": "Turtle Club - Diamond #6",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Bondy Insurance - Forest Green - (Craig)",
+      "opponent": "@ Tim Horton's Malden - Red - (McIntyre) G1-3",
+      "diamond": "Turtle Club - Diamond #5",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80421",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "2:00 PM",
+      "id": "tc-calendar-5-14",
+      "date": "2026-05-11",
+      "month": "May 2026",
+      "time": "6:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - RR1",
-      "diamond": "Vollmer #5",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "SWT Group - Gold - (Boismier)",
+      "opponent": "@ TD Bank - Kelly Green - (Roehler) G01-1",
+      "diamond": "Turtle Club - Diamond #1",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80422",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "2:00 PM",
+      "id": "tc-calendar-5-15",
+      "date": "2026-05-11",
+      "month": "May 2026",
+      "time": "6:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - RR2",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80423",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "2:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - RR3",
-      "diamond": "Vollmer #7",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80424",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "2:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - RR4",
-      "diamond": "Vollmer #8",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80671",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "3:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - RR6",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Hunt Law - Black - (Johns)",
+      "opponent": "@ WFCU Credit Union- Grey - (Montean) G01-2",
       "diamond": "Turtle Club - Diamond #7",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80670",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "3:30 PM",
+      "id": "tc-calendar-5-16",
+      "date": "2026-05-11",
+      "month": "May 2026",
+      "time": "6:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - RR5",
-      "diamond": "Villanova - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80668",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "3:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - RR3",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Antonino's Pizza - Red - (Grondin)",
+      "opponent": "@ Windsor Factory Supply - White - (Pare) G01-3",
       "diamond": "Vollmer #1",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80669",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "3:30 PM",
+      "id": "tc-calendar-5-17",
+      "date": "2026-05-12",
+      "month": "May 2026",
+      "time": "6:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - RR4",
-      "diamond": "Vollmer #2",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80812",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "4:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - RR9",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Excelsior Detailing - Atomic Blue - (Meloche)",
+      "opponent": "@ Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez) G01-1",
       "diamond": "Turtle Club - Diamond #1",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80811",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "4:00 PM",
+      "id": "tc-calendar-5-18",
+      "date": "2026-05-12",
+      "month": "May 2026",
+      "time": "6:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - RR8",
-      "diamond": "Turtle Club - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80810",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "4:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - RR7",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "SWT Group - Black - (Hurdis)",
+      "opponent": "@ Home Run Sports - White - (Pineda) G01-2",
       "diamond": "Turtle Club - Diamond #3",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80809",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "4:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - RR6",
-      "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80834",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "4:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - RR8",
-      "diamond": "Vollmer #5",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80833",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "4:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - RR7",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80832",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "4:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - RR6",
-      "diamond": "Vollmer #7",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80831",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "4:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - RR5",
-      "diamond": "Vollmer #8",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80250",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
+      "id": "tc-calendar-5-19",
+      "date": "2026-05-12",
+      "month": "May 2026",
       "time": "6:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - RR8",
-      "diamond": "Turtle Club - Diamond #1",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "12U T1 (Hotts)",
+      "opponent": "@ 11U T1 (Sivell)",
+      "diamond": "Villanova - Diamond #2",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80249",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
+      "id": "tc-calendar-5-20",
+      "date": "2026-05-12",
+      "month": "May 2026",
+      "time": "6:30 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - RR7",
-      "diamond": "Turtle Club - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80248",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - RR6",
-      "diamond": "Turtle Club - Diamond #3",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80247",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - RR5",
-      "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80813",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - RR10",
-      "diamond": "Turtle Club - Diamond #6",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80675",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - RR10",
-      "diamond": "Turtle Club - Diamond #7",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80674",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - RR9",
-      "diamond": "Villanova - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80672",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - RR7",
-      "diamond": "Vollmer #1",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80673",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - RR8",
-      "diamond": "Vollmer #2",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80835",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - RR9",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Intermediate (Stadler)",
+      "opponent": "@ U17 (Signorelli)",
       "diamond": "Vollmer #3",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80836",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
+      "id": "tc-calendar-5-21",
+      "date": "2026-05-13",
+      "month": "May 2026",
       "time": "6:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - RR10",
-      "diamond": "Vollmer #4",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "11U T2 (Dufour)",
+      "opponent": "@ 12U T2 (Palubiski)",
+      "diamond": "Villanova - Diamond #2",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80428",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
+      "id": "tc-calendar-5-22",
+      "date": "2026-05-15",
+      "month": "May 2026",
       "time": "6:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - RR8",
-      "diamond": "Vollmer #5",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80427",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - RR7",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80426",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - RR6",
-      "diamond": "Vollmer #7",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80425",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-26",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - RR5",
-      "diamond": "Vollmer #8",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80814",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "9:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - RR11",
-      "diamond": "Turtle Club - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80815",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "9:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - RR12",
-      "diamond": "Turtle Club - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80816",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "9:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - RR13",
-      "diamond": "Turtle Club - Diamond #3",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80817",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "9:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - RR14",
-      "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80837",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "9:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - RR11",
-      "diamond": "Vollmer #5",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80838",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "9:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - RR12",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80839",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "9:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - RR13",
-      "diamond": "Vollmer #7",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80840",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "9:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - RR14",
-      "diamond": "Vollmer #8",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80678",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "10:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - RR13",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "14U T1 (vanWezel)",
+      "opponent": "@ 15U T1 (Nickleson)",
       "diamond": "Villanova - Diamond #1",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80676",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
+      "id": "tc-calendar-5-23",
+      "date": "2026-05-15",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "SWT Group - Black - (Morrison)",
+      "opponent": "@ Dean Construction - Red - (Guthrie)",
+      "diamond": "Vollmer #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-24",
+      "date": "2026-05-16",
+      "month": "May 2026",
+      "time": "5:30 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game Cancelled",
+      "eventKind": "Local Game Cancelled",
+      "team": "12U T2 (Palubiski)",
+      "opponent": "@ 11U T2 (Dufour)",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-25",
+      "date": "2026-05-17",
+      "month": "May 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "R&D Controls Corp. - Grey - (Carr)",
+      "opponent": "@ Reaume Chevrolet Buick GMC - Royal Blue - (Castellan) G02-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-26",
+      "date": "2026-05-17",
+      "month": "May 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Anita M. Bois Bookkeeping Services - Carolina Blue - (Fletcher)",
+      "opponent": "@ Willson Income Tax - Grey - (Skeats) G02-1",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-27",
+      "date": "2026-05-17",
+      "month": "May 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Marie-Rose Music Studio - Peach - (Young)",
+      "opponent": "@ Lasalle Police Association - White - (Goz) G02-3",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-28",
+      "date": "2026-05-17",
+      "month": "May 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Active Body Physical Therapy - Purple - (Campagna)",
+      "opponent": "@ Malden Vet - White - (Maziak) G02-3",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-29",
+      "date": "2026-05-17",
+      "month": "May 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Antonino's Pizza - Red - (Meyers)",
+      "opponent": "@ Blush Spa & Salon - Black - (Dadalt) G02-2",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-30",
+      "date": "2026-05-17",
+      "month": "May 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Ascents Tree - Kelly Green - (Goz)",
+      "opponent": "@ Lasalle Police Association - White - (Lesperance) G2-1",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-31",
+      "date": "2026-05-17",
+      "month": "May 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Rob's Pharmacy - Maroon - (Krenwich)",
+      "opponent": "@ WFCU Credit Union - Gold - (Pillon) G2-2",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-32",
+      "date": "2026-05-17",
+      "month": "May 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Malden Dental - Royal Blue - (Rankin)",
+      "opponent": "@ SWT Group - Black - (Kelly) G2-3",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-33",
+      "date": "2026-05-17",
+      "month": "May 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Bennett Mobile Truck Repair - Black - (Heuchan)",
+      "opponent": "@ Equinox Realty - Orange - (Steptoe) G02-2",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-34",
+      "date": "2026-05-17",
+      "month": "May 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Bondy Insurance - Forest Green - (Craig)",
+      "opponent": "@ Reaume Chevrolet Buick GMC - Royal Blue - (Koppeser) G2-1",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-35",
+      "date": "2026-05-17",
+      "month": "May 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Active Body Physical Therapy - Purple - (Kelly)",
+      "opponent": "@ Hunt Law - Black - (Chandler) G2-2",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-36",
+      "date": "2026-05-17",
+      "month": "May 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Home Hardware - Gold - (Dufour)",
+      "opponent": "@ Tim Horton's Malden - Red - (McIntyre) G2-3",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-37",
+      "date": "2026-05-18",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game Cancelled",
+      "eventKind": "Local Game Cancelled",
+      "team": "Antonino's Pizza - Red - (Grondin)",
+      "opponent": "@ Hunt Law - Black - (Johns) G02-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-38",
+      "date": "2026-05-18",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Hunt Law - Black - (Meyers)",
+      "opponent": "@ R&D Controls Corp. - Silver - (Paquette)",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-39",
+      "date": "2026-05-18",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Plantscape - Royal Blue - (Anson)",
+      "opponent": "@ Laser It! Salon & Medical Spa - Gold - (Booker)",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-40",
+      "date": "2026-05-18",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game Cancelled",
+      "eventKind": "Local Game Cancelled",
+      "team": "SWT Group - Gold - (Boismier)",
+      "opponent": "@ WFCU Credit Union- Grey - (Montean) G02-2",
+      "diamond": "Turtle Club - Diamond #7",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-41",
+      "date": "2026-05-18",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game Cancelled",
+      "eventKind": "Local Game Cancelled",
+      "team": "TD Bank - Kelly Green - (Roehler)",
+      "opponent": "@ Windsor Factory Supply - White - (Pare) G02-3",
+      "diamond": "Vollmer #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-42",
+      "date": "2026-05-19",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game Cancelled",
+      "eventKind": "Local Game Cancelled",
+      "team": "SWT Group - Black - (Hurdis)",
+      "opponent": "@ Excelsior Detailing - Atomic Blue - (Meloche) G02-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-43",
+      "date": "2026-05-19",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game Cancelled",
+      "eventKind": "Local Game Cancelled",
+      "team": "Home Run Sports - White - (Pineda)",
+      "opponent": "@ Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez) G02-2",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-44",
+      "date": "2026-05-22",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Hunt Law - Black - (Meyers)",
+      "opponent": "@ Laser It! Salon & Medical Spa - Gold - (Booker) G02-1",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-45",
+      "date": "2026-05-22",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "R&D Controls Corp. - Silver - (Paquette)",
+      "opponent": "@ Plantscape - Royal Blue - (Anson) G02-2",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-46",
+      "date": "2026-05-24",
+      "month": "May 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Malden Vet - White - (Maziak)",
+      "opponent": "@ Bennett Mobile Truck Repair - Black - (Heuchan) G03-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-47",
+      "date": "2026-05-24",
+      "month": "May 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Lasalle Police Association - White - (Goz)",
+      "opponent": "@ Antonino's Pizza - Red - (Meyers) G03-1",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-48",
+      "date": "2026-05-24",
+      "month": "May 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Blush Spa & Salon - Black - (Dadalt)",
+      "opponent": "@ Anita M. Bois Bookkeeping Services - Carolina Blue - (Fletcher) G03-3",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-49",
+      "date": "2026-05-24",
+      "month": "May 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Equinox Realty - Orange - (Steptoe)",
+      "opponent": "@ R&D Controls Corp. - Grey - (Carr) G03-3",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-50",
+      "date": "2026-05-24",
+      "month": "May 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Willson Income Tax - Grey - (Skeats)",
+      "opponent": "@ Marie-Rose Music Studio - Peach - (Young) G03-2",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-51",
+      "date": "2026-05-24",
+      "month": "May 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "SWT Group - Black - (Kelly)",
+      "opponent": "@ Rob's Pharmacy - Maroon - (Krenwich) G3-1",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-52",
+      "date": "2026-05-24",
+      "month": "May 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Lasalle Police Association - White - (Lesperance)",
+      "opponent": "@ Malden Dental - Royal Blue - (Rankin) G3-2",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-53",
+      "date": "2026-05-24",
+      "month": "May 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "WFCU Credit Union - Gold - (Pillon)",
+      "opponent": "@ Ascents Tree - Kelly Green - (Goz) G3-3",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-54",
+      "date": "2026-05-24",
+      "month": "May 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Reaume Chevrolet Buick GMC - Royal Blue - (Castellan)",
+      "opponent": "@ Active Body Physical Therapy - Purple - (Campagna) G03-2",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-55",
+      "date": "2026-05-24",
+      "month": "May 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Tim Horton's Malden - Red - (McIntyre)",
+      "opponent": "@ Active Body Physical Therapy - Purple - (Kelly) G3-1",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-56",
+      "date": "2026-05-24",
+      "month": "May 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Reaume Chevrolet Buick GMC - Royal Blue - (Koppeser)",
+      "opponent": "@ Home Hardware - Gold - (Dufour) G3-2",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-57",
+      "date": "2026-05-24",
+      "month": "May 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Hunt Law - Black - (Chandler)",
+      "opponent": "@ Bondy Insurance - Forest Green - (Craig) G3-3",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-58",
+      "date": "2026-05-25",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Windsor Factory Supply - White - (Pare)",
+      "opponent": "@ SWT Group - Gold - (Boismier) G03-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-59",
+      "date": "2026-05-25",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "WFCU Credit Union- Grey - (Montean)",
+      "opponent": "@ Antonino's Pizza - Red - (Grondin) G03-3",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-60",
+      "date": "2026-05-25",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Hunt Law - Black - (Johns)",
+      "opponent": "@ TD Bank - Kelly Green - (Roehler) G03-2",
+      "diamond": "Turtle Club - Diamond #7",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-61",
+      "date": "2026-05-26",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez)",
+      "opponent": "@ SWT Group - Black - (Hurdis) G03-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-62",
+      "date": "2026-05-26",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Excelsior Detailing - Atomic Blue - (Meloche)",
+      "opponent": "@ Home Run Sports - White - (Pineda) G03-2",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-63",
+      "date": "2026-05-29",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Plantscape - Royal Blue - (Anson)",
+      "opponent": "@ Hunt Law - Black - (Meyers) G03-1",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-64",
+      "date": "2026-05-29",
+      "month": "May 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Laser It! Salon & Medical Spa - Gold - (Booker)",
+      "opponent": "@ R&D Controls Corp. - Silver - (Paquette) G03-2",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-65",
+      "date": "2026-05-31",
+      "month": "May 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Malden Vet - White - (Maziak)",
+      "opponent": "@ Reaume Chevrolet Buick GMC - Royal Blue - (Castellan) G04-3",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-66",
+      "date": "2026-05-31",
+      "month": "May 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Antonino's Pizza - Red - (Meyers)",
+      "opponent": "@ Anita M. Bois Bookkeeping Services - Carolina Blue - (Fletcher) G04-1",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-67",
+      "date": "2026-05-31",
+      "month": "May 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Marie-Rose Music Studio - Peach - (Young)",
+      "opponent": "@ Blush Spa & Salon - Black - (Dadalt) G04-2",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-68",
+      "date": "2026-05-31",
+      "month": "May 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Active Body Physical Therapy - Purple - (Campagna)",
+      "opponent": "@ Equinox Realty - Orange - (Steptoe) G04-2",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-69",
+      "date": "2026-05-31",
+      "month": "May 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Lasalle Police Association - White - (Goz)",
+      "opponent": "@ Willson Income Tax - Grey - (Skeats) G04-3",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-70",
+      "date": "2026-05-31",
+      "month": "May 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Rob's Pharmacy - Maroon - (Krenwich)",
+      "opponent": "@ Ascents Tree - Kelly Green - (Goz) G4-1",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-71",
+      "date": "2026-05-31",
+      "month": "May 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Malden Dental - Royal Blue - (Rankin)",
+      "opponent": "@ WFCU Credit Union - Gold - (Pillon) G4-2",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-72",
+      "date": "2026-05-31",
+      "month": "May 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "SWT Group - Black - (Kelly)",
+      "opponent": "@ Lasalle Police Association - White - (Lesperance) G4-3",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-73",
+      "date": "2026-05-31",
+      "month": "May 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Bennett Mobile Truck Repair - Black - (Heuchan)",
+      "opponent": "@ R&D Controls Corp. - Grey - (Carr) G04-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-74",
+      "date": "2026-05-31",
+      "month": "May 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Active Body Physical Therapy - Purple - (Kelly)",
+      "opponent": "@ Bondy Insurance - Forest Green - (Craig) G4-1",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-75",
+      "date": "2026-05-31",
+      "month": "May 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Home Hardware - Gold - (Dufour)",
+      "opponent": "@ Hunt Law - Black - (Chandler) G4-2",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-76",
+      "date": "2026-05-31",
+      "month": "May 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Tim Horton's Malden - Red - (McIntyre)",
+      "opponent": "@ Reaume Chevrolet Buick GMC - Royal Blue - (Koppeser) G4-3",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-77",
+      "date": "2026-06-01",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "SWT Group - Gold - (Boismier)",
+      "opponent": "@ Antonino's Pizza - Red - (Grondin) G04-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-78",
+      "date": "2026-06-01",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "TD Bank - Kelly Green - (Roehler)",
+      "opponent": "@ WFCU Credit Union- Grey - (Montean) G04-2",
+      "diamond": "Turtle Club - Diamond #7",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-79",
+      "date": "2026-06-01",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Windsor Factory Supply - White - (Pare)",
+      "opponent": "@ Hunt Law - Black - (Johns) G04-3",
+      "diamond": "Vollmer #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-80",
+      "date": "2026-06-02",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez)",
+      "opponent": "@ Excelsior Detailing - Atomic Blue - (Meloche) G04-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-81",
+      "date": "2026-06-02",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Home Run Sports - White - (Pineda)",
+      "opponent": "@ SWT Group - Black - (Hurdis) G04-2",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-82",
+      "date": "2026-06-02",
+      "month": "Jun 2026",
+      "time": "6:30 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "U17 (Signorelli)",
+      "opponent": "@ Intermediate (Stadler)",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-83",
+      "date": "2026-06-05",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Plantscape - Royal Blue - (Anson)",
+      "opponent": "@ Laser It! Salon & Medical Spa - Gold - (Booker) G04-1",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-84",
+      "date": "2026-06-05",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "R&D Controls Corp. - Silver - (Paquette)",
+      "opponent": "@ Hunt Law - Black - (Meyers) G04-2",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-85",
+      "date": "2026-06-05",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Active Body Physical Therapy - Purple - (Pare)",
+      "opponent": "@ Laser It! Salon & Medical Spa - Gold - (Taylor)",
+      "diamond": "Vollmer #7",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-86",
+      "date": "2026-06-06",
+      "month": "Jun 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Willson Income Tax - Grey - (Skeats)",
+      "opponent": "@ Blush Spa & Salon - Black - (Dadalt)",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-87",
+      "date": "2026-06-06",
+      "month": "Jun 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Lasalle Police Association - White - (Goz)",
+      "opponent": "@ Antonino's Pizza - Red - (Meyers)",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-88",
+      "date": "2026-06-06",
+      "month": "Jun 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Anita M. Bois Bookkeeping Services - Carolina Blue - (Fletcher)",
+      "opponent": "@ Marie-Rose Music Studio - Peach - (Young)",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-89",
+      "date": "2026-06-07",
+      "month": "Jun 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Equinox Realty - Orange - (Steptoe)",
+      "opponent": "@ Malden Vet - White - (Maziak) G05-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-90",
+      "date": "2026-06-07",
+      "month": "Jun 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Reaume Chevrolet Buick GMC - Royal Blue - (Castellan)",
+      "opponent": "@ Bennett Mobile Truck Repair - Black - (Heuchan) G05-3",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-91",
+      "date": "2026-06-07",
+      "month": "Jun 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "WFCU Credit Union - Gold - (Pillon)",
+      "opponent": "@ SWT Group - Black - (Kelly) G5-1",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-92",
+      "date": "2026-06-07",
+      "month": "Jun 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Ascents Tree - Kelly Green - (Goz)",
+      "opponent": "@ Malden Dental - Royal Blue - (Rankin) G5-2",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-93",
+      "date": "2026-06-07",
+      "month": "Jun 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Lasalle Police Association - White - (Lesperance)",
+      "opponent": "@ Rob's Pharmacy - Maroon - (Krenwich) G5-3",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-94",
+      "date": "2026-06-07",
+      "month": "Jun 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "R&D Controls Corp. - Grey - (Carr)",
+      "opponent": "@ Active Body Physical Therapy - Purple - (Campagna) G05-2",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-95",
+      "date": "2026-06-07",
+      "month": "Jun 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Hunt Law - Black - (Chandler)",
+      "opponent": "@ Tim Horton's Malden - Red - (McIntyre) G5-1",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-96",
+      "date": "2026-06-07",
+      "month": "Jun 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Bondy Insurance - Forest Green - (Craig)",
+      "opponent": "@ Home Hardware - Gold - (Dufour) G5-2",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-97",
+      "date": "2026-06-07",
+      "month": "Jun 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Reaume Chevrolet Buick GMC - Royal Blue - (Koppeser)",
+      "opponent": "@ Active Body Physical Therapy - Purple - (Kelly) G5-3",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-98",
+      "date": "2026-06-08",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "WFCU Credit Union- Grey - (Montean)",
+      "opponent": "@ Windsor Factory Supply - White - (Pare) G05-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-99",
+      "date": "2026-06-08",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Antonino's Pizza - Red - (Grondin)",
+      "opponent": "@ TD Bank - Kelly Green - (Roehler) G05-2",
+      "diamond": "Turtle Club - Diamond #7",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-100",
+      "date": "2026-06-08",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Hunt Law - Black - (Johns)",
+      "opponent": "@ SWT Group - Gold - (Boismier) G05-3",
+      "diamond": "Vollmer #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-101",
+      "date": "2026-06-08",
+      "month": "Jun 2026",
+      "time": "6:30 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Plantscape - Royal Blue - (Anson)",
+      "opponent": "@ Laser It! Salon & Medical Spa - Gold - (Booker)",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-102",
+      "date": "2026-06-08",
+      "month": "Jun 2026",
+      "time": "6:30 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Hunt Law - Black - (Meyers)",
+      "opponent": "@ R&D Controls Corp. - Silver - (Paquette)",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-103",
+      "date": "2026-06-09",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game Cancelled",
+      "eventKind": "Local Game Cancelled",
+      "team": "Excelsior Detailing - Atomic Blue - (Meloche)",
+      "opponent": "@ SWT Group - Black - (Hurdis) G05-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-104",
+      "date": "2026-06-09",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game Cancelled",
+      "eventKind": "Local Game Cancelled",
+      "team": "Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez)",
+      "opponent": "@ Home Run Sports - White - (Pineda) G05-2",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-105",
+      "date": "2026-06-11",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Home Run Sports - White - (Pineda)",
+      "opponent": "@ Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez)",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-106",
+      "date": "2026-06-11",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Excelsior Detailing - Atomic Blue - (Meloche)",
+      "opponent": "@ SWT Group - Black - (Hurdis)",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-107",
+      "date": "2026-06-12",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Laser It! Salon & Medical Spa - Gold - (Booker)",
+      "opponent": "@ Hunt Law - Black - (Meyers) G05-1",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-108",
+      "date": "2026-06-12",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Plantscape - Royal Blue - (Anson)",
+      "opponent": "@ R&D Controls Corp. - Silver - (Paquette) G05-2",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-109",
+      "date": "2026-06-14",
+      "month": "Jun 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Malden Vet - White - (Maziak)",
+      "opponent": "@ R&D Controls Corp. - Grey - (Carr) G06-3",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-110",
+      "date": "2026-06-14",
+      "month": "Jun 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Lasalle Police Association - White - (Goz)",
+      "opponent": "@ Anita M. Bois Bookkeeping Services - Carolina Blue - (Fletcher) G06-3",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-111",
+      "date": "2026-06-14",
+      "month": "Jun 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Marie-Rose Music Studio - Peach - (Young)",
+      "opponent": "@ Antonino's Pizza - Red - (Meyers) G06-1",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-112",
+      "date": "2026-06-14",
+      "month": "Jun 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Active Body Physical Therapy - Purple - (Campagna)",
+      "opponent": "@ Bennett Mobile Truck Repair - Black - (Heuchan) G06-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-113",
+      "date": "2026-06-14",
+      "month": "Jun 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Blush Spa & Salon - Black - (Dadalt)",
+      "opponent": "@ Willson Income Tax - Grey - (Skeats) G06-2",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-114",
+      "date": "2026-06-14",
+      "month": "Jun 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Malden Dental - Royal Blue - (Rankin)",
+      "opponent": "@ Rob's Pharmacy - Maroon - (Krenwich) G6-1",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-115",
+      "date": "2026-06-14",
+      "month": "Jun 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "WFCU Credit Union - Gold - (Pillon)",
+      "opponent": "@ Lasalle Police Association - White - (Lesperance) G6-2",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-116",
+      "date": "2026-06-14",
+      "month": "Jun 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "SWT Group - Black - (Kelly)",
+      "opponent": "@ Ascents Tree - Kelly Green - (Goz) G6-3",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-117",
+      "date": "2026-06-14",
+      "month": "Jun 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game Cancelled",
+      "eventKind": "Local Game Cancelled",
+      "team": "Equinox Realty - Orange - (Steptoe)",
+      "opponent": "@ Reaume Chevrolet Buick GMC - Royal Blue - (Castellan) G06-2",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-118",
+      "date": "2026-06-14",
+      "month": "Jun 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game Cancelled",
+      "eventKind": "Local Game Cancelled",
+      "team": "Home Hardware - Gold - (Dufour)",
+      "opponent": "@ Active Body Physical Therapy - Purple - (Kelly) G6-1",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-119",
+      "date": "2026-06-14",
+      "month": "Jun 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game Cancelled",
+      "eventKind": "Local Game Cancelled",
+      "team": "Hunt Law - Black - (Chandler)",
+      "opponent": "@ Reaume Chevrolet Buick GMC - Royal Blue - (Koppeser) G6-2",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-5-120",
+      "date": "2026-06-14",
+      "month": "Jun 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game Cancelled",
+      "eventKind": "Local Game Cancelled",
+      "team": "Tim Horton's Malden - Red - (McIntyre)",
+      "opponent": "@ Bondy Insurance - Forest Green - (Craig) G6-3",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-76",
+      "date": "2026-06-15",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "TD Bank - Kelly Green - (Roehler)",
+      "opponent": "@ SWT Group - Gold - (Boismier) G06-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-77",
+      "date": "2026-06-15",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "WFCU Credit Union- Grey - (Montean)",
+      "opponent": "@ Hunt Law - Black - (Johns) G06-2",
+      "diamond": "Turtle Club - Diamond #7",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-78",
+      "date": "2026-06-15",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Windsor Factory Supply - White - (Pare)",
+      "opponent": "@ Antonino's Pizza - Red - (Grondin) G06-3",
+      "diamond": "Vollmer #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-79",
+      "date": "2026-06-16",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "SWT Group - Black - (Hurdis)",
+      "opponent": "@ Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez) G06-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-80",
+      "date": "2026-06-16",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Home Run Sports - White - (Pineda)",
+      "opponent": "@ Excelsior Detailing - Atomic Blue - (Meloche) G06-2",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-81",
+      "date": "2026-06-19",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Hunt Law - Black - (Meyers)",
+      "opponent": "@ Plantscape - Royal Blue - (Anson) G06-1",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-82",
+      "date": "2026-06-19",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "R&D Controls Corp. - Silver - (Paquette)",
+      "opponent": "@ Laser It! Salon & Medical Spa - Gold - (Booker) G06-2",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-83",
+      "date": "2026-06-21",
+      "month": "Jun 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Reaume Chevrolet Buick GMC - Royal Blue - (Castellan)",
+      "opponent": "@ R&D Controls Corp. - Grey - (Carr) G07-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-84",
+      "date": "2026-06-21",
+      "month": "Jun 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Willson Income Tax - Grey - (Skeats)",
+      "opponent": "@ Anita M. Bois Bookkeeping Services - Carolina Blue - (Fletcher) G07-1",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-85",
+      "date": "2026-06-21",
+      "month": "Jun 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Lasalle Police Association - White - (Goz)",
+      "opponent": "@ Marie-Rose Music Studio - Peach - (Young) G07-3",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-86",
+      "date": "2026-06-21",
+      "month": "Jun 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Malden Vet - White - (Maziak)",
+      "opponent": "@ Active Body Physical Therapy - Purple - (Campagna) G07-3",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-87",
+      "date": "2026-06-21",
+      "month": "Jun 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Blush Spa & Salon - Black - (Dadalt)",
+      "opponent": "@ Antonino's Pizza - Red - (Meyers) G07-2",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-88",
+      "date": "2026-06-21",
+      "month": "Jun 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Lasalle Police Association - White - (Lesperance)",
+      "opponent": "@ Ascents Tree - Kelly Green - (Goz) G7-1",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-89",
+      "date": "2026-06-21",
+      "month": "Jun 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "WFCU Credit Union - Gold - (Pillon)",
+      "opponent": "@ Rob's Pharmacy - Maroon - (Krenwich) G7-2",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-90",
+      "date": "2026-06-21",
+      "month": "Jun 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "SWT Group - Black - (Kelly)",
+      "opponent": "@ Malden Dental - Royal Blue - (Rankin) G7-3",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-91",
+      "date": "2026-06-21",
+      "month": "Jun 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Equinox Realty - Orange - (Steptoe)",
+      "opponent": "@ Bennett Mobile Truck Repair - Black - (Heuchan) G07-2",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-92",
+      "date": "2026-06-21",
+      "month": "Jun 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Reaume Chevrolet Buick GMC - Royal Blue - (Koppeser)",
+      "opponent": "@ Bondy Insurance - Forest Green - (Craig) G7-1",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-93",
+      "date": "2026-06-21",
+      "month": "Jun 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Hunt Law - Black - (Chandler)",
+      "opponent": "@ Active Body Physical Therapy - Purple - (Kelly) G7-2",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-94",
+      "date": "2026-06-21",
+      "month": "Jun 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Tim Horton's Malden - Red - (McIntyre)",
+      "opponent": "@ Home Hardware - Gold - (Dufour) G7-3",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-95",
+      "date": "2026-06-22",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Hunt Law - Black - (Johns)",
+      "opponent": "@ Antonino's Pizza - Red - (Grondin) G07-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-96",
+      "date": "2026-06-22",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "WFCU Credit Union- Grey - (Montean)",
+      "opponent": "@ SWT Group - Gold - (Boismier) G07-2",
+      "diamond": "Turtle Club - Diamond #7",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-97",
+      "date": "2026-06-22",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Windsor Factory Supply - White - (Pare)",
+      "opponent": "@ TD Bank - Kelly Green - (Roehler) G07-3",
+      "diamond": "Vollmer #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-98",
+      "date": "2026-06-23",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Excelsior Detailing - Atomic Blue - (Meloche)",
+      "opponent": "@ Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez) G07-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-99",
+      "date": "2026-06-23",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "SWT Group - Black - (Hurdis)",
+      "opponent": "@ Home Run Sports - White - (Pineda) G07-2",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-100",
+      "date": "2026-06-26",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Laser It! Salon & Medical Spa - Gold - (Taylor)",
+      "opponent": "@ Active Body Physical Therapy - Purple - (Pare)",
+      "diamond": "River Canard #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-101",
+      "date": "2026-06-26",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Laser It! Salon & Medical Spa - Gold - (Booker)",
+      "opponent": "@ Plantscape - Royal Blue - (Anson) G07-1",
+      "diamond": "River Canard #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-102",
+      "date": "2026-06-26",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Hunt Law - Black - (Meyers)",
+      "opponent": "@ R&D Controls Corp. - Silver - (Paquette) G07-2",
+      "diamond": "River Canard #4",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-103",
       "date": "2026-06-27",
       "month": "Jun 2026",
       "time": "10:00 AM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - RR11",
-      "diamond": "Vollmer #1",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Dean Construction - Red - (Guthrie)",
+      "opponent": "@ SWT Group - Black - (Morrison)",
+      "diamond": "Turtle Club - Diamond #7",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80677",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "10:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - RR12",
-      "diamond": "Vollmer #2",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80251",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "11:15 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - RR9",
-      "diamond": "Turtle Club - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80252",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "11:15 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - RR10",
-      "diamond": "Turtle Club - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80253",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "11:15 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - RR11",
-      "diamond": "Turtle Club - Diamond #3",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80254",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "11:15 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - RR12",
-      "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80429",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "11:15 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - RR9",
-      "diamond": "Vollmer #5",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80430",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "11:15 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - RR10",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80431",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "11:15 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - RR11",
-      "diamond": "Vollmer #7",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80432",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "11:15 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - RR12",
-      "diamond": "Vollmer #8",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80681",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "12:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - RR16",
-      "diamond": "Villanova - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80679",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "12:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - RR14",
-      "diamond": "Vollmer #1",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80680",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "12:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - RR15",
-      "diamond": "Vollmer #2",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80821",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "1:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - RR18",
-      "diamond": "Turtle Club - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80820",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "1:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - RR17",
-      "diamond": "Turtle Club - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80819",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "1:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - RR16",
-      "diamond": "Turtle Club - Diamond #3",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80818",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "1:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - RR15",
-      "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80844",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "1:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - RR18",
-      "diamond": "Vollmer #5",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80843",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "1:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - RR17",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80842",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "1:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - RR16",
-      "diamond": "Vollmer #7",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80841",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "1:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - RR15",
-      "diamond": "Vollmer #8",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80684",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "3:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - RR19",
-      "diamond": "Villanova - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80682",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "3:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - RR17",
-      "diamond": "Vollmer #1",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80683",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "3:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - RR18",
-      "diamond": "Vollmer #2",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80258",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "3:45 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - RR16",
-      "diamond": "Turtle Club - Diamond #1",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80257",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "3:45 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - RR15",
-      "diamond": "Turtle Club - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80256",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "3:45 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - RR14",
-      "diamond": "Turtle Club - Diamond #3",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80255",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "3:45 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - RR13",
-      "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80436",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "3:45 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - RR16",
-      "diamond": "Vollmer #5",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80435",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "3:45 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - RR15",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80434",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "3:45 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - RR14",
-      "diamond": "Vollmer #7",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80433",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "3:45 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - RR13",
-      "diamond": "Vollmer #8",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80822",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
+      "id": "tc-calendar-6-104",
+      "date": "2026-06-29",
       "month": "Jun 2026",
       "time": "6:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - RR19",
-      "diamond": "Turtle Club - Diamond #2",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80823",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - RR20",
-      "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80685",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - RR20",
-      "diamond": "Vollmer #1",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80845",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - RR19",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80846",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-27",
-      "month": "Jun 2026",
-      "time": "6:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - RR20",
-      "diamond": "Vollmer #8",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80259",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "9:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - RR17",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "SWT Group - Gold - (Boismier)",
+      "opponent": "@ Windsor Factory Supply - White - (Pare) G08-1",
       "diamond": "Turtle Club - Diamond #1",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80260",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
+      "id": "tc-calendar-6-105",
+      "date": "2026-06-29",
       "month": "Jun 2026",
-      "time": "9:00 AM",
+      "time": "6:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - RR18",
-      "diamond": "Turtle Club - Diamond #2",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "TD Bank - Kelly Green - (Roehler)",
+      "opponent": "@ Hunt Law - Black - (Johns) G08-2",
+      "diamond": "Turtle Club - Diamond #7",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80261",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
+      "id": "tc-calendar-6-106",
+      "date": "2026-06-29",
       "month": "Jun 2026",
-      "time": "9:00 AM",
+      "time": "6:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - RR19",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Antonino's Pizza - Red - (Grondin)",
+      "opponent": "@ WFCU Credit Union- Grey - (Montean) G08-3",
+      "diamond": "Vollmer #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-107",
+      "date": "2026-06-30",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "SWT Group - Black - (Hurdis)",
+      "opponent": "@ Excelsior Detailing - Atomic Blue - (Meloche) G08-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-108",
+      "date": "2026-06-30",
+      "month": "Jun 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Home Run Sports - White - (Pineda)",
+      "opponent": "@ Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez) G08-2",
       "diamond": "Turtle Club - Diamond #3",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80262",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "9:00 AM",
+      "id": "tc-calendar-6-109",
+      "date": "2026-07-01",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - RR20",
-      "diamond": "Turtle Club - Diamond #4",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80437",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "9:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - RR17",
-      "diamond": "Vollmer #5",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80438",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "9:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - RR18",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80439",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "9:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - RR19",
-      "diamond": "Vollmer #7",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80440",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "9:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - RR20",
-      "diamond": "Vollmer #8",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80686",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "10:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - SF1",
-      "diamond": "Vollmer #1",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80687",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "10:00 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - SF2",
-      "diamond": "Vollmer #2",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80824",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "11:15 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - SF1",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "TD Bank - Kelly Green - (Roehler)",
+      "opponent": "@ Windsor Factory Supply - White - (Pare)",
       "diamond": "Turtle Club - Diamond #1",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80263",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "11:15 AM",
+      "id": "tc-calendar-6-110",
+      "date": "2026-07-03",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - SF1",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Hunt Law - Black - (Meyers)",
+      "opponent": "@ Laser It! Salon & Medical Spa - Gold - (Booker) G08-1",
       "diamond": "Turtle Club - Diamond #2",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80825",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
+      "id": "tc-calendar-6-111",
+      "date": "2026-07-03",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "R&D Controls Corp. - Silver - (Paquette)",
+      "opponent": "@ Plantscape - Royal Blue - (Anson) G08-2",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-112",
+      "date": "2026-07-04",
+      "month": "Jul 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Equinox Realty - Orange - (Steptoe)",
+      "opponent": "@ Reaume Chevrolet Buick GMC - Royal Blue - (Castellan)",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-113",
+      "date": "2026-07-05",
+      "month": "Jul 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Bennett Mobile Truck Repair - Black - (Heuchan)",
+      "opponent": "@ Malden Vet - White - (Maziak) G08-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-114",
+      "date": "2026-07-05",
+      "month": "Jul 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Marie-Rose Music Studio - Peach - (Young)",
+      "opponent": "@ Willson Income Tax - Grey - (Skeats) G08-2",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-115",
+      "date": "2026-07-05",
+      "month": "Jul 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Anita M. Bois Bookkeeping Services - Carolina Blue - (Fletcher)",
+      "opponent": "@ Blush Spa & Salon - Black - (Dadalt) G08-3",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-116",
+      "date": "2026-07-05",
+      "month": "Jul 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "R&D Controls Corp. - Grey - (Carr)",
+      "opponent": "@ Equinox Realty - Orange - (Steptoe) G08-3",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-117",
+      "date": "2026-07-05",
+      "month": "Jul 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Antonino's Pizza - Red - (Meyers)",
+      "opponent": "@ Lasalle Police Association - White - (Goz) G08-1",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-118",
+      "date": "2026-07-05",
+      "month": "Jul 2026",
       "time": "11:15 AM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - SF2",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Rob's Pharmacy - Maroon - (Krenwich)",
+      "opponent": "@ SWT Group - Black - (Kelly) G8-1",
       "diamond": "Turtle Club - Diamond #3",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80264",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
+      "id": "tc-calendar-6-119",
+      "date": "2026-07-05",
+      "month": "Jul 2026",
       "time": "11:15 AM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - SF2",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Malden Dental - Royal Blue - (Rankin)",
+      "opponent": "@ Lasalle Police Association - White - (Lesperance) G8-2",
       "diamond": "Turtle Club - Diamond #4",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80847",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
+      "id": "tc-calendar-6-120",
+      "date": "2026-07-05",
+      "month": "Jul 2026",
       "time": "11:15 AM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - SF1",
-      "diamond": "Vollmer #5",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Ascents Tree - Kelly Green - (Goz)",
+      "opponent": "@ WFCU Credit Union - Gold - (Pillon) G8-3",
+      "diamond": "Turtle Club - Diamond #5",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80441",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "11:15 AM",
+      "id": "tc-calendar-6-121",
+      "date": "2026-07-05",
+      "month": "Jul 2026",
+      "time": "1:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - SF1",
-      "diamond": "Vollmer #6",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80442",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "11:15 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - SF2",
-      "diamond": "Vollmer #7",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80848",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "11:15 AM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - SF2",
-      "diamond": "Vollmer #8",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80688",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "12:30 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 16U - Final",
-      "diamond": "Vollmer #1",
-      "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
-    },
-    {
-      "id": "tc-hosted-tournament-availability-80826",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "2:00 PM",
-      "endTime": "",
-      "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 10U - Final",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Active Body Physical Therapy - Purple - (Campagna)",
+      "opponent": "@ Reaume Chevrolet Buick GMC - Royal Blue - (Castellan) G08-2",
       "diamond": "Turtle Club - Diamond #1",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80265",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "2:00 PM",
+      "id": "tc-calendar-6-122",
+      "date": "2026-07-05",
+      "month": "Jul 2026",
+      "time": "1:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 11U - Final",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Active Body Physical Therapy - Purple - (Kelly)",
+      "opponent": "@ Tim Horton's Malden - Red - (McIntyre) G8-1",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-123",
+      "date": "2026-07-05",
+      "month": "Jul 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Home Hardware - Gold - (Dufour)",
+      "opponent": "@ Reaume Chevrolet Buick GMC - Royal Blue - (Koppeser) G8-2",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-124",
+      "date": "2026-07-05",
+      "month": "Jul 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Bondy Insurance - Forest Green - (Craig)",
+      "opponent": "@ Hunt Law - Black - (Chandler) G8-3",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-125",
+      "date": "2026-07-06",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Antonino's Pizza - Red - (Grondin)",
+      "opponent": "@ SWT Group - Gold - (Boismier) G09-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-126",
+      "date": "2026-07-06",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "WFCU Credit Union- Grey - (Montean)",
+      "opponent": "@ TD Bank - Kelly Green - (Roehler) G09-2",
+      "diamond": "Turtle Club - Diamond #7",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-127",
+      "date": "2026-07-06",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Hunt Law - Black - (Johns)",
+      "opponent": "@ Windsor Factory Supply - White - (Pare) G09-3",
+      "diamond": "Vollmer #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-128",
+      "date": "2026-07-06",
+      "month": "Jul 2026",
+      "time": "6:30 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Plantscape - Royal Blue - (Anson)",
+      "opponent": "@ Hunt Law - Black - (Meyers) G09-1",
       "diamond": "Turtle Club - Diamond #2",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80849",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "2:00 PM",
+      "id": "tc-calendar-6-129",
+      "date": "2026-07-06",
+      "month": "Jul 2026",
+      "time": "6:30 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 12U - Final",
-      "diamond": "Vollmer #5",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Laser It! Salon & Medical Spa - Gold - (Booker)",
+      "opponent": "@ R&D Controls Corp. - Silver - (Paquette) G09-2",
+      "diamond": "Turtle Club - Diamond #3",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
     },
     {
-      "id": "tc-hosted-tournament-availability-80443",
-      "tournamentGroupId": "tournament-u13-gold-hunt-jack-mccart-ralph-hall-classic-10u-11u-12u-13u-16u",
-      "date": "2026-06-28",
-      "month": "Jun 2026",
-      "time": "2:00 PM",
+      "id": "tc-calendar-6-130",
+      "date": "2026-07-07",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
       "endTime": "",
       "durationMinutes": 120,
-      "type": "Hosted Tournament",
-      "eventKind": "Tournament",
-      "team": "Turtle Club",
-      "opponent": "Jack McCart / Ralph Hall Classic (10U, 11U, 12U, 13U, 16U) - 13U - Final",
-      "diamond": "Vollmer #7",
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez)",
+      "opponent": "@ SWT Group - Black - (Hurdis) G09-1",
+      "diamond": "Turtle Club - Diamond #1",
       "status": "Scheduled",
-      "source": "Turtle Club hosted tournament availability"
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-131",
+      "date": "2026-07-07",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Excelsior Detailing - Atomic Blue - (Meloche)",
+      "opponent": "@ Home Run Sports - White - (Pineda) G09-2",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-132",
+      "date": "2026-07-08",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Windsor Factory Supply - White - (Pare)",
+      "opponent": "@ WFCU Credit Union- Grey - (Montean) G10-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-133",
+      "date": "2026-07-08",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "TD Bank - Kelly Green - (Roehler)",
+      "opponent": "@ Antonino's Pizza - Red - (Grondin) G10-2",
+      "diamond": "Turtle Club - Diamond #7",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-134",
+      "date": "2026-07-08",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "SWT Group - Gold - (Boismier)",
+      "opponent": "@ Hunt Law - Black - (Johns) G10-3",
+      "diamond": "Vollmer #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-135",
+      "date": "2026-07-10",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Plantscape - Royal Blue - (Anson)",
+      "opponent": "@ Laser It! Salon & Medical Spa - Gold - (Booker) G10-1",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-136",
+      "date": "2026-07-10",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "R&D Controls Corp. - Silver - (Paquette)",
+      "opponent": "@ Hunt Law - Black - (Meyers) G10-2",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-137",
+      "date": "2026-07-11",
+      "month": "Jul 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "R&D Controls Corp. - Grey - (Carr)",
+      "opponent": "@ Bennett Mobile Truck Repair - Black - (Heuchan) G09-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-138",
+      "date": "2026-07-11",
+      "month": "Jul 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Anita M. Bois Bookkeeping Services - Carolina Blue - (Fletcher)",
+      "opponent": "@ Antonino's Pizza - Red - (Meyers) G09-1",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-139",
+      "date": "2026-07-11",
+      "month": "Jul 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Blush Spa & Salon - Black - (Dadalt)",
+      "opponent": "@ Marie-Rose Music Studio - Peach - (Young) G09-2",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-140",
+      "date": "2026-07-11",
+      "month": "Jul 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Equinox Realty - Orange - (Steptoe)",
+      "opponent": "@ Active Body Physical Therapy - Purple - (Campagna) G09-2",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-141",
+      "date": "2026-07-11",
+      "month": "Jul 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Willson Income Tax - Grey - (Skeats)",
+      "opponent": "@ Lasalle Police Association - White - (Goz) G09-3",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-142",
+      "date": "2026-07-11",
+      "month": "Jul 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Reaume Chevrolet Buick GMC - Royal Blue - (Castellan)",
+      "opponent": "@ Malden Vet - White - (Maziak) G09-3",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-143",
+      "date": "2026-07-12",
+      "month": "Jul 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Active Body Physical Therapy - Purple - (Campagna)",
+      "opponent": "@ R&D Controls Corp. - Grey - (Carr) G10-2",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-144",
+      "date": "2026-07-12",
+      "month": "Jul 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Lasalle Police Association - White - (Goz)",
+      "opponent": "@ Blush Spa & Salon - Black - (Dadalt) G10-1",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-145",
+      "date": "2026-07-12",
+      "month": "Jul 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Antonino's Pizza - Red - (Meyers)",
+      "opponent": "@ Willson Income Tax - Grey - (Skeats) G10-3",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-146",
+      "date": "2026-07-12",
+      "month": "Jul 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Malden Vet - White - (Maziak)",
+      "opponent": "@ Equinox Realty - Orange - (Steptoe) G10-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-147",
+      "date": "2026-07-12",
+      "month": "Jul 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Marie-Rose Music Studio - Peach - (Young)",
+      "opponent": "@ Anita M. Bois Bookkeeping Services - Carolina Blue - (Fletcher) G10-2",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-148",
+      "date": "2026-07-12",
+      "month": "Jul 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Ascents Tree - Kelly Green - (Goz)",
+      "opponent": "@ Rob's Pharmacy - Maroon - (Krenwich) G9-1",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-149",
+      "date": "2026-07-12",
+      "month": "Jul 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "WFCU Credit Union - Gold - (Pillon)",
+      "opponent": "@ Malden Dental - Royal Blue - (Rankin) G9-2",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-150",
+      "date": "2026-07-12",
+      "month": "Jul 2026",
+      "time": "11:15 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Lasalle Police Association - White - (Lesperance)",
+      "opponent": "@ SWT Group - Black - (Kelly) G9-3",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-151",
+      "date": "2026-07-12",
+      "month": "Jul 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Bennett Mobile Truck Repair - Black - (Heuchan)",
+      "opponent": "@ Reaume Chevrolet Buick GMC - Royal Blue - (Castellan) G10-3",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-152",
+      "date": "2026-07-12",
+      "month": "Jul 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Bondy Insurance - Forest Green - (Craig)",
+      "opponent": "@ Active Body Physical Therapy - Purple - (Kelly) G9-1",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-153",
+      "date": "2026-07-12",
+      "month": "Jul 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Hunt Law - Black - (Chandler)",
+      "opponent": "@ Home Hardware - Gold - (Dufour) G9-2",
+      "diamond": "Turtle Club - Diamond #4",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-154",
+      "date": "2026-07-12",
+      "month": "Jul 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Reaume Chevrolet Buick GMC - Royal Blue - (Koppeser)",
+      "opponent": "@ Tim Horton's Malden - Red - (McIntyre) G9-3",
+      "diamond": "Turtle Club - Diamond #5",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-6-155",
+      "date": "2026-07-12",
+      "month": "Jul 2026",
+      "time": "8:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game Cancelled",
+      "eventKind": "Local Game Cancelled",
+      "team": "Active Body Physical Therapy - Purple - (Pare)",
+      "opponent": "@ Laser It! Salon & Medical Spa - Gold - (Taylor)",
+      "diamond": "St. Clair College SportsPark Softball Field",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-74",
+      "date": "2026-07-13",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "TD Bank - Kelly Green - (Roehler)",
+      "opponent": "@ SWT Group - Gold - (Boismier) G11-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-75",
+      "date": "2026-07-13",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Laser It! Salon & Medical Spa - Gold - (Booker)",
+      "opponent": "@ Hunt Law - Black - (Meyers) G11-1",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-76",
+      "date": "2026-07-13",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Plantscape - Royal Blue - (Anson)",
+      "opponent": "@ R&D Controls Corp. - Silver - (Paquette) G11-2",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-77",
+      "date": "2026-07-13",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Antonino's Pizza - Red - (Grondin)",
+      "opponent": "@ Hunt Law - Black - (Johns) G11-2",
+      "diamond": "Turtle Club - Diamond #7",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-78",
+      "date": "2026-07-13",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "WFCU Credit Union- Grey - (Montean)",
+      "opponent": "@ Windsor Factory Supply - White - (Pare) G11-3",
+      "diamond": "Vollmer #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-79",
+      "date": "2026-07-14",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez)",
+      "opponent": "@ Excelsior Detailing - Atomic Blue - (Meloche) G10-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-80",
+      "date": "2026-07-14",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Home Run Sports - White - (Pineda)",
+      "opponent": "@ SWT Group - Black - (Hurdis) G10-2",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-81",
+      "date": "2026-07-15",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Windsor Factory Supply - White - (Pare)",
+      "opponent": "@ TD Bank - Kelly Green - (Roehler) G12-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-82",
+      "date": "2026-07-15",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "SWT Group - Gold - (Boismier)",
+      "opponent": "@ Antonino's Pizza - Red - (Grondin) G12-2",
+      "diamond": "Turtle Club - Diamond #7",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-83",
+      "date": "2026-07-15",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Hunt Law - Black - (Johns)",
+      "opponent": "@ WFCU Credit Union- Grey - (Montean) G12-3",
+      "diamond": "Vollmer #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-84",
+      "date": "2026-07-16",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Excelsior Detailing - Atomic Blue - (Meloche)",
+      "opponent": "@ SWT Group - Black - (Hurdis) G11-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-85",
+      "date": "2026-07-16",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez)",
+      "opponent": "@ Home Run Sports - White - (Pineda) G11-2",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-86",
+      "date": "2026-07-17",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Hunt Law - Black - (Meyers)",
+      "opponent": "@ Plantscape - Royal Blue - (Anson) G12-1",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-87",
+      "date": "2026-07-17",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "R&D Controls Corp. - Silver - (Paquette)",
+      "opponent": "@ Laser It! Salon & Medical Spa - Gold - (Booker) G12-2",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-88",
+      "date": "2026-07-19",
+      "month": "Jul 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Equinox Realty - Orange - (Steptoe)",
+      "opponent": "@ Malden Vet - White - (Maziak) G11-3",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-89",
+      "date": "2026-07-19",
+      "month": "Jul 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Marie-Rose Music Studio - Peach - (Young)",
+      "opponent": "@ Antonino's Pizza - Red - (Meyers) G11-1",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-90",
+      "date": "2026-07-19",
+      "month": "Jul 2026",
+      "time": "9:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Anita M. Bois Bookkeeping Services - Carolina Blue - (Fletcher)",
+      "opponent": "@ Willson Income Tax - Grey - (Skeats) G11-2",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-91",
+      "date": "2026-07-19",
+      "month": "Jul 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "R&D Controls Corp. - Grey - (Carr)",
+      "opponent": "@ Reaume Chevrolet Buick GMC - Royal Blue - (Castellan) G11-2",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-92",
+      "date": "2026-07-19",
+      "month": "Jul 2026",
+      "time": "11:00 AM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Blush Spa & Salon - Black - (Dadalt)",
+      "opponent": "@ Lasalle Police Association - White - (Goz) G11-3",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-93",
+      "date": "2026-07-19",
+      "month": "Jul 2026",
+      "time": "1:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Active Body Physical Therapy - Purple - (Campagna)",
+      "opponent": "@ Bennett Mobile Truck Repair - Black - (Heuchan) G11-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-94",
+      "date": "2026-07-20",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Antonino's Pizza - Red - (Grondin)",
+      "opponent": "@ TD Bank - Kelly Green - (Roehler) G13-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-95",
+      "date": "2026-07-20",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Windsor Factory Supply - White - (Pare)",
+      "opponent": "@ Hunt Law - Black - (Johns) G13-2",
+      "diamond": "Turtle Club - Diamond #7",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-96",
+      "date": "2026-07-20",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "SWT Group - Gold - (Boismier)",
+      "opponent": "@ WFCU Credit Union- Grey - (Montean) G13-3",
+      "diamond": "Vollmer #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-97",
+      "date": "2026-07-21",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "SWT Group - Black - (Hurdis)",
+      "opponent": "@ Tina Bezaire Desjardins Insurance - Kelly Green - (Martinez) G12-1",
+      "diamond": "Turtle Club - Diamond #1",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-98",
+      "date": "2026-07-21",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Home Run Sports - White - (Pineda)",
+      "opponent": "@ Excelsior Detailing - Atomic Blue - (Meloche) G12-2",
+      "diamond": "Turtle Club - Diamond #3",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-99",
+      "date": "2026-07-24",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "Hunt Law - Black - (Meyers)",
+      "opponent": "@ Laser It! Salon & Medical Spa - Gold - (Booker) G13-1",
+      "diamond": "Turtle Club - Diamond #2",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
+    },
+    {
+      "id": "tc-calendar-7-100",
+      "date": "2026-07-24",
+      "month": "Jul 2026",
+      "time": "6:00 PM",
+      "endTime": "",
+      "durationMinutes": 120,
+      "type": "Local Game",
+      "eventKind": "Local Game",
+      "team": "R&D Controls Corp. - Silver - (Paquette)",
+      "opponent": "@ Plantscape - Royal Blue - (Anson) G13-2",
+      "diamond": "Turtle Club - Diamond #6",
+      "status": "Scheduled",
+      "source": "Turtle Club full calendar"
     }
   ],
   "availability": [
     {
       "diamond": "River Canard #4",
-      "date": "2026-06-16",
-      "start": "5:00 PM",
-      "end": "6:30 PM",
-      "mins": 90,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #1",
-      "date": "2026-06-16",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #2",
-      "date": "2026-06-16",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #3",
-      "date": "2026-06-16",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #4",
-      "date": "2026-06-16",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #5",
-      "date": "2026-06-16",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #3",
-      "date": "2026-06-16",
-      "start": "5:00 PM",
-      "end": "6:30 PM",
-      "mins": 90,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #6",
-      "date": "2026-06-16",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #8",
-      "date": "2026-06-16",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "River Canard #2",
-      "date": "2026-06-17",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #1",
-      "date": "2026-06-17",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #4",
-      "date": "2026-06-17",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #5",
-      "date": "2026-06-17",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #7",
-      "date": "2026-06-17",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #1",
-      "date": "2026-06-17",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #2",
-      "date": "2026-06-17",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #1",
-      "date": "2026-06-17",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #3",
-      "date": "2026-06-17",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #5",
-      "date": "2026-06-17",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #6",
-      "date": "2026-06-17",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #7",
-      "date": "2026-06-17",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "River Canard #2",
-      "date": "2026-06-18",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #1",
-      "date": "2026-06-18",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #2",
-      "date": "2026-06-18",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #3",
-      "date": "2026-06-18",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #4",
-      "date": "2026-06-18",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #5",
-      "date": "2026-06-18",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #6",
-      "date": "2026-06-18",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #1",
-      "date": "2026-06-18",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #2",
-      "date": "2026-06-18",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #3",
-      "date": "2026-06-18",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #7",
-      "date": "2026-06-18",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #8",
-      "date": "2026-06-18",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #2",
-      "date": "2026-06-19",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #3",
-      "date": "2026-06-19",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #4",
-      "date": "2026-06-19",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #6",
-      "date": "2026-06-19",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #1",
-      "date": "2026-06-19",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #2",
-      "date": "2026-06-19",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #2",
-      "date": "2026-06-19",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #4",
-      "date": "2026-06-19",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #5",
-      "date": "2026-06-19",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #6",
-      "date": "2026-06-19",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #7",
-      "date": "2026-06-19",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #8",
-      "date": "2026-06-19",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #2",
-      "date": "2026-06-20",
-      "start": "1:00 PM",
-      "end": "2:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #6",
-      "date": "2026-06-20",
-      "start": "1:00 PM",
-      "end": "5:30 PM",
-      "mins": 270,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #7",
-      "date": "2026-06-20",
-      "start": "11:00 AM",
-      "end": "1:00 PM",
-      "mins": 120,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #1",
-      "date": "2026-06-20",
-      "start": "11:00 AM",
-      "end": "12:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #1",
-      "date": "2026-06-20",
-      "start": "3:00 PM",
-      "end": "4:30 PM",
-      "mins": 90,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #3",
-      "date": "2026-06-20",
-      "start": "3:00 PM",
-      "end": "8:00 PM",
-      "mins": 300,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #4",
-      "date": "2026-06-20",
-      "start": "3:00 PM",
-      "end": "5:30 PM",
-      "mins": 150,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #5",
-      "date": "2026-06-20",
-      "start": "3:00 PM",
-      "end": "4:30 PM",
-      "mins": 90,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #7",
-      "date": "2026-06-20",
-      "start": "3:00 PM",
-      "end": "8:00 PM",
-      "mins": 300,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #2",
-      "date": "2026-06-20",
-      "start": "3:00 PM",
-      "end": "8:00 PM",
-      "mins": 300,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #2",
-      "date": "2026-06-20",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #1",
-      "date": "2026-06-20",
-      "start": "6:30 PM",
-      "end": "8:00 PM",
-      "mins": 90,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #5",
-      "date": "2026-06-20",
-      "start": "7:30 PM",
-      "end": "8:00 PM",
-      "mins": 30,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #2",
-      "date": "2026-06-20",
-      "start": "8:45 AM",
-      "end": "12:00 PM",
-      "mins": 195,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #1",
-      "date": "2026-06-20",
-      "start": "9:00 AM",
-      "end": "8:00 PM",
-      "mins": 660,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #3",
-      "date": "2026-06-20",
-      "start": "9:00 AM",
-      "end": "8:00 PM",
-      "mins": 660,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #6",
-      "date": "2026-06-21",
-      "start": "1:00 PM",
-      "end": "8:00 PM",
-      "mins": 420,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #7",
-      "date": "2026-06-21",
-      "start": "11:00 AM",
-      "end": "12:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #2",
-      "date": "2026-06-21",
-      "start": "11:30 AM",
-      "end": "12:00 PM",
-      "mins": 30,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #1",
-      "date": "2026-06-21",
-      "start": "12:00 PM",
-      "end": "12:30 PM",
-      "mins": 30,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #1",
-      "date": "2026-06-21",
-      "start": "2:30 PM",
-      "end": "4:00 PM",
-      "mins": 90,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #1",
-      "date": "2026-06-21",
-      "start": "3:00 PM",
-      "end": "8:00 PM",
-      "mins": 300,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #3",
-      "date": "2026-06-21",
-      "start": "3:00 PM",
-      "end": "8:00 PM",
-      "mins": 300,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #4",
-      "date": "2026-06-21",
-      "start": "3:00 PM",
-      "end": "6:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #5",
-      "date": "2026-06-21",
-      "start": "3:00 PM",
-      "end": "4:30 PM",
-      "mins": 90,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #7",
-      "date": "2026-06-21",
-      "start": "3:00 PM",
-      "end": "4:30 PM",
-      "mins": 90,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #2",
-      "date": "2026-06-21",
-      "start": "3:00 PM",
-      "end": "8:00 PM",
-      "mins": 300,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #2",
-      "date": "2026-06-21",
-      "start": "4:00 PM",
-      "end": "4:30 PM",
-      "mins": 30,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #2",
-      "date": "2026-06-21",
-      "start": "6:30 PM",
-      "end": "8:00 PM",
-      "mins": 90,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #7",
-      "date": "2026-06-21",
-      "start": "6:30 PM",
-      "end": "8:00 PM",
-      "mins": 90,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #5",
-      "date": "2026-06-21",
-      "start": "7:30 PM",
-      "end": "8:00 PM",
-      "mins": 30,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #2",
-      "date": "2026-06-21",
-      "start": "8:45 AM",
-      "end": "9:30 AM",
-      "mins": 45,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #1",
-      "date": "2026-06-21",
-      "start": "9:00 AM",
-      "end": "8:00 PM",
-      "mins": 660,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #3",
-      "date": "2026-06-21",
-      "start": "9:00 AM",
-      "end": "8:00 PM",
-      "mins": 660,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #1",
-      "date": "2026-06-22",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #3",
-      "date": "2026-06-22",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #5",
-      "date": "2026-06-22",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #6",
-      "date": "2026-06-22",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #7",
-      "date": "2026-06-22",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #1",
-      "date": "2026-06-22",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #3",
-      "date": "2026-06-22",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "River Canard #4",
-      "date": "2026-06-23",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #1",
-      "date": "2026-06-23",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #2",
-      "date": "2026-06-23",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #3",
-      "date": "2026-06-23",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #5",
-      "date": "2026-06-23",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #6",
-      "date": "2026-06-23",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #3",
-      "date": "2026-06-23",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #5",
-      "date": "2026-06-23",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #6",
-      "date": "2026-06-23",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #7",
-      "date": "2026-06-23",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #8",
-      "date": "2026-06-23",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "River Canard #2",
-      "date": "2026-06-24",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #1",
-      "date": "2026-06-24",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #4",
-      "date": "2026-06-24",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #5",
-      "date": "2026-06-24",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #6",
-      "date": "2026-06-24",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #7",
-      "date": "2026-06-24",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #1",
-      "date": "2026-06-24",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #3",
-      "date": "2026-06-24",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #6",
-      "date": "2026-06-24",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #7",
-      "date": "2026-06-24",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "River Canard #2",
-      "date": "2026-06-25",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #1",
-      "date": "2026-06-25",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #2",
-      "date": "2026-06-25",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #3",
-      "date": "2026-06-25",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #4",
-      "date": "2026-06-25",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #5",
-      "date": "2026-06-25",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #6",
-      "date": "2026-06-25",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #2",
-      "date": "2026-06-25",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #3",
-      "date": "2026-06-25",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #6",
-      "date": "2026-06-25",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #7",
-      "date": "2026-06-25",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #8",
-      "date": "2026-06-25",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #1",
-      "date": "2026-06-26",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #2",
-      "date": "2026-06-26",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #3",
-      "date": "2026-06-26",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #4",
-      "date": "2026-06-26",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #5",
-      "date": "2026-06-26",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #6",
-      "date": "2026-06-26",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #7",
-      "date": "2026-06-26",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #1",
-      "date": "2026-06-26",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #2",
-      "date": "2026-06-26",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #2",
-      "date": "2026-06-26",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #4",
-      "date": "2026-06-26",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #5",
-      "date": "2026-06-26",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #6",
-      "date": "2026-06-26",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #7",
-      "date": "2026-06-26",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #8",
-      "date": "2026-06-26",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #7",
-      "date": "2026-06-27",
-      "start": "12:00 PM",
-      "end": "8:00 PM",
-      "mins": 480,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #1",
-      "date": "2026-06-27",
-      "start": "6:30 PM",
-      "end": "8:00 PM",
-      "mins": 90,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #1",
-      "date": "2026-06-27",
-      "start": "8:45 AM",
-      "end": "4:30 PM",
-      "mins": 465,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #2",
-      "date": "2026-06-27",
-      "start": "8:45 AM",
-      "end": "8:00 PM",
-      "mins": 675,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #3",
-      "date": "2026-06-27",
-      "start": "8:45 AM",
-      "end": "8:00 PM",
-      "mins": 675,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #4",
-      "date": "2026-06-27",
-      "start": "8:45 AM",
-      "end": "8:00 PM",
-      "mins": 675,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #5",
-      "date": "2026-06-27",
-      "start": "8:45 AM",
-      "end": "8:00 PM",
-      "mins": 675,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #6",
-      "date": "2026-06-27",
-      "start": "8:45 AM",
-      "end": "8:00 PM",
-      "mins": 675,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #7",
-      "date": "2026-06-27",
-      "start": "8:45 AM",
-      "end": "10:00 AM",
-      "mins": 75,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #1",
-      "date": "2026-06-27",
-      "start": "8:45 AM",
-      "end": "8:00 PM",
-      "mins": 675,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #2",
-      "date": "2026-06-27",
-      "start": "8:45 AM",
-      "end": "8:00 PM",
-      "mins": 675,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #1",
-      "date": "2026-06-27",
-      "start": "9:00 AM",
-      "end": "8:00 PM",
-      "mins": 660,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #3",
-      "date": "2026-06-27",
-      "start": "9:00 AM",
-      "end": "8:00 PM",
-      "mins": 660,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #2",
-      "date": "2026-06-28",
-      "start": "6:30 PM",
-      "end": "8:00 PM",
-      "mins": 90,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #6",
-      "date": "2026-06-28",
-      "start": "6:30 PM",
-      "end": "8:00 PM",
-      "mins": 90,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #7",
-      "date": "2026-06-28",
-      "start": "6:30 PM",
-      "end": "8:00 PM",
-      "mins": 90,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #1",
-      "date": "2026-06-28",
-      "start": "8:45 AM",
-      "end": "8:00 PM",
-      "mins": 675,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #2",
-      "date": "2026-06-28",
-      "start": "8:45 AM",
-      "end": "4:30 PM",
-      "mins": 465,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #3",
-      "date": "2026-06-28",
-      "start": "8:45 AM",
-      "end": "8:00 PM",
-      "mins": 675,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #4",
-      "date": "2026-06-28",
-      "start": "8:45 AM",
-      "end": "6:00 PM",
-      "mins": 555,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #5",
-      "date": "2026-06-28",
-      "start": "8:45 AM",
-      "end": "8:00 PM",
-      "mins": 675,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #6",
-      "date": "2026-06-28",
-      "start": "8:45 AM",
-      "end": "4:30 PM",
-      "mins": 465,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #7",
-      "date": "2026-06-28",
-      "start": "8:45 AM",
-      "end": "4:30 PM",
-      "mins": 465,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #1",
-      "date": "2026-06-28",
-      "start": "8:45 AM",
-      "end": "8:00 PM",
-      "mins": 675,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #2",
-      "date": "2026-06-28",
-      "start": "8:45 AM",
-      "end": "8:00 PM",
-      "mins": 675,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #1",
-      "date": "2026-06-28",
-      "start": "9:00 AM",
-      "end": "8:00 PM",
-      "mins": 660,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #3",
-      "date": "2026-06-28",
-      "start": "9:00 AM",
-      "end": "8:00 PM",
-      "mins": 660,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #1",
-      "date": "2026-06-29",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #3",
-      "date": "2026-06-29",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #5",
-      "date": "2026-06-29",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #6",
-      "date": "2026-06-29",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #7",
-      "date": "2026-06-29",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Villanova - Diamond #1",
-      "date": "2026-06-29",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #1",
-      "date": "2026-06-29",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Vollmer #3",
-      "date": "2026-06-29",
-      "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "River Canard #4",
       "date": "2026-06-30",
       "start": "5:00 PM",
       "end": "6:00 PM",
@@ -57641,14 +58341,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "diamond": "Vollmer #2",
-      "date": "2026-06-30",
-      "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "diamond": "Vollmer #3",
       "date": "2026-06-30",
       "start": "5:00 PM",
@@ -57673,6 +58365,14 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "diamond": "Vollmer #2",
+      "date": "2026-06-30",
+      "start": "7:00 PM",
+      "end": "8:00 PM",
+      "mins": 60,
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "diamond": "River Canard #2",
       "date": "2026-07-01",
       "start": "5:00 PM",
@@ -57686,6 +58386,14 @@ window.TITANS_DATA = {
       "start": "5:00 PM",
       "end": "6:00 PM",
       "mins": 60,
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "diamond": "Turtle Club - Diamond #3",
+      "date": "2026-07-01",
+      "start": "5:00 PM",
+      "end": "8:00 PM",
+      "mins": 180,
       "source": "Turtle Club Control Panel"
     },
     {
@@ -57716,8 +58424,8 @@ window.TITANS_DATA = {
       "diamond": "Villanova - Diamond #1",
       "date": "2026-07-01",
       "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
+      "end": "6:00 PM",
+      "mins": 60,
       "source": "Turtle Club Control Panel"
     },
     {
@@ -57742,14 +58450,6 @@ window.TITANS_DATA = {
       "start": "5:00 PM",
       "end": "6:00 PM",
       "mins": 60,
-      "source": "Turtle Club Control Panel"
-    },
-    {
-      "diamond": "Turtle Club - Diamond #3",
-      "date": "2026-07-01",
-      "start": "6:30 PM",
-      "end": "8:00 PM",
-      "mins": 90,
       "source": "Turtle Club Control Panel"
     },
     {
@@ -57788,8 +58488,8 @@ window.TITANS_DATA = {
       "diamond": "Turtle Club - Diamond #4",
       "date": "2026-07-02",
       "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
+      "end": "6:30 PM",
+      "mins": 90,
       "source": "Turtle Club Control Panel"
     },
     {
@@ -57820,8 +58520,8 @@ window.TITANS_DATA = {
       "diamond": "Vollmer #3",
       "date": "2026-07-02",
       "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
+      "end": "8:00 PM",
+      "mins": 180,
       "source": "Turtle Club Control Panel"
     },
     {
@@ -57948,8 +58648,8 @@ window.TITANS_DATA = {
       "diamond": "Turtle Club - Diamond #6",
       "date": "2026-07-04",
       "start": "1:00 PM",
-      "end": "4:30 PM",
-      "mins": 210,
+      "end": "1:30 PM",
+      "mins": 30,
       "source": "Turtle Club Control Panel"
     },
     {
@@ -57988,8 +58688,8 @@ window.TITANS_DATA = {
       "diamond": "Turtle Club - Diamond #1",
       "date": "2026-07-04",
       "start": "3:00 PM",
-      "end": "4:00 PM",
-      "mins": 60,
+      "end": "6:00 PM",
+      "mins": 180,
       "source": "Turtle Club Control Panel"
     },
     {
@@ -58021,6 +58721,14 @@ window.TITANS_DATA = {
       "date": "2026-07-04",
       "start": "3:00 PM",
       "end": "4:00 PM",
+      "mins": 60,
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "diamond": "Turtle Club - Diamond #6",
+      "date": "2026-07-04",
+      "start": "3:30 PM",
+      "end": "4:30 PM",
       "mins": 60,
       "source": "Turtle Club Control Panel"
     },
@@ -58164,8 +58872,8 @@ window.TITANS_DATA = {
       "diamond": "Turtle Club - Diamond #7",
       "date": "2026-07-05",
       "start": "3:00 PM",
-      "end": "4:30 PM",
-      "mins": 90,
+      "end": "4:00 PM",
+      "mins": 60,
       "source": "Turtle Club Control Panel"
     },
     {
@@ -58177,15 +58885,15 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "diamond": "Turtle Club - Diamond #2",
+      "diamond": "Turtle Club - Diamond #7",
       "date": "2026-07-05",
-      "start": "6:30 PM",
+      "start": "6:00 PM",
       "end": "8:00 PM",
-      "mins": 90,
+      "mins": 120,
       "source": "Turtle Club Control Panel"
     },
     {
-      "diamond": "Turtle Club - Diamond #7",
+      "diamond": "Turtle Club - Diamond #2",
       "date": "2026-07-05",
       "start": "6:30 PM",
       "end": "8:00 PM",
@@ -58284,8 +58992,8 @@ window.TITANS_DATA = {
       "diamond": "Villanova - Diamond #1",
       "date": "2026-07-06",
       "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
+      "end": "6:00 PM",
+      "mins": 60,
       "source": "Turtle Club Control Panel"
     },
     {
@@ -58377,6 +59085,14 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "diamond": "Vollmer #1",
+      "date": "2026-07-07",
+      "start": "5:00 PM",
+      "end": "6:00 PM",
+      "mins": 60,
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "diamond": "Vollmer #3",
       "date": "2026-07-07",
       "start": "5:00 PM",
@@ -58444,8 +59160,8 @@ window.TITANS_DATA = {
       "diamond": "Turtle Club - Diamond #5",
       "date": "2026-07-08",
       "start": "5:00 PM",
-      "end": "6:00 PM",
-      "mins": 60,
+      "end": "6:30 PM",
+      "mins": 90,
       "source": "Turtle Club Control Panel"
     },
     {
@@ -59116,8 +59832,8 @@ window.TITANS_DATA = {
       "diamond": "River Canard #2",
       "date": "2026-07-15",
       "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
+      "end": "6:00 PM",
+      "mins": 60,
       "source": "Turtle Club Control Panel"
     },
     {
@@ -60092,8 +60808,8 @@ window.TITANS_DATA = {
       "diamond": "Villanova - Diamond #1",
       "date": "2026-07-24",
       "start": "5:00 PM",
-      "end": "7:00 PM",
-      "mins": 120,
+      "end": "6:00 PM",
+      "mins": 60,
       "source": "Turtle Club Control Panel"
     },
     {
@@ -60780,8 +61496,8 @@ window.TITANS_DATA = {
       "diamond": "Turtle Club - Diamond #5",
       "date": "2026-07-31",
       "start": "5:00 PM",
-      "end": "8:00 PM",
-      "mins": 180,
+      "end": "6:00 PM",
+      "mins": 60,
       "source": "Turtle Club Control Panel"
     },
     {
@@ -61297,6 +62013,14 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "diamond": "Vollmer #2",
+      "date": "2026-08-05",
+      "start": "5:00 PM",
+      "end": "6:00 PM",
+      "mins": 60,
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "diamond": "Vollmer #3",
       "date": "2026-08-05",
       "start": "5:00 PM",
@@ -61366,6 +62090,14 @@ window.TITANS_DATA = {
       "start": "5:00 PM",
       "end": "6:00 PM",
       "mins": 60,
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "diamond": "Turtle Club - Diamond #7",
+      "date": "2026-08-06",
+      "start": "5:00 PM",
+      "end": "8:00 PM",
+      "mins": 180,
       "source": "Turtle Club Control Panel"
     },
     {
@@ -61657,6 +62389,14 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
+      "diamond": "Villanova - Diamond #1",
+      "date": "2026-08-09",
+      "start": "2:00 PM",
+      "end": "2:45 PM",
+      "mins": 45,
+      "source": "Turtle Club Control Panel"
+    },
+    {
       "diamond": "Turtle Club - Diamond #7",
       "date": "2026-08-09",
       "start": "3:00 PM",
@@ -61665,19 +62405,19 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "diamond": "Villanova - Diamond #1",
-      "date": "2026-08-09",
-      "start": "3:00 PM",
-      "end": "8:00 PM",
-      "mins": 300,
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "diamond": "Turtle Club - Diamond #2",
       "date": "2026-08-09",
       "start": "4:00 PM",
       "end": "4:30 PM",
       "mins": 30,
+      "source": "Turtle Club Control Panel"
+    },
+    {
+      "diamond": "Villanova - Diamond #1",
+      "date": "2026-08-09",
+      "start": "4:30 PM",
+      "end": "8:00 PM",
+      "mins": 210,
       "source": "Turtle Club Control Panel"
     },
     {
@@ -62233,14 +62973,6 @@ window.TITANS_DATA = {
       "source": "Turtle Club Control Panel"
     },
     {
-      "diamond": "Turtle Club - Diamond #1",
-      "date": "2026-08-15",
-      "start": "6:30 PM",
-      "end": "8:00 PM",
-      "mins": 90,
-      "source": "Turtle Club Control Panel"
-    },
-    {
       "diamond": "Turtle Club - Diamond #2",
       "date": "2026-08-15",
       "start": "6:30 PM",
@@ -62284,8 +63016,8 @@ window.TITANS_DATA = {
       "diamond": "Turtle Club - Diamond #1",
       "date": "2026-08-15",
       "start": "8:45 AM",
-      "end": "4:30 PM",
-      "mins": 465,
+      "end": "8:00 PM",
+      "mins": 675,
       "source": "Turtle Club Control Panel"
     },
     {
@@ -62964,8 +63696,8 @@ window.TITANS_DATA = {
       "diamond": "Turtle Club - Diamond #1",
       "date": "2026-08-22",
       "start": "8:45 AM",
-      "end": "4:30 PM",
-      "mins": 465,
+      "end": "6:00 PM",
+      "mins": 555,
       "source": "Turtle Club Control Panel"
     },
     {
