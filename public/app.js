@@ -467,6 +467,9 @@
             original.pendingState = eventStatus === 'approved' ? 'approved-replace' : 'replaced';
             original.pendingLabel = eventStatus === 'approved' ? 'Approved replacement' : 'Pending replacement';
             original.requestIndex = index;
+            if (eventStatus !== 'approved') {
+              original.replacementTarget = replacementTargetSummary(request);
+            }
             for (let matchIndex = schedule.length - 1; matchIndex >= 0; matchIndex -= 1) {
               const candidate = schedule[matchIndex];
               if (candidate !== original && originals.includes(candidate)) {
@@ -477,6 +480,7 @@
             schedule.push(buildHistoricalEvent(request, index, eventStatus === 'approved' ? 'approved-replace' : 'replaced', eventStatus === 'approved' ? 'Approved replacement' : 'Pending replacement'));
           }
           if (eventStatus !== 'approved') {
+            removeMatchingReplacementTargetEvents(schedule, request);
             schedule.push(buildRequestedEvent(request, index, 'pending-replacement', 'Pending replacement'));
             return;
           }
@@ -646,6 +650,55 @@
     const requestOpponent = normalizeDisplayOpponent(request.opponent);
     if (eventKind.includes('local') && (!eventOpponent || !requestOpponent)) return true;
     return displayOpponentMatches(eventOpponent, requestOpponent);
+  }
+
+  function removeMatchingReplacementTargetEvents(schedule, request) {
+    for (let matchIndex = schedule.length - 1; matchIndex >= 0; matchIndex -= 1) {
+      if (eventMatchesReplacementTarget(schedule[matchIndex], request)) {
+        schedule.splice(matchIndex, 1);
+      }
+    }
+  }
+
+  function eventMatchesReplacementTarget(event, request) {
+    if (!event || !request) return false;
+    if (event.id === request.originalId) return false;
+    if (/replace|cancel/i.test(event.pendingState || '')) return false;
+    if (normalizeScheduleComparison(event.team) !== normalizeScheduleComparison(request.team)) return false;
+    if (String(event.date || '') !== String(request.date || '')) return false;
+
+    const eventKind = normalizeDisplayGameKind(event.eventKind || event.type);
+    const requestKind = normalizeDisplayGameKind(request.newType || request.originalType || 'Event');
+    if (!displayGameKindsMatch(eventKind, requestKind)) return false;
+    if (!approvedRequestTimeMatches(event, request, eventKind)) return false;
+
+    const eventEnd = event.endTime ? minutesFromDisplay(event.endTime) : 0;
+    const requestEnd = request.end ? minutesFromDisplay(request.end) : 0;
+    if (eventEnd && requestEnd && eventEnd !== requestEnd) return false;
+
+    const awayGame = eventKind.includes('away') || requestKind.includes('away');
+    const homeLikeGame = eventKind.includes('home') || eventKind.includes('local') || requestKind.includes('home') || requestKind.includes('local');
+    if (!awayGame && !homeLikeGame) {
+      const eventDiamond = normalizeScheduleComparison(normalizeAvailabilityDiamond(event.diamond));
+      const requestDiamond = normalizeScheduleComparison(normalizeAvailabilityDiamond(request.diamond));
+      if (eventDiamond !== requestDiamond) return false;
+    }
+
+    if (eventKind.includes('practice') || requestKind.includes('practice')) return true;
+    const eventOpponent = normalizeDisplayOpponent(event.opponent);
+    const requestOpponent = normalizeDisplayOpponent(request.opponent);
+    if (eventKind.includes('local') && (!eventOpponent || !requestOpponent)) return true;
+    return displayOpponentMatches(eventOpponent, requestOpponent);
+  }
+
+  function replacementTargetSummary(request) {
+    const end = request.end ? `-${request.end}` : '';
+    return [
+      request.newType || request.originalType || 'Event',
+      `${request.start || ''}${end}`.trim(),
+      request.opponent,
+      request.diamond
+    ].filter(Boolean).join(' - ');
   }
 
   function normalizeDisplayOpponent(value) {
@@ -913,7 +966,7 @@
         const dateKey = cellDate.toISOString().slice(0, 10);
         const dayEvents = (eventMap.get(dateKey) || []).sort((a, b) => `${a.time} ${a.opponent}`.localeCompare(`${b.time} ${b.opponent}`));
         const preview = dayEvents.slice(0, 2).map((event) => `
-          <span class="calendar-pill ${eventClass(event)}${/cancel|replace/.test(event.pendingState || '') || isCancelledSourceEvent(event) ? ' strike' : ''}">${escapeHtml(event.time)} ${escapeHtml(shortEventLabel(event))}</span>
+          <span class="calendar-pill ${eventClass(event)}${isStruckDisplayEvent(event) ? ' strike' : ''}">${escapeHtml(event.time)} ${escapeHtml(shortEventLabel(event))}</span>
         `).join('');
         const moreLabel = dayEvents.length > 2 ? `<span class="calendar-more">+${dayEvents.length - 2} more</span>` : '';
         const activeClass = state.selectedDate === dateKey ? ' active' : '';
@@ -1032,7 +1085,10 @@
       : sourceCancelled
         ? '<span class="pending-badge">Cancelled on Turtle Club</span>'
         : '';
-    const strikeClass = /cancel|replace/.test(event.pendingState || '') || sourceCancelled ? ' strike' : '';
+    const replacementTarget = event.replacementTarget
+      ? `<div class="replacement-target"><strong>Replacement queued:</strong> ${escapeHtml(event.replacementTarget)}</div>`
+      : '';
+    const strikeClass = isStruckDisplayEvent(event) ? ' strike' : '';
     const alreadyCancelled = sourceCancelled;
     const actions = isReadOnlyCoachViewer()
       ? '<div class="row-actions"><button class="replace-btn static-btn" type="button" disabled>View only</button></div>'
@@ -1056,11 +1112,18 @@
           ${pendingBadge}
           <strong>${escapeHtml(event.opponent)}</strong>
           <span>${escapeHtml(event.diamond)}</span>
+          ${replacementTarget}
           ${renderUmpireStatus(event)}
         </div>
         ${actions}
       </article>
     `;
+  }
+
+  function isStruckDisplayEvent(event) {
+    const state = String(event && event.pendingState || '');
+    return ['cancelled', 'approved-cancel', 'replaced', 'approved-replace'].includes(state)
+      || isCancelledSourceEvent(event);
   }
 
   function canChangeOpponent(event) {
