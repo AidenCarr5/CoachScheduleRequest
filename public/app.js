@@ -462,6 +462,22 @@
 
         if (request.action.startsWith('Replace ')) {
           const originals = matchingReplacementOriginalEvents(schedule, request, byId);
+          if (eventStatus === 'approved') {
+            const approvedMatches = schedule.filter((event) => eventMatchesApprovedRequest(event, request));
+            if (approvedMatches.length) {
+              const approvedEvent = approvedMatches[0];
+              approvedEvent.pendingState = 'approved-new';
+              approvedEvent.pendingLabel = 'Approved request';
+              approvedEvent.requestIndex = index;
+              for (let matchIndex = schedule.length - 1; matchIndex >= 0; matchIndex -= 1) {
+                const candidate = schedule[matchIndex];
+                if (candidate !== approvedEvent && (approvedMatches.includes(candidate) || originals.includes(candidate))) {
+                  schedule.splice(matchIndex, 1);
+                }
+              }
+              return;
+            }
+          }
           if (originals.length) {
             const original = originals[0];
             original.pendingState = eventStatus === 'approved' ? 'approved-replace' : 'replaced';
