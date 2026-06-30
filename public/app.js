@@ -469,6 +469,10 @@
           } else {
             schedule.push(buildHistoricalEvent(request, index, eventStatus === 'approved' ? 'approved-replace' : 'replaced', eventStatus === 'approved' ? 'Approved replacement' : 'Pending replacement'));
           }
+          if (eventStatus !== 'approved') {
+            schedule.push(buildRequestedEvent(request, index, 'new', 'Pending replacement'));
+            return;
+          }
         }
 
         if (request.status === 'approved') {
@@ -488,27 +492,36 @@
           }
         }
 
-        schedule.push({
-          id: `request-${request.id}`,
-          date: request.date,
-          month: monthLabelFromDate(request.date),
-          time: request.start,
-          endTime: request.end || '',
-          durationMinutes: request.end ? minutesFromDisplay(request.end) - minutesFromDisplay(request.start) : 120,
-          type: request.newType || request.originalType || 'Event',
-          eventKind: request.newType || request.originalType || 'Event',
-          team: request.team,
-          opponent: request.opponent,
-          diamond: request.diamond,
-          status: request.status || 'pending',
-          source: 'Coach request',
-          pendingState: request.status === 'approved' ? 'approved-new' : 'new',
-          pendingLabel: request.status === 'approved' ? 'Approved request' : 'Pending request',
-          requestIndex: index
-        });
+        schedule.push(buildRequestedEvent(
+          request,
+          index,
+          request.status === 'approved' ? 'approved-new' : 'new',
+          request.status === 'approved' ? 'Approved request' : 'Pending request'
+        ));
       });
 
     return consolidateDisplaySchedule(schedule);
+  }
+
+  function buildRequestedEvent(request, index, pendingState, pendingLabel) {
+    return {
+      id: `request-${request.id}`,
+      date: request.date,
+      month: monthLabelFromDate(request.date),
+      time: request.start,
+      endTime: request.end || '',
+      durationMinutes: request.end ? minutesFromDisplay(request.end) - minutesFromDisplay(request.start) : 120,
+      type: request.newType || request.originalType || 'Event',
+      eventKind: request.newType || request.originalType || 'Event',
+      team: request.team,
+      opponent: request.opponent,
+      diamond: request.diamond,
+      status: request.status || 'pending',
+      source: 'Coach request',
+      pendingState,
+      pendingLabel,
+      requestIndex: index
+    };
   }
 
   function consolidateDisplaySchedule(schedule) {
