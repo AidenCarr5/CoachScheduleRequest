@@ -448,13 +448,16 @@
         const eventStatus = request.status || 'pending';
         if (request.action.startsWith('Cancel ')) {
           const originals = matchingCancellationEvents(schedule, request, byId);
+          if (eventStatus === 'approved' && approvedRequestIsOlderThanSchedule(request)) {
+            return;
+          }
           if (originals.length) {
             originals.forEach((original) => {
               original.pendingState = eventStatus === 'approved' ? 'approved-cancel' : 'cancelled';
               original.pendingLabel = eventStatus === 'approved' ? 'Approved cancellation' : 'Pending cancellation';
               original.requestIndex = index;
             });
-          } else {
+          } else if (!approvedRequestIsOlderThanSchedule(request)) {
             schedule.push(buildHistoricalEvent(request, index, eventStatus === 'approved' ? 'approved-cancel' : 'cancelled', eventStatus === 'approved' ? 'Approved cancellation' : 'Pending cancellation'));
           }
           return;
@@ -477,6 +480,9 @@
               }
               return;
             }
+            if (approvedRequestIsOlderThanSchedule(request)) {
+              return;
+            }
           }
           if (originals.length) {
             const original = originals[0];
@@ -493,7 +499,9 @@
               }
             }
           } else {
-            schedule.push(buildHistoricalEvent(request, index, eventStatus === 'approved' ? 'approved-replace' : 'replaced', eventStatus === 'approved' ? 'Approved replacement' : 'Pending replacement'));
+            if (!approvedRequestIsOlderThanSchedule(request)) {
+              schedule.push(buildHistoricalEvent(request, index, eventStatus === 'approved' ? 'approved-replace' : 'replaced', eventStatus === 'approved' ? 'Approved replacement' : 'Pending replacement'));
+            }
           }
           if (eventStatus !== 'approved') {
             removeMatchingReplacementTargetEvents(schedule, request);
@@ -517,6 +525,9 @@
             }
             return;
           }
+          if (approvedRequestIsOlderThanSchedule(request)) {
+            return;
+          }
         }
 
         schedule.push(buildRequestedEvent(
@@ -528,6 +539,13 @@
       });
 
     return consolidateDisplaySchedule(schedule);
+  }
+
+  function approvedRequestIsOlderThanSchedule(request) {
+    if (!request || request.status !== 'approved') return false;
+    const refreshedAt = Date.parse(data.scrapedAt || '');
+    const decidedAt = Date.parse(request.reviewedAt || request.submittedAt || '');
+    return Number.isFinite(refreshedAt) && Number.isFinite(decidedAt) && refreshedAt > decidedAt;
   }
 
   function buildRequestedEvent(request, index, pendingState, pendingLabel) {
