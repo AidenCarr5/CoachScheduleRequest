@@ -461,16 +461,23 @@
         }
 
         if (request.action.startsWith('Replace ')) {
-          const original = byId.get(request.originalId);
-          if (original) {
+          const originals = matchingReplacementOriginalEvents(schedule, request, byId);
+          if (originals.length) {
+            const original = originals[0];
             original.pendingState = eventStatus === 'approved' ? 'approved-replace' : 'replaced';
             original.pendingLabel = eventStatus === 'approved' ? 'Approved replacement' : 'Pending replacement';
             original.requestIndex = index;
+            for (let matchIndex = schedule.length - 1; matchIndex >= 0; matchIndex -= 1) {
+              const candidate = schedule[matchIndex];
+              if (candidate !== original && originals.includes(candidate)) {
+                schedule.splice(matchIndex, 1);
+              }
+            }
           } else {
             schedule.push(buildHistoricalEvent(request, index, eventStatus === 'approved' ? 'approved-replace' : 'replaced', eventStatus === 'approved' ? 'Approved replacement' : 'Pending replacement'));
           }
           if (eventStatus !== 'approved') {
-            schedule.push(buildRequestedEvent(request, index, 'new', 'Pending replacement'));
+            schedule.push(buildRequestedEvent(request, index, 'pending-replacement', 'Pending replacement'));
             return;
           }
         }
@@ -544,6 +551,8 @@
   }
 
   function displayEventRank(event) {
+    if (/pending replacement/i.test(event.pendingLabel || '')) return 6;
+    if (/pending/i.test(event.pendingLabel || '')) return 5;
     if (/approved/i.test(event.pendingState || '')) return 4;
     if (event.pendingState) return 3;
     if (/control panel/i.test(event.source || '')) return 2;
@@ -571,6 +580,34 @@
     }
     const original = byId.get(request.originalId);
     return original ? [original] : [];
+  }
+
+  function matchingReplacementOriginalEvents(schedule, request, byId) {
+    const original = byId.get(request.originalId);
+    const matches = schedule.filter((event) => eventMatchesOriginalRequest(event, request));
+    if (original && !matches.includes(original)) matches.unshift(original);
+    return matches;
+  }
+
+  function eventMatchesOriginalRequest(event, request) {
+    if (!event || !request) return false;
+    if (request.originalId && event.id === request.originalId) return true;
+    if (normalizeScheduleComparison(event.team) !== normalizeScheduleComparison(request.team)) return false;
+    if (String(event.date || '') !== String(request.originalDate || '')) return false;
+    const eventKind = normalizeDisplayGameKind(event.eventKind || event.type);
+    const originalKind = normalizeDisplayGameKind(request.originalType || 'Event');
+    if (!displayGameKindsMatch(eventKind, originalKind)) return false;
+    if (!approvedRequestTimeMatches(event, {
+      start: request.originalStart,
+      end: request.originalEnd || '',
+    }, eventKind)) return false;
+    const eventOpponent = normalizeDisplayOpponent(event.opponent);
+    const requestOpponent = normalizeDisplayOpponent(request.originalOpponent);
+    if (eventKind.includes('local') && (!eventOpponent || !requestOpponent)) return true;
+    if (!displayOpponentMatches(eventOpponent, requestOpponent)) return false;
+    const homeLike = eventKind.includes('home') || eventKind.includes('local') || originalKind.includes('home') || originalKind.includes('local');
+    if (homeLike) return true;
+    return normalizeScheduleComparison(normalizeAvailabilityDiamond(event.diamond)) === normalizeScheduleComparison(normalizeAvailabilityDiamond(request.originalDiamond));
   }
 
   function eventMatchesApprovedRequest(event, request) {
