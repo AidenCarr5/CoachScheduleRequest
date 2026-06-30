@@ -98,6 +98,7 @@ function eventKind(type) {
   const normalized = String(type || '').toLowerCase();
   if (normalized.includes('shared practice') || normalized.includes('practice')) return 'Practice';
   if (normalized.includes('tryout')) return 'Tryout';
+  if (normalized.includes('local') && normalized.includes('game')) return 'Local Game';
   if (normalized.includes('away')) return 'Away Game';
   if (normalized.includes('home')) return 'Home Game';
   if (normalized.includes('tournament')) return 'Tournament';
@@ -114,9 +115,11 @@ function normalizeEventType(value) {
 
 function inferEventType(markup, label, fallback = '') {
   const source = String(markup || '');
+  const labelText = `${label || ''} ${fallback || ''}`;
   if (/tag\s+shared/i.test(source) && /tag\s+practice/i.test(source)) return 'Shared Practice';
   if (/tag\s+practice/i.test(source) || /pnlPrac/i.test(source)) return 'Practice';
   if (/tag\s+tryout/i.test(source)) return 'Tryout';
+  if (/tag\s+local game/i.test(source) || /pnlLocal/i.test(source) || /\blocal\s+game\b/i.test(labelText)) return 'Local Game';
   if (/tag\s+home game/i.test(source) || /pnlHome/i.test(source)) return 'Home Game';
   if (/tag\s+away game/i.test(source) || /pnlAway/i.test(source)) return 'Away Game';
   if (/tag\s+tournament/i.test(source) || /pnlTour/i.test(source)) return 'Tournament';
@@ -154,6 +157,10 @@ function isCancelledEvent(event) {
 
 function dedupeBaseType(event) {
   return normalizeEventType(event && (event.type || event.eventKind) || '');
+}
+
+function isLocalGameEvent(event) {
+  return /\blocal\s+game\b/i.test(`${event && event.type || ''} ${event && event.eventKind || ''}`);
 }
 
 function normalizeDedupeValue(value) {
@@ -685,7 +692,7 @@ function dedupe(events) {
       normalizeDedupeValue(event.team),
       dedupeBaseType(event),
       normalizeDedupeValue(event.diamond),
-      normalizeDedupeValue(event.opponent)
+      isLocalGameEvent(event) ? '' : normalizeDedupeValue(event.opponent)
     ].join('|');
     const existing = byKey.get(key);
     byKey.set(key, existing ? mergeDuplicateEvents(existing, event) : event);
@@ -1249,6 +1256,7 @@ async function loadFullCalendar(schedule, conflictEvents, teams, availability, s
       const team = targetTeamFromOwner(owner);
       const cancelled = isCancelledMarker(body) || isCancelledMarker(tagList) || isCancelledMarker(subject);
       const finalType = inferEventType(body, tagList, subject || 'Calendar Event');
+      if (options.localGamesOnly && !/\blocal\s+game\b/i.test(finalType)) continue;
       const finalEvent = withCancellation(finalType, cancelled);
       const event = {
         id: `tc-calendar-${month}-${++index}`,
@@ -1312,7 +1320,7 @@ async function generateData() {
       usedControlPanel = await loadCpSchedule(schedule, conflictEvents, availability, session);
       const teams = [...new Set(schedule.map((event) => event.team))].sort();
       if (teams.length) {
-        await loadFullCalendar(schedule, conflictEvents, teams, availability, session, { tournamentsOnly: true });
+        await loadFullCalendar(schedule, conflictEvents, teams, availability, session, { localGamesOnly: true });
       }
     } catch (error) {
       console.warn(`Falling back to public Turtle Club pages: ${error.message}`);
